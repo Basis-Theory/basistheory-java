@@ -1,0 +1,13 @@
+packageName: basistheory
+groupId: com.basistheory
+artifactId: basistheory-java
+apiPackage: com.basistheory
+invokerPackage: com.basistheory
+modelPackage: com.basistheory
+templateDir: /local/templates
+developerEmail: support@basistheory.com
+developerName: Basis Theory
+developerOrganization: Basis Theory
+developerOrganizationUrl: https://basistheory.com
+licenseName: Apache
+licenseUrl: http://www.apache.org/licenses/
