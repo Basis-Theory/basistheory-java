@@ -3,10 +3,9 @@
 The official [Basis Theory](https://basistheory.com) Java client library.
 
 ## Getting Started
-* Sign-in to [Basis Theory](https://basistheory.com) and go to [Applications](https://portal.basistheory.com/applications)
-* Create a Basis Theory Private Application
-* All permissions should be selected
-* Paste the API Key into the `BT-API-KEY` variable
+* Sign-in to [Basis Theory](https://portal.basistheory.com) and go to [Applications](https://portal.basistheory.com/applications)
+* Create an Application using the Full Access template
+* Use the API Key issued for this application when initializing an `ApiClient`
 
 ## Requirements
 
@@ -22,25 +21,34 @@ Add this dependency to your project's build file:
 
 ```groovy
   repositories {
-    mavenCentral()     // Needed if the 'basistheory-java' jar has been published to maven central.
-    mavenLocal()       // Needed if the 'basistheory-java' jar has been published to the local maven repo.
+      maven { url 'https://jitpack.io' }
   }
 
   dependencies {
-     implementation "com.basistheory:basistheory-java:0.1.0"
+     implementation "com.basistheory:basistheory-java:master-SNAPSHOT"
   }
 ```
 
 ### Maven users
 
-Add this dependency to your project's POM:
+Add the JitPack repository to your build file:
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+Then add the following dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>com.basistheory</groupId>
-  <artifactId>basistheory-java</artifactId>
-  <version>0.1.0</version>
-  <scope>compile</scope>
+    <groupId>com.github.Basis-Theory</groupId>
+    <artifactId>basistheory-java</artifactId>
+    <version>master-SNAPSHOT</version>
 </dependency>
 ```
 
