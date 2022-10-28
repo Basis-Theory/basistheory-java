@@ -8,10 +8,6 @@ First ensure you have the JDK installed:
 brew install openjdk@17
 ```
 
-Alternatively, you can use [pyenv](https://github.com/pyenv/pyenv) or [asdf](https://github.com/asdf-vm/asdf) with the
-[asdf-python plugin](https://github.com/asdf-community/asdf-python) to manage and switch between multiple versions
-of python locally.
-
 ### Build the SDK and Install Dependencies
 
 ```shell
