@@ -44,11 +44,11 @@ public class GetReactorsTest {
     }
 
     /**
-     * Test the property 'reactorIds'
+     * Test the property 'id'
      */
     @Test
-    public void reactorIdsTest() {
-        // TODO: test reactorIds
+    public void idTest() {
+        // TODO: test id
     }
 
     /**

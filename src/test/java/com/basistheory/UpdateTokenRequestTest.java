@@ -103,6 +103,14 @@ public class UpdateTokenRequestTest {
     }
 
     /**
+     * Test the property 'expiresAt'
+     */
+    @Test
+    public void expiresAtTest() {
+        // TODO: test expiresAt
+    }
+
+    /**
      * Test the property 'deduplicateToken'
      */
     @Test
@@ -111,11 +119,11 @@ public class UpdateTokenRequestTest {
     }
 
     /**
-     * Test the property 'container'
+     * Test the property 'containers'
      */
     @Test
-    public void containerTest() {
-        // TODO: test container
+    public void containersTest() {
+        // TODO: test containers
     }
 
 }

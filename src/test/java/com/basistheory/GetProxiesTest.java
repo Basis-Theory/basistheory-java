@@ -44,11 +44,11 @@ public class GetProxiesTest {
     }
 
     /**
-     * Test the property 'ids'
+     * Test the property 'id'
      */
     @Test
-    public void idsTest() {
-        // TODO: test ids
+    public void idTest() {
+        // TODO: test id
     }
 
     /**

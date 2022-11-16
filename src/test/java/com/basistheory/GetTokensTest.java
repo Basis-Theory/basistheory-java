@@ -45,27 +45,27 @@ public class GetTokensTest {
     }
 
     /**
-     * Test the property 'types'
+     * Test the property 'type'
      */
     @Test
-    public void typesTest() {
-        // TODO: test types
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**
-     * Test the property 'tokenIds'
+     * Test the property 'id'
      */
     @Test
-    public void tokenIdsTest() {
-        // TODO: test tokenIds
+    public void idTest() {
+        // TODO: test id
     }
 
     /**
-     * Test the property 'metadataSearch'
+     * Test the property 'metadata'
      */
     @Test
-    public void metadataSearchTest() {
-        // TODO: test metadataSearch
+    public void metadataTest() {
+        // TODO: test metadata
     }
 
     /**

@@ -44,11 +44,19 @@ public class GetApplicationsTest {
     }
 
     /**
-     * Test the property 'applicationIds'
+     * Test the property 'id'
      */
     @Test
-    public void applicationIdsTest() {
-        // TODO: test applicationIds
+    public void idTest() {
+        // TODO: test id
+    }
+
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
     }
 
     /**

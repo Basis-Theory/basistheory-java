@@ -118,6 +118,22 @@ public class ApplicationTest {
     }
 
     /**
+     * Test the property 'canCreateExpiringApplications'
+     */
+    @Test
+    public void canCreateExpiringApplicationsTest() {
+        // TODO: test canCreateExpiringApplications
+    }
+
+    /**
+     * Test the property 'expiresAt'
+     */
+    @Test
+    public void expiresAtTest() {
+        // TODO: test expiresAt
+    }
+
+    /**
      * Test the property 'permissions'
      */
     @Test

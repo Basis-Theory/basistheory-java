@@ -13,6 +13,7 @@
 
 package com.basistheory;
 
+import com.basistheory.Condition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -72,6 +73,14 @@ public class AccessRuleTest {
     @Test
     public void transformTest() {
         // TODO: test transform
+    }
+
+    /**
+     * Test the property 'conditions'
+     */
+    @Test
+    public void conditionsTest() {
+        // TODO: test conditions
     }
 
     /**

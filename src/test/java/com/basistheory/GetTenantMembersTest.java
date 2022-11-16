@@ -44,11 +44,11 @@ public class GetTenantMembersTest {
     }
 
     /**
-     * Test the property 'userIds'
+     * Test the property 'userId'
      */
     @Test
-    public void userIdsTest() {
-        // TODO: test userIds
+    public void userIdTest() {
+        // TODO: test userId
     }
 
     /**

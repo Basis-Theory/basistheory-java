@@ -63,9 +63,10 @@ public class ApplicationsApiTest {
     @Test
     public void getTest() throws ApiException {
         List<UUID> id = null;
+        List<String> type = null;
         Integer page = null;
         Integer size = null;
-        ApplicationPaginatedList response = api.get(id, page, size);
+        ApplicationPaginatedList response = api.get(id, type, page, size);
         // TODO: test validations
     }
 

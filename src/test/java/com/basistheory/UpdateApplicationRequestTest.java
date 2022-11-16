@@ -52,6 +52,14 @@ public class UpdateApplicationRequestTest {
     }
 
     /**
+     * Test the property 'canCreateExpiringApplications'
+     */
+    @Test
+    public void canCreateExpiringApplicationsTest() {
+        // TODO: test canCreateExpiringApplications
+    }
+
+    /**
      * Test the property 'permissions'
      */
     @Test

@@ -168,11 +168,11 @@ public class CreateTokenResponseTest {
     }
 
     /**
-     * Test the property 'container'
+     * Test the property 'containers'
      */
     @Test
-    public void containerTest() {
-        // TODO: test container
+    public void containersTest() {
+        // TODO: test containers
     }
 
 }
