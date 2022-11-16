@@ -34,3 +34,4 @@ gradlew.bat
 pom.xml
 settings.gradle
 README.md
+src/test/**/*
