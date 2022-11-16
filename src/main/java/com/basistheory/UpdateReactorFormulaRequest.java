@@ -22,6 +22,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +53,7 @@ import com.basistheory.JSON;
 /**
  * UpdateReactorFormulaRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class UpdateReactorFormulaRequest {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -95,6 +97,7 @@ public class UpdateReactorFormulaRequest {
    * @return type
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public String getType() {
     return type;
@@ -117,6 +120,7 @@ public class UpdateReactorFormulaRequest {
    * @return name
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public String getName() {
     return name;
@@ -139,6 +143,7 @@ public class UpdateReactorFormulaRequest {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -161,6 +166,7 @@ public class UpdateReactorFormulaRequest {
    * @return icon
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getIcon() {
     return icon;
@@ -183,6 +189,7 @@ public class UpdateReactorFormulaRequest {
    * @return code
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getCode() {
     return code;
@@ -213,6 +220,7 @@ public class UpdateReactorFormulaRequest {
    * @return _configuration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<ReactorFormulaConfiguration> getConfiguration() {
     return _configuration;
@@ -243,6 +251,7 @@ public class UpdateReactorFormulaRequest {
    * @return requestParameters
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<ReactorFormulaRequestParameter> getRequestParameters() {
     return requestParameters;

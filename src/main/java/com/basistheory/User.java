@@ -20,6 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -48,7 +50,7 @@ import com.basistheory.JSON;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class User {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,6 +86,7 @@ public class User {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -106,6 +109,7 @@ public class User {
    * @return email
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getEmail() {
     return email;
@@ -128,6 +132,7 @@ public class User {
    * @return firstName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getFirstName() {
     return firstName;
@@ -150,6 +155,7 @@ public class User {
    * @return lastName
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getLastName() {
     return lastName;
@@ -172,6 +178,7 @@ public class User {
    * @return picture
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getPicture() {
     return picture;

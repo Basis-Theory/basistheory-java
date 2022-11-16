@@ -143,12 +143,15 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(CreateTokenRequest createTokenRequest, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'createTokenRequest' is set
         if (createTokenRequest == null) {
             throw new ApiException("Missing the required parameter 'createTokenRequest' when calling create(Async)");
         }
+        
 
-        return createCall(createTokenRequest, _callback);
+        okhttp3.Call localVarCall = createCall(createTokenRequest, _callback);
+        return localVarCall;
 
     }
 
@@ -255,8 +258,8 @@ public class TokensApi {
 
         // create path and map variables
         String localVarPath = "/tokens/{parentId}/children/{childId}"
-            .replace("{" + "parentId" + "}", localVarApiClient.escapeString(parentId.toString()))
-            .replace("{" + "childId" + "}", localVarApiClient.escapeString(childId.toString()));
+            .replaceAll("\\{" + "parentId" + "\\}", localVarApiClient.escapeString(parentId.toString()))
+            .replaceAll("\\{" + "childId" + "\\}", localVarApiClient.escapeString(childId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -273,6 +276,7 @@ public class TokensApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -285,17 +289,20 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAssociationValidateBeforeCall(String parentId, String childId, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'parentId' is set
         if (parentId == null) {
             throw new ApiException("Missing the required parameter 'parentId' when calling createAssociation(Async)");
         }
-
+        
         // verify the required parameter 'childId' is set
         if (childId == null) {
             throw new ApiException("Missing the required parameter 'childId' when calling createAssociation(Async)");
         }
+        
 
-        return createAssociationCall(parentId, childId, _callback);
+        okhttp3.Call localVarCall = createAssociationCall(parentId, childId, _callback);
+        return localVarCall;
 
     }
 
@@ -403,7 +410,7 @@ public class TokensApi {
 
         // create path and map variables
         String localVarPath = "/tokens/{parentId}/children"
-            .replace("{" + "parentId" + "}", localVarApiClient.escapeString(parentId.toString()));
+            .replaceAll("\\{" + "parentId" + "\\}", localVarApiClient.escapeString(parentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -433,17 +440,20 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createChildValidateBeforeCall(String parentId, CreateTokenRequest createTokenRequest, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'parentId' is set
         if (parentId == null) {
             throw new ApiException("Missing the required parameter 'parentId' when calling createChild(Async)");
         }
-
+        
         // verify the required parameter 'createTokenRequest' is set
         if (createTokenRequest == null) {
             throw new ApiException("Missing the required parameter 'createTokenRequest' when calling createChild(Async)");
         }
+        
 
-        return createChildCall(parentId, createTokenRequest, _callback);
+        okhttp3.Call localVarCall = createChildCall(parentId, createTokenRequest, _callback);
+        return localVarCall;
 
     }
 
@@ -551,7 +561,7 @@ public class TokensApi {
 
         // create path and map variables
         String localVarPath = "/tokens/{id}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -568,6 +578,7 @@ public class TokensApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -580,12 +591,15 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
         }
+        
 
-        return deleteCall(id, _callback);
+        okhttp3.Call localVarCall = deleteCall(id, _callback);
+        return localVarCall;
 
     }
 
@@ -687,8 +701,8 @@ public class TokensApi {
 
         // create path and map variables
         String localVarPath = "/tokens/{parentId}/children/{childId}"
-            .replace("{" + "parentId" + "}", localVarApiClient.escapeString(parentId.toString()))
-            .replace("{" + "childId" + "}", localVarApiClient.escapeString(childId.toString()));
+            .replaceAll("\\{" + "parentId" + "\\}", localVarApiClient.escapeString(parentId.toString()))
+            .replaceAll("\\{" + "childId" + "\\}", localVarApiClient.escapeString(childId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -705,6 +719,7 @@ public class TokensApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -717,17 +732,20 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteAssociationValidateBeforeCall(String parentId, String childId, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'parentId' is set
         if (parentId == null) {
             throw new ApiException("Missing the required parameter 'parentId' when calling deleteAssociation(Async)");
         }
-
+        
         // verify the required parameter 'childId' is set
         if (childId == null) {
             throw new ApiException("Missing the required parameter 'childId' when calling deleteAssociation(Async)");
         }
+        
 
-        return deleteAssociationCall(parentId, childId, _callback);
+        okhttp3.Call localVarCall = deleteAssociationCall(parentId, childId, _callback);
+        return localVarCall;
 
     }
 
@@ -869,6 +887,7 @@ public class TokensApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -881,7 +900,10 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getValidateBeforeCall(List<String> type, List<String> id, Map<String, String> metadata, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getCall(type, id, metadata, page, size, _callback);
+        
+
+        okhttp3.Call localVarCall = getCall(type, id, metadata, page, size, _callback);
+        return localVarCall;
 
     }
 
@@ -991,7 +1013,7 @@ public class TokensApi {
 
         // create path and map variables
         String localVarPath = "/tokens/{id}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1008,6 +1030,7 @@ public class TokensApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1020,12 +1043,15 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getByIdValidateBeforeCall(String id, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getById(Async)");
         }
+        
 
-        return getByIdCall(id, _callback);
+        okhttp3.Call localVarCall = getByIdCall(id, _callback);
+        return localVarCall;
 
     }
 
@@ -1132,7 +1158,7 @@ public class TokensApi {
 
         // create path and map variables
         String localVarPath = "/tokens/{parentId}/children"
-            .replace("{" + "parentId" + "}", localVarApiClient.escapeString(parentId.toString()));
+            .replaceAll("\\{" + "parentId" + "\\}", localVarApiClient.escapeString(parentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1169,6 +1195,7 @@ public class TokensApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1181,12 +1208,15 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getChildrenValidateBeforeCall(String parentId, List<String> type, List<String> id, Map<String, String> metadata, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'parentId' is set
         if (parentId == null) {
             throw new ApiException("Missing the required parameter 'parentId' when calling getChildren(Async)");
         }
+        
 
-        return getChildrenCall(parentId, type, id, metadata, page, size, _callback);
+        okhttp3.Call localVarCall = getChildrenCall(parentId, type, id, metadata, page, size, _callback);
+        return localVarCall;
 
     }
 
@@ -1334,12 +1364,15 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchValidateBeforeCall(SearchTokensRequest searchTokensRequest, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'searchTokensRequest' is set
         if (searchTokensRequest == null) {
             throw new ApiException("Missing the required parameter 'searchTokensRequest' when calling search(Async)");
         }
+        
 
-        return searchCall(searchTokensRequest, _callback);
+        okhttp3.Call localVarCall = searchCall(searchTokensRequest, _callback);
+        return localVarCall;
 
     }
 
@@ -1443,7 +1476,7 @@ public class TokensApi {
 
         // create path and map variables
         String localVarPath = "/tokens/{id}"
-            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1473,17 +1506,20 @@ public class TokensApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateValidateBeforeCall(String id, UpdateTokenRequest updateTokenRequest, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling update(Async)");
         }
-
+        
         // verify the required parameter 'updateTokenRequest' is set
         if (updateTokenRequest == null) {
             throw new ApiException("Missing the required parameter 'updateTokenRequest' when calling update(Async)");
         }
+        
 
-        return updateCall(id, updateTokenRequest, _callback);
+        okhttp3.Call localVarCall = updateCall(id, updateTokenRequest, _callback);
+        return localVarCall;
 
     }
 

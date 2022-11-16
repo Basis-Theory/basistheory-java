@@ -145,12 +145,15 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createInvitationValidateBeforeCall(CreateTenantInvitationRequest createTenantInvitationRequest, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'createTenantInvitationRequest' is set
         if (createTenantInvitationRequest == null) {
             throw new ApiException("Missing the required parameter 'createTenantInvitationRequest' when calling createInvitation(Async)");
         }
+        
 
-        return createInvitationCall(createTenantInvitationRequest, _callback);
+        okhttp3.Call localVarCall = createInvitationCall(createTenantInvitationRequest, _callback);
+        return localVarCall;
 
     }
 
@@ -266,6 +269,7 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -278,7 +282,10 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return deleteCall(_callback);
+        
+
+        okhttp3.Call localVarCall = deleteCall(_callback);
+        return localVarCall;
 
     }
 
@@ -372,7 +379,7 @@ public class TenantsApi {
 
         // create path and map variables
         String localVarPath = "/tenants/self/invitations/{invitationId}"
-            .replace("{" + "invitationId" + "}", localVarApiClient.escapeString(invitationId.toString()));
+            .replaceAll("\\{" + "invitationId" + "\\}", localVarApiClient.escapeString(invitationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -389,6 +396,7 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -401,12 +409,15 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteInvitationValidateBeforeCall(UUID invitationId, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'invitationId' is set
         if (invitationId == null) {
             throw new ApiException("Missing the required parameter 'invitationId' when calling deleteInvitation(Async)");
         }
+        
 
-        return deleteInvitationCall(invitationId, _callback);
+        okhttp3.Call localVarCall = deleteInvitationCall(invitationId, _callback);
+        return localVarCall;
 
     }
 
@@ -504,7 +515,7 @@ public class TenantsApi {
 
         // create path and map variables
         String localVarPath = "/tenants/self/members/{memberId}"
-            .replace("{" + "memberId" + "}", localVarApiClient.escapeString(memberId.toString()));
+            .replaceAll("\\{" + "memberId" + "\\}", localVarApiClient.escapeString(memberId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -521,6 +532,7 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -533,12 +545,15 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteMemberValidateBeforeCall(UUID memberId, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'memberId' is set
         if (memberId == null) {
             throw new ApiException("Missing the required parameter 'memberId' when calling deleteMember(Async)");
         }
+        
 
-        return deleteMemberCall(memberId, _callback);
+        okhttp3.Call localVarCall = deleteMemberCall(memberId, _callback);
+        return localVarCall;
 
     }
 
@@ -653,6 +668,7 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -665,7 +681,10 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getCall(_callback);
+        
+
+        okhttp3.Call localVarCall = getCall(_callback);
+        return localVarCall;
 
     }
 
@@ -792,6 +811,7 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -804,7 +824,10 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getInvitationsValidateBeforeCall(TenantInvitationStatus status, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getInvitationsCall(status, page, size, _callback);
+        
+
+        okhttp3.Call localVarCall = getInvitationsCall(status, page, size, _callback);
+        return localVarCall;
 
     }
 
@@ -937,6 +960,7 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -949,7 +973,10 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getMembersValidateBeforeCall(List<UUID> userId, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getMembersCall(userId, page, size, _callback);
+        
+
+        okhttp3.Call localVarCall = getMembersCall(userId, page, size, _callback);
+        return localVarCall;
 
     }
 
@@ -1067,6 +1094,7 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1079,7 +1107,10 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTenantOperationReportValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getTenantOperationReportCall(_callback);
+        
+
+        okhttp3.Call localVarCall = getTenantOperationReportCall(_callback);
+        return localVarCall;
 
     }
 
@@ -1189,6 +1220,7 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1201,7 +1233,10 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTenantUsageReportValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getTenantUsageReportCall(_callback);
+        
+
+        okhttp3.Call localVarCall = getTenantUsageReportCall(_callback);
+        return localVarCall;
 
     }
 
@@ -1299,7 +1334,7 @@ public class TenantsApi {
 
         // create path and map variables
         String localVarPath = "/tenants/self/invitations/{invitationId}/resend"
-            .replace("{" + "invitationId" + "}", localVarApiClient.escapeString(invitationId.toString()));
+            .replaceAll("\\{" + "invitationId" + "\\}", localVarApiClient.escapeString(invitationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1316,6 +1351,7 @@ public class TenantsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1328,12 +1364,15 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call resendInvitationValidateBeforeCall(UUID invitationId, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'invitationId' is set
         if (invitationId == null) {
             throw new ApiException("Missing the required parameter 'invitationId' when calling resendInvitation(Async)");
         }
+        
 
-        return resendInvitationCall(invitationId, _callback);
+        okhttp3.Call localVarCall = resendInvitationCall(invitationId, _callback);
+        return localVarCall;
 
     }
 
@@ -1464,12 +1503,15 @@ public class TenantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateValidateBeforeCall(UpdateTenantRequest updateTenantRequest, final ApiCallback _callback) throws ApiException {
+        
         // verify the required parameter 'updateTenantRequest' is set
         if (updateTenantRequest == null) {
             throw new ApiException("Missing the required parameter 'updateTenantRequest' when calling update(Async)");
         }
+        
 
-        return updateCall(updateTenantRequest, _callback);
+        okhttp3.Call localVarCall = updateCall(updateTenantRequest, _callback);
+        return localVarCall;
 
     }
 

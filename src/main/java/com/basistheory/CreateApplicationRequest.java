@@ -21,6 +21,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +52,7 @@ import com.basistheory.JSON;
 /**
  * CreateApplicationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class CreateApplicationRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -90,6 +92,7 @@ public class CreateApplicationRequest {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -112,6 +115,7 @@ public class CreateApplicationRequest {
    * @return type
   **/
   @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public String getType() {
     return type;
@@ -134,6 +138,7 @@ public class CreateApplicationRequest {
    * @return canCreateExpiringApplications
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getCanCreateExpiringApplications() {
     return canCreateExpiringApplications;
@@ -156,6 +161,7 @@ public class CreateApplicationRequest {
    * @return expiresAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getExpiresAt() {
     return expiresAt;
@@ -186,6 +192,7 @@ public class CreateApplicationRequest {
    * @return permissions
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getPermissions() {
     return permissions;
@@ -216,6 +223,7 @@ public class CreateApplicationRequest {
    * @return rules
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AccessRule> getRules() {
     return rules;
@@ -341,8 +349,8 @@ public class CreateApplicationRequest {
       if ((jsonObj.get("expires_at") != null && !jsonObj.get("expires_at").isJsonNull()) && !jsonObj.get("expires_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expires_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_at").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
       if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {

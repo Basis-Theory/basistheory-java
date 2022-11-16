@@ -21,6 +21,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ import com.basistheory.JSON;
 /**
  * Application
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class Application {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -120,6 +122,7 @@ public class Application {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -142,6 +145,7 @@ public class Application {
    * @return tenantId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTenantId() {
     return tenantId;
@@ -164,6 +168,7 @@ public class Application {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -186,6 +191,7 @@ public class Application {
    * @return key
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getKey() {
     return key;
@@ -208,6 +214,7 @@ public class Application {
    * @return type
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -230,6 +237,7 @@ public class Application {
    * @return createdBy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getCreatedBy() {
     return createdBy;
@@ -252,6 +260,7 @@ public class Application {
    * @return createdAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -274,6 +283,7 @@ public class Application {
    * @return modifiedBy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getModifiedBy() {
     return modifiedBy;
@@ -296,6 +306,7 @@ public class Application {
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
@@ -318,6 +329,7 @@ public class Application {
    * @return canCreateExpiringApplications
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getCanCreateExpiringApplications() {
     return canCreateExpiringApplications;
@@ -340,6 +352,7 @@ public class Application {
    * @return expiresAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
@@ -370,6 +383,7 @@ public class Application {
    * @return permissions
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getPermissions() {
     return permissions;
@@ -400,6 +414,7 @@ public class Application {
    * @return rules
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AccessRule> getRules() {
     return rules;
@@ -550,8 +565,8 @@ public class Application {
       if ((jsonObj.get("modified_by") != null && !jsonObj.get("modified_by").isJsonNull()) && !jsonObj.get("modified_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modified_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modified_by").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
       if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {

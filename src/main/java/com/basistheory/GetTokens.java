@@ -20,6 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,7 +53,7 @@ import com.basistheory.JSON;
 /**
  * GetTokens
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class GetTokens {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -95,6 +97,7 @@ public class GetTokens {
    * @return type
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getType() {
     return type;
@@ -125,6 +128,7 @@ public class GetTokens {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getId() {
     return id;
@@ -155,6 +159,7 @@ public class GetTokens {
    * @return metadata
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getMetadata() {
     return metadata;
@@ -179,6 +184,7 @@ public class GetTokens {
    * @return page
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getPage() {
     return page;
@@ -203,6 +209,7 @@ public class GetTokens {
    * @return size
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getSize() {
     return size;
@@ -308,12 +315,12 @@ public class GetTokens {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTokens` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("type").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be an array in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("id").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
   }

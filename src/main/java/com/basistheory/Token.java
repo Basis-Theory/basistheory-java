@@ -22,6 +22,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -55,7 +57,7 @@ import com.basistheory.JSON;
 /**
  * Token
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class Token {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -139,6 +141,7 @@ public class Token {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getId() {
     return id;
@@ -161,6 +164,7 @@ public class Token {
    * @return type
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -183,6 +187,7 @@ public class Token {
    * @return tenantId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTenantId() {
     return tenantId;
@@ -205,6 +210,7 @@ public class Token {
    * @return data
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Object getData() {
     return data;
@@ -235,6 +241,7 @@ public class Token {
    * @return metadata
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getMetadata() {
     return metadata;
@@ -257,6 +264,7 @@ public class Token {
    * @return encryption
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public EncryptionMetadata getEncryption() {
     return encryption;
@@ -279,6 +287,7 @@ public class Token {
    * @return createdBy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getCreatedBy() {
     return createdBy;
@@ -301,6 +310,7 @@ public class Token {
    * @return createdAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -323,6 +333,7 @@ public class Token {
    * @return modifiedBy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getModifiedBy() {
     return modifiedBy;
@@ -345,6 +356,7 @@ public class Token {
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
@@ -367,6 +379,7 @@ public class Token {
    * @return fingerprint
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getFingerprint() {
     return fingerprint;
@@ -389,6 +402,7 @@ public class Token {
    * @return fingerprintExpression
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getFingerprintExpression() {
     return fingerprintExpression;
@@ -411,6 +425,7 @@ public class Token {
    * @return mask
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Object getMask() {
     return mask;
@@ -433,6 +448,7 @@ public class Token {
    * @return privacy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Privacy getPrivacy() {
     return privacy;
@@ -463,6 +479,7 @@ public class Token {
    * @return searchIndexes
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getSearchIndexes() {
     return searchIndexes;
@@ -485,6 +502,7 @@ public class Token {
    * @return expiresAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
@@ -515,6 +533,7 @@ public class Token {
    * @return containers
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getContainers() {
     return containers;
@@ -685,12 +704,12 @@ public class Token {
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {
         Privacy.validateJsonObject(jsonObj.getAsJsonObject("privacy"));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("search_indexes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `search_indexes` to be an array in the JSON string but got `%s`", jsonObj.get("search_indexes").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
       }
   }

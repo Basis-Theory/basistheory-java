@@ -155,6 +155,7 @@ public class LogsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -167,7 +168,10 @@ public class LogsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getValidateBeforeCall(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getCall(entityType, entityId, startDate, endDate, page, size, _callback);
+        
+
+        okhttp3.Call localVarCall = getCall(entityType, entityId, startDate, endDate, page, size, _callback);
+        return localVarCall;
 
     }
 
@@ -297,6 +301,7 @@ public class LogsApi {
         }
 
         final String[] localVarContentTypes = {
+            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -309,7 +314,10 @@ public class LogsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getEntityTypesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getEntityTypesCall(_callback);
+        
+
+        okhttp3.Call localVarCall = getEntityTypesCall(_callback);
+        return localVarCall;
 
     }
 

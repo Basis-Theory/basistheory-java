@@ -280,7 +280,7 @@ public class ApiClient {
      * @return a {@link com.basistheory.ApiClient} object
      */
     public ApiClient setDateFormat(DateFormat dateFormat) {
-        JSON.setDateFormat(dateFormat);
+        this.json.setDateFormat(dateFormat);
         return this;
     }
 
@@ -291,7 +291,7 @@ public class ApiClient {
      * @return a {@link com.basistheory.ApiClient} object
      */
     public ApiClient setSqlDateFormat(DateFormat dateFormat) {
-        JSON.setSqlDateFormat(dateFormat);
+        this.json.setSqlDateFormat(dateFormat);
         return this;
     }
 
@@ -302,7 +302,7 @@ public class ApiClient {
      * @return a {@link com.basistheory.ApiClient} object
      */
     public ApiClient setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
-        JSON.setOffsetDateTimeFormat(dateFormat);
+        this.json.setOffsetDateTimeFormat(dateFormat);
         return this;
     }
 
@@ -313,7 +313,7 @@ public class ApiClient {
      * @return a {@link com.basistheory.ApiClient} object
      */
     public ApiClient setLocalDateFormat(DateTimeFormatter dateFormat) {
-        JSON.setLocalDateFormat(dateFormat);
+        this.json.setLocalDateFormat(dateFormat);
         return this;
     }
 
@@ -324,7 +324,7 @@ public class ApiClient {
      * @return a {@link com.basistheory.ApiClient} object
      */
     public ApiClient setLenientOnJson(boolean lenientOnJson) {
-        JSON.setLenientOnJson(lenientOnJson);
+        this.json.setLenientOnJson(lenientOnJson);
         return this;
     }
 
@@ -585,7 +585,7 @@ public class ApiClient {
             return "";
         } else if (param instanceof Date || param instanceof OffsetDateTime || param instanceof LocalDate) {
             //Serialize to json string and remove the " enclosing characters
-            String jsonStr = JSON.serialize(param);
+            String jsonStr = json.serialize(param);
             return jsonStr.substring(1, jsonStr.length() - 1);
         } else if (param instanceof Collection) {
             StringBuilder b = new StringBuilder();
@@ -593,7 +593,7 @@ public class ApiClient {
                 if (b.length() > 0) {
                     b.append(",");
                 }
-                b.append(o);
+                b.append(String.valueOf(o));
             }
             return b.toString();
         } else {
@@ -844,7 +844,7 @@ public class ApiClient {
             contentType = "application/json";
         }
         if (isJsonMime(contentType)) {
-            return JSON.deserialize(respBody, returnType);
+            return json.deserialize(respBody, returnType);
         } else if (returnType.equals(String.class)) {
             // Expecting string, return the raw response body.
             return (T) respBody;
@@ -878,13 +878,13 @@ public class ApiClient {
         } else if (isJsonMime(contentType)) {
             String content;
             if (obj != null) {
-                content = JSON.serialize(obj);
+                content = json.serialize(obj);
             } else {
                 content = null;
             }
             return RequestBody.create(content, MediaType.parse(contentType));
         } else if (obj instanceof String) {
-            return RequestBody.create((String) obj, MediaType.parse(contentType));
+            return RequestBody.create(MediaType.parse(contentType), (String) obj);
         } else {
             throw new ApiException("Content type \"" + contentType + "\" is not supported");
         }
@@ -1357,7 +1357,7 @@ public class ApiClient {
         } else {
             String content;
             if (obj != null) {
-                content = JSON.serialize(obj);
+                content = json.serialize(obj);
             } else {
                 content = null;
             }
@@ -1435,7 +1435,7 @@ public class ApiClient {
                     KeyStore caKeyStore = newEmptyKeyStore(password);
                     int index = 0;
                     for (Certificate certificate : certificates) {
-                        String certificateAlias = "ca" + (index++);
+                        String certificateAlias = "ca" + Integer.toString(index++);
                         caKeyStore.setCertificateEntry(certificateAlias, certificate);
                     }
                     trustManagerFactory.init(caKeyStore);

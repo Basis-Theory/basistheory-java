@@ -22,6 +22,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +53,7 @@ import com.basistheory.JSON;
 /**
  * ReactorPaginatedList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class ReactorPaginatedList {
   public static final String SERIALIZED_NAME_PAGINATION = "pagination";
   @SerializedName(SERIALIZED_NAME_PAGINATION)
@@ -75,6 +77,7 @@ public class ReactorPaginatedList {
    * @return pagination
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Pagination getPagination() {
     return pagination;
@@ -105,6 +108,7 @@ public class ReactorPaginatedList {
    * @return data
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<Reactor> getData() {
     return data;

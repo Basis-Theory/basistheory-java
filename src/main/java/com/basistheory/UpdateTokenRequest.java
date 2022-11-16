@@ -22,6 +22,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,7 +55,7 @@ import com.basistheory.JSON;
 /**
  * UpdateTokenRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class UpdateTokenRequest {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -109,6 +111,7 @@ public class UpdateTokenRequest {
    * @return data
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Object getData() {
     return data;
@@ -131,6 +134,7 @@ public class UpdateTokenRequest {
    * @return encryption
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public EncryptionMetadata getEncryption() {
     return encryption;
@@ -153,6 +157,7 @@ public class UpdateTokenRequest {
    * @return privacy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UpdatePrivacy getPrivacy() {
     return privacy;
@@ -183,6 +188,7 @@ public class UpdateTokenRequest {
    * @return metadata
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getMetadata() {
     return metadata;
@@ -213,6 +219,7 @@ public class UpdateTokenRequest {
    * @return searchIndexes
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getSearchIndexes() {
     return searchIndexes;
@@ -235,6 +242,7 @@ public class UpdateTokenRequest {
    * @return fingerprintExpression
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getFingerprintExpression() {
     return fingerprintExpression;
@@ -257,6 +265,7 @@ public class UpdateTokenRequest {
    * @return mask
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Object getMask() {
     return mask;
@@ -279,6 +288,7 @@ public class UpdateTokenRequest {
    * @return expiresAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getExpiresAt() {
     return expiresAt;
@@ -301,6 +311,7 @@ public class UpdateTokenRequest {
    * @return deduplicateToken
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getDeduplicateToken() {
     return deduplicateToken;
@@ -331,6 +342,7 @@ public class UpdateTokenRequest {
    * @return containers
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getContainers() {
     return containers;
@@ -459,8 +471,8 @@ public class UpdateTokenRequest {
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {
         UpdatePrivacy.validateJsonObject(jsonObj.getAsJsonObject("privacy"));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("search_indexes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `search_indexes` to be an array in the JSON string but got `%s`", jsonObj.get("search_indexes").toString()));
       }
       if ((jsonObj.get("fingerprint_expression") != null && !jsonObj.get("fingerprint_expression").isJsonNull()) && !jsonObj.get("fingerprint_expression").isJsonPrimitive()) {
@@ -469,8 +481,8 @@ public class UpdateTokenRequest {
       if ((jsonObj.get("expires_at") != null && !jsonObj.get("expires_at").isJsonNull()) && !jsonObj.get("expires_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expires_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_at").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
       }
   }

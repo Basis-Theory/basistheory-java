@@ -22,6 +22,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,7 +55,7 @@ import com.basistheory.JSON;
 /**
  * CreateTokenRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class CreateTokenRequest {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -117,6 +119,7 @@ public class CreateTokenRequest {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getId() {
     return id;
@@ -139,6 +142,7 @@ public class CreateTokenRequest {
    * @return type
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -161,6 +165,7 @@ public class CreateTokenRequest {
    * @return data
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(required = true, value = "")
 
   public Object getData() {
     return data;
@@ -183,6 +188,7 @@ public class CreateTokenRequest {
    * @return encryption
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public EncryptionMetadata getEncryption() {
     return encryption;
@@ -205,6 +211,7 @@ public class CreateTokenRequest {
    * @return privacy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Privacy getPrivacy() {
     return privacy;
@@ -235,6 +242,7 @@ public class CreateTokenRequest {
    * @return metadata
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getMetadata() {
     return metadata;
@@ -265,6 +273,7 @@ public class CreateTokenRequest {
    * @return searchIndexes
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getSearchIndexes() {
     return searchIndexes;
@@ -287,6 +296,7 @@ public class CreateTokenRequest {
    * @return fingerprintExpression
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getFingerprintExpression() {
     return fingerprintExpression;
@@ -309,6 +319,7 @@ public class CreateTokenRequest {
    * @return mask
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Object getMask() {
     return mask;
@@ -331,6 +342,7 @@ public class CreateTokenRequest {
    * @return deduplicateToken
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getDeduplicateToken() {
     return deduplicateToken;
@@ -353,6 +365,7 @@ public class CreateTokenRequest {
    * @return expiresAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getExpiresAt() {
     return expiresAt;
@@ -383,6 +396,7 @@ public class CreateTokenRequest {
    * @return containers
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getContainers() {
     return containers;
@@ -531,8 +545,8 @@ public class CreateTokenRequest {
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {
         Privacy.validateJsonObject(jsonObj.getAsJsonObject("privacy"));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("search_indexes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `search_indexes` to be an array in the JSON string but got `%s`", jsonObj.get("search_indexes").toString()));
       }
       if ((jsonObj.get("fingerprint_expression") != null && !jsonObj.get("fingerprint_expression").isJsonNull()) && !jsonObj.get("fingerprint_expression").isJsonPrimitive()) {
@@ -541,8 +555,8 @@ public class CreateTokenRequest {
       if ((jsonObj.get("expires_at") != null && !jsonObj.get("expires_at").isJsonNull()) && !jsonObj.get("expires_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expires_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_at").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
       }
   }
