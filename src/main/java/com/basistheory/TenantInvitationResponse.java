@@ -21,6 +21,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -50,7 +52,7 @@ import com.basistheory.JSON;
 /**
  * TenantInvitationResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class TenantInvitationResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -102,6 +104,7 @@ public class TenantInvitationResponse {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -124,6 +127,7 @@ public class TenantInvitationResponse {
    * @return tenantId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTenantId() {
     return tenantId;
@@ -146,6 +150,7 @@ public class TenantInvitationResponse {
    * @return email
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getEmail() {
     return email;
@@ -168,6 +173,7 @@ public class TenantInvitationResponse {
    * @return status
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public TenantInvitationStatus getStatus() {
     return status;
@@ -190,6 +196,7 @@ public class TenantInvitationResponse {
    * @return expiresAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
@@ -212,6 +219,7 @@ public class TenantInvitationResponse {
    * @return createdBy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getCreatedBy() {
     return createdBy;
@@ -234,6 +242,7 @@ public class TenantInvitationResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -256,6 +265,7 @@ public class TenantInvitationResponse {
    * @return modifiedBy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getModifiedBy() {
     return modifiedBy;
@@ -278,6 +288,7 @@ public class TenantInvitationResponse {
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;

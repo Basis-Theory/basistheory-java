@@ -22,6 +22,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
@@ -53,7 +55,7 @@ import com.basistheory.JSON;
 /**
  * Reactor
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class Reactor {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -109,6 +111,7 @@ public class Reactor {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -131,6 +134,7 @@ public class Reactor {
    * @return tenantId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getTenantId() {
     return tenantId;
@@ -153,6 +157,7 @@ public class Reactor {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -175,6 +180,7 @@ public class Reactor {
    * @return formula
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public ReactorFormula getFormula() {
     return formula;
@@ -197,6 +203,7 @@ public class Reactor {
    * @return application
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Application getApplication() {
     return application;
@@ -219,6 +226,7 @@ public class Reactor {
    * @return createdBy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getCreatedBy() {
     return createdBy;
@@ -241,6 +249,7 @@ public class Reactor {
    * @return createdAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -263,6 +272,7 @@ public class Reactor {
    * @return modifiedBy
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getModifiedBy() {
     return modifiedBy;
@@ -285,6 +295,7 @@ public class Reactor {
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
@@ -315,6 +326,7 @@ public class Reactor {
    * @return _configuration
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Map<String, String> getConfiguration() {
     return _configuration;

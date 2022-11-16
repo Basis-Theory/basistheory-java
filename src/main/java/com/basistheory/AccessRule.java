@@ -21,6 +21,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +52,7 @@ import com.basistheory.JSON;
 /**
  * AccessRule
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class AccessRule {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -90,6 +92,7 @@ public class AccessRule {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -112,6 +115,7 @@ public class AccessRule {
    * @return priority
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getPriority() {
     return priority;
@@ -134,6 +138,7 @@ public class AccessRule {
    * @return container
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getContainer() {
     return container;
@@ -156,6 +161,7 @@ public class AccessRule {
    * @return transform
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getTransform() {
     return transform;
@@ -186,6 +192,7 @@ public class AccessRule {
    * @return conditions
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<Condition> getConditions() {
     return conditions;
@@ -216,6 +223,7 @@ public class AccessRule {
    * @return permissions
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getPermissions() {
     return permissions;
@@ -347,8 +355,8 @@ public class AccessRule {
           };
         }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
   }

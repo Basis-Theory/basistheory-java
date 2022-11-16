@@ -1,4 +1,3 @@
-.github/workflows/maven.yml
 api/openapi.yaml
 docs/AccessRule.md
 docs/Application.md
@@ -167,6 +166,3 @@ src/main/java/com/basistheory/auth/ApiKeyAuth.java
 src/main/java/com/basistheory/auth/Authentication.java
 src/main/java/com/basistheory/auth/HttpBasicAuth.java
 src/main/java/com/basistheory/auth/HttpBearerAuth.java
-src/test/java/com/basistheory/ApplicationTemplateTest.java
-src/test/java/com/basistheory/ApplicationTemplatesApiTest.java
-src/test/java/com/basistheory/ConditionTest.java

@@ -20,6 +20,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -48,7 +50,7 @@ import com.basistheory.JSON;
 /**
  * GetLogs
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class GetLogs {
   public static final String SERIALIZED_NAME_ENTITY_TYPE = "entity_type";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPE)
@@ -88,6 +90,7 @@ public class GetLogs {
    * @return entityType
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getEntityType() {
     return entityType;
@@ -110,6 +113,7 @@ public class GetLogs {
    * @return entityId
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getEntityId() {
     return entityId;
@@ -132,6 +136,7 @@ public class GetLogs {
    * @return startDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getStartDate() {
     return startDate;
@@ -154,6 +159,7 @@ public class GetLogs {
    * @return endDate
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public OffsetDateTime getEndDate() {
     return endDate;
@@ -178,6 +184,7 @@ public class GetLogs {
    * @return page
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getPage() {
     return page;
@@ -202,6 +209,7 @@ public class GetLogs {
    * @return size
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Integer getSize() {
     return size;

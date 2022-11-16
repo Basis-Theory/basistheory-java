@@ -21,6 +21,8 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +53,7 @@ import com.basistheory.JSON;
 /**
  * ApplicationTemplate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:11:18.853007Z[Etc/UTC]")
 public class ApplicationTemplate {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -99,6 +101,7 @@ public class ApplicationTemplate {
    * @return id
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -121,6 +124,7 @@ public class ApplicationTemplate {
    * @return name
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -143,6 +147,7 @@ public class ApplicationTemplate {
    * @return description
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -165,6 +170,7 @@ public class ApplicationTemplate {
    * @return applicationType
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getApplicationType() {
     return applicationType;
@@ -187,6 +193,7 @@ public class ApplicationTemplate {
    * @return templateType
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getTemplateType() {
     return templateType;
@@ -209,6 +216,7 @@ public class ApplicationTemplate {
    * @return isStarter
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Boolean getIsStarter() {
     return isStarter;
@@ -239,6 +247,7 @@ public class ApplicationTemplate {
    * @return rules
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<AccessRule> getRules() {
     return rules;
@@ -269,6 +278,7 @@ public class ApplicationTemplate {
    * @return permissions
   **/
   @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public List<String> getPermissions() {
     return permissions;
@@ -412,8 +422,8 @@ public class ApplicationTemplate {
           };
         }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonArray()) {
+      // ensure the json data is an array
+      if (!jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
   }
