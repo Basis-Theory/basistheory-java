@@ -7,7 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**applicationIds** | **List&lt;UUID&gt;** |  |  [optional] |
+|**id** | **List&lt;UUID&gt;** |  |  [optional] |
+|**type** | **List&lt;String&gt;** |  |  [optional] |
 |**page** | **Integer** |  |  [optional] |
 |**size** | **Integer** |  |  [optional] |
 

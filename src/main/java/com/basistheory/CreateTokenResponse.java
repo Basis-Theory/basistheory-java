@@ -21,8 +21,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -46,6 +44,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -55,7 +54,7 @@ import com.basistheory.JSON;
 /**
  * CreateTokenResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class CreateTokenResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -117,9 +116,9 @@ public class CreateTokenResponse {
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   private OffsetDateTime expiresAt;
 
-  public static final String SERIALIZED_NAME_CONTAINER = "container";
-  @SerializedName(SERIALIZED_NAME_CONTAINER)
-  private String container;
+  public static final String SERIALIZED_NAME_CONTAINERS = "containers";
+  @SerializedName(SERIALIZED_NAME_CONTAINERS)
+  private List<String> containers = null;
 
   public CreateTokenResponse() {
   }
@@ -135,7 +134,6 @@ public class CreateTokenResponse {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getId() {
     return id;
@@ -158,7 +156,6 @@ public class CreateTokenResponse {
    * @return tenantId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTenantId() {
     return tenantId;
@@ -181,7 +178,6 @@ public class CreateTokenResponse {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -204,7 +200,6 @@ public class CreateTokenResponse {
    * @return fingerprint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getFingerprint() {
     return fingerprint;
@@ -227,7 +222,6 @@ public class CreateTokenResponse {
    * @return fingerprintExpression
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getFingerprintExpression() {
     return fingerprintExpression;
@@ -250,7 +244,6 @@ public class CreateTokenResponse {
    * @return mask
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getMask() {
     return mask;
@@ -273,7 +266,6 @@ public class CreateTokenResponse {
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getData() {
     return data;
@@ -304,7 +296,6 @@ public class CreateTokenResponse {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getMetadata() {
     return metadata;
@@ -327,7 +318,6 @@ public class CreateTokenResponse {
    * @return privacy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Privacy getPrivacy() {
     return privacy;
@@ -358,7 +348,6 @@ public class CreateTokenResponse {
    * @return searchIndexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getSearchIndexes() {
     return searchIndexes;
@@ -381,7 +370,6 @@ public class CreateTokenResponse {
    * @return createdBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedBy() {
     return createdBy;
@@ -404,7 +392,6 @@ public class CreateTokenResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -427,7 +414,6 @@ public class CreateTokenResponse {
    * @return modifiedBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getModifiedBy() {
     return modifiedBy;
@@ -450,7 +436,6 @@ public class CreateTokenResponse {
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
@@ -473,7 +458,6 @@ public class CreateTokenResponse {
    * @return expiresAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
@@ -485,26 +469,33 @@ public class CreateTokenResponse {
   }
 
 
-  public CreateTokenResponse container(String container) {
+  public CreateTokenResponse containers(List<String> containers) {
     
-    this.container = container;
+    this.containers = containers;
+    return this;
+  }
+
+  public CreateTokenResponse addContainersItem(String containersItem) {
+    if (this.containers == null) {
+      this.containers = new ArrayList<>();
+    }
+    this.containers.add(containersItem);
     return this;
   }
 
    /**
-   * Get container
-   * @return container
+   * Get containers
+   * @return containers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public String getContainer() {
-    return container;
+  public List<String> getContainers() {
+    return containers;
   }
 
 
-  public void setContainer(String container) {
-    this.container = container;
+  public void setContainers(List<String> containers) {
+    this.containers = containers;
   }
 
 
@@ -533,7 +524,7 @@ public class CreateTokenResponse {
         Objects.equals(this.modifiedBy, createTokenResponse.modifiedBy) &&
         Objects.equals(this.modifiedAt, createTokenResponse.modifiedAt) &&
         Objects.equals(this.expiresAt, createTokenResponse.expiresAt) &&
-        Objects.equals(this.container, createTokenResponse.container);
+        Objects.equals(this.containers, createTokenResponse.containers);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -542,7 +533,7 @@ public class CreateTokenResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, type, fingerprint, fingerprintExpression, mask, data, metadata, privacy, searchIndexes, createdBy, createdAt, modifiedBy, modifiedAt, expiresAt, container);
+    return Objects.hash(id, tenantId, type, fingerprint, fingerprintExpression, mask, data, metadata, privacy, searchIndexes, createdBy, createdAt, modifiedBy, modifiedAt, expiresAt, containers);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -571,7 +562,7 @@ public class CreateTokenResponse {
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("    container: ").append(toIndentedString(container)).append("\n");
+    sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -609,7 +600,7 @@ public class CreateTokenResponse {
     openapiFields.add("modified_by");
     openapiFields.add("modified_at");
     openapiFields.add("expires_at");
-    openapiFields.add("container");
+    openapiFields.add("containers");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -623,9 +614,7 @@ public class CreateTokenResponse {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (CreateTokenResponse.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!CreateTokenResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTokenResponse is not found in the empty JSON string", CreateTokenResponse.openapiRequiredFields.toString()));
         }
       }
@@ -656,8 +645,8 @@ public class CreateTokenResponse {
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {
         Privacy.validateJsonObject(jsonObj.getAsJsonObject("privacy"));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonNull()) && !jsonObj.get("search_indexes").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `search_indexes` to be an array in the JSON string but got `%s`", jsonObj.get("search_indexes").toString()));
       }
       if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull()) && !jsonObj.get("created_by").isJsonPrimitive()) {
@@ -666,8 +655,9 @@ public class CreateTokenResponse {
       if ((jsonObj.get("modified_by") != null && !jsonObj.get("modified_by").isJsonNull()) && !jsonObj.get("modified_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `modified_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modified_by").toString()));
       }
-      if ((jsonObj.get("container") != null && !jsonObj.get("container").isJsonNull()) && !jsonObj.get("container").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `container` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
       }
   }
 

@@ -22,8 +22,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -47,6 +45,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -56,7 +55,7 @@ import com.basistheory.JSON;
 /**
  * Token
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class Token {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -122,9 +121,9 @@ public class Token {
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   private OffsetDateTime expiresAt;
 
-  public static final String SERIALIZED_NAME_CONTAINER = "container";
-  @SerializedName(SERIALIZED_NAME_CONTAINER)
-  private String container;
+  public static final String SERIALIZED_NAME_CONTAINERS = "containers";
+  @SerializedName(SERIALIZED_NAME_CONTAINERS)
+  private List<String> containers = null;
 
   public Token() {
   }
@@ -140,7 +139,6 @@ public class Token {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getId() {
     return id;
@@ -163,7 +161,6 @@ public class Token {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -186,7 +183,6 @@ public class Token {
    * @return tenantId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTenantId() {
     return tenantId;
@@ -209,7 +205,6 @@ public class Token {
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getData() {
     return data;
@@ -240,7 +235,6 @@ public class Token {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getMetadata() {
     return metadata;
@@ -263,7 +257,6 @@ public class Token {
    * @return encryption
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public EncryptionMetadata getEncryption() {
     return encryption;
@@ -286,7 +279,6 @@ public class Token {
    * @return createdBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedBy() {
     return createdBy;
@@ -309,7 +301,6 @@ public class Token {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -332,7 +323,6 @@ public class Token {
    * @return modifiedBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getModifiedBy() {
     return modifiedBy;
@@ -355,7 +345,6 @@ public class Token {
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
@@ -378,7 +367,6 @@ public class Token {
    * @return fingerprint
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getFingerprint() {
     return fingerprint;
@@ -401,7 +389,6 @@ public class Token {
    * @return fingerprintExpression
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getFingerprintExpression() {
     return fingerprintExpression;
@@ -424,7 +411,6 @@ public class Token {
    * @return mask
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getMask() {
     return mask;
@@ -447,7 +433,6 @@ public class Token {
    * @return privacy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Privacy getPrivacy() {
     return privacy;
@@ -478,7 +463,6 @@ public class Token {
    * @return searchIndexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getSearchIndexes() {
     return searchIndexes;
@@ -501,7 +485,6 @@ public class Token {
    * @return expiresAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
@@ -513,26 +496,33 @@ public class Token {
   }
 
 
-  public Token container(String container) {
+  public Token containers(List<String> containers) {
     
-    this.container = container;
+    this.containers = containers;
+    return this;
+  }
+
+  public Token addContainersItem(String containersItem) {
+    if (this.containers == null) {
+      this.containers = new ArrayList<>();
+    }
+    this.containers.add(containersItem);
     return this;
   }
 
    /**
-   * Get container
-   * @return container
+   * Get containers
+   * @return containers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public String getContainer() {
-    return container;
+  public List<String> getContainers() {
+    return containers;
   }
 
 
-  public void setContainer(String container) {
-    this.container = container;
+  public void setContainers(List<String> containers) {
+    this.containers = containers;
   }
 
 
@@ -562,7 +552,7 @@ public class Token {
         Objects.equals(this.privacy, token.privacy) &&
         Objects.equals(this.searchIndexes, token.searchIndexes) &&
         Objects.equals(this.expiresAt, token.expiresAt) &&
-        Objects.equals(this.container, token.container);
+        Objects.equals(this.containers, token.containers);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -571,7 +561,7 @@ public class Token {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tenantId, data, metadata, encryption, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, container);
+    return Objects.hash(id, type, tenantId, data, metadata, encryption, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, containers);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -601,7 +591,7 @@ public class Token {
     sb.append("    privacy: ").append(toIndentedString(privacy)).append("\n");
     sb.append("    searchIndexes: ").append(toIndentedString(searchIndexes)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("    container: ").append(toIndentedString(container)).append("\n");
+    sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -640,7 +630,7 @@ public class Token {
     openapiFields.add("privacy");
     openapiFields.add("search_indexes");
     openapiFields.add("expires_at");
-    openapiFields.add("container");
+    openapiFields.add("containers");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -654,9 +644,7 @@ public class Token {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Token.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!Token.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Token is not found in the empty JSON string", Token.openapiRequiredFields.toString()));
         }
       }
@@ -697,12 +685,13 @@ public class Token {
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {
         Privacy.validateJsonObject(jsonObj.getAsJsonObject("privacy"));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonNull()) && !jsonObj.get("search_indexes").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `search_indexes` to be an array in the JSON string but got `%s`", jsonObj.get("search_indexes").toString()));
       }
-      if ((jsonObj.get("container") != null && !jsonObj.get("container").isJsonNull()) && !jsonObj.get("container").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `container` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
       }
   }
 

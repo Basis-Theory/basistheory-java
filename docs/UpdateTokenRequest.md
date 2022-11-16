@@ -14,8 +14,9 @@
 |**searchIndexes** | **List&lt;String&gt;** |  |  [optional] |
 |**fingerprintExpression** | **String** |  |  [optional] |
 |**mask** | **Object** |  |  [optional] |
+|**expiresAt** | **String** |  |  [optional] |
 |**deduplicateToken** | **Boolean** |  |  [optional] |
-|**container** | **String** |  |  [optional] |
+|**containers** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

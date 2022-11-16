@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
@@ -43,6 +41,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -52,7 +51,7 @@ import com.basistheory.JSON;
 /**
  * Tenant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class Tenant {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -100,7 +99,6 @@ public class Tenant {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getId() {
     return id;
@@ -123,7 +121,6 @@ public class Tenant {
    * @return ownerId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getOwnerId() {
     return ownerId;
@@ -146,7 +143,6 @@ public class Tenant {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -169,7 +165,6 @@ public class Tenant {
    * @return createdBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getCreatedBy() {
     return createdBy;
@@ -192,7 +187,6 @@ public class Tenant {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -215,7 +209,6 @@ public class Tenant {
    * @return modifiedBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getModifiedBy() {
     return modifiedBy;
@@ -238,7 +231,6 @@ public class Tenant {
    * @return modifiedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
@@ -269,7 +261,6 @@ public class Tenant {
    * @return settings
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getSettings() {
     return settings;
@@ -372,9 +363,7 @@ public class Tenant {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Tenant.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!Tenant.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Tenant is not found in the empty JSON string", Tenant.openapiRequiredFields.toString()));
         }
       }

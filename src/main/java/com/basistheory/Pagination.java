@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
@@ -38,6 +36,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -47,7 +46,7 @@ import com.basistheory.JSON;
 /**
  * Pagination
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class Pagination {
   public static final String SERIALIZED_NAME_TOTAL_ITEMS = "total_items";
   @SerializedName(SERIALIZED_NAME_TOTAL_ITEMS)
@@ -79,7 +78,6 @@ public class Pagination {
    * @return totalItems
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getTotalItems() {
     return totalItems;
@@ -102,7 +100,6 @@ public class Pagination {
    * @return pageNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getPageNumber() {
     return pageNumber;
@@ -125,7 +122,6 @@ public class Pagination {
    * @return pageSize
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getPageSize() {
     return pageSize;
@@ -148,7 +144,6 @@ public class Pagination {
    * @return totalPages
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getTotalPages() {
     return totalPages;
@@ -228,9 +223,7 @@ public class Pagination {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Pagination.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!Pagination.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Pagination is not found in the empty JSON string", Pagination.openapiRequiredFields.toString()));
         }
       }

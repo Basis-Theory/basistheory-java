@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.UUID;
@@ -41,6 +39,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -50,7 +49,7 @@ import com.basistheory.JSON;
 /**
  * Log
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class Log {
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
@@ -98,7 +97,6 @@ public class Log {
    * @return tenantId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getTenantId() {
     return tenantId;
@@ -121,7 +119,6 @@ public class Log {
    * @return actorId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UUID getActorId() {
     return actorId;
@@ -144,7 +141,6 @@ public class Log {
    * @return actorType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getActorType() {
     return actorType;
@@ -167,7 +163,6 @@ public class Log {
    * @return entityType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getEntityType() {
     return entityType;
@@ -190,7 +185,6 @@ public class Log {
    * @return entityId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getEntityId() {
     return entityId;
@@ -213,7 +207,6 @@ public class Log {
    * @return operation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getOperation() {
     return operation;
@@ -236,7 +229,6 @@ public class Log {
    * @return message
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getMessage() {
     return message;
@@ -259,7 +251,6 @@ public class Log {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public OffsetDateTime getCreatedAt() {
     return createdAt;
@@ -362,9 +353,7 @@ public class Log {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Log.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!Log.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Log is not found in the empty JSON string", Log.openapiRequiredFields.toString()));
         }
       }

@@ -22,8 +22,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,6 +43,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -54,7 +53,7 @@ import com.basistheory.JSON;
 /**
  * UpdateTokenRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class UpdateTokenRequest {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
@@ -84,13 +83,17 @@ public class UpdateTokenRequest {
   @SerializedName(SERIALIZED_NAME_MASK)
   private Object mask = null;
 
+  public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
+  private String expiresAt;
+
   public static final String SERIALIZED_NAME_DEDUPLICATE_TOKEN = "deduplicate_token";
   @SerializedName(SERIALIZED_NAME_DEDUPLICATE_TOKEN)
   private Boolean deduplicateToken;
 
-  public static final String SERIALIZED_NAME_CONTAINER = "container";
-  @SerializedName(SERIALIZED_NAME_CONTAINER)
-  private String container;
+  public static final String SERIALIZED_NAME_CONTAINERS = "containers";
+  @SerializedName(SERIALIZED_NAME_CONTAINERS)
+  private List<String> containers = null;
 
   public UpdateTokenRequest() {
   }
@@ -106,7 +109,6 @@ public class UpdateTokenRequest {
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getData() {
     return data;
@@ -129,7 +131,6 @@ public class UpdateTokenRequest {
    * @return encryption
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public EncryptionMetadata getEncryption() {
     return encryption;
@@ -152,7 +153,6 @@ public class UpdateTokenRequest {
    * @return privacy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public UpdatePrivacy getPrivacy() {
     return privacy;
@@ -183,7 +183,6 @@ public class UpdateTokenRequest {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Map<String, String> getMetadata() {
     return metadata;
@@ -214,7 +213,6 @@ public class UpdateTokenRequest {
    * @return searchIndexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getSearchIndexes() {
     return searchIndexes;
@@ -237,7 +235,6 @@ public class UpdateTokenRequest {
    * @return fingerprintExpression
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getFingerprintExpression() {
     return fingerprintExpression;
@@ -260,7 +257,6 @@ public class UpdateTokenRequest {
    * @return mask
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Object getMask() {
     return mask;
@@ -269,6 +265,28 @@ public class UpdateTokenRequest {
 
   public void setMask(Object mask) {
     this.mask = mask;
+  }
+
+
+  public UpdateTokenRequest expiresAt(String expiresAt) {
+    
+    this.expiresAt = expiresAt;
+    return this;
+  }
+
+   /**
+   * Get expiresAt
+   * @return expiresAt
+  **/
+  @javax.annotation.Nullable
+
+  public String getExpiresAt() {
+    return expiresAt;
+  }
+
+
+  public void setExpiresAt(String expiresAt) {
+    this.expiresAt = expiresAt;
   }
 
 
@@ -283,7 +301,6 @@ public class UpdateTokenRequest {
    * @return deduplicateToken
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Boolean getDeduplicateToken() {
     return deduplicateToken;
@@ -295,26 +312,33 @@ public class UpdateTokenRequest {
   }
 
 
-  public UpdateTokenRequest container(String container) {
+  public UpdateTokenRequest containers(List<String> containers) {
     
-    this.container = container;
+    this.containers = containers;
+    return this;
+  }
+
+  public UpdateTokenRequest addContainersItem(String containersItem) {
+    if (this.containers == null) {
+      this.containers = new ArrayList<>();
+    }
+    this.containers.add(containersItem);
     return this;
   }
 
    /**
-   * Get container
-   * @return container
+   * Get containers
+   * @return containers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public String getContainer() {
-    return container;
+  public List<String> getContainers() {
+    return containers;
   }
 
 
-  public void setContainer(String container) {
-    this.container = container;
+  public void setContainers(List<String> containers) {
+    this.containers = containers;
   }
 
 
@@ -335,8 +359,9 @@ public class UpdateTokenRequest {
         Objects.equals(this.searchIndexes, updateTokenRequest.searchIndexes) &&
         Objects.equals(this.fingerprintExpression, updateTokenRequest.fingerprintExpression) &&
         Objects.equals(this.mask, updateTokenRequest.mask) &&
+        Objects.equals(this.expiresAt, updateTokenRequest.expiresAt) &&
         Objects.equals(this.deduplicateToken, updateTokenRequest.deduplicateToken) &&
-        Objects.equals(this.container, updateTokenRequest.container);
+        Objects.equals(this.containers, updateTokenRequest.containers);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -345,7 +370,7 @@ public class UpdateTokenRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, encryption, privacy, metadata, searchIndexes, fingerprintExpression, mask, deduplicateToken, container);
+    return Objects.hash(data, encryption, privacy, metadata, searchIndexes, fingerprintExpression, mask, expiresAt, deduplicateToken, containers);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -366,8 +391,9 @@ public class UpdateTokenRequest {
     sb.append("    searchIndexes: ").append(toIndentedString(searchIndexes)).append("\n");
     sb.append("    fingerprintExpression: ").append(toIndentedString(fingerprintExpression)).append("\n");
     sb.append("    mask: ").append(toIndentedString(mask)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    deduplicateToken: ").append(toIndentedString(deduplicateToken)).append("\n");
-    sb.append("    container: ").append(toIndentedString(container)).append("\n");
+    sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -397,8 +423,9 @@ public class UpdateTokenRequest {
     openapiFields.add("search_indexes");
     openapiFields.add("fingerprint_expression");
     openapiFields.add("mask");
+    openapiFields.add("expires_at");
     openapiFields.add("deduplicate_token");
-    openapiFields.add("container");
+    openapiFields.add("containers");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -412,9 +439,7 @@ public class UpdateTokenRequest {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (UpdateTokenRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!UpdateTokenRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateTokenRequest is not found in the empty JSON string", UpdateTokenRequest.openapiRequiredFields.toString()));
         }
       }
@@ -434,15 +459,19 @@ public class UpdateTokenRequest {
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {
         UpdatePrivacy.validateJsonObject(jsonObj.getAsJsonObject("privacy"));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonNull()) && !jsonObj.get("search_indexes").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `search_indexes` to be an array in the JSON string but got `%s`", jsonObj.get("search_indexes").toString()));
       }
       if ((jsonObj.get("fingerprint_expression") != null && !jsonObj.get("fingerprint_expression").isJsonNull()) && !jsonObj.get("fingerprint_expression").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fingerprint_expression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fingerprint_expression").toString()));
       }
-      if ((jsonObj.get("container") != null && !jsonObj.get("container").isJsonNull()) && !jsonObj.get("container").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `container` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container").toString()));
+      if ((jsonObj.get("expires_at") != null && !jsonObj.get("expires_at").isJsonNull()) && !jsonObj.get("expires_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expires_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_at").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
       }
   }
 

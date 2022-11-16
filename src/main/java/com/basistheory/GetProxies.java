@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +40,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -51,11 +50,11 @@ import com.basistheory.JSON;
 /**
  * GetProxies
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class GetProxies {
-  public static final String SERIALIZED_NAME_IDS = "ids";
-  @SerializedName(SERIALIZED_NAME_IDS)
-  private List<UUID> ids = null;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private List<UUID> id = null;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -72,34 +71,33 @@ public class GetProxies {
   public GetProxies() {
   }
 
-  public GetProxies ids(List<UUID> ids) {
+  public GetProxies id(List<UUID> id) {
     
-    this.ids = ids;
+    this.id = id;
     return this;
   }
 
-  public GetProxies addIdsItem(UUID idsItem) {
-    if (this.ids == null) {
-      this.ids = new ArrayList<>();
+  public GetProxies addIdItem(UUID idItem) {
+    if (this.id == null) {
+      this.id = new ArrayList<>();
     }
-    this.ids.add(idsItem);
+    this.id.add(idItem);
     return this;
   }
 
    /**
-   * Get ids
-   * @return ids
+   * Get id
+   * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public List<UUID> getIds() {
-    return ids;
+  public List<UUID> getId() {
+    return id;
   }
 
 
-  public void setIds(List<UUID> ids) {
-    this.ids = ids;
+  public void setId(List<UUID> id) {
+    this.id = id;
   }
 
 
@@ -114,7 +112,6 @@ public class GetProxies {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -139,7 +136,6 @@ public class GetProxies {
    * @return page
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getPage() {
     return page;
@@ -164,7 +160,6 @@ public class GetProxies {
    * @return size
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getSize() {
     return size;
@@ -186,7 +181,7 @@ public class GetProxies {
       return false;
     }
     GetProxies getProxies = (GetProxies) o;
-    return Objects.equals(this.ids, getProxies.ids) &&
+    return Objects.equals(this.id, getProxies.id) &&
         Objects.equals(this.name, getProxies.name) &&
         Objects.equals(this.page, getProxies.page) &&
         Objects.equals(this.size, getProxies.size);
@@ -198,7 +193,7 @@ public class GetProxies {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ids, name, page, size);
+    return Objects.hash(id, name, page, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,7 +207,7 @@ public class GetProxies {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetProxies {\n");
-    sb.append("    ids: ").append(toIndentedString(ids)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -238,7 +233,7 @@ public class GetProxies {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("ids");
+    openapiFields.add("id");
     openapiFields.add("name");
     openapiFields.add("page");
     openapiFields.add("size");
@@ -255,9 +250,7 @@ public class GetProxies {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (GetProxies.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!GetProxies.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetProxies is not found in the empty JSON string", GetProxies.openapiRequiredFields.toString()));
         }
       }
@@ -269,9 +262,9 @@ public class GetProxies {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetProxies` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("ids") != null && !jsonObj.get("ids").isJsonNull()) && !jsonObj.get("ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ids` to be an array in the JSON string but got `%s`", jsonObj.get("ids").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

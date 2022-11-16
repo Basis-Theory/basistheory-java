@@ -141,15 +141,12 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(CreateApplicationRequest createApplicationRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'createApplicationRequest' is set
         if (createApplicationRequest == null) {
             throw new ApiException("Missing the required parameter 'createApplicationRequest' when calling create(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createCall(createApplicationRequest, _callback);
-        return localVarCall;
+        return createCall(createApplicationRequest, _callback);
 
     }
 
@@ -250,7 +247,7 @@ public class ApplicationsApi {
 
         // create path and map variables
         String localVarPath = "/applications/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -267,7 +264,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -280,15 +276,12 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteCall(id, _callback);
-        return localVarCall;
+        return deleteCall(id, _callback);
 
     }
 
@@ -355,6 +348,7 @@ public class ApplicationsApi {
     /**
      * Build call for get
      * @param id  (optional)
+     * @param type  (optional)
      * @param page  (optional)
      * @param size  (optional)
      * @param _callback Callback for upload/download progress
@@ -369,7 +363,7 @@ public class ApplicationsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(List<UUID> id, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(List<UUID> id, List<String> type, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -398,6 +392,10 @@ public class ApplicationsApi {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "id", id));
         }
 
+        if (type != null) {
+            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "type", type));
+        }
+
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
@@ -415,7 +413,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -427,11 +424,8 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(List<UUID> id, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getCall(id, page, size, _callback);
-        return localVarCall;
+    private okhttp3.Call getValidateBeforeCall(List<UUID> id, List<String> type, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+        return getCall(id, type, page, size, _callback);
 
     }
 
@@ -439,6 +433,7 @@ public class ApplicationsApi {
      * 
      * 
      * @param id  (optional)
+     * @param type  (optional)
      * @param page  (optional)
      * @param size  (optional)
      * @return ApplicationPaginatedList
@@ -452,8 +447,8 @@ public class ApplicationsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationPaginatedList get(List<UUID> id, Integer page, Integer size) throws ApiException {
-        ApiResponse<ApplicationPaginatedList> localVarResp = getWithHttpInfo(id, page, size);
+    public ApplicationPaginatedList get(List<UUID> id, List<String> type, Integer page, Integer size) throws ApiException {
+        ApiResponse<ApplicationPaginatedList> localVarResp = getWithHttpInfo(id, type, page, size);
         return localVarResp.getData();
     }
 
@@ -461,6 +456,7 @@ public class ApplicationsApi {
      * 
      * 
      * @param id  (optional)
+     * @param type  (optional)
      * @param page  (optional)
      * @param size  (optional)
      * @return ApiResponse&lt;ApplicationPaginatedList&gt;
@@ -474,8 +470,8 @@ public class ApplicationsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationPaginatedList> getWithHttpInfo(List<UUID> id, Integer page, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getValidateBeforeCall(id, page, size, null);
+    public ApiResponse<ApplicationPaginatedList> getWithHttpInfo(List<UUID> id, List<String> type, Integer page, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, type, page, size, null);
         Type localVarReturnType = new TypeToken<ApplicationPaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -484,6 +480,7 @@ public class ApplicationsApi {
      *  (asynchronously)
      * 
      * @param id  (optional)
+     * @param type  (optional)
      * @param page  (optional)
      * @param size  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -498,9 +495,9 @@ public class ApplicationsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(List<UUID> id, Integer page, Integer size, final ApiCallback<ApplicationPaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getAsync(List<UUID> id, List<String> type, Integer page, Integer size, final ApiCallback<ApplicationPaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getValidateBeforeCall(id, page, size, _callback);
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, type, page, size, _callback);
         Type localVarReturnType = new TypeToken<ApplicationPaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -538,7 +535,7 @@ public class ApplicationsApi {
 
         // create path and map variables
         String localVarPath = "/applications/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -555,7 +552,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -568,15 +564,12 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getByIdValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getById(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getByIdCall(id, _callback);
-        return localVarCall;
+        return getByIdCall(id, _callback);
 
     }
 
@@ -691,7 +684,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -704,10 +696,7 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getByKeyValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getByKeyCall(_callback);
-        return localVarCall;
+        return getByKeyCall(_callback);
 
     }
 
@@ -802,7 +791,7 @@ public class ApplicationsApi {
 
         // create path and map variables
         String localVarPath = "/applications/{id}/regenerate"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -819,7 +808,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -832,15 +820,12 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call regenerateKeyValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling regenerateKey(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = regenerateKeyCall(id, _callback);
-        return localVarCall;
+        return regenerateKeyCall(id, _callback);
 
     }
 
@@ -943,7 +928,7 @@ public class ApplicationsApi {
 
         // create path and map variables
         String localVarPath = "/applications/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -973,20 +958,17 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateValidateBeforeCall(UUID id, UpdateApplicationRequest updateApplicationRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling update(Async)");
         }
-        
+
         // verify the required parameter 'updateApplicationRequest' is set
         if (updateApplicationRequest == null) {
             throw new ApiException("Missing the required parameter 'updateApplicationRequest' when calling update(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateCall(id, updateApplicationRequest, _callback);
-        return localVarCall;
+        return updateCall(id, updateApplicationRequest, _callback);
 
     }
 

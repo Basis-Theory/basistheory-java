@@ -137,10 +137,7 @@ public class TokenizeApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call tokenizeValidateBeforeCall(Object body, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = tokenizeCall(body, _callback);
-        return localVarCall;
+        return tokenizeCall(body, _callback);
 
     }
 

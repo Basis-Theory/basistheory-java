@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -39,6 +37,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -48,7 +47,7 @@ import com.basistheory.JSON;
 /**
  * ProblemDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class ProblemDetails {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -84,7 +83,6 @@ public class ProblemDetails {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -107,7 +105,6 @@ public class ProblemDetails {
    * @return title
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getTitle() {
     return title;
@@ -130,7 +127,6 @@ public class ProblemDetails {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getStatus() {
     return status;
@@ -153,7 +149,6 @@ public class ProblemDetails {
    * @return detail
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDetail() {
     return detail;
@@ -176,7 +171,6 @@ public class ProblemDetails {
    * @return instance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getInstance() {
     return instance;
@@ -270,9 +264,7 @@ public class ProblemDetails {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (ProblemDetails.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!ProblemDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProblemDetails is not found in the empty JSON string", ProblemDetails.openapiRequiredFields.toString()));
         }
       }

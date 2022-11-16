@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
@@ -38,6 +36,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -47,7 +46,7 @@ import com.basistheory.JSON;
 /**
  * MonthlyActiveTokenHistory
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class MonthlyActiveTokenHistory {
   public static final String SERIALIZED_NAME_YEAR = "year";
   @SerializedName(SERIALIZED_NAME_YEAR)
@@ -77,7 +76,6 @@ public class MonthlyActiveTokenHistory {
    * @return year
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getYear() {
     return year;
@@ -102,7 +100,6 @@ public class MonthlyActiveTokenHistory {
    * @return month
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getMonth() {
     return month;
@@ -126,7 +123,6 @@ public class MonthlyActiveTokenHistory {
    * @return count
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Long getCount() {
     return count;
@@ -203,9 +199,7 @@ public class MonthlyActiveTokenHistory {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (MonthlyActiveTokenHistory.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!MonthlyActiveTokenHistory.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in MonthlyActiveTokenHistory is not found in the empty JSON string", MonthlyActiveTokenHistory.openapiRequiredFields.toString()));
         }
       }

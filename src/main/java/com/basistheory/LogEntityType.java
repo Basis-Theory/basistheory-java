@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -39,6 +37,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -48,7 +47,7 @@ import com.basistheory.JSON;
 /**
  * LogEntityType
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class LogEntityType {
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
@@ -72,7 +71,6 @@ public class LogEntityType {
    * @return displayName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDisplayName() {
     return displayName;
@@ -95,7 +93,6 @@ public class LogEntityType {
    * @return value
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getValue() {
     return value;
@@ -180,9 +177,7 @@ public class LogEntityType {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (LogEntityType.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!LogEntityType.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in LogEntityType is not found in the empty JSON string", LogEntityType.openapiRequiredFields.toString()));
         }
       }

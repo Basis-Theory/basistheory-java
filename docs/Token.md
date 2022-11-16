@@ -23,7 +23,7 @@
 |**privacy** | [**Privacy**](Privacy.md) |  |  [optional] |
 |**searchIndexes** | **List&lt;String&gt;** |  |  [optional] |
 |**expiresAt** | **OffsetDateTime** |  |  [optional] |
-|**container** | **String** |  |  [optional] |
+|**containers** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

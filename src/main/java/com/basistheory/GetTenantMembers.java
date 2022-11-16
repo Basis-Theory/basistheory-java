@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +40,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -51,11 +50,11 @@ import com.basistheory.JSON;
 /**
  * GetTenantMembers
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class GetTenantMembers {
-  public static final String SERIALIZED_NAME_USER_IDS = "userIds";
-  @SerializedName(SERIALIZED_NAME_USER_IDS)
-  private List<UUID> userIds = null;
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  private List<UUID> userId = null;
 
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -68,34 +67,33 @@ public class GetTenantMembers {
   public GetTenantMembers() {
   }
 
-  public GetTenantMembers userIds(List<UUID> userIds) {
+  public GetTenantMembers userId(List<UUID> userId) {
     
-    this.userIds = userIds;
+    this.userId = userId;
     return this;
   }
 
-  public GetTenantMembers addUserIdsItem(UUID userIdsItem) {
-    if (this.userIds == null) {
-      this.userIds = new ArrayList<>();
+  public GetTenantMembers addUserIdItem(UUID userIdItem) {
+    if (this.userId == null) {
+      this.userId = new ArrayList<>();
     }
-    this.userIds.add(userIdsItem);
+    this.userId.add(userIdItem);
     return this;
   }
 
    /**
-   * Get userIds
-   * @return userIds
+   * Get userId
+   * @return userId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
-  public List<UUID> getUserIds() {
-    return userIds;
+  public List<UUID> getUserId() {
+    return userId;
   }
 
 
-  public void setUserIds(List<UUID> userIds) {
-    this.userIds = userIds;
+  public void setUserId(List<UUID> userId) {
+    this.userId = userId;
   }
 
 
@@ -112,7 +110,6 @@ public class GetTenantMembers {
    * @return page
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getPage() {
     return page;
@@ -137,7 +134,6 @@ public class GetTenantMembers {
    * @return size
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public Integer getSize() {
     return size;
@@ -159,7 +155,7 @@ public class GetTenantMembers {
       return false;
     }
     GetTenantMembers getTenantMembers = (GetTenantMembers) o;
-    return Objects.equals(this.userIds, getTenantMembers.userIds) &&
+    return Objects.equals(this.userId, getTenantMembers.userId) &&
         Objects.equals(this.page, getTenantMembers.page) &&
         Objects.equals(this.size, getTenantMembers.size);
   }
@@ -170,7 +166,7 @@ public class GetTenantMembers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(userIds, page, size);
+    return Objects.hash(userId, page, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -184,7 +180,7 @@ public class GetTenantMembers {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTenantMembers {\n");
-    sb.append("    userIds: ").append(toIndentedString(userIds)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
@@ -209,7 +205,7 @@ public class GetTenantMembers {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("userIds");
+    openapiFields.add("user_id");
     openapiFields.add("page");
     openapiFields.add("size");
 
@@ -225,9 +221,7 @@ public class GetTenantMembers {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (GetTenantMembers.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!GetTenantMembers.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetTenantMembers is not found in the empty JSON string", GetTenantMembers.openapiRequiredFields.toString()));
         }
       }
@@ -239,9 +233,9 @@ public class GetTenantMembers {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTenantMembers` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("userIds") != null && !jsonObj.get("userIds").isJsonNull()) && !jsonObj.get("userIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `userIds` to be an array in the JSON string but got `%s`", jsonObj.get("userIds").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be an array in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
   }
 

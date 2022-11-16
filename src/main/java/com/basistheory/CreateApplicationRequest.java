@@ -21,8 +21,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +40,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -51,7 +50,7 @@ import com.basistheory.JSON;
 /**
  * CreateApplicationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class CreateApplicationRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -60,6 +59,14 @@ public class CreateApplicationRequest {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
+  public static final String SERIALIZED_NAME_CAN_CREATE_EXPIRING_APPLICATIONS = "can_create_expiring_applications";
+  @SerializedName(SERIALIZED_NAME_CAN_CREATE_EXPIRING_APPLICATIONS)
+  private Boolean canCreateExpiringApplications;
+
+  public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
+  private String expiresAt;
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -82,8 +89,7 @@ public class CreateApplicationRequest {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
 
   public String getName() {
     return name;
@@ -106,7 +112,6 @@ public class CreateApplicationRequest {
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
 
   public String getType() {
     return type;
@@ -115,6 +120,50 @@ public class CreateApplicationRequest {
 
   public void setType(String type) {
     this.type = type;
+  }
+
+
+  public CreateApplicationRequest canCreateExpiringApplications(Boolean canCreateExpiringApplications) {
+    
+    this.canCreateExpiringApplications = canCreateExpiringApplications;
+    return this;
+  }
+
+   /**
+   * Get canCreateExpiringApplications
+   * @return canCreateExpiringApplications
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getCanCreateExpiringApplications() {
+    return canCreateExpiringApplications;
+  }
+
+
+  public void setCanCreateExpiringApplications(Boolean canCreateExpiringApplications) {
+    this.canCreateExpiringApplications = canCreateExpiringApplications;
+  }
+
+
+  public CreateApplicationRequest expiresAt(String expiresAt) {
+    
+    this.expiresAt = expiresAt;
+    return this;
+  }
+
+   /**
+   * Get expiresAt
+   * @return expiresAt
+  **/
+  @javax.annotation.Nullable
+
+  public String getExpiresAt() {
+    return expiresAt;
+  }
+
+
+  public void setExpiresAt(String expiresAt) {
+    this.expiresAt = expiresAt;
   }
 
 
@@ -137,7 +186,6 @@ public class CreateApplicationRequest {
    * @return permissions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getPermissions() {
     return permissions;
@@ -168,7 +216,6 @@ public class CreateApplicationRequest {
    * @return rules
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<AccessRule> getRules() {
     return rules;
@@ -192,6 +239,8 @@ public class CreateApplicationRequest {
     CreateApplicationRequest createApplicationRequest = (CreateApplicationRequest) o;
     return Objects.equals(this.name, createApplicationRequest.name) &&
         Objects.equals(this.type, createApplicationRequest.type) &&
+        Objects.equals(this.canCreateExpiringApplications, createApplicationRequest.canCreateExpiringApplications) &&
+        Objects.equals(this.expiresAt, createApplicationRequest.expiresAt) &&
         Objects.equals(this.permissions, createApplicationRequest.permissions) &&
         Objects.equals(this.rules, createApplicationRequest.rules);
   }
@@ -202,7 +251,7 @@ public class CreateApplicationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, permissions, rules);
+    return Objects.hash(name, type, canCreateExpiringApplications, expiresAt, permissions, rules);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -218,6 +267,8 @@ public class CreateApplicationRequest {
     sb.append("class CreateApplicationRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    canCreateExpiringApplications: ").append(toIndentedString(canCreateExpiringApplications)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");
@@ -244,12 +295,13 @@ public class CreateApplicationRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("type");
+    openapiFields.add("can_create_expiring_applications");
+    openapiFields.add("expires_at");
     openapiFields.add("permissions");
     openapiFields.add("rules");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
     openapiRequiredFields.add("type");
   }
 
@@ -261,9 +313,7 @@ public class CreateApplicationRequest {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (CreateApplicationRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!CreateApplicationRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CreateApplicationRequest is not found in the empty JSON string", CreateApplicationRequest.openapiRequiredFields.toString()));
         }
       }
@@ -285,11 +335,14 @@ public class CreateApplicationRequest {
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+      if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) && !jsonObj.get("permissions").isJsonArray()) {
+      if ((jsonObj.get("expires_at") != null && !jsonObj.get("expires_at").isJsonNull()) && !jsonObj.get("expires_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expires_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_at").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
       if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {

@@ -22,7 +22,7 @@
 |**modifiedBy** | **UUID** |  |  [optional] |
 |**modifiedAt** | **OffsetDateTime** |  |  [optional] |
 |**expiresAt** | **OffsetDateTime** |  |  [optional] |
-|**container** | **String** |  |  [optional] |
+|**containers** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

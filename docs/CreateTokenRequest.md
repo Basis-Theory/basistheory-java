@@ -18,7 +18,7 @@
 |**mask** | **Object** |  |  [optional] |
 |**deduplicateToken** | **Boolean** |  |  [optional] |
 |**expiresAt** | **String** |  |  [optional] |
-|**container** | **String** |  |  [optional] |
+|**containers** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

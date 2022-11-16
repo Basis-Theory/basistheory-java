@@ -20,8 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +39,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -50,7 +49,7 @@ import com.basistheory.JSON;
 /**
  * Permission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class Permission {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -78,7 +77,6 @@ public class Permission {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getType() {
     return type;
@@ -101,7 +99,6 @@ public class Permission {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public String getDescription() {
     return description;
@@ -132,7 +129,6 @@ public class Permission {
    * @return applicationTypes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public List<String> getApplicationTypes() {
     return applicationTypes;
@@ -220,9 +216,7 @@ public class Permission {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Permission.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!Permission.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Permission is not found in the empty JSON string", Permission.openapiRequiredFields.toString()));
         }
       }
@@ -240,8 +234,8 @@ public class Permission {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // ensure the json data is an array
-      if ((jsonObj.get("application_types") != null && !jsonObj.get("application_types").isJsonNull()) && !jsonObj.get("application_types").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("application_types") != null && !jsonObj.get("application_types").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `application_types` to be an array in the JSON string but got `%s`", jsonObj.get("application_types").toString()));
       }
   }

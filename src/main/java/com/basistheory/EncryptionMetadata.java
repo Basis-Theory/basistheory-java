@@ -21,8 +21,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 import com.google.gson.Gson;
@@ -39,6 +37,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -48,7 +47,7 @@ import com.basistheory.JSON;
 /**
  * EncryptionMetadata
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T22:27:11.852310Z[Etc/UTC]")
 public class EncryptionMetadata {
   public static final String SERIALIZED_NAME_CEK = "cek";
   @SerializedName(SERIALIZED_NAME_CEK)
@@ -72,7 +71,6 @@ public class EncryptionMetadata {
    * @return cek
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public EncryptionKey getCek() {
     return cek;
@@ -95,7 +93,6 @@ public class EncryptionMetadata {
    * @return kek
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
 
   public EncryptionKey getKek() {
     return kek;
@@ -169,9 +166,7 @@ public class EncryptionMetadata {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (EncryptionMetadata.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!EncryptionMetadata.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in EncryptionMetadata is not found in the empty JSON string", EncryptionMetadata.openapiRequiredFields.toString()));
         }
       }
