@@ -22,7 +22,7 @@
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
 
-.github/*
+.github/**/*
 .gitignore
 .travis.yml
 build.gradle
