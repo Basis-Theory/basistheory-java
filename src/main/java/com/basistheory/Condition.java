@@ -47,95 +47,91 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * SearchTokensRequest
+ * Condition
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
-public class SearchTokensRequest {
-  public static final String SERIALIZED_NAME_QUERY = "query";
-  @SerializedName(SERIALIZED_NAME_QUERY)
-  private String query;
+public class Condition {
+  public static final String SERIALIZED_NAME_ATTRIBUTE = "attribute";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTE)
+  private String attribute;
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private Integer page;
+  public static final String SERIALIZED_NAME_OPERATOR = "operator";
+  @SerializedName(SERIALIZED_NAME_OPERATOR)
+  private String operator;
 
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  private Integer size;
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  private String value;
 
-  public SearchTokensRequest() {
+  public Condition() {
   }
 
-  public SearchTokensRequest query(String query) {
+  public Condition attribute(String attribute) {
     
-    this.query = query;
+    this.attribute = attribute;
     return this;
   }
 
    /**
-   * Get query
-   * @return query
+   * Get attribute
+   * @return attribute
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getQuery() {
-    return query;
+  public String getAttribute() {
+    return attribute;
   }
 
 
-  public void setQuery(String query) {
-    this.query = query;
+  public void setAttribute(String attribute) {
+    this.attribute = attribute;
   }
 
 
-  public SearchTokensRequest page(Integer page) {
+  public Condition operator(String operator) {
     
-    this.page = page;
+    this.operator = operator;
     return this;
   }
 
    /**
-   * Get page
-   * minimum: 0
-   * maximum: 2147483647
-   * @return page
+   * Get operator
+   * @return operator
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getPage() {
-    return page;
+  public String getOperator() {
+    return operator;
   }
 
 
-  public void setPage(Integer page) {
-    this.page = page;
+  public void setOperator(String operator) {
+    this.operator = operator;
   }
 
 
-  public SearchTokensRequest size(Integer size) {
+  public Condition value(String value) {
     
-    this.size = size;
+    this.value = value;
     return this;
   }
 
    /**
-   * Get size
-   * minimum: 0
-   * maximum: 100
-   * @return size
+   * Get value
+   * @return value
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getSize() {
-    return size;
+  public String getValue() {
+    return value;
   }
 
 
-  public void setSize(Integer size) {
-    this.size = size;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
@@ -148,10 +144,10 @@ public class SearchTokensRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SearchTokensRequest searchTokensRequest = (SearchTokensRequest) o;
-    return Objects.equals(this.query, searchTokensRequest.query) &&
-        Objects.equals(this.page, searchTokensRequest.page) &&
-        Objects.equals(this.size, searchTokensRequest.size);
+    Condition condition = (Condition) o;
+    return Objects.equals(this.attribute, condition.attribute) &&
+        Objects.equals(this.operator, condition.operator) &&
+        Objects.equals(this.value, condition.value);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -160,7 +156,7 @@ public class SearchTokensRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, page, size);
+    return Objects.hash(attribute, operator, value);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -173,10 +169,10 @@ public class SearchTokensRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SearchTokensRequest {\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("class Condition {\n");
+    sb.append("    attribute: ").append(toIndentedString(attribute)).append("\n");
+    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -199,9 +195,9 @@ public class SearchTokensRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("query");
-    openapiFields.add("page");
-    openapiFields.add("size");
+    openapiFields.add("attribute");
+    openapiFields.add("operator");
+    openapiFields.add("value");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -211,24 +207,30 @@ public class SearchTokensRequest {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchTokensRequest
+  * @throws IOException if the JSON Object is invalid with respect to Condition
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!SearchTokensRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SearchTokensRequest is not found in the empty JSON string", SearchTokensRequest.openapiRequiredFields.toString()));
+        if (!Condition.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Condition is not found in the empty JSON string", Condition.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!SearchTokensRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchTokensRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!Condition.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Condition` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull()) && !jsonObj.get("query").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `query` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query").toString()));
+      if ((jsonObj.get("attribute") != null && !jsonObj.get("attribute").isJsonNull()) && !jsonObj.get("attribute").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `attribute` to be a primitive type in the JSON string but got `%s`", jsonObj.get("attribute").toString()));
+      }
+      if ((jsonObj.get("operator") != null && !jsonObj.get("operator").isJsonNull()) && !jsonObj.get("operator").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `operator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operator").toString()));
+      }
+      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
   }
 
@@ -236,22 +238,22 @@ public class SearchTokensRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SearchTokensRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SearchTokensRequest' and its subtypes
+       if (!Condition.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'Condition' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SearchTokensRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SearchTokensRequest.class));
+       final TypeAdapter<Condition> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(Condition.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SearchTokensRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<Condition>() {
            @Override
-           public void write(JsonWriter out, SearchTokensRequest value) throws IOException {
+           public void write(JsonWriter out, Condition value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public SearchTokensRequest read(JsonReader in) throws IOException {
+           public Condition read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -262,18 +264,18 @@ public class SearchTokensRequest {
   }
 
  /**
-  * Create an instance of SearchTokensRequest given an JSON string
+  * Create an instance of Condition given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of SearchTokensRequest
-  * @throws IOException if the JSON string is invalid with respect to SearchTokensRequest
+  * @return An instance of Condition
+  * @throws IOException if the JSON string is invalid with respect to Condition
   */
-  public static SearchTokensRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SearchTokensRequest.class);
+  public static Condition fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, Condition.class);
   }
 
  /**
-  * Convert an instance of SearchTokensRequest to an JSON string
+  * Convert an instance of Condition to an JSON string
   *
   * @return JSON string
   */

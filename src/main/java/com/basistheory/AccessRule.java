@@ -15,6 +15,7 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.basistheory.Condition;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -41,6 +42,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -50,7 +52,7 @@ import com.basistheory.JSON;
 /**
  * AccessRule
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class AccessRule {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -67,6 +69,10 @@ public class AccessRule {
   public static final String SERIALIZED_NAME_TRANSFORM = "transform";
   @SerializedName(SERIALIZED_NAME_TRANSFORM)
   private String transform;
+
+  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
+  @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  private List<Condition> conditions = null;
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -167,6 +173,37 @@ public class AccessRule {
   }
 
 
+  public AccessRule conditions(List<Condition> conditions) {
+    
+    this.conditions = conditions;
+    return this;
+  }
+
+  public AccessRule addConditionsItem(Condition conditionsItem) {
+    if (this.conditions == null) {
+      this.conditions = new ArrayList<>();
+    }
+    this.conditions.add(conditionsItem);
+    return this;
+  }
+
+   /**
+   * Get conditions
+   * @return conditions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Condition> getConditions() {
+    return conditions;
+  }
+
+
+  public void setConditions(List<Condition> conditions) {
+    this.conditions = conditions;
+  }
+
+
   public AccessRule permissions(List<String> permissions) {
     
     this.permissions = permissions;
@@ -212,6 +249,7 @@ public class AccessRule {
         Objects.equals(this.priority, accessRule.priority) &&
         Objects.equals(this.container, accessRule.container) &&
         Objects.equals(this.transform, accessRule.transform) &&
+        Objects.equals(this.conditions, accessRule.conditions) &&
         Objects.equals(this.permissions, accessRule.permissions);
   }
 
@@ -221,7 +259,7 @@ public class AccessRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, priority, container, transform, permissions);
+    return Objects.hash(description, priority, container, transform, conditions, permissions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -239,6 +277,7 @@ public class AccessRule {
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    container: ").append(toIndentedString(container)).append("\n");
     sb.append("    transform: ").append(toIndentedString(transform)).append("\n");
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -266,6 +305,7 @@ public class AccessRule {
     openapiFields.add("priority");
     openapiFields.add("container");
     openapiFields.add("transform");
+    openapiFields.add("conditions");
     openapiFields.add("permissions");
 
     // a set of required properties/fields (JSON key names)
@@ -280,9 +320,7 @@ public class AccessRule {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (AccessRule.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!AccessRule.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AccessRule is not found in the empty JSON string", AccessRule.openapiRequiredFields.toString()));
         }
       }
@@ -303,8 +341,22 @@ public class AccessRule {
       if ((jsonObj.get("transform") != null && !jsonObj.get("transform").isJsonNull()) && !jsonObj.get("transform").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transform` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transform").toString()));
       }
+      if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
+        JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
+        if (jsonArrayconditions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("conditions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
+          }
+
+          // validate the optional field `conditions` (array)
+          for (int i = 0; i < jsonArrayconditions.size(); i++) {
+            Condition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
+          };
+        }
+      }
       // ensure the json data is an array
-      if ((jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) && !jsonObj.get("permissions").isJsonArray()) {
+      if (!jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
   }

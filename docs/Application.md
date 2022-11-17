@@ -16,6 +16,8 @@
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**modifiedBy** | **UUID** |  |  [optional] |
 |**modifiedAt** | **OffsetDateTime** |  |  [optional] |
+|**canCreateExpiringApplications** | **Boolean** |  |  [optional] |
+|**expiresAt** | **OffsetDateTime** |  |  [optional] |
 |**permissions** | **List&lt;String&gt;** |  |  [optional] |
 |**rules** | [**List&lt;AccessRule&gt;**](AccessRule.md) |  |  [optional] |
 

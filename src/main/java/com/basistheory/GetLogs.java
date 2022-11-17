@@ -40,6 +40,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -49,21 +50,21 @@ import com.basistheory.JSON;
 /**
  * GetLogs
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class GetLogs {
-  public static final String SERIALIZED_NAME_ENTITY_TYPE = "entityType";
+  public static final String SERIALIZED_NAME_ENTITY_TYPE = "entity_type";
   @SerializedName(SERIALIZED_NAME_ENTITY_TYPE)
   private String entityType;
 
-  public static final String SERIALIZED_NAME_ENTITY_ID = "entityId";
+  public static final String SERIALIZED_NAME_ENTITY_ID = "entity_id";
   @SerializedName(SERIALIZED_NAME_ENTITY_ID)
   private String entityId;
 
-  public static final String SERIALIZED_NAME_START_DATE = "startDate";
+  public static final String SERIALIZED_NAME_START_DATE = "start_date";
   @SerializedName(SERIALIZED_NAME_START_DATE)
   private OffsetDateTime startDate;
 
-  public static final String SERIALIZED_NAME_END_DATE = "endDate";
+  public static final String SERIALIZED_NAME_END_DATE = "end_date";
   @SerializedName(SERIALIZED_NAME_END_DATE)
   private OffsetDateTime endDate;
 
@@ -286,10 +287,10 @@ public class GetLogs {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("entityType");
-    openapiFields.add("entityId");
-    openapiFields.add("startDate");
-    openapiFields.add("endDate");
+    openapiFields.add("entity_type");
+    openapiFields.add("entity_id");
+    openapiFields.add("start_date");
+    openapiFields.add("end_date");
     openapiFields.add("page");
     openapiFields.add("size");
 
@@ -305,9 +306,7 @@ public class GetLogs {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (GetLogs.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!GetLogs.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetLogs is not found in the empty JSON string", GetLogs.openapiRequiredFields.toString()));
         }
       }
@@ -319,11 +318,11 @@ public class GetLogs {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetLogs` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if ((jsonObj.get("entityType") != null && !jsonObj.get("entityType").isJsonNull()) && !jsonObj.get("entityType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `entityType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityType").toString()));
+      if ((jsonObj.get("entity_type") != null && !jsonObj.get("entity_type").isJsonNull()) && !jsonObj.get("entity_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `entity_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity_type").toString()));
       }
-      if ((jsonObj.get("entityId") != null && !jsonObj.get("entityId").isJsonNull()) && !jsonObj.get("entityId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `entityId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entityId").toString()));
+      if ((jsonObj.get("entity_id") != null && !jsonObj.get("entity_id").isJsonNull()) && !jsonObj.get("entity_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `entity_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity_id").toString()));
       }
   }
 

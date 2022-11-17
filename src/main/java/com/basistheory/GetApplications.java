@@ -42,6 +42,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -51,11 +52,15 @@ import com.basistheory.JSON;
 /**
  * GetApplications
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class GetApplications {
-  public static final String SERIALIZED_NAME_APPLICATION_IDS = "applicationIds";
-  @SerializedName(SERIALIZED_NAME_APPLICATION_IDS)
-  private List<UUID> applicationIds = null;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private List<UUID> id = null;
+
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private List<String> type = null;
 
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -68,34 +73,65 @@ public class GetApplications {
   public GetApplications() {
   }
 
-  public GetApplications applicationIds(List<UUID> applicationIds) {
+  public GetApplications id(List<UUID> id) {
     
-    this.applicationIds = applicationIds;
+    this.id = id;
     return this;
   }
 
-  public GetApplications addApplicationIdsItem(UUID applicationIdsItem) {
-    if (this.applicationIds == null) {
-      this.applicationIds = new ArrayList<>();
+  public GetApplications addIdItem(UUID idItem) {
+    if (this.id == null) {
+      this.id = new ArrayList<>();
     }
-    this.applicationIds.add(applicationIdsItem);
+    this.id.add(idItem);
     return this;
   }
 
    /**
-   * Get applicationIds
-   * @return applicationIds
+   * Get id
+   * @return id
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<UUID> getApplicationIds() {
-    return applicationIds;
+  public List<UUID> getId() {
+    return id;
   }
 
 
-  public void setApplicationIds(List<UUID> applicationIds) {
-    this.applicationIds = applicationIds;
+  public void setId(List<UUID> id) {
+    this.id = id;
+  }
+
+
+  public GetApplications type(List<String> type) {
+    
+    this.type = type;
+    return this;
+  }
+
+  public GetApplications addTypeItem(String typeItem) {
+    if (this.type == null) {
+      this.type = new ArrayList<>();
+    }
+    this.type.add(typeItem);
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getType() {
+    return type;
+  }
+
+
+  public void setType(List<String> type) {
+    this.type = type;
   }
 
 
@@ -159,7 +195,8 @@ public class GetApplications {
       return false;
     }
     GetApplications getApplications = (GetApplications) o;
-    return Objects.equals(this.applicationIds, getApplications.applicationIds) &&
+    return Objects.equals(this.id, getApplications.id) &&
+        Objects.equals(this.type, getApplications.type) &&
         Objects.equals(this.page, getApplications.page) &&
         Objects.equals(this.size, getApplications.size);
   }
@@ -170,7 +207,7 @@ public class GetApplications {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationIds, page, size);
+    return Objects.hash(id, type, page, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -184,7 +221,8 @@ public class GetApplications {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetApplications {\n");
-    sb.append("    applicationIds: ").append(toIndentedString(applicationIds)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
@@ -209,7 +247,8 @@ public class GetApplications {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("applicationIds");
+    openapiFields.add("id");
+    openapiFields.add("type");
     openapiFields.add("page");
     openapiFields.add("size");
 
@@ -225,9 +264,7 @@ public class GetApplications {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (GetApplications.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!GetApplications.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetApplications is not found in the empty JSON string", GetApplications.openapiRequiredFields.toString()));
         }
       }
@@ -240,8 +277,12 @@ public class GetApplications {
         }
       }
       // ensure the json data is an array
-      if ((jsonObj.get("applicationIds") != null && !jsonObj.get("applicationIds").isJsonNull()) && !jsonObj.get("applicationIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `applicationIds` to be an array in the JSON string but got `%s`", jsonObj.get("applicationIds").toString()));
+      if (!jsonObj.get("id").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      // ensure the json data is an array
+      if (!jsonObj.get("type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be an array in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

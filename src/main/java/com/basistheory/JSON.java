@@ -96,6 +96,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.AccessRule.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Application.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ApplicationPaginatedList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ApplicationTemplate.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Condition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateApplicationRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateProxyRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateReactorFormulaRequest.CustomTypeAdapterFactory());

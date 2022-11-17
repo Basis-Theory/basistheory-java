@@ -42,6 +42,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -51,11 +52,11 @@ import com.basistheory.JSON;
 /**
  * GetReactors
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class GetReactors {
-  public static final String SERIALIZED_NAME_REACTOR_IDS = "reactorIds";
-  @SerializedName(SERIALIZED_NAME_REACTOR_IDS)
-  private List<UUID> reactorIds = null;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private List<UUID> id = null;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -72,34 +73,34 @@ public class GetReactors {
   public GetReactors() {
   }
 
-  public GetReactors reactorIds(List<UUID> reactorIds) {
+  public GetReactors id(List<UUID> id) {
     
-    this.reactorIds = reactorIds;
+    this.id = id;
     return this;
   }
 
-  public GetReactors addReactorIdsItem(UUID reactorIdsItem) {
-    if (this.reactorIds == null) {
-      this.reactorIds = new ArrayList<>();
+  public GetReactors addIdItem(UUID idItem) {
+    if (this.id == null) {
+      this.id = new ArrayList<>();
     }
-    this.reactorIds.add(reactorIdsItem);
+    this.id.add(idItem);
     return this;
   }
 
    /**
-   * Get reactorIds
-   * @return reactorIds
+   * Get id
+   * @return id
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<UUID> getReactorIds() {
-    return reactorIds;
+  public List<UUID> getId() {
+    return id;
   }
 
 
-  public void setReactorIds(List<UUID> reactorIds) {
-    this.reactorIds = reactorIds;
+  public void setId(List<UUID> id) {
+    this.id = id;
   }
 
 
@@ -186,7 +187,7 @@ public class GetReactors {
       return false;
     }
     GetReactors getReactors = (GetReactors) o;
-    return Objects.equals(this.reactorIds, getReactors.reactorIds) &&
+    return Objects.equals(this.id, getReactors.id) &&
         Objects.equals(this.name, getReactors.name) &&
         Objects.equals(this.page, getReactors.page) &&
         Objects.equals(this.size, getReactors.size);
@@ -198,7 +199,7 @@ public class GetReactors {
 
   @Override
   public int hashCode() {
-    return Objects.hash(reactorIds, name, page, size);
+    return Objects.hash(id, name, page, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,7 +213,7 @@ public class GetReactors {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetReactors {\n");
-    sb.append("    reactorIds: ").append(toIndentedString(reactorIds)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
@@ -238,7 +239,7 @@ public class GetReactors {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("reactorIds");
+    openapiFields.add("id");
     openapiFields.add("name");
     openapiFields.add("page");
     openapiFields.add("size");
@@ -255,9 +256,7 @@ public class GetReactors {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (GetReactors.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!GetReactors.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetReactors is not found in the empty JSON string", GetReactors.openapiRequiredFields.toString()));
         }
       }
@@ -270,8 +269,8 @@ public class GetReactors {
         }
       }
       // ensure the json data is an array
-      if ((jsonObj.get("reactorIds") != null && !jsonObj.get("reactorIds").isJsonNull()) && !jsonObj.get("reactorIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reactorIds` to be an array in the JSON string but got `%s`", jsonObj.get("reactorIds").toString()));
+      if (!jsonObj.get("id").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

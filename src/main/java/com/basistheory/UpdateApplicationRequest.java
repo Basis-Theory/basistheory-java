@@ -42,6 +42,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -51,11 +52,15 @@ import com.basistheory.JSON;
 /**
  * UpdateApplicationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class UpdateApplicationRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_CAN_CREATE_EXPIRING_APPLICATIONS = "can_create_expiring_applications";
+  @SerializedName(SERIALIZED_NAME_CAN_CREATE_EXPIRING_APPLICATIONS)
+  private Boolean canCreateExpiringApplications;
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -88,6 +93,29 @@ public class UpdateApplicationRequest {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public UpdateApplicationRequest canCreateExpiringApplications(Boolean canCreateExpiringApplications) {
+    
+    this.canCreateExpiringApplications = canCreateExpiringApplications;
+    return this;
+  }
+
+   /**
+   * Get canCreateExpiringApplications
+   * @return canCreateExpiringApplications
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getCanCreateExpiringApplications() {
+    return canCreateExpiringApplications;
+  }
+
+
+  public void setCanCreateExpiringApplications(Boolean canCreateExpiringApplications) {
+    this.canCreateExpiringApplications = canCreateExpiringApplications;
   }
 
 
@@ -164,6 +192,7 @@ public class UpdateApplicationRequest {
     }
     UpdateApplicationRequest updateApplicationRequest = (UpdateApplicationRequest) o;
     return Objects.equals(this.name, updateApplicationRequest.name) &&
+        Objects.equals(this.canCreateExpiringApplications, updateApplicationRequest.canCreateExpiringApplications) &&
         Objects.equals(this.permissions, updateApplicationRequest.permissions) &&
         Objects.equals(this.rules, updateApplicationRequest.rules);
   }
@@ -174,7 +203,7 @@ public class UpdateApplicationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, permissions, rules);
+    return Objects.hash(name, canCreateExpiringApplications, permissions, rules);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -189,6 +218,7 @@ public class UpdateApplicationRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateApplicationRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    canCreateExpiringApplications: ").append(toIndentedString(canCreateExpiringApplications)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");
@@ -214,6 +244,7 @@ public class UpdateApplicationRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
+    openapiFields.add("can_create_expiring_applications");
     openapiFields.add("permissions");
     openapiFields.add("rules");
 
@@ -230,9 +261,7 @@ public class UpdateApplicationRequest {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (UpdateApplicationRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!UpdateApplicationRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateApplicationRequest is not found in the empty JSON string", UpdateApplicationRequest.openapiRequiredFields.toString()));
         }
       }
@@ -251,11 +280,11 @@ public class UpdateApplicationRequest {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+      if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the json data is an array
-      if ((jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) && !jsonObj.get("permissions").isJsonArray()) {
+      if (!jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
       if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {

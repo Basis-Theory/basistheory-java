@@ -41,6 +41,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -50,7 +51,7 @@ import com.basistheory.JSON;
 /**
  * Permission
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class Permission {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -220,9 +221,7 @@ public class Permission {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Permission.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!Permission.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Permission is not found in the empty JSON string", Permission.openapiRequiredFields.toString()));
         }
       }
@@ -241,7 +240,7 @@ public class Permission {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // ensure the json data is an array
-      if ((jsonObj.get("application_types") != null && !jsonObj.get("application_types").isJsonNull()) && !jsonObj.get("application_types").isJsonArray()) {
+      if (!jsonObj.get("application_types").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `application_types` to be an array in the JSON string but got `%s`", jsonObj.get("application_types").toString()));
       }
   }

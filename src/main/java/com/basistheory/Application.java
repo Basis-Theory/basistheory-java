@@ -44,6 +44,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -53,7 +54,7 @@ import com.basistheory.JSON;
 /**
  * Application
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class Application {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -90,6 +91,14 @@ public class Application {
   public static final String SERIALIZED_NAME_MODIFIED_AT = "modified_at";
   @SerializedName(SERIALIZED_NAME_MODIFIED_AT)
   private OffsetDateTime modifiedAt;
+
+  public static final String SERIALIZED_NAME_CAN_CREATE_EXPIRING_APPLICATIONS = "can_create_expiring_applications";
+  @SerializedName(SERIALIZED_NAME_CAN_CREATE_EXPIRING_APPLICATIONS)
+  private Boolean canCreateExpiringApplications;
+
+  public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
+  private OffsetDateTime expiresAt;
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -309,6 +318,52 @@ public class Application {
   }
 
 
+  public Application canCreateExpiringApplications(Boolean canCreateExpiringApplications) {
+    
+    this.canCreateExpiringApplications = canCreateExpiringApplications;
+    return this;
+  }
+
+   /**
+   * Get canCreateExpiringApplications
+   * @return canCreateExpiringApplications
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getCanCreateExpiringApplications() {
+    return canCreateExpiringApplications;
+  }
+
+
+  public void setCanCreateExpiringApplications(Boolean canCreateExpiringApplications) {
+    this.canCreateExpiringApplications = canCreateExpiringApplications;
+  }
+
+
+  public Application expiresAt(OffsetDateTime expiresAt) {
+    
+    this.expiresAt = expiresAt;
+    return this;
+  }
+
+   /**
+   * Get expiresAt
+   * @return expiresAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getExpiresAt() {
+    return expiresAt;
+  }
+
+
+  public void setExpiresAt(OffsetDateTime expiresAt) {
+    this.expiresAt = expiresAt;
+  }
+
+
   public Application permissions(List<String> permissions) {
     
     this.permissions = permissions;
@@ -390,6 +445,8 @@ public class Application {
         Objects.equals(this.createdAt, application.createdAt) &&
         Objects.equals(this.modifiedBy, application.modifiedBy) &&
         Objects.equals(this.modifiedAt, application.modifiedAt) &&
+        Objects.equals(this.canCreateExpiringApplications, application.canCreateExpiringApplications) &&
+        Objects.equals(this.expiresAt, application.expiresAt) &&
         Objects.equals(this.permissions, application.permissions) &&
         Objects.equals(this.rules, application.rules);
   }
@@ -400,7 +457,7 @@ public class Application {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, name, key, type, createdBy, createdAt, modifiedBy, modifiedAt, permissions, rules);
+    return Objects.hash(id, tenantId, name, key, type, createdBy, createdAt, modifiedBy, modifiedAt, canCreateExpiringApplications, expiresAt, permissions, rules);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -423,6 +480,8 @@ public class Application {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    canCreateExpiringApplications: ").append(toIndentedString(canCreateExpiringApplications)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");
@@ -456,6 +515,8 @@ public class Application {
     openapiFields.add("created_at");
     openapiFields.add("modified_by");
     openapiFields.add("modified_at");
+    openapiFields.add("can_create_expiring_applications");
+    openapiFields.add("expires_at");
     openapiFields.add("permissions");
     openapiFields.add("rules");
 
@@ -471,9 +532,7 @@ public class Application {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (Application.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!Application.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Application is not found in the empty JSON string", Application.openapiRequiredFields.toString()));
         }
       }
@@ -507,7 +566,7 @@ public class Application {
         throw new IllegalArgumentException(String.format("Expected the field `modified_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("modified_by").toString()));
       }
       // ensure the json data is an array
-      if ((jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) && !jsonObj.get("permissions").isJsonArray()) {
+      if (!jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
       if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {

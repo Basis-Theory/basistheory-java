@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**userIds** | **List&lt;UUID&gt;** |  |  [optional] |
+|**userId** | **List&lt;UUID&gt;** |  |  [optional] |
 |**page** | **Integer** |  |  [optional] |
 |**size** | **Integer** |  |  [optional] |
 

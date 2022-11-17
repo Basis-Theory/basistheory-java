@@ -39,6 +39,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -48,7 +49,7 @@ import com.basistheory.JSON;
 /**
  * TenantUsageReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class TenantUsageReport {
   public static final String SERIALIZED_NAME_TOKEN_REPORT = "token_report";
   @SerializedName(SERIALIZED_NAME_TOKEN_REPORT)
@@ -139,9 +140,7 @@ public class TenantUsageReport {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (TenantUsageReport.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!TenantUsageReport.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TenantUsageReport is not found in the empty JSON string", TenantUsageReport.openapiRequiredFields.toString()));
         }
       }

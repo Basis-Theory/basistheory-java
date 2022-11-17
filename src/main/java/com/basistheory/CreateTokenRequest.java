@@ -45,6 +45,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -54,7 +55,7 @@ import com.basistheory.JSON;
 /**
  * CreateTokenRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class CreateTokenRequest {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -100,9 +101,9 @@ public class CreateTokenRequest {
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   private String expiresAt;
 
-  public static final String SERIALIZED_NAME_CONTAINER = "container";
-  @SerializedName(SERIALIZED_NAME_CONTAINER)
-  private String container;
+  public static final String SERIALIZED_NAME_CONTAINERS = "containers";
+  @SerializedName(SERIALIZED_NAME_CONTAINERS)
+  private List<String> containers = null;
 
   public CreateTokenRequest() {
   }
@@ -376,26 +377,34 @@ public class CreateTokenRequest {
   }
 
 
-  public CreateTokenRequest container(String container) {
+  public CreateTokenRequest containers(List<String> containers) {
     
-    this.container = container;
+    this.containers = containers;
+    return this;
+  }
+
+  public CreateTokenRequest addContainersItem(String containersItem) {
+    if (this.containers == null) {
+      this.containers = new ArrayList<>();
+    }
+    this.containers.add(containersItem);
     return this;
   }
 
    /**
-   * Get container
-   * @return container
+   * Get containers
+   * @return containers
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getContainer() {
-    return container;
+  public List<String> getContainers() {
+    return containers;
   }
 
 
-  public void setContainer(String container) {
-    this.container = container;
+  public void setContainers(List<String> containers) {
+    this.containers = containers;
   }
 
 
@@ -420,7 +429,7 @@ public class CreateTokenRequest {
         Objects.equals(this.mask, createTokenRequest.mask) &&
         Objects.equals(this.deduplicateToken, createTokenRequest.deduplicateToken) &&
         Objects.equals(this.expiresAt, createTokenRequest.expiresAt) &&
-        Objects.equals(this.container, createTokenRequest.container);
+        Objects.equals(this.containers, createTokenRequest.containers);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -429,7 +438,7 @@ public class CreateTokenRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, data, encryption, privacy, metadata, searchIndexes, fingerprintExpression, mask, deduplicateToken, expiresAt, container);
+    return Objects.hash(id, type, data, encryption, privacy, metadata, searchIndexes, fingerprintExpression, mask, deduplicateToken, expiresAt, containers);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -454,7 +463,7 @@ public class CreateTokenRequest {
     sb.append("    mask: ").append(toIndentedString(mask)).append("\n");
     sb.append("    deduplicateToken: ").append(toIndentedString(deduplicateToken)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
-    sb.append("    container: ").append(toIndentedString(container)).append("\n");
+    sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -488,7 +497,7 @@ public class CreateTokenRequest {
     openapiFields.add("mask");
     openapiFields.add("deduplicate_token");
     openapiFields.add("expires_at");
-    openapiFields.add("container");
+    openapiFields.add("containers");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -503,9 +512,7 @@ public class CreateTokenRequest {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (CreateTokenRequest.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!CreateTokenRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTokenRequest is not found in the empty JSON string", CreateTokenRequest.openapiRequiredFields.toString()));
         }
       }
@@ -539,7 +546,7 @@ public class CreateTokenRequest {
         Privacy.validateJsonObject(jsonObj.getAsJsonObject("privacy"));
       }
       // ensure the json data is an array
-      if ((jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonNull()) && !jsonObj.get("search_indexes").isJsonArray()) {
+      if (!jsonObj.get("search_indexes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `search_indexes` to be an array in the JSON string but got `%s`", jsonObj.get("search_indexes").toString()));
       }
       if ((jsonObj.get("fingerprint_expression") != null && !jsonObj.get("fingerprint_expression").isJsonNull()) && !jsonObj.get("fingerprint_expression").isJsonPrimitive()) {
@@ -548,8 +555,9 @@ public class CreateTokenRequest {
       if ((jsonObj.get("expires_at") != null && !jsonObj.get("expires_at").isJsonNull()) && !jsonObj.get("expires_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expires_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_at").toString()));
       }
-      if ((jsonObj.get("container") != null && !jsonObj.get("container").isJsonNull()) && !jsonObj.get("container").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `container` to be a primitive type in the JSON string but got `%s`", jsonObj.get("container").toString()));
+      // ensure the json data is an array
+      if (!jsonObj.get("containers").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
       }
   }
 

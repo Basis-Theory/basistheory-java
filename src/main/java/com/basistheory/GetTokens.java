@@ -43,6 +43,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -52,19 +53,19 @@ import com.basistheory.JSON;
 /**
  * GetTokens
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-09-20T20:41:05.311366Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
 public class GetTokens {
-  public static final String SERIALIZED_NAME_TYPES = "types";
-  @SerializedName(SERIALIZED_NAME_TYPES)
-  private List<String> types = null;
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private List<String> type = null;
 
-  public static final String SERIALIZED_NAME_TOKEN_IDS = "tokenIds";
-  @SerializedName(SERIALIZED_NAME_TOKEN_IDS)
-  private List<String> tokenIds = null;
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private List<String> id = null;
 
-  public static final String SERIALIZED_NAME_METADATA_SEARCH = "metadataSearch";
-  @SerializedName(SERIALIZED_NAME_METADATA_SEARCH)
-  private Map<String, String> metadataSearch = null;
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private Map<String, String> metadata = null;
 
   public static final String SERIALIZED_NAME_PAGE = "page";
   @SerializedName(SERIALIZED_NAME_PAGE)
@@ -77,96 +78,96 @@ public class GetTokens {
   public GetTokens() {
   }
 
-  public GetTokens types(List<String> types) {
+  public GetTokens type(List<String> type) {
     
-    this.types = types;
+    this.type = type;
     return this;
   }
 
-  public GetTokens addTypesItem(String typesItem) {
-    if (this.types == null) {
-      this.types = new ArrayList<>();
+  public GetTokens addTypeItem(String typeItem) {
+    if (this.type == null) {
+      this.type = new ArrayList<>();
     }
-    this.types.add(typesItem);
+    this.type.add(typeItem);
     return this;
   }
 
    /**
-   * Get types
-   * @return types
+   * Get type
+   * @return type
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getTypes() {
-    return types;
+  public List<String> getType() {
+    return type;
   }
 
 
-  public void setTypes(List<String> types) {
-    this.types = types;
+  public void setType(List<String> type) {
+    this.type = type;
   }
 
 
-  public GetTokens tokenIds(List<String> tokenIds) {
+  public GetTokens id(List<String> id) {
     
-    this.tokenIds = tokenIds;
+    this.id = id;
     return this;
   }
 
-  public GetTokens addTokenIdsItem(String tokenIdsItem) {
-    if (this.tokenIds == null) {
-      this.tokenIds = new ArrayList<>();
+  public GetTokens addIdItem(String idItem) {
+    if (this.id == null) {
+      this.id = new ArrayList<>();
     }
-    this.tokenIds.add(tokenIdsItem);
+    this.id.add(idItem);
     return this;
   }
 
    /**
-   * Get tokenIds
-   * @return tokenIds
+   * Get id
+   * @return id
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getTokenIds() {
-    return tokenIds;
+  public List<String> getId() {
+    return id;
   }
 
 
-  public void setTokenIds(List<String> tokenIds) {
-    this.tokenIds = tokenIds;
+  public void setId(List<String> id) {
+    this.id = id;
   }
 
 
-  public GetTokens metadataSearch(Map<String, String> metadataSearch) {
+  public GetTokens metadata(Map<String, String> metadata) {
     
-    this.metadataSearch = metadataSearch;
+    this.metadata = metadata;
     return this;
   }
 
-  public GetTokens putMetadataSearchItem(String key, String metadataSearchItem) {
-    if (this.metadataSearch == null) {
-      this.metadataSearch = new HashMap<>();
+  public GetTokens putMetadataItem(String key, String metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new HashMap<>();
     }
-    this.metadataSearch.put(key, metadataSearchItem);
+    this.metadata.put(key, metadataItem);
     return this;
   }
 
    /**
-   * Get metadataSearch
-   * @return metadataSearch
+   * Get metadata
+   * @return metadata
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Map<String, String> getMetadataSearch() {
-    return metadataSearch;
+  public Map<String, String> getMetadata() {
+    return metadata;
   }
 
 
-  public void setMetadataSearch(Map<String, String> metadataSearch) {
-    this.metadataSearch = metadataSearch;
+  public void setMetadata(Map<String, String> metadata) {
+    this.metadata = metadata;
   }
 
 
@@ -230,9 +231,9 @@ public class GetTokens {
       return false;
     }
     GetTokens getTokens = (GetTokens) o;
-    return Objects.equals(this.types, getTokens.types) &&
-        Objects.equals(this.tokenIds, getTokens.tokenIds) &&
-        Objects.equals(this.metadataSearch, getTokens.metadataSearch) &&
+    return Objects.equals(this.type, getTokens.type) &&
+        Objects.equals(this.id, getTokens.id) &&
+        Objects.equals(this.metadata, getTokens.metadata) &&
         Objects.equals(this.page, getTokens.page) &&
         Objects.equals(this.size, getTokens.size);
   }
@@ -243,7 +244,7 @@ public class GetTokens {
 
   @Override
   public int hashCode() {
-    return Objects.hash(types, tokenIds, metadataSearch, page, size);
+    return Objects.hash(type, id, metadata, page, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -257,9 +258,9 @@ public class GetTokens {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTokens {\n");
-    sb.append("    types: ").append(toIndentedString(types)).append("\n");
-    sb.append("    tokenIds: ").append(toIndentedString(tokenIds)).append("\n");
-    sb.append("    metadataSearch: ").append(toIndentedString(metadataSearch)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
@@ -284,9 +285,9 @@ public class GetTokens {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("types");
-    openapiFields.add("tokenIds");
-    openapiFields.add("metadataSearch");
+    openapiFields.add("type");
+    openapiFields.add("id");
+    openapiFields.add("metadata");
     openapiFields.add("page");
     openapiFields.add("size");
 
@@ -302,9 +303,7 @@ public class GetTokens {
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (GetTokens.openapiRequiredFields.isEmpty()) {
-          return;
-        } else { // has required fields
+        if (!GetTokens.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetTokens is not found in the empty JSON string", GetTokens.openapiRequiredFields.toString()));
         }
       }
@@ -317,12 +316,12 @@ public class GetTokens {
         }
       }
       // ensure the json data is an array
-      if ((jsonObj.get("types") != null && !jsonObj.get("types").isJsonNull()) && !jsonObj.get("types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `types` to be an array in the JSON string but got `%s`", jsonObj.get("types").toString()));
+      if (!jsonObj.get("type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be an array in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       // ensure the json data is an array
-      if ((jsonObj.get("tokenIds") != null && !jsonObj.get("tokenIds").isJsonNull()) && !jsonObj.get("tokenIds").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tokenIds` to be an array in the JSON string but got `%s`", jsonObj.get("tokenIds").toString()));
+      if (!jsonObj.get("id").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
   }
 
