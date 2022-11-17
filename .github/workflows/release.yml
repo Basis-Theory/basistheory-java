@@ -31,6 +31,7 @@ jobs:
 
           sed -i "s/\(version = \)'[^']*'/\1'${{ steps.tag-version.outputs.new_tag }}'/g" build.gradle
           sed -i "s/\(basistheory-java:\)[^']*'/\1${{ steps.tag-version.outputs.new_tag }}'/g" README.md
+          sed -i "s/\(<version>\).*\(<\/version>\)/\1${{ steps.tag-version.outputs.new_tag }}\2/g" README.md
 
           echo "${{ steps.tag-version.outputs.changelog }}" | cat - CHANGELOG.md > temp && mv temp CHANGELOG.md
 

@@ -48,7 +48,7 @@ Then add the following dependency to your project's POM:
 <dependency>
     <groupId>com.github.Basis-Theory</groupId>
     <artifactId>basistheory-java</artifactId>
-    <version>master-SNAPSHOT</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
