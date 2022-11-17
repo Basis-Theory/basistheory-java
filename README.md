@@ -25,7 +25,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.basistheory:basistheory-java:master-SNAPSHOT"
+     implementation 'com.basistheory:basistheory-java:master-SNAPSHOT'
   }
 ```
 
