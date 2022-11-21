@@ -126,6 +126,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ProblemDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Proxy.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ProxyPaginatedList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ProxyTransform.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ReactRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ReactResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Reactor.CustomTypeAdapterFactory());

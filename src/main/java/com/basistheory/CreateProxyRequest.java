@@ -15,6 +15,8 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.basistheory.Application;
+import com.basistheory.ProxyTransform;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +25,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -50,7 +54,7 @@ import com.basistheory.JSON;
 /**
  * CreateProxyRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:42:53.558293Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-30T19:58:09.260536Z[Etc/UTC]")
 public class CreateProxyRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -67,6 +71,22 @@ public class CreateProxyRequest {
   public static final String SERIALIZED_NAME_RESPONSE_REACTOR_ID = "response_reactor_id";
   @SerializedName(SERIALIZED_NAME_RESPONSE_REACTOR_ID)
   private UUID responseReactorId;
+
+  public static final String SERIALIZED_NAME_REQUEST_TRANSFORM = "request_transform";
+  @SerializedName(SERIALIZED_NAME_REQUEST_TRANSFORM)
+  private ProxyTransform requestTransform;
+
+  public static final String SERIALIZED_NAME_RESPONSE_TRANSFORM = "response_transform";
+  @SerializedName(SERIALIZED_NAME_RESPONSE_TRANSFORM)
+  private ProxyTransform responseTransform;
+
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private Application application;
+
+  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION)
+  private Map<String, String> _configuration = null;
 
   public static final String SERIALIZED_NAME_REQUIRE_AUTH = "require_auth";
   @SerializedName(SERIALIZED_NAME_REQUIRE_AUTH)
@@ -167,6 +187,106 @@ public class CreateProxyRequest {
   }
 
 
+  public CreateProxyRequest requestTransform(ProxyTransform requestTransform) {
+    
+    this.requestTransform = requestTransform;
+    return this;
+  }
+
+   /**
+   * Get requestTransform
+   * @return requestTransform
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ProxyTransform getRequestTransform() {
+    return requestTransform;
+  }
+
+
+  public void setRequestTransform(ProxyTransform requestTransform) {
+    this.requestTransform = requestTransform;
+  }
+
+
+  public CreateProxyRequest responseTransform(ProxyTransform responseTransform) {
+    
+    this.responseTransform = responseTransform;
+    return this;
+  }
+
+   /**
+   * Get responseTransform
+   * @return responseTransform
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ProxyTransform getResponseTransform() {
+    return responseTransform;
+  }
+
+
+  public void setResponseTransform(ProxyTransform responseTransform) {
+    this.responseTransform = responseTransform;
+  }
+
+
+  public CreateProxyRequest application(Application application) {
+    
+    this.application = application;
+    return this;
+  }
+
+   /**
+   * Get application
+   * @return application
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Application getApplication() {
+    return application;
+  }
+
+
+  public void setApplication(Application application) {
+    this.application = application;
+  }
+
+
+  public CreateProxyRequest _configuration(Map<String, String> _configuration) {
+    
+    this._configuration = _configuration;
+    return this;
+  }
+
+  public CreateProxyRequest putConfigurationItem(String key, String _configurationItem) {
+    if (this._configuration == null) {
+      this._configuration = new HashMap<>();
+    }
+    this._configuration.put(key, _configurationItem);
+    return this;
+  }
+
+   /**
+   * Get _configuration
+   * @return _configuration
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Map<String, String> getConfiguration() {
+    return _configuration;
+  }
+
+
+  public void setConfiguration(Map<String, String> _configuration) {
+    this._configuration = _configuration;
+  }
+
+
   public CreateProxyRequest requireAuth(Boolean requireAuth) {
     
     this.requireAuth = requireAuth;
@@ -204,6 +324,10 @@ public class CreateProxyRequest {
         Objects.equals(this.destinationUrl, createProxyRequest.destinationUrl) &&
         Objects.equals(this.requestReactorId, createProxyRequest.requestReactorId) &&
         Objects.equals(this.responseReactorId, createProxyRequest.responseReactorId) &&
+        Objects.equals(this.requestTransform, createProxyRequest.requestTransform) &&
+        Objects.equals(this.responseTransform, createProxyRequest.responseTransform) &&
+        Objects.equals(this.application, createProxyRequest.application) &&
+        Objects.equals(this._configuration, createProxyRequest._configuration) &&
         Objects.equals(this.requireAuth, createProxyRequest.requireAuth);
   }
 
@@ -213,7 +337,7 @@ public class CreateProxyRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, destinationUrl, requestReactorId, responseReactorId, requireAuth);
+    return Objects.hash(name, destinationUrl, requestReactorId, responseReactorId, requestTransform, responseTransform, application, _configuration, requireAuth);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -231,6 +355,10 @@ public class CreateProxyRequest {
     sb.append("    destinationUrl: ").append(toIndentedString(destinationUrl)).append("\n");
     sb.append("    requestReactorId: ").append(toIndentedString(requestReactorId)).append("\n");
     sb.append("    responseReactorId: ").append(toIndentedString(responseReactorId)).append("\n");
+    sb.append("    requestTransform: ").append(toIndentedString(requestTransform)).append("\n");
+    sb.append("    responseTransform: ").append(toIndentedString(responseTransform)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    requireAuth: ").append(toIndentedString(requireAuth)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -258,6 +386,10 @@ public class CreateProxyRequest {
     openapiFields.add("destination_url");
     openapiFields.add("request_reactor_id");
     openapiFields.add("response_reactor_id");
+    openapiFields.add("request_transform");
+    openapiFields.add("response_transform");
+    openapiFields.add("application");
+    openapiFields.add("configuration");
     openapiFields.add("require_auth");
 
     // a set of required properties/fields (JSON key names)
@@ -304,6 +436,18 @@ public class CreateProxyRequest {
       }
       if ((jsonObj.get("response_reactor_id") != null && !jsonObj.get("response_reactor_id").isJsonNull()) && !jsonObj.get("response_reactor_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `response_reactor_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("response_reactor_id").toString()));
+      }
+      // validate the optional field `request_transform`
+      if (jsonObj.get("request_transform") != null && !jsonObj.get("request_transform").isJsonNull()) {
+        ProxyTransform.validateJsonObject(jsonObj.getAsJsonObject("request_transform"));
+      }
+      // validate the optional field `response_transform`
+      if (jsonObj.get("response_transform") != null && !jsonObj.get("response_transform").isJsonNull()) {
+        ProxyTransform.validateJsonObject(jsonObj.getAsJsonObject("response_transform"));
+      }
+      // validate the optional field `application`
+      if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()) {
+        Application.validateJsonObject(jsonObj.getAsJsonObject("application"));
       }
   }
 

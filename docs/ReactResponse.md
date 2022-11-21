@@ -9,6 +9,8 @@
 |------------ | ------------- | ------------- | -------------|
 |**tokens** | **Object** |  |  [optional] |
 |**raw** | **Object** |  |  [optional] |
+|**body** | **Object** |  |  [optional] |
+|**headers** | **Object** |  |  [optional] |
 
 
 

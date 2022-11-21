@@ -2975,11 +2975,64 @@ components:
     CreateProxyRequest:
       additionalProperties: false
       example:
+        response_transform:
+          code: code
+        application:
+          tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          created_at: 2000-01-23T04:56:07.000+00:00
+          rules:
+          - container: container
+            transform: transform
+            permissions:
+            - permissions
+            - permissions
+            description: description
+            priority: 5
+            conditions:
+            - attribute: attribute
+              value: value
+              operator: operator
+            - attribute: attribute
+              value: value
+              operator: operator
+          - container: container
+            transform: transform
+            permissions:
+            - permissions
+            - permissions
+            description: description
+            priority: 5
+            conditions:
+            - attribute: attribute
+              value: value
+              operator: operator
+            - attribute: attribute
+              value: value
+              operator: operator
+          type: type
+          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          can_create_expiring_applications: true
+          expires_at: 2000-01-23T04:56:07.000+00:00
+          permissions:
+          - permissions
+          - permissions
+          - permissions
+          - permissions
+          - permissions
+          name: name
+          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          modified_at: 2000-01-23T04:56:07.000+00:00
+          key: key
+        configuration:
+          key: configuration
         response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
         destination_url: destination_url
         require_auth: true
         request_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        request_transform:
+          code: code
       properties:
         name:
           maxLength: 200
@@ -3003,6 +3056,19 @@ components:
           nullable: true
           pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
           type: string
+        request_transform:
+          $ref: '#/components/schemas/ProxyTransform'
+        response_transform:
+          $ref: '#/components/schemas/ProxyTransform'
+        application:
+          $ref: '#/components/schemas/Application'
+        configuration:
+          additionalProperties:
+            nullable: true
+            type: string
+          maxLength: 25
+          nullable: true
+          type: object
         require_auth:
           nullable: true
           type: boolean
@@ -3082,7 +3148,7 @@ components:
           nullable: true
           type: string
         code:
-          maxLength: 4000
+          maxLength: 12000
           nullable: true
           type: string
         configuration:
@@ -3263,17 +3329,11 @@ components:
         search_indexes:
         - search_indexes
         - search_indexes
-        - search_indexes
-        - search_indexes
-        - search_indexes
         type: type
         mask: ""
       properties:
         id:
-          maxLength: 400
-          minLength: 3
           nullable: true
-          pattern: ^.+$
           type: string
         type:
           nullable: true
@@ -3292,7 +3352,6 @@ components:
         search_indexes:
           items:
             type: string
-          maxItems: 10
           nullable: true
           type: array
         fingerprint_expression:
@@ -3950,16 +4009,23 @@ components:
       additionalProperties: false
       example:
         tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        name: name
+        configuration:
+          key: configuration
         destination_url: destination_url
-        modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         require_auth: true
         created_at: 2000-01-23T04:56:07.000+00:00
+        application_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        response_transform:
+          code: code
+        response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        name: name
+        modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         request_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        request_transform:
+          code: code
         modified_at: 2000-01-23T04:56:07.000+00:00
-        created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         key: key
       properties:
         id:
@@ -4002,6 +4068,22 @@ components:
           type: string
         require_auth:
           type: boolean
+        request_transform:
+          $ref: '#/components/schemas/ProxyTransform'
+        response_transform:
+          $ref: '#/components/schemas/ProxyTransform'
+        application_id:
+          format: uuid
+          maxLength: 36
+          nullable: true
+          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          type: string
+        configuration:
+          additionalProperties:
+            nullable: true
+            type: string
+          nullable: true
+          type: object
         created_by:
           format: uuid
           maxLength: 36
@@ -4035,64 +4117,99 @@ components:
           page_size: 1
         data:
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
+          configuration:
+            key: configuration
           destination_url: destination_url
-          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           require_auth: true
           created_at: 2000-01-23T04:56:07.000+00:00
+          application_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          response_transform:
+            code: code
+          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           request_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          request_transform:
+            code: code
           modified_at: 2000-01-23T04:56:07.000+00:00
-          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
+          configuration:
+            key: configuration
           destination_url: destination_url
-          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           require_auth: true
           created_at: 2000-01-23T04:56:07.000+00:00
+          application_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          response_transform:
+            code: code
+          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           request_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          request_transform:
+            code: code
           modified_at: 2000-01-23T04:56:07.000+00:00
-          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
+          configuration:
+            key: configuration
           destination_url: destination_url
-          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           require_auth: true
           created_at: 2000-01-23T04:56:07.000+00:00
+          application_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          response_transform:
+            code: code
+          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           request_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          request_transform:
+            code: code
           modified_at: 2000-01-23T04:56:07.000+00:00
-          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
+          configuration:
+            key: configuration
           destination_url: destination_url
-          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           require_auth: true
           created_at: 2000-01-23T04:56:07.000+00:00
+          application_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          response_transform:
+            code: code
+          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           request_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          request_transform:
+            code: code
           modified_at: 2000-01-23T04:56:07.000+00:00
-          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-          name: name
+          configuration:
+            key: configuration
           destination_url: destination_url
-          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           require_auth: true
           created_at: 2000-01-23T04:56:07.000+00:00
+          application_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          response_transform:
+            code: code
+          response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          name: name
+          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           request_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          request_transform:
+            code: code
           modified_at: 2000-01-23T04:56:07.000+00:00
-          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           key: key
       properties:
         pagination:
@@ -4103,6 +4220,16 @@ components:
           maxItems: 100
           nullable: true
           type: array
+      type: object
+    ProxyTransform:
+      additionalProperties: false
+      example:
+        code: code
+      properties:
+        code:
+          maxLength: 12000
+          nullable: true
+          type: string
       type: object
     ReactRequest:
       additionalProperties: false
@@ -4115,12 +4242,18 @@ components:
     ReactResponse:
       additionalProperties: false
       example:
+        headers: ""
         raw: ""
         tokens: ""
+        body: ""
       properties:
         tokens:
           nullable: true
         raw:
+          nullable: true
+        body:
+          nullable: true
+        headers:
           nullable: true
       type: object
     Reactor:
@@ -5294,9 +5427,12 @@ components:
       additionalProperties: false
       properties:
         key:
+          maxLength: 200
           minLength: 1
+          pattern: "^[A-z0-9][A-z0-9.\\-_]*[A-z0-9]$"
           type: string
         value:
+          maxLength: 500
           minLength: 1
           type: string
       required:
@@ -6089,11 +6225,64 @@ components:
     UpdateProxyRequest:
       additionalProperties: false
       example:
+        response_transform:
+          code: code
+        application:
+          tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          created_at: 2000-01-23T04:56:07.000+00:00
+          rules:
+          - container: container
+            transform: transform
+            permissions:
+            - permissions
+            - permissions
+            description: description
+            priority: 5
+            conditions:
+            - attribute: attribute
+              value: value
+              operator: operator
+            - attribute: attribute
+              value: value
+              operator: operator
+          - container: container
+            transform: transform
+            permissions:
+            - permissions
+            - permissions
+            description: description
+            priority: 5
+            conditions:
+            - attribute: attribute
+              value: value
+              operator: operator
+            - attribute: attribute
+              value: value
+              operator: operator
+          type: type
+          created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          can_create_expiring_applications: true
+          expires_at: 2000-01-23T04:56:07.000+00:00
+          permissions:
+          - permissions
+          - permissions
+          - permissions
+          - permissions
+          - permissions
+          name: name
+          modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          modified_at: 2000-01-23T04:56:07.000+00:00
+          key: key
+        configuration:
+          key: configuration
         response_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         name: name
         destination_url: destination_url
         require_auth: true
         request_reactor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        request_transform:
+          code: code
       properties:
         name:
           maxLength: 200
@@ -6117,6 +6306,19 @@ components:
           nullable: true
           pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
           type: string
+        request_transform:
+          $ref: '#/components/schemas/ProxyTransform'
+        response_transform:
+          $ref: '#/components/schemas/ProxyTransform'
+        application:
+          $ref: '#/components/schemas/Application'
+        configuration:
+          additionalProperties:
+            nullable: true
+            type: string
+          maxLength: 25
+          nullable: true
+          type: object
         require_auth:
           nullable: true
           type: boolean
