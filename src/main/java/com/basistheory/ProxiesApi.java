@@ -141,15 +141,12 @@ public class ProxiesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(CreateProxyRequest createProxyRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'createProxyRequest' is set
         if (createProxyRequest == null) {
             throw new ApiException("Missing the required parameter 'createProxyRequest' when calling create(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createCall(createProxyRequest, _callback);
-        return localVarCall;
+        return createCall(createProxyRequest, _callback);
 
     }
 
@@ -250,7 +247,7 @@ public class ProxiesApi {
 
         // create path and map variables
         String localVarPath = "/proxies/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -267,7 +264,6 @@ public class ProxiesApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -280,15 +276,12 @@ public class ProxiesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteCall(id, _callback);
-        return localVarCall;
+        return deleteCall(id, _callback);
 
     }
 
@@ -420,7 +413,6 @@ public class ProxiesApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -433,10 +425,7 @@ public class ProxiesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getValidateBeforeCall(List<UUID> id, String name, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getCall(id, name, page, size, _callback);
-        return localVarCall;
+        return getCall(id, name, page, size, _callback);
 
     }
 
@@ -546,7 +535,7 @@ public class ProxiesApi {
 
         // create path and map variables
         String localVarPath = "/proxies/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -563,7 +552,6 @@ public class ProxiesApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -576,15 +564,12 @@ public class ProxiesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getByIdValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getById(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getByIdCall(id, _callback);
-        return localVarCall;
+        return getByIdCall(id, _callback);
 
     }
 
@@ -687,7 +672,7 @@ public class ProxiesApi {
 
         // create path and map variables
         String localVarPath = "/proxies/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -717,20 +702,17 @@ public class ProxiesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateValidateBeforeCall(UUID id, UpdateProxyRequest updateProxyRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling update(Async)");
         }
-        
+
         // verify the required parameter 'updateProxyRequest' is set
         if (updateProxyRequest == null) {
             throw new ApiException("Missing the required parameter 'updateProxyRequest' when calling update(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateCall(id, updateProxyRequest, _callback);
-        return localVarCall;
+        return updateCall(id, updateProxyRequest, _callback);
 
     }
 

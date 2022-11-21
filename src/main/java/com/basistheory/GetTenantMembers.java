@@ -52,7 +52,7 @@ import com.basistheory.JSON;
 /**
  * GetTenantMembers
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:42:53.558293Z[Etc/UTC]")
 public class GetTenantMembers {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -238,8 +238,8 @@ public class GetTenantMembers {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTenantMembers` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("user_id").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_id` to be an array in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
   }

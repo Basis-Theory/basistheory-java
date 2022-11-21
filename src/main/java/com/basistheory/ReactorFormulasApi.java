@@ -141,15 +141,12 @@ public class ReactorFormulasApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(CreateReactorFormulaRequest createReactorFormulaRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'createReactorFormulaRequest' is set
         if (createReactorFormulaRequest == null) {
             throw new ApiException("Missing the required parameter 'createReactorFormulaRequest' when calling create(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createCall(createReactorFormulaRequest, _callback);
-        return localVarCall;
+        return createCall(createReactorFormulaRequest, _callback);
 
     }
 
@@ -250,7 +247,7 @@ public class ReactorFormulasApi {
 
         // create path and map variables
         String localVarPath = "/reactor-formulas/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -267,7 +264,6 @@ public class ReactorFormulasApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -280,15 +276,12 @@ public class ReactorFormulasApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteCall(id, _callback);
-        return localVarCall;
+        return deleteCall(id, _callback);
 
     }
 
@@ -415,7 +408,6 @@ public class ReactorFormulasApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -428,10 +420,7 @@ public class ReactorFormulasApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getValidateBeforeCall(String name, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getCall(name, page, size, _callback);
-        return localVarCall;
+        return getCall(name, page, size, _callback);
 
     }
 
@@ -538,7 +527,7 @@ public class ReactorFormulasApi {
 
         // create path and map variables
         String localVarPath = "/reactor-formulas/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -555,7 +544,6 @@ public class ReactorFormulasApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -568,15 +556,12 @@ public class ReactorFormulasApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getByIdValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getById(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getByIdCall(id, _callback);
-        return localVarCall;
+        return getByIdCall(id, _callback);
 
     }
 
@@ -679,7 +664,7 @@ public class ReactorFormulasApi {
 
         // create path and map variables
         String localVarPath = "/reactor-formulas/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -709,20 +694,17 @@ public class ReactorFormulasApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateValidateBeforeCall(UUID id, UpdateReactorFormulaRequest updateReactorFormulaRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling update(Async)");
         }
-        
+
         // verify the required parameter 'updateReactorFormulaRequest' is set
         if (updateReactorFormulaRequest == null) {
             throw new ApiException("Missing the required parameter 'updateReactorFormulaRequest' when calling update(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateCall(id, updateReactorFormulaRequest, _callback);
-        return localVarCall;
+        return updateCall(id, updateReactorFormulaRequest, _callback);
 
     }
 

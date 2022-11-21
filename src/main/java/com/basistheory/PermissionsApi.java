@@ -133,7 +133,6 @@ public class PermissionsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -146,10 +145,7 @@ public class PermissionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getValidateBeforeCall(String applicationType, Integer version, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getCall(applicationType, version, _callback);
-        return localVarCall;
+        return getCall(applicationType, version, _callback);
 
     }
 

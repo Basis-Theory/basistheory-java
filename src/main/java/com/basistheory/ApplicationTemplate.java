@@ -53,7 +53,7 @@ import com.basistheory.JSON;
 /**
  * ApplicationTemplate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:42:53.558293Z[Etc/UTC]")
 public class ApplicationTemplate {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -422,8 +422,8 @@ public class ApplicationTemplate {
           };
         }
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("permissions").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
   }

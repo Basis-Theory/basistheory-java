@@ -122,7 +122,6 @@ public class ApplicationTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -135,10 +134,7 @@ public class ApplicationTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getCall(_callback);
-        return localVarCall;
+        return getCall(_callback);
 
     }
 
@@ -232,7 +228,7 @@ public class ApplicationTemplatesApi {
 
         // create path and map variables
         String localVarPath = "/application-templates/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -249,7 +245,6 @@ public class ApplicationTemplatesApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -262,15 +257,12 @@ public class ApplicationTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getByIdValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getById(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getByIdCall(id, _callback);
-        return localVarCall;
+        return getByIdCall(id, _callback);
 
     }
 

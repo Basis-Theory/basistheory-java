@@ -52,7 +52,7 @@ import com.basistheory.JSON;
 /**
  * UpdateApplicationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:42:53.558293Z[Etc/UTC]")
 public class UpdateApplicationRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -283,8 +283,8 @@ public class UpdateApplicationRequest {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("permissions").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `permissions` to be an array in the JSON string but got `%s`", jsonObj.get("permissions").toString()));
       }
       if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {
