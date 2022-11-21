@@ -141,15 +141,12 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createValidateBeforeCall(CreateApplicationRequest createApplicationRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'createApplicationRequest' is set
         if (createApplicationRequest == null) {
             throw new ApiException("Missing the required parameter 'createApplicationRequest' when calling create(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createCall(createApplicationRequest, _callback);
-        return localVarCall;
+        return createCall(createApplicationRequest, _callback);
 
     }
 
@@ -250,7 +247,7 @@ public class ApplicationsApi {
 
         // create path and map variables
         String localVarPath = "/applications/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -267,7 +264,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -280,15 +276,12 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling delete(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteCall(id, _callback);
-        return localVarCall;
+        return deleteCall(id, _callback);
 
     }
 
@@ -420,7 +413,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -433,10 +425,7 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getValidateBeforeCall(List<UUID> id, List<String> type, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getCall(id, type, page, size, _callback);
-        return localVarCall;
+        return getCall(id, type, page, size, _callback);
 
     }
 
@@ -546,7 +535,7 @@ public class ApplicationsApi {
 
         // create path and map variables
         String localVarPath = "/applications/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -563,7 +552,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -576,15 +564,12 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getByIdValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getById(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = getByIdCall(id, _callback);
-        return localVarCall;
+        return getByIdCall(id, _callback);
 
     }
 
@@ -699,7 +684,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -712,10 +696,7 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getByKeyValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = getByKeyCall(_callback);
-        return localVarCall;
+        return getByKeyCall(_callback);
 
     }
 
@@ -810,7 +791,7 @@ public class ApplicationsApi {
 
         // create path and map variables
         String localVarPath = "/applications/{id}/regenerate"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -827,7 +808,6 @@ public class ApplicationsApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -840,15 +820,12 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call regenerateKeyValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling regenerateKey(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = regenerateKeyCall(id, _callback);
-        return localVarCall;
+        return regenerateKeyCall(id, _callback);
 
     }
 
@@ -951,7 +928,7 @@ public class ApplicationsApi {
 
         // create path and map variables
         String localVarPath = "/applications/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -981,20 +958,17 @@ public class ApplicationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateValidateBeforeCall(UUID id, UpdateApplicationRequest updateApplicationRequest, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling update(Async)");
         }
-        
+
         // verify the required parameter 'updateApplicationRequest' is set
         if (updateApplicationRequest == null) {
             throw new ApiException("Missing the required parameter 'updateApplicationRequest' when calling update(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateCall(id, updateApplicationRequest, _callback);
-        return localVarCall;
+        return updateCall(id, updateApplicationRequest, _callback);
 
     }
 

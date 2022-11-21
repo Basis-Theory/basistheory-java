@@ -55,7 +55,7 @@ import com.basistheory.JSON;
 /**
  * CreateTokenRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:42:53.558293Z[Etc/UTC]")
 public class CreateTokenRequest {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -545,8 +545,8 @@ public class CreateTokenRequest {
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {
         Privacy.validateJsonObject(jsonObj.getAsJsonObject("privacy"));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("search_indexes").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("search_indexes") != null && !jsonObj.get("search_indexes").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `search_indexes` to be an array in the JSON string but got `%s`", jsonObj.get("search_indexes").toString()));
       }
       if ((jsonObj.get("fingerprint_expression") != null && !jsonObj.get("fingerprint_expression").isJsonNull()) && !jsonObj.get("fingerprint_expression").isJsonPrimitive()) {
@@ -555,8 +555,8 @@ public class CreateTokenRequest {
       if ((jsonObj.get("expires_at") != null && !jsonObj.get("expires_at").isJsonNull()) && !jsonObj.get("expires_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `expires_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expires_at").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("containers").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
       }
   }

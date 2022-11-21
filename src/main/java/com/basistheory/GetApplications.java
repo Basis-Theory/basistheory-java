@@ -52,7 +52,7 @@ import com.basistheory.JSON;
 /**
  * GetApplications
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:42:53.558293Z[Etc/UTC]")
 public class GetApplications {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -276,12 +276,12 @@ public class GetApplications {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetApplications` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("id").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      // ensure the json data is an array
-      if (!jsonObj.get("type").isJsonArray()) {
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be an array in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }

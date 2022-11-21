@@ -49,7 +49,7 @@ import com.basistheory.JSON;
 /**
  * Condition
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-16T23:33:15.916123Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:42:53.558293Z[Etc/UTC]")
 public class Condition {
   public static final String SERIALIZED_NAME_ATTRIBUTE = "attribute";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTE)
