@@ -1,3 +1,11 @@
+## [0.3.0](https://github.com/Basis-Theory/basistheory-java/compare/0.2.1...0.3.0) (2023-01-05)
+
+
+### Features
+
+* update proxy transform ([#16](https://github.com/Basis-Theory/basistheory-java/issues/16)) ([0abe2bd](https://github.com/Basis-Theory/basistheory-java/commit/0abe2bd97a160c34ade0604819ca2a357a3e0b36))
+
+
 ### [0.2.1](https://github.com/Basis-Theory/basistheory-java/compare/0.2.0...0.2.1) (2022-11-21)
 
 
