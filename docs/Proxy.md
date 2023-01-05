@@ -15,6 +15,10 @@
 |**requestReactorId** | **UUID** |  |  [optional] |
 |**responseReactorId** | **UUID** |  |  [optional] |
 |**requireAuth** | **Boolean** |  |  [optional] |
+|**requestTransform** | [**ProxyTransform**](ProxyTransform.md) |  |  [optional] |
+|**responseTransform** | [**ProxyTransform**](ProxyTransform.md) |  |  [optional] |
+|**applicationId** | **UUID** |  |  [optional] |
+|**_configuration** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**createdBy** | **UUID** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**modifiedBy** | **UUID** |  |  [optional] |

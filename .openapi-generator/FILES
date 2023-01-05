@@ -37,6 +37,7 @@ docs/ProblemDetails.md
 docs/ProxiesApi.md
 docs/Proxy.md
 docs/ProxyPaginatedList.md
+docs/ProxyTransform.md
 docs/ReactRequest.md
 docs/ReactResponse.md
 docs/Reactor.md
@@ -124,6 +125,7 @@ src/main/java/com/basistheory/ProgressResponseBody.java
 src/main/java/com/basistheory/ProxiesApi.java
 src/main/java/com/basistheory/Proxy.java
 src/main/java/com/basistheory/ProxyPaginatedList.java
+src/main/java/com/basistheory/ProxyTransform.java
 src/main/java/com/basistheory/ReactRequest.java
 src/main/java/com/basistheory/ReactResponse.java
 src/main/java/com/basistheory/Reactor.java

@@ -49,7 +49,7 @@ import com.basistheory.JSON;
 /**
  * ReactResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-21T14:42:53.558293Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-30T19:58:09.260536Z[Etc/UTC]")
 public class ReactResponse {
   public static final String SERIALIZED_NAME_TOKENS = "tokens";
   @SerializedName(SERIALIZED_NAME_TOKENS)
@@ -58,6 +58,14 @@ public class ReactResponse {
   public static final String SERIALIZED_NAME_RAW = "raw";
   @SerializedName(SERIALIZED_NAME_RAW)
   private Object raw = null;
+
+  public static final String SERIALIZED_NAME_BODY = "body";
+  @SerializedName(SERIALIZED_NAME_BODY)
+  private Object body = null;
+
+  public static final String SERIALIZED_NAME_HEADERS = "headers";
+  @SerializedName(SERIALIZED_NAME_HEADERS)
+  private Object headers = null;
 
   public ReactResponse() {
   }
@@ -108,6 +116,52 @@ public class ReactResponse {
   }
 
 
+  public ReactResponse body(Object body) {
+    
+    this.body = body;
+    return this;
+  }
+
+   /**
+   * Get body
+   * @return body
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getBody() {
+    return body;
+  }
+
+
+  public void setBody(Object body) {
+    this.body = body;
+  }
+
+
+  public ReactResponse headers(Object headers) {
+    
+    this.headers = headers;
+    return this;
+  }
+
+   /**
+   * Get headers
+   * @return headers
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Object getHeaders() {
+    return headers;
+  }
+
+
+  public void setHeaders(Object headers) {
+    this.headers = headers;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -119,7 +173,9 @@ public class ReactResponse {
     }
     ReactResponse reactResponse = (ReactResponse) o;
     return Objects.equals(this.tokens, reactResponse.tokens) &&
-        Objects.equals(this.raw, reactResponse.raw);
+        Objects.equals(this.raw, reactResponse.raw) &&
+        Objects.equals(this.body, reactResponse.body) &&
+        Objects.equals(this.headers, reactResponse.headers);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +184,7 @@ public class ReactResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokens, raw);
+    return Objects.hash(tokens, raw, body, headers);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -144,6 +200,8 @@ public class ReactResponse {
     sb.append("class ReactResponse {\n");
     sb.append("    tokens: ").append(toIndentedString(tokens)).append("\n");
     sb.append("    raw: ").append(toIndentedString(raw)).append("\n");
+    sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -168,6 +226,8 @@ public class ReactResponse {
     openapiFields = new HashSet<String>();
     openapiFields.add("tokens");
     openapiFields.add("raw");
+    openapiFields.add("body");
+    openapiFields.add("headers");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

@@ -47,66 +47,37 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * GetPermissions
+ * ProxyTransform
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-30T19:58:09.260536Z[Etc/UTC]")
-public class GetPermissions {
-  public static final String SERIALIZED_NAME_APPLICATION_TYPE = "application_type";
-  @SerializedName(SERIALIZED_NAME_APPLICATION_TYPE)
-  private String applicationType;
+public class ProxyTransform {
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
 
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version;
-
-  public GetPermissions() {
+  public ProxyTransform() {
   }
 
-  public GetPermissions applicationType(String applicationType) {
+  public ProxyTransform code(String code) {
     
-    this.applicationType = applicationType;
+    this.code = code;
     return this;
   }
 
    /**
-   * Get applicationType
-   * @return applicationType
+   * Get code
+   * @return code
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getApplicationType() {
-    return applicationType;
+  public String getCode() {
+    return code;
   }
 
 
-  public void setApplicationType(String applicationType) {
-    this.applicationType = applicationType;
-  }
-
-
-  public GetPermissions version(Integer version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * minimum: 0
-   * maximum: 2147483647
-   * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(Integer version) {
-    this.version = version;
+  public void setCode(String code) {
+    this.code = code;
   }
 
 
@@ -119,9 +90,8 @@ public class GetPermissions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetPermissions getPermissions = (GetPermissions) o;
-    return Objects.equals(this.applicationType, getPermissions.applicationType) &&
-        Objects.equals(this.version, getPermissions.version);
+    ProxyTransform proxyTransform = (ProxyTransform) o;
+    return Objects.equals(this.code, proxyTransform.code);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -130,7 +100,7 @@ public class GetPermissions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationType, version);
+    return Objects.hash(code);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -143,9 +113,8 @@ public class GetPermissions {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetPermissions {\n");
-    sb.append("    applicationType: ").append(toIndentedString(applicationType)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("class ProxyTransform {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -168,8 +137,7 @@ public class GetPermissions {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("application_type");
-    openapiFields.add("version");
+    openapiFields.add("code");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -179,24 +147,24 @@ public class GetPermissions {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetPermissions
+  * @throws IOException if the JSON Object is invalid with respect to ProxyTransform
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!GetPermissions.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetPermissions is not found in the empty JSON string", GetPermissions.openapiRequiredFields.toString()));
+        if (!ProxyTransform.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ProxyTransform is not found in the empty JSON string", ProxyTransform.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!GetPermissions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetPermissions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ProxyTransform.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProxyTransform` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if ((jsonObj.get("application_type") != null && !jsonObj.get("application_type").isJsonNull()) && !jsonObj.get("application_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `application_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application_type").toString()));
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
   }
 
@@ -204,22 +172,22 @@ public class GetPermissions {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetPermissions.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetPermissions' and its subtypes
+       if (!ProxyTransform.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ProxyTransform' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetPermissions> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetPermissions.class));
+       final TypeAdapter<ProxyTransform> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ProxyTransform.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetPermissions>() {
+       return (TypeAdapter<T>) new TypeAdapter<ProxyTransform>() {
            @Override
-           public void write(JsonWriter out, GetPermissions value) throws IOException {
+           public void write(JsonWriter out, ProxyTransform value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetPermissions read(JsonReader in) throws IOException {
+           public ProxyTransform read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -230,18 +198,18 @@ public class GetPermissions {
   }
 
  /**
-  * Create an instance of GetPermissions given an JSON string
+  * Create an instance of ProxyTransform given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GetPermissions
-  * @throws IOException if the JSON string is invalid with respect to GetPermissions
+  * @return An instance of ProxyTransform
+  * @throws IOException if the JSON string is invalid with respect to ProxyTransform
   */
-  public static GetPermissions fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetPermissions.class);
+  public static ProxyTransform fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ProxyTransform.class);
   }
 
  /**
-  * Convert an instance of GetPermissions to an JSON string
+  * Convert an instance of ProxyTransform to an JSON string
   *
   * @return JSON string
   */
