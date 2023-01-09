@@ -1,13 +1,14 @@
 
 
-# UpdateApplicationRequest
+# AuthorizeSessionRequest
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** |  |  |
+|**nonce** | **String** |  |  |
+|**expiresAt** | **String** |  |  [optional] |
 |**permissions** | **List&lt;String&gt;** |  |  [optional] |
 |**rules** | [**List&lt;AccessRule&gt;**](AccessRule.md) |  |  [optional] |
 

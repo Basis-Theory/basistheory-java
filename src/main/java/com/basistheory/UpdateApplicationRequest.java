@@ -52,15 +52,11 @@ import com.basistheory.JSON;
 /**
  * UpdateApplicationRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-12-30T19:58:09.260536Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateApplicationRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
-
-  public static final String SERIALIZED_NAME_CAN_CREATE_EXPIRING_APPLICATIONS = "can_create_expiring_applications";
-  @SerializedName(SERIALIZED_NAME_CAN_CREATE_EXPIRING_APPLICATIONS)
-  private Boolean canCreateExpiringApplications;
 
   public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
   @SerializedName(SERIALIZED_NAME_PERMISSIONS)
@@ -93,29 +89,6 @@ public class UpdateApplicationRequest {
 
   public void setName(String name) {
     this.name = name;
-  }
-
-
-  public UpdateApplicationRequest canCreateExpiringApplications(Boolean canCreateExpiringApplications) {
-    
-    this.canCreateExpiringApplications = canCreateExpiringApplications;
-    return this;
-  }
-
-   /**
-   * Get canCreateExpiringApplications
-   * @return canCreateExpiringApplications
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Boolean getCanCreateExpiringApplications() {
-    return canCreateExpiringApplications;
-  }
-
-
-  public void setCanCreateExpiringApplications(Boolean canCreateExpiringApplications) {
-    this.canCreateExpiringApplications = canCreateExpiringApplications;
   }
 
 
@@ -192,7 +165,6 @@ public class UpdateApplicationRequest {
     }
     UpdateApplicationRequest updateApplicationRequest = (UpdateApplicationRequest) o;
     return Objects.equals(this.name, updateApplicationRequest.name) &&
-        Objects.equals(this.canCreateExpiringApplications, updateApplicationRequest.canCreateExpiringApplications) &&
         Objects.equals(this.permissions, updateApplicationRequest.permissions) &&
         Objects.equals(this.rules, updateApplicationRequest.rules);
   }
@@ -203,7 +175,7 @@ public class UpdateApplicationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, canCreateExpiringApplications, permissions, rules);
+    return Objects.hash(name, permissions, rules);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -218,7 +190,6 @@ public class UpdateApplicationRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateApplicationRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    canCreateExpiringApplications: ").append(toIndentedString(canCreateExpiringApplications)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");
@@ -244,7 +215,6 @@ public class UpdateApplicationRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
-    openapiFields.add("can_create_expiring_applications");
     openapiFields.add("permissions");
     openapiFields.add("rules");
 
