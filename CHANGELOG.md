@@ -1,3 +1,11 @@
+## [0.4.0](https://github.com/Basis-Theory/basistheory-java/compare/0.3.0...0.4.0) (2023-01-10)
+
+
+### Features
+
+* Adds support for creating and authorizing sessions ([#19](https://github.com/Basis-Theory/basistheory-java/issues/19)) ([e2c9bee](https://github.com/Basis-Theory/basistheory-java/commit/e2c9beecb6c4295dbe9762c0cde25415f6d5868a))
+
+
 ## [0.3.0](https://github.com/Basis-Theory/basistheory-java/compare/0.2.1...0.3.0) (2023-01-05)
 
 
