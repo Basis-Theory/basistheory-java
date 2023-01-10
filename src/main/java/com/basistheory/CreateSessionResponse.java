@@ -15,8 +15,6 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.basistheory.Pagination;
-import com.basistheory.Reactor;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,8 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.OffsetDateTime;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -51,72 +48,91 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * ReactorPaginatedList
+ * CreateSessionResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ReactorPaginatedList {
-  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
-  @SerializedName(SERIALIZED_NAME_PAGINATION)
-  private Pagination pagination;
+public class CreateSessionResponse {
+  public static final String SERIALIZED_NAME_SESSION_KEY = "session_key";
+  @SerializedName(SERIALIZED_NAME_SESSION_KEY)
+  private String sessionKey;
 
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private List<Reactor> data = null;
+  public static final String SERIALIZED_NAME_NONCE = "nonce";
+  @SerializedName(SERIALIZED_NAME_NONCE)
+  private String nonce;
 
-  public ReactorPaginatedList() {
+  public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
+  private OffsetDateTime expiresAt;
+
+  public CreateSessionResponse() {
   }
 
-  public ReactorPaginatedList pagination(Pagination pagination) {
+  public CreateSessionResponse sessionKey(String sessionKey) {
     
-    this.pagination = pagination;
+    this.sessionKey = sessionKey;
     return this;
   }
 
    /**
-   * Get pagination
-   * @return pagination
+   * Get sessionKey
+   * @return sessionKey
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Pagination getPagination() {
-    return pagination;
+  public String getSessionKey() {
+    return sessionKey;
   }
 
 
-  public void setPagination(Pagination pagination) {
-    this.pagination = pagination;
+  public void setSessionKey(String sessionKey) {
+    this.sessionKey = sessionKey;
   }
 
 
-  public ReactorPaginatedList data(List<Reactor> data) {
+  public CreateSessionResponse nonce(String nonce) {
     
-    this.data = data;
-    return this;
-  }
-
-  public ReactorPaginatedList addDataItem(Reactor dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
+    this.nonce = nonce;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * Get nonce
+   * @return nonce
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<Reactor> getData() {
-    return data;
+  public String getNonce() {
+    return nonce;
   }
 
 
-  public void setData(List<Reactor> data) {
-    this.data = data;
+  public void setNonce(String nonce) {
+    this.nonce = nonce;
+  }
+
+
+  public CreateSessionResponse expiresAt(OffsetDateTime expiresAt) {
+    
+    this.expiresAt = expiresAt;
+    return this;
+  }
+
+   /**
+   * Get expiresAt
+   * @return expiresAt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public OffsetDateTime getExpiresAt() {
+    return expiresAt;
+  }
+
+
+  public void setExpiresAt(OffsetDateTime expiresAt) {
+    this.expiresAt = expiresAt;
   }
 
 
@@ -129,9 +145,10 @@ public class ReactorPaginatedList {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReactorPaginatedList reactorPaginatedList = (ReactorPaginatedList) o;
-    return Objects.equals(this.pagination, reactorPaginatedList.pagination) &&
-        Objects.equals(this.data, reactorPaginatedList.data);
+    CreateSessionResponse createSessionResponse = (CreateSessionResponse) o;
+    return Objects.equals(this.sessionKey, createSessionResponse.sessionKey) &&
+        Objects.equals(this.nonce, createSessionResponse.nonce) &&
+        Objects.equals(this.expiresAt, createSessionResponse.expiresAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -140,7 +157,7 @@ public class ReactorPaginatedList {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pagination, data);
+    return Objects.hash(sessionKey, nonce, expiresAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -153,9 +170,10 @@ public class ReactorPaginatedList {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReactorPaginatedList {\n");
-    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("class CreateSessionResponse {\n");
+    sb.append("    sessionKey: ").append(toIndentedString(sessionKey)).append("\n");
+    sb.append("    nonce: ").append(toIndentedString(nonce)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -178,8 +196,9 @@ public class ReactorPaginatedList {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("pagination");
-    openapiFields.add("data");
+    openapiFields.add("session_key");
+    openapiFields.add("nonce");
+    openapiFields.add("expires_at");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -189,39 +208,27 @@ public class ReactorPaginatedList {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReactorPaginatedList
+  * @throws IOException if the JSON Object is invalid with respect to CreateSessionResponse
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!ReactorPaginatedList.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReactorPaginatedList is not found in the empty JSON string", ReactorPaginatedList.openapiRequiredFields.toString()));
+        if (!CreateSessionResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateSessionResponse is not found in the empty JSON string", CreateSessionResponse.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!ReactorPaginatedList.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReactorPaginatedList` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!CreateSessionResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateSessionResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      // validate the optional field `pagination`
-      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
-        Pagination.validateJsonObject(jsonObj.getAsJsonObject("pagination"));
+      if ((jsonObj.get("session_key") != null && !jsonObj.get("session_key").isJsonNull()) && !jsonObj.get("session_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `session_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("session_key").toString()));
       }
-      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-        if (jsonArraydata != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("data").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
-          }
-
-          // validate the optional field `data` (array)
-          for (int i = 0; i < jsonArraydata.size(); i++) {
-            Reactor.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
-          };
-        }
+      if ((jsonObj.get("nonce") != null && !jsonObj.get("nonce").isJsonNull()) && !jsonObj.get("nonce").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nonce` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nonce").toString()));
       }
   }
 
@@ -229,22 +236,22 @@ public class ReactorPaginatedList {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReactorPaginatedList.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReactorPaginatedList' and its subtypes
+       if (!CreateSessionResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateSessionResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReactorPaginatedList> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReactorPaginatedList.class));
+       final TypeAdapter<CreateSessionResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateSessionResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ReactorPaginatedList>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateSessionResponse>() {
            @Override
-           public void write(JsonWriter out, ReactorPaginatedList value) throws IOException {
+           public void write(JsonWriter out, CreateSessionResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ReactorPaginatedList read(JsonReader in) throws IOException {
+           public CreateSessionResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -255,18 +262,18 @@ public class ReactorPaginatedList {
   }
 
  /**
-  * Create an instance of ReactorPaginatedList given an JSON string
+  * Create an instance of CreateSessionResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ReactorPaginatedList
-  * @throws IOException if the JSON string is invalid with respect to ReactorPaginatedList
+  * @return An instance of CreateSessionResponse
+  * @throws IOException if the JSON string is invalid with respect to CreateSessionResponse
   */
-  public static ReactorPaginatedList fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReactorPaginatedList.class);
+  public static CreateSessionResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateSessionResponse.class);
   }
 
  /**
-  * Convert an instance of ReactorPaginatedList to an JSON string
+  * Convert an instance of CreateSessionResponse to an JSON string
   *
   * @return JSON string
   */
