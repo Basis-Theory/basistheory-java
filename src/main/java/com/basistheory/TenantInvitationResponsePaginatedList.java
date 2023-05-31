@@ -197,14 +197,6 @@ public class TenantInvitationResponsePaginatedList {
           throw new IllegalArgumentException(String.format("The required field(s) %s in TenantInvitationResponsePaginatedList is not found in the empty JSON string", TenantInvitationResponsePaginatedList.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TenantInvitationResponsePaginatedList.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TenantInvitationResponsePaginatedList` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
       // validate the optional field `pagination`
       if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
         Pagination.validateJsonObject(jsonObj.getAsJsonObject("pagination"));

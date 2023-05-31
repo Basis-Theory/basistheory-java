@@ -245,14 +245,6 @@ public class ReactResponse {
           throw new IllegalArgumentException(String.format("The required field(s) %s in ReactResponse is not found in the empty JSON string", ReactResponse.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ReactResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReactResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

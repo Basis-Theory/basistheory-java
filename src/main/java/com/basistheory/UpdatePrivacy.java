@@ -185,14 +185,6 @@ public class UpdatePrivacy {
           throw new IllegalArgumentException(String.format("The required field(s) %s in UpdatePrivacy is not found in the empty JSON string", UpdatePrivacy.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UpdatePrivacy.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdatePrivacy` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
       if ((jsonObj.get("impact_level") != null && !jsonObj.get("impact_level").isJsonNull()) && !jsonObj.get("impact_level").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `impact_level` to be a primitive type in the JSON string but got `%s`", jsonObj.get("impact_level").toString()));
       }

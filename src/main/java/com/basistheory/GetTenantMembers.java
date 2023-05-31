@@ -230,14 +230,6 @@ public class GetTenantMembers {
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetTenantMembers is not found in the empty JSON string", GetTenantMembers.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!GetTenantMembers.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTenantMembers` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_id` to be an array in the JSON string but got `%s`", jsonObj.get("user_id").toString()));

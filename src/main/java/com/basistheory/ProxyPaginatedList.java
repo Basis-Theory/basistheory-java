@@ -197,14 +197,6 @@ public class ProxyPaginatedList {
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProxyPaginatedList is not found in the empty JSON string", ProxyPaginatedList.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ProxyPaginatedList.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProxyPaginatedList` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
       // validate the optional field `pagination`
       if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
         Pagination.validateJsonObject(jsonObj.getAsJsonObject("pagination"));

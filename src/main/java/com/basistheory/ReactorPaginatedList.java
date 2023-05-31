@@ -197,14 +197,6 @@ public class ReactorPaginatedList {
           throw new IllegalArgumentException(String.format("The required field(s) %s in ReactorPaginatedList is not found in the empty JSON string", ReactorPaginatedList.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!ReactorPaginatedList.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReactorPaginatedList` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
       // validate the optional field `pagination`
       if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
         Pagination.validateJsonObject(jsonObj.getAsJsonObject("pagination"));

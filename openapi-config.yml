@@ -11,3 +11,4 @@ developerOrganization: Basis Theory
 developerOrganizationUrl: https://basistheory.com
 licenseName: Apache
 licenseUrl: http://www.apache.org/licenses/
+hideGenerationTimestamp: true
