@@ -127,6 +127,10 @@ public class Token {
   @SerializedName(SERIALIZED_NAME_CONTAINERS)
   private List<String> containers = null;
 
+  public static final String SERIALIZED_NAME_ALIASES = "aliases";
+  @SerializedName(SERIALIZED_NAME_ALIASES)
+  private List<String> aliases = null;
+
   public Token() {
   }
 
@@ -545,6 +549,37 @@ public class Token {
   }
 
 
+  public Token aliases(List<String> aliases) {
+    
+    this.aliases = aliases;
+    return this;
+  }
+
+  public Token addAliasesItem(String aliasesItem) {
+    if (this.aliases == null) {
+      this.aliases = new ArrayList<>();
+    }
+    this.aliases.add(aliasesItem);
+    return this;
+  }
+
+   /**
+   * Get aliases
+   * @return aliases
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getAliases() {
+    return aliases;
+  }
+
+
+  public void setAliases(List<String> aliases) {
+    this.aliases = aliases;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -571,7 +606,8 @@ public class Token {
         Objects.equals(this.privacy, token.privacy) &&
         Objects.equals(this.searchIndexes, token.searchIndexes) &&
         Objects.equals(this.expiresAt, token.expiresAt) &&
-        Objects.equals(this.containers, token.containers);
+        Objects.equals(this.containers, token.containers) &&
+        Objects.equals(this.aliases, token.aliases);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -580,7 +616,7 @@ public class Token {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tenantId, data, metadata, encryption, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, containers);
+    return Objects.hash(id, type, tenantId, data, metadata, encryption, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, containers, aliases);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -611,6 +647,7 @@ public class Token {
     sb.append("    searchIndexes: ").append(toIndentedString(searchIndexes)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
+    sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -650,6 +687,7 @@ public class Token {
     openapiFields.add("search_indexes");
     openapiFields.add("expires_at");
     openapiFields.add("containers");
+    openapiFields.add("aliases");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -665,14 +703,6 @@ public class Token {
       if (jsonObj == null) {
         if (!Token.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Token is not found in the empty JSON string", Token.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!Token.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Token` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
@@ -711,6 +741,10 @@ public class Token {
       // ensure the optional json data is an array if present
       if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("aliases") != null && !jsonObj.get("aliases").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `aliases` to be an array in the JSON string but got `%s`", jsonObj.get("aliases").toString()));
       }
   }
 

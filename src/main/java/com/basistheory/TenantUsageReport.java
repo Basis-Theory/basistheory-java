@@ -144,14 +144,6 @@ public class TenantUsageReport {
           throw new IllegalArgumentException(String.format("The required field(s) %s in TenantUsageReport is not found in the empty JSON string", TenantUsageReport.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!TenantUsageReport.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TenantUsageReport` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
       // validate the optional field `token_report`
       if (jsonObj.get("token_report") != null && !jsonObj.get("token_report").isJsonNull()) {
         TokenReport.validateJsonObject(jsonObj.getAsJsonObject("token_report"));

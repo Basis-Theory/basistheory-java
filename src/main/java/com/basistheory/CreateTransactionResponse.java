@@ -23,8 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -50,40 +49,32 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * GetProxies
+ * CreateTransactionResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class GetProxies {
+public class CreateTransactionResponse {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  private List<UUID> id = null;
+  private UUID id;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
+  @SerializedName(SERIALIZED_NAME_CREATED_BY)
+  private UUID createdBy;
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private Integer page;
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
 
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  private Integer size;
+  public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
+  private OffsetDateTime expiresAt;
 
-  public GetProxies() {
+  public CreateTransactionResponse() {
   }
 
-  public GetProxies id(List<UUID> id) {
+  public CreateTransactionResponse id(UUID id) {
     
     this.id = id;
-    return this;
-  }
-
-  public GetProxies addIdItem(UUID idItem) {
-    if (this.id == null) {
-      this.id = new ArrayList<>();
-    }
-    this.id.add(idItem);
     return this;
   }
 
@@ -94,86 +85,82 @@ public class GetProxies {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<UUID> getId() {
+  public UUID getId() {
     return id;
   }
 
 
-  public void setId(List<UUID> id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
 
-  public GetProxies name(String name) {
+  public CreateTransactionResponse createdBy(UUID createdBy) {
     
-    this.name = name;
+    this.createdBy = createdBy;
     return this;
   }
 
    /**
-   * Get name
-   * @return name
+   * Get createdBy
+   * @return createdBy
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getName() {
-    return name;
+  public UUID getCreatedBy() {
+    return createdBy;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setCreatedBy(UUID createdBy) {
+    this.createdBy = createdBy;
   }
 
 
-  public GetProxies page(Integer page) {
+  public CreateTransactionResponse createdAt(OffsetDateTime createdAt) {
     
-    this.page = page;
+    this.createdAt = createdAt;
     return this;
   }
 
    /**
-   * Get page
-   * minimum: 0
-   * maximum: 2147483647
-   * @return page
+   * Get createdAt
+   * @return createdAt
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getPage() {
-    return page;
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
   }
 
 
-  public void setPage(Integer page) {
-    this.page = page;
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
 
-  public GetProxies size(Integer size) {
+  public CreateTransactionResponse expiresAt(OffsetDateTime expiresAt) {
     
-    this.size = size;
+    this.expiresAt = expiresAt;
     return this;
   }
 
    /**
-   * Get size
-   * minimum: 0
-   * maximum: 100
-   * @return size
+   * Get expiresAt
+   * @return expiresAt
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getSize() {
-    return size;
+  public OffsetDateTime getExpiresAt() {
+    return expiresAt;
   }
 
 
-  public void setSize(Integer size) {
-    this.size = size;
+  public void setExpiresAt(OffsetDateTime expiresAt) {
+    this.expiresAt = expiresAt;
   }
 
 
@@ -186,11 +173,11 @@ public class GetProxies {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetProxies getProxies = (GetProxies) o;
-    return Objects.equals(this.id, getProxies.id) &&
-        Objects.equals(this.name, getProxies.name) &&
-        Objects.equals(this.page, getProxies.page) &&
-        Objects.equals(this.size, getProxies.size);
+    CreateTransactionResponse createTransactionResponse = (CreateTransactionResponse) o;
+    return Objects.equals(this.id, createTransactionResponse.id) &&
+        Objects.equals(this.createdBy, createTransactionResponse.createdBy) &&
+        Objects.equals(this.createdAt, createTransactionResponse.createdAt) &&
+        Objects.equals(this.expiresAt, createTransactionResponse.expiresAt);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -199,7 +186,7 @@ public class GetProxies {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, page, size);
+    return Objects.hash(id, createdBy, createdAt, expiresAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,11 +199,11 @@ public class GetProxies {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetProxies {\n");
+    sb.append("class CreateTransactionResponse {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -240,9 +227,9 @@ public class GetProxies {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
-    openapiFields.add("name");
-    openapiFields.add("page");
-    openapiFields.add("size");
+    openapiFields.add("created_by");
+    openapiFields.add("created_at");
+    openapiFields.add("expires_at");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -252,20 +239,19 @@ public class GetProxies {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetProxies
+  * @throws IOException if the JSON Object is invalid with respect to CreateTransactionResponse
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!GetProxies.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetProxies is not found in the empty JSON string", GetProxies.openapiRequiredFields.toString()));
+        if (!CreateTransactionResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTransactionResponse is not found in the empty JSON string", CreateTransactionResponse.openapiRequiredFields.toString()));
         }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull()) && !jsonObj.get("created_by").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));
       }
   }
 
@@ -273,22 +259,22 @@ public class GetProxies {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetProxies.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetProxies' and its subtypes
+       if (!CreateTransactionResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateTransactionResponse' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetProxies> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetProxies.class));
+       final TypeAdapter<CreateTransactionResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateTransactionResponse.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetProxies>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateTransactionResponse>() {
            @Override
-           public void write(JsonWriter out, GetProxies value) throws IOException {
+           public void write(JsonWriter out, CreateTransactionResponse value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetProxies read(JsonReader in) throws IOException {
+           public CreateTransactionResponse read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -299,18 +285,18 @@ public class GetProxies {
   }
 
  /**
-  * Create an instance of GetProxies given an JSON string
+  * Create an instance of CreateTransactionResponse given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GetProxies
-  * @throws IOException if the JSON string is invalid with respect to GetProxies
+  * @return An instance of CreateTransactionResponse
+  * @throws IOException if the JSON string is invalid with respect to CreateTransactionResponse
   */
-  public static GetProxies fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetProxies.class);
+  public static CreateTransactionResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateTransactionResponse.class);
   }
 
  /**
-  * Convert an instance of GetProxies to an JSON string
+  * Convert an instance of CreateTransactionResponse to an JSON string
   *
   * @return JSON string
   */

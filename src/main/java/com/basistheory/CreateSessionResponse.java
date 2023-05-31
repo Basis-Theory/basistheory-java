@@ -216,14 +216,6 @@ public class CreateSessionResponse {
           throw new IllegalArgumentException(String.format("The required field(s) %s in CreateSessionResponse is not found in the empty JSON string", CreateSessionResponse.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!CreateSessionResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateSessionResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
       if ((jsonObj.get("session_key") != null && !jsonObj.get("session_key").isJsonNull()) && !jsonObj.get("session_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `session_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("session_key").toString()));
       }

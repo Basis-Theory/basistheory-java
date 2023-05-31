@@ -220,14 +220,6 @@ public class GetTenantInvitations {
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetTenantInvitations is not found in the empty JSON string", GetTenantInvitations.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!GetTenantInvitations.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetTenantInvitations` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

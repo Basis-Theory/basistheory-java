@@ -78,7 +78,6 @@ public class PermissionsApi {
     /**
      * Build call for get
      * @param applicationType  (optional)
-     * @param version  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -91,7 +90,7 @@ public class PermissionsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(String applicationType, Integer version, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(String applicationType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -120,10 +119,6 @@ public class PermissionsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("application_type", applicationType));
         }
 
-        if (version != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("version", version));
-        }
-
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -144,8 +139,8 @@ public class PermissionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(String applicationType, Integer version, final ApiCallback _callback) throws ApiException {
-        return getCall(applicationType, version, _callback);
+    private okhttp3.Call getValidateBeforeCall(String applicationType, final ApiCallback _callback) throws ApiException {
+        return getCall(applicationType, _callback);
 
     }
 
@@ -153,7 +148,6 @@ public class PermissionsApi {
      * 
      * 
      * @param applicationType  (optional)
-     * @param version  (optional)
      * @return List&lt;Permission&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -165,8 +159,8 @@ public class PermissionsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public List<Permission> get(String applicationType, Integer version) throws ApiException {
-        ApiResponse<List<Permission>> localVarResp = getWithHttpInfo(applicationType, version);
+    public List<Permission> get(String applicationType) throws ApiException {
+        ApiResponse<List<Permission>> localVarResp = getWithHttpInfo(applicationType);
         return localVarResp.getData();
     }
 
@@ -174,7 +168,6 @@ public class PermissionsApi {
      * 
      * 
      * @param applicationType  (optional)
-     * @param version  (optional)
      * @return ApiResponse&lt;List&lt;Permission&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -186,8 +179,8 @@ public class PermissionsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Permission>> getWithHttpInfo(String applicationType, Integer version) throws ApiException {
-        okhttp3.Call localVarCall = getValidateBeforeCall(applicationType, version, null);
+    public ApiResponse<List<Permission>> getWithHttpInfo(String applicationType) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(applicationType, null);
         Type localVarReturnType = new TypeToken<List<Permission>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -196,7 +189,6 @@ public class PermissionsApi {
      *  (asynchronously)
      * 
      * @param applicationType  (optional)
-     * @param version  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -209,9 +201,9 @@ public class PermissionsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(String applicationType, Integer version, final ApiCallback<List<Permission>> _callback) throws ApiException {
+    public okhttp3.Call getAsync(String applicationType, final ApiCallback<List<Permission>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getValidateBeforeCall(applicationType, version, _callback);
+        okhttp3.Call localVarCall = getValidateBeforeCall(applicationType, _callback);
         Type localVarReturnType = new TypeToken<List<Permission>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -260,14 +260,6 @@ public class GetReactors {
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetReactors is not found in the empty JSON string", GetReactors.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!GetReactors.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetReactors` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));

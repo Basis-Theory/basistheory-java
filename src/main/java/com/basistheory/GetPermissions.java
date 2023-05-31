@@ -55,10 +55,6 @@ public class GetPermissions {
   @SerializedName(SERIALIZED_NAME_APPLICATION_TYPE)
   private String applicationType;
 
-  public static final String SERIALIZED_NAME_VERSION = "version";
-  @SerializedName(SERIALIZED_NAME_VERSION)
-  private Integer version;
-
   public GetPermissions() {
   }
 
@@ -85,31 +81,6 @@ public class GetPermissions {
   }
 
 
-  public GetPermissions version(Integer version) {
-    
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * Get version
-   * minimum: 0
-   * maximum: 2147483647
-   * @return version
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getVersion() {
-    return version;
-  }
-
-
-  public void setVersion(Integer version) {
-    this.version = version;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -120,8 +91,7 @@ public class GetPermissions {
       return false;
     }
     GetPermissions getPermissions = (GetPermissions) o;
-    return Objects.equals(this.applicationType, getPermissions.applicationType) &&
-        Objects.equals(this.version, getPermissions.version);
+    return Objects.equals(this.applicationType, getPermissions.applicationType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -130,7 +100,7 @@ public class GetPermissions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationType, version);
+    return Objects.hash(applicationType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -145,7 +115,6 @@ public class GetPermissions {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetPermissions {\n");
     sb.append("    applicationType: ").append(toIndentedString(applicationType)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -169,7 +138,6 @@ public class GetPermissions {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("application_type");
-    openapiFields.add("version");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -185,14 +153,6 @@ public class GetPermissions {
       if (jsonObj == null) {
         if (!GetPermissions.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetPermissions is not found in the empty JSON string", GetPermissions.openapiRequiredFields.toString()));
-        }
-      }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!GetPermissions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetPermissions` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       if ((jsonObj.get("application_type") != null && !jsonObj.get("application_type").isJsonNull()) && !jsonObj.get("application_type").isJsonPrimitive()) {

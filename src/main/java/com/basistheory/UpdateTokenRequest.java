@@ -455,14 +455,6 @@ public class UpdateTokenRequest {
           throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateTokenRequest is not found in the empty JSON string", UpdateTokenRequest.openapiRequiredFields.toString()));
         }
       }
-
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
-        if (!UpdateTokenRequest.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateTokenRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
-        }
-      }
       // validate the optional field `encryption`
       if (jsonObj.get("encryption") != null && !jsonObj.get("encryption").isJsonNull()) {
         EncryptionMetadata.validateJsonObject(jsonObj.getAsJsonObject("encryption"));

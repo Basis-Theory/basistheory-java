@@ -19,6 +19,7 @@
 |**responseTransform** | [**ProxyTransform**](ProxyTransform.md) |  |  [optional] |
 |**applicationId** | **UUID** |  |  [optional] |
 |**_configuration** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**proxyHost** | **String** |  |  [optional] |
 |**createdBy** | **UUID** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**modifiedBy** | **UUID** |  |  [optional] |

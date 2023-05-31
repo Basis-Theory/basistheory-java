@@ -365,6 +365,7 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **202** | Accepted |  -  |
 | **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **422** | Client Error |  -  |
