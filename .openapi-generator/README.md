@@ -6,8 +6,8 @@ See the [CONTRIBUTING](/CONTRIBUTING.md) guide for details about how to regenera
 
 ## Template Customizations
 
-We have updated the mustache templates for the java generator in order to suppress timestamps from being included in 
-`javax.annotation.Generated` annotations in the generated source files.
+We have updated the mustache templates for the java generator in order to suppress client side validation that 
+does not allow additional optional properties to be added to API responses.
 
 This process was performed by following [this guide](https://openapi-generator.tech/docs/templating/#modifying-templates)
 and using [this script](/scripts/export-templates.sh) to export all templates to the `/.openapi-generator/templates` folder.
