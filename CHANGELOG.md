@@ -1,3 +1,11 @@
+## [0.5.0](https://github.com/Basis-Theory/basistheory-java/compare/0.4.0...0.5.0) (2023-05-31)
+
+
+### Features
+
+* Add support for transactions, fix open api generator validation ([#30](https://github.com/Basis-Theory/basistheory-java/issues/30)) ([23f4ec9](https://github.com/Basis-Theory/basistheory-java/commit/23f4ec931202cb637d45f55d5ea21d85c110c2d1))
+
+
 ## [0.4.0](https://github.com/Basis-Theory/basistheory-java/compare/0.3.0...0.4.0) (2023-01-10)
 
 
