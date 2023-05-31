@@ -15,6 +15,7 @@ docs/CreateSessionResponse.md
 docs/CreateTenantInvitationRequest.md
 docs/CreateTokenRequest.md
 docs/CreateTokenResponse.md
+docs/CreateTransactionResponse.md
 docs/EncryptionKey.md
 docs/EncryptionMetadata.md
 docs/GetApplications.md
@@ -67,6 +68,7 @@ docs/TokenPaginatedList.md
 docs/TokenReport.md
 docs/TokenizeApi.md
 docs/TokensApi.md
+docs/TransactionsApi.md
 docs/UpdateApplicationRequest.md
 docs/UpdatePrivacy.md
 docs/UpdateProxyRequest.md
@@ -101,6 +103,7 @@ src/main/java/com/basistheory/CreateSessionResponse.java
 src/main/java/com/basistheory/CreateTenantInvitationRequest.java
 src/main/java/com/basistheory/CreateTokenRequest.java
 src/main/java/com/basistheory/CreateTokenResponse.java
+src/main/java/com/basistheory/CreateTransactionResponse.java
 src/main/java/com/basistheory/EncryptionKey.java
 src/main/java/com/basistheory/EncryptionMetadata.java
 src/main/java/com/basistheory/GetApplications.java
@@ -161,6 +164,7 @@ src/main/java/com/basistheory/TokenPaginatedList.java
 src/main/java/com/basistheory/TokenReport.java
 src/main/java/com/basistheory/TokenizeApi.java
 src/main/java/com/basistheory/TokensApi.java
+src/main/java/com/basistheory/TransactionsApi.java
 src/main/java/com/basistheory/UpdateApplicationRequest.java
 src/main/java/com/basistheory/UpdatePrivacy.java
 src/main/java/com/basistheory/UpdateProxyRequest.java

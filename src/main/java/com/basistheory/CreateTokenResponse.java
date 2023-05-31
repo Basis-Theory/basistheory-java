@@ -122,6 +122,10 @@ public class CreateTokenResponse {
   @SerializedName(SERIALIZED_NAME_CONTAINERS)
   private List<String> containers = null;
 
+  public static final String SERIALIZED_NAME_ALIASES = "aliases";
+  @SerializedName(SERIALIZED_NAME_ALIASES)
+  private List<String> aliases = null;
+
   public CreateTokenResponse() {
   }
 
@@ -517,6 +521,37 @@ public class CreateTokenResponse {
   }
 
 
+  public CreateTokenResponse aliases(List<String> aliases) {
+    
+    this.aliases = aliases;
+    return this;
+  }
+
+  public CreateTokenResponse addAliasesItem(String aliasesItem) {
+    if (this.aliases == null) {
+      this.aliases = new ArrayList<>();
+    }
+    this.aliases.add(aliasesItem);
+    return this;
+  }
+
+   /**
+   * Get aliases
+   * @return aliases
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getAliases() {
+    return aliases;
+  }
+
+
+  public void setAliases(List<String> aliases) {
+    this.aliases = aliases;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -542,7 +577,8 @@ public class CreateTokenResponse {
         Objects.equals(this.modifiedBy, createTokenResponse.modifiedBy) &&
         Objects.equals(this.modifiedAt, createTokenResponse.modifiedAt) &&
         Objects.equals(this.expiresAt, createTokenResponse.expiresAt) &&
-        Objects.equals(this.containers, createTokenResponse.containers);
+        Objects.equals(this.containers, createTokenResponse.containers) &&
+        Objects.equals(this.aliases, createTokenResponse.aliases);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -551,7 +587,7 @@ public class CreateTokenResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, type, fingerprint, fingerprintExpression, mask, data, metadata, privacy, searchIndexes, createdBy, createdAt, modifiedBy, modifiedAt, expiresAt, containers);
+    return Objects.hash(id, tenantId, type, fingerprint, fingerprintExpression, mask, data, metadata, privacy, searchIndexes, createdBy, createdAt, modifiedBy, modifiedAt, expiresAt, containers, aliases);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -581,6 +617,7 @@ public class CreateTokenResponse {
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
+    sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -619,6 +656,7 @@ public class CreateTokenResponse {
     openapiFields.add("modified_at");
     openapiFields.add("expires_at");
     openapiFields.add("containers");
+    openapiFields.add("aliases");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -676,6 +714,10 @@ public class CreateTokenResponse {
       // ensure the optional json data is an array if present
       if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("aliases") != null && !jsonObj.get("aliases").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `aliases` to be an array in the JSON string but got `%s`", jsonObj.get("aliases").toString()));
       }
   }
 

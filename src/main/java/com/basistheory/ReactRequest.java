@@ -55,6 +55,14 @@ public class ReactRequest {
   @SerializedName(SERIALIZED_NAME_ARGS)
   private Object args = null;
 
+  public static final String SERIALIZED_NAME_CALLBACK_URL = "callback_url";
+  @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
+  private String callbackUrl;
+
+  public static final String SERIALIZED_NAME_TIMEOUT_MS = "timeout_ms";
+  @SerializedName(SERIALIZED_NAME_TIMEOUT_MS)
+  private Integer timeoutMs;
+
   public ReactRequest() {
   }
 
@@ -81,6 +89,54 @@ public class ReactRequest {
   }
 
 
+  public ReactRequest callbackUrl(String callbackUrl) {
+    
+    this.callbackUrl = callbackUrl;
+    return this;
+  }
+
+   /**
+   * Get callbackUrl
+   * @return callbackUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCallbackUrl() {
+    return callbackUrl;
+  }
+
+
+  public void setCallbackUrl(String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+  }
+
+
+  public ReactRequest timeoutMs(Integer timeoutMs) {
+    
+    this.timeoutMs = timeoutMs;
+    return this;
+  }
+
+   /**
+   * Get timeoutMs
+   * minimum: 10000
+   * maximum: 210000
+   * @return timeoutMs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getTimeoutMs() {
+    return timeoutMs;
+  }
+
+
+  public void setTimeoutMs(Integer timeoutMs) {
+    this.timeoutMs = timeoutMs;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -91,7 +147,9 @@ public class ReactRequest {
       return false;
     }
     ReactRequest reactRequest = (ReactRequest) o;
-    return Objects.equals(this.args, reactRequest.args);
+    return Objects.equals(this.args, reactRequest.args) &&
+        Objects.equals(this.callbackUrl, reactRequest.callbackUrl) &&
+        Objects.equals(this.timeoutMs, reactRequest.timeoutMs);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -100,7 +158,7 @@ public class ReactRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args);
+    return Objects.hash(args, callbackUrl, timeoutMs);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -115,6 +173,8 @@ public class ReactRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReactRequest {\n");
     sb.append("    args: ").append(toIndentedString(args)).append("\n");
+    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("    timeoutMs: ").append(toIndentedString(timeoutMs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -138,6 +198,8 @@ public class ReactRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("args");
+    openapiFields.add("callback_url");
+    openapiFields.add("timeout_ms");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -162,6 +224,9 @@ public class ReactRequest {
         if (!ReactRequest.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReactRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if ((jsonObj.get("callback_url") != null && !jsonObj.get("callback_url").isJsonNull()) && !jsonObj.get("callback_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `callback_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_url").toString()));
       }
   }
 

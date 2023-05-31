@@ -9,7 +9,7 @@ All URIs are relative to *https://api.basistheory.com*
 
 <a name="get"></a>
 # **get**
-> List&lt;Permission&gt; get(applicationType, version)
+> List&lt;Permission&gt; get(applicationType)
 
 
 
@@ -36,9 +36,8 @@ public class Example {
 
     PermissionsApi apiInstance = new PermissionsApi(defaultClient);
     String applicationType = "applicationType_example"; // String | 
-    Integer version = 56; // Integer | 
     try {
-      List<Permission> result = apiInstance.get(applicationType, version);
+      List<Permission> result = apiInstance.get(applicationType);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PermissionsApi#get");
@@ -56,7 +55,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **applicationType** | **String**|  | [optional] |
-| **version** | **Integer**|  | [optional] |
 
 ### Return type
 

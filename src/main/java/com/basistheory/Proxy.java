@@ -104,6 +104,10 @@ public class Proxy {
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
   private Map<String, String> _configuration = null;
 
+  public static final String SERIALIZED_NAME_PROXY_HOST = "proxy_host";
+  @SerializedName(SERIALIZED_NAME_PROXY_HOST)
+  private String proxyHost;
+
   public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
   private UUID createdBy;
@@ -406,6 +410,29 @@ public class Proxy {
   }
 
 
+  public Proxy proxyHost(String proxyHost) {
+    
+    this.proxyHost = proxyHost;
+    return this;
+  }
+
+   /**
+   * Get proxyHost
+   * @return proxyHost
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProxyHost() {
+    return proxyHost;
+  }
+
+
+  public void setProxyHost(String proxyHost) {
+    this.proxyHost = proxyHost;
+  }
+
+
   public Proxy createdBy(UUID createdBy) {
     
     this.createdBy = createdBy;
@@ -520,6 +547,7 @@ public class Proxy {
         Objects.equals(this.responseTransform, proxy.responseTransform) &&
         Objects.equals(this.applicationId, proxy.applicationId) &&
         Objects.equals(this._configuration, proxy._configuration) &&
+        Objects.equals(this.proxyHost, proxy.proxyHost) &&
         Objects.equals(this.createdBy, proxy.createdBy) &&
         Objects.equals(this.createdAt, proxy.createdAt) &&
         Objects.equals(this.modifiedBy, proxy.modifiedBy) &&
@@ -532,7 +560,7 @@ public class Proxy {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, key, tenantId, name, destinationUrl, requestReactorId, responseReactorId, requireAuth, requestTransform, responseTransform, applicationId, _configuration, createdBy, createdAt, modifiedBy, modifiedAt);
+    return Objects.hash(id, key, tenantId, name, destinationUrl, requestReactorId, responseReactorId, requireAuth, requestTransform, responseTransform, applicationId, _configuration, proxyHost, createdBy, createdAt, modifiedBy, modifiedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -558,6 +586,7 @@ public class Proxy {
     sb.append("    responseTransform: ").append(toIndentedString(responseTransform)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+    sb.append("    proxyHost: ").append(toIndentedString(proxyHost)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
@@ -596,6 +625,7 @@ public class Proxy {
     openapiFields.add("response_transform");
     openapiFields.add("application_id");
     openapiFields.add("configuration");
+    openapiFields.add("proxy_host");
     openapiFields.add("created_by");
     openapiFields.add("created_at");
     openapiFields.add("modified_by");
@@ -656,6 +686,9 @@ public class Proxy {
       }
       if ((jsonObj.get("application_id") != null && !jsonObj.get("application_id").isJsonNull()) && !jsonObj.get("application_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `application_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application_id").toString()));
+      }
+      if ((jsonObj.get("proxy_host") != null && !jsonObj.get("proxy_host").isJsonNull()) && !jsonObj.get("proxy_host").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `proxy_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("proxy_host").toString()));
       }
       if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull()) && !jsonObj.get("created_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));
