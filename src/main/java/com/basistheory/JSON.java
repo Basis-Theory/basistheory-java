@@ -98,6 +98,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ApplicationPaginatedList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ApplicationTemplate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.AuthorizeSessionRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.BinDetails.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.BinDetailsBank.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.BinDetailsCountry.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.BinDetailsProduct.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Condition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateApplicationRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateProxyRequest.CustomTypeAdapterFactory());
@@ -124,6 +128,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.LogPaginatedList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.MonthlyActiveTokenHistory.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Pagination.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.PatchProxyRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.PatchReactorRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Permission.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Privacy.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ProblemDetails.CustomTypeAdapterFactory());
@@ -147,6 +153,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TenantMemberResponsePaginatedList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TenantUsageReport.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Token.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TokenEnrichments.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TokenMetrics.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TokenPaginatedList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TokenReport.CustomTypeAdapterFactory());

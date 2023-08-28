@@ -8,6 +8,7 @@ All URIs are relative to *https://api.basistheory.com*
 | [**delete**](ReactorsApi.md#delete) | **DELETE** /reactors/{id} |  |
 | [**get**](ReactorsApi.md#get) | **GET** /reactors |  |
 | [**getById**](ReactorsApi.md#getById) | **GET** /reactors/{id} |  |
+| [**patch**](ReactorsApi.md#patch) | **PATCH** /reactors/{id} |  |
 | [**react**](ReactorsApi.md#react) | **POST** /reactors/{id}/react |  |
 | [**update**](ReactorsApi.md#update) | **PUT** /reactors/{id} |  |
 
@@ -293,6 +294,78 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **404** | Not Found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+<a name="patch"></a>
+# **patch**
+> patch(id, patchReactorRequest)
+
+
+
+### Example
+```java
+// Import classes:
+import com.basistheory.ApiClient;
+import com.basistheory.ApiException;
+import com.basistheory.Configuration;
+import com.basistheory.auth.*;
+import com.basistheory.models.*;
+import com.basistheory.ReactorsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.basistheory.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    ReactorsApi apiInstance = new ReactorsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | 
+    PatchReactorRequest patchReactorRequest = new PatchReactorRequest(); // PatchReactorRequest | 
+    try {
+      apiInstance.patch(id, patchReactorRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ReactorsApi#patch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **patchReactorRequest** | [**PatchReactorRequest**](PatchReactorRequest.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
