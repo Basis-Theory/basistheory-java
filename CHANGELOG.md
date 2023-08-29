@@ -1,3 +1,11 @@
+## [0.6.0](https://github.com/Basis-Theory/basistheory-java/compare/0.5.0...0.6.0) (2023-08-29)
+
+
+### Features
+
+* adds bin details and removes token associations ([#32](https://github.com/Basis-Theory/basistheory-java/issues/32)) ([1c412b5](https://github.com/Basis-Theory/basistheory-java/commit/1c412b51060855cbbe5af25465b755dc2706e845))
+
+
 ## [0.5.0](https://github.com/Basis-Theory/basistheory-java/compare/0.4.0...0.5.0) (2023-05-31)
 
 
