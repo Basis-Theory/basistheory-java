@@ -16,6 +16,7 @@ package com.basistheory;
 import java.util.Objects;
 import java.util.Arrays;
 import com.basistheory.Privacy;
+import com.basistheory.TokenEnrichments;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -89,6 +90,10 @@ public class CreateTokenResponse {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Map<String, String> metadata = null;
+
+  public static final String SERIALIZED_NAME_ENRICHMENTS = "enrichments";
+  @SerializedName(SERIALIZED_NAME_ENRICHMENTS)
+  private TokenEnrichments enrichments;
 
   public static final String SERIALIZED_NAME_PRIVACY = "privacy";
   @SerializedName(SERIALIZED_NAME_PRIVACY)
@@ -318,6 +323,29 @@ public class CreateTokenResponse {
 
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+  }
+
+
+  public CreateTokenResponse enrichments(TokenEnrichments enrichments) {
+    
+    this.enrichments = enrichments;
+    return this;
+  }
+
+   /**
+   * Get enrichments
+   * @return enrichments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TokenEnrichments getEnrichments() {
+    return enrichments;
+  }
+
+
+  public void setEnrichments(TokenEnrichments enrichments) {
+    this.enrichments = enrichments;
   }
 
 
@@ -570,6 +598,7 @@ public class CreateTokenResponse {
         Objects.equals(this.mask, createTokenResponse.mask) &&
         Objects.equals(this.data, createTokenResponse.data) &&
         Objects.equals(this.metadata, createTokenResponse.metadata) &&
+        Objects.equals(this.enrichments, createTokenResponse.enrichments) &&
         Objects.equals(this.privacy, createTokenResponse.privacy) &&
         Objects.equals(this.searchIndexes, createTokenResponse.searchIndexes) &&
         Objects.equals(this.createdBy, createTokenResponse.createdBy) &&
@@ -587,7 +616,7 @@ public class CreateTokenResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, type, fingerprint, fingerprintExpression, mask, data, metadata, privacy, searchIndexes, createdBy, createdAt, modifiedBy, modifiedAt, expiresAt, containers, aliases);
+    return Objects.hash(id, tenantId, type, fingerprint, fingerprintExpression, mask, data, metadata, enrichments, privacy, searchIndexes, createdBy, createdAt, modifiedBy, modifiedAt, expiresAt, containers, aliases);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -609,6 +638,7 @@ public class CreateTokenResponse {
     sb.append("    mask: ").append(toIndentedString(mask)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    enrichments: ").append(toIndentedString(enrichments)).append("\n");
     sb.append("    privacy: ").append(toIndentedString(privacy)).append("\n");
     sb.append("    searchIndexes: ").append(toIndentedString(searchIndexes)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
@@ -648,6 +678,7 @@ public class CreateTokenResponse {
     openapiFields.add("mask");
     openapiFields.add("data");
     openapiFields.add("metadata");
+    openapiFields.add("enrichments");
     openapiFields.add("privacy");
     openapiFields.add("search_indexes");
     openapiFields.add("created_by");
@@ -688,6 +719,10 @@ public class CreateTokenResponse {
       }
       if ((jsonObj.get("fingerprint_expression") != null && !jsonObj.get("fingerprint_expression").isJsonNull()) && !jsonObj.get("fingerprint_expression").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fingerprint_expression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fingerprint_expression").toString()));
+      }
+      // validate the optional field `enrichments`
+      if (jsonObj.get("enrichments") != null && !jsonObj.get("enrichments").isJsonNull()) {
+        TokenEnrichments.validateJsonObject(jsonObj.getAsJsonObject("enrichments"));
       }
       // validate the optional field `privacy`
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {

@@ -6,6 +6,10 @@ docs/ApplicationTemplate.md
 docs/ApplicationTemplatesApi.md
 docs/ApplicationsApi.md
 docs/AuthorizeSessionRequest.md
+docs/BinDetails.md
+docs/BinDetailsBank.md
+docs/BinDetailsCountry.md
+docs/BinDetailsProduct.md
 docs/Condition.md
 docs/CreateApplicationRequest.md
 docs/CreateProxyRequest.md
@@ -33,6 +37,8 @@ docs/LogPaginatedList.md
 docs/LogsApi.md
 docs/MonthlyActiveTokenHistory.md
 docs/Pagination.md
+docs/PatchProxyRequest.md
+docs/PatchReactorRequest.md
 docs/Permission.md
 docs/PermissionsApi.md
 docs/Privacy.md
@@ -63,6 +69,7 @@ docs/TenantMemberResponsePaginatedList.md
 docs/TenantUsageReport.md
 docs/TenantsApi.md
 docs/Token.md
+docs/TokenEnrichments.md
 docs/TokenMetrics.md
 docs/TokenPaginatedList.md
 docs/TokenReport.md
@@ -93,6 +100,10 @@ src/main/java/com/basistheory/ApplicationTemplate.java
 src/main/java/com/basistheory/ApplicationTemplatesApi.java
 src/main/java/com/basistheory/ApplicationsApi.java
 src/main/java/com/basistheory/AuthorizeSessionRequest.java
+src/main/java/com/basistheory/BinDetails.java
+src/main/java/com/basistheory/BinDetailsBank.java
+src/main/java/com/basistheory/BinDetailsCountry.java
+src/main/java/com/basistheory/BinDetailsProduct.java
 src/main/java/com/basistheory/Condition.java
 src/main/java/com/basistheory/Configuration.java
 src/main/java/com/basistheory/CreateApplicationRequest.java
@@ -124,6 +135,8 @@ src/main/java/com/basistheory/LogsApi.java
 src/main/java/com/basistheory/MonthlyActiveTokenHistory.java
 src/main/java/com/basistheory/Pagination.java
 src/main/java/com/basistheory/Pair.java
+src/main/java/com/basistheory/PatchProxyRequest.java
+src/main/java/com/basistheory/PatchReactorRequest.java
 src/main/java/com/basistheory/Permission.java
 src/main/java/com/basistheory/PermissionsApi.java
 src/main/java/com/basistheory/Privacy.java
@@ -159,6 +172,7 @@ src/main/java/com/basistheory/TenantMemberResponsePaginatedList.java
 src/main/java/com/basistheory/TenantUsageReport.java
 src/main/java/com/basistheory/TenantsApi.java
 src/main/java/com/basistheory/Token.java
+src/main/java/com/basistheory/TokenEnrichments.java
 src/main/java/com/basistheory/TokenMetrics.java
 src/main/java/com/basistheory/TokenPaginatedList.java
 src/main/java/com/basistheory/TokenReport.java

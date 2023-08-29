@@ -15,6 +15,7 @@
 |**mask** | **Object** |  |  [optional] |
 |**data** | **Object** |  |  [optional] |
 |**metadata** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**enrichments** | [**TokenEnrichments**](TokenEnrichments.md) |  |  [optional] |
 |**privacy** | [**Privacy**](Privacy.md) |  |  [optional] |
 |**searchIndexes** | **List&lt;String&gt;** |  |  [optional] |
 |**createdBy** | **UUID** |  |  [optional] |
