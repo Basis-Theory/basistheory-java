@@ -21,6 +21,7 @@ import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.google.gson.JsonElement;
+import com.google.gson.ToNumberStrategy;
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
 
@@ -59,7 +60,24 @@ public class JSON {
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
         ;
-        GsonBuilder builder = fireBuilder.createGsonBuilder();
+        GsonBuilder builder = fireBuilder.createGsonBuilder().setObjectToNumberStrategy(new ToNumberStrategy() {
+            @Override
+            public Number readNumber(JsonReader in) throws IOException {
+                String value = in.nextString();
+
+                try {
+                    double doubleValue = Double.parseDouble(value);
+
+                    if (doubleValue == (int) doubleValue) {
+                        return (int) doubleValue;
+                    } else {
+                        return doubleValue;
+                    }
+                } catch (NumberFormatException e) {
+                    throw new JsonParseException("Cannot parse " + value + "; at path " + in.getPreviousPath(), e);
+                }
+            }
+        });
         return builder;
     }
 
