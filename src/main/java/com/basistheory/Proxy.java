@@ -127,14 +127,6 @@ public class Proxy {
   public Proxy() {
   }
 
-  
-  public Proxy(
-     String key
-  ) {
-    this();
-    this.key = key;
-  }
-
   public Proxy id(UUID id) {
     
     this.id = id;
@@ -158,6 +150,12 @@ public class Proxy {
   }
 
 
+  public Proxy key(String key) {
+    
+    this.key = key;
+    return this;
+  }
+
    /**
    * Get key
    * @return key
@@ -170,6 +168,9 @@ public class Proxy {
   }
 
 
+  public void setKey(String key) {
+    this.key = key;
+  }
 
 
   public Proxy tenantId(UUID tenantId) {

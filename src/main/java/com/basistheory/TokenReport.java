@@ -15,7 +15,6 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.basistheory.MonthlyActiveTokenHistory;
 import com.basistheory.TokenMetrics;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -25,9 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -68,10 +65,6 @@ public class TokenReport {
   public static final String SERIALIZED_NAME_METRICS_BY_TYPE = "metrics_by_type";
   @SerializedName(SERIALIZED_NAME_METRICS_BY_TYPE)
   private Map<String, TokenMetrics> metricsByType = null;
-
-  public static final String SERIALIZED_NAME_MONTHLY_ACTIVE_TOKEN_HISTORY = "monthly_active_token_history";
-  @SerializedName(SERIALIZED_NAME_MONTHLY_ACTIVE_TOKEN_HISTORY)
-  private List<MonthlyActiveTokenHistory> monthlyActiveTokenHistory = null;
 
   public TokenReport() {
   }
@@ -156,37 +149,6 @@ public class TokenReport {
   }
 
 
-  public TokenReport monthlyActiveTokenHistory(List<MonthlyActiveTokenHistory> monthlyActiveTokenHistory) {
-    
-    this.monthlyActiveTokenHistory = monthlyActiveTokenHistory;
-    return this;
-  }
-
-  public TokenReport addMonthlyActiveTokenHistoryItem(MonthlyActiveTokenHistory monthlyActiveTokenHistoryItem) {
-    if (this.monthlyActiveTokenHistory == null) {
-      this.monthlyActiveTokenHistory = new ArrayList<>();
-    }
-    this.monthlyActiveTokenHistory.add(monthlyActiveTokenHistoryItem);
-    return this;
-  }
-
-   /**
-   * Get monthlyActiveTokenHistory
-   * @return monthlyActiveTokenHistory
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<MonthlyActiveTokenHistory> getMonthlyActiveTokenHistory() {
-    return monthlyActiveTokenHistory;
-  }
-
-
-  public void setMonthlyActiveTokenHistory(List<MonthlyActiveTokenHistory> monthlyActiveTokenHistory) {
-    this.monthlyActiveTokenHistory = monthlyActiveTokenHistory;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -199,8 +161,7 @@ public class TokenReport {
     TokenReport tokenReport = (TokenReport) o;
     return Objects.equals(this.includedMonthlyActiveTokens, tokenReport.includedMonthlyActiveTokens) &&
         Objects.equals(this.monthlyActiveTokens, tokenReport.monthlyActiveTokens) &&
-        Objects.equals(this.metricsByType, tokenReport.metricsByType) &&
-        Objects.equals(this.monthlyActiveTokenHistory, tokenReport.monthlyActiveTokenHistory);
+        Objects.equals(this.metricsByType, tokenReport.metricsByType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -209,7 +170,7 @@ public class TokenReport {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedMonthlyActiveTokens, monthlyActiveTokens, metricsByType, monthlyActiveTokenHistory);
+    return Objects.hash(includedMonthlyActiveTokens, monthlyActiveTokens, metricsByType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -226,7 +187,6 @@ public class TokenReport {
     sb.append("    includedMonthlyActiveTokens: ").append(toIndentedString(includedMonthlyActiveTokens)).append("\n");
     sb.append("    monthlyActiveTokens: ").append(toIndentedString(monthlyActiveTokens)).append("\n");
     sb.append("    metricsByType: ").append(toIndentedString(metricsByType)).append("\n");
-    sb.append("    monthlyActiveTokenHistory: ").append(toIndentedString(monthlyActiveTokenHistory)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -252,7 +212,6 @@ public class TokenReport {
     openapiFields.add("included_monthly_active_tokens");
     openapiFields.add("monthly_active_tokens");
     openapiFields.add("metrics_by_type");
-    openapiFields.add("monthly_active_token_history");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -268,20 +227,6 @@ public class TokenReport {
       if (jsonObj == null) {
         if (!TokenReport.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TokenReport is not found in the empty JSON string", TokenReport.openapiRequiredFields.toString()));
-        }
-      }
-      if (jsonObj.get("monthly_active_token_history") != null && !jsonObj.get("monthly_active_token_history").isJsonNull()) {
-        JsonArray jsonArraymonthlyActiveTokenHistory = jsonObj.getAsJsonArray("monthly_active_token_history");
-        if (jsonArraymonthlyActiveTokenHistory != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("monthly_active_token_history").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `monthly_active_token_history` to be an array in the JSON string but got `%s`", jsonObj.get("monthly_active_token_history").toString()));
-          }
-
-          // validate the optional field `monthly_active_token_history` (array)
-          for (int i = 0; i < jsonArraymonthlyActiveTokenHistory.size(); i++) {
-            MonthlyActiveTokenHistory.validateJsonObject(jsonArraymonthlyActiveTokenHistory.get(i).getAsJsonObject());
-          };
         }
       }
   }

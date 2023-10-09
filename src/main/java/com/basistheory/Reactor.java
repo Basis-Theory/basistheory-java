@@ -73,6 +73,10 @@ public class Reactor {
   @SerializedName(SERIALIZED_NAME_FORMULA)
   private ReactorFormula formula;
 
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
   private Application application;
@@ -178,7 +182,9 @@ public class Reactor {
    /**
    * Get formula
    * @return formula
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
@@ -189,6 +195,29 @@ public class Reactor {
 
   public void setFormula(ReactorFormula formula) {
     this.formula = formula;
+  }
+
+
+  public Reactor code(String code) {
+    
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Get code
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCode() {
+    return code;
+  }
+
+
+  public void setCode(String code) {
+    this.code = code;
   }
 
 
@@ -352,6 +381,7 @@ public class Reactor {
         Objects.equals(this.tenantId, reactor.tenantId) &&
         Objects.equals(this.name, reactor.name) &&
         Objects.equals(this.formula, reactor.formula) &&
+        Objects.equals(this.code, reactor.code) &&
         Objects.equals(this.application, reactor.application) &&
         Objects.equals(this.createdBy, reactor.createdBy) &&
         Objects.equals(this.createdAt, reactor.createdAt) &&
@@ -366,7 +396,7 @@ public class Reactor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, name, formula, application, createdBy, createdAt, modifiedBy, modifiedAt, _configuration);
+    return Objects.hash(id, tenantId, name, formula, code, application, createdBy, createdAt, modifiedBy, modifiedAt, _configuration);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -384,6 +414,7 @@ public class Reactor {
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -416,6 +447,7 @@ public class Reactor {
     openapiFields.add("tenant_id");
     openapiFields.add("name");
     openapiFields.add("formula");
+    openapiFields.add("code");
     openapiFields.add("application");
     openapiFields.add("created_by");
     openapiFields.add("created_at");
@@ -451,6 +483,9 @@ public class Reactor {
       // validate the optional field `formula`
       if (jsonObj.get("formula") != null && !jsonObj.get("formula").isJsonNull()) {
         ReactorFormula.validateJsonObject(jsonObj.getAsJsonObject("formula"));
+      }
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       // validate the optional field `application`
       if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()) {

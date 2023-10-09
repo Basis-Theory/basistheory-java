@@ -54,7 +54,9 @@ import com.basistheory.JSON;
 
 /**
  * ReactorFormula
+ * @deprecated
  */
+@Deprecated
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReactorFormula {
   public static final String SERIALIZED_NAME_ID = "id";
