@@ -52,7 +52,9 @@ import com.basistheory.JSON;
 
 /**
  * UpdateReactorFormulaRequest
+ * @deprecated
  */
+@Deprecated
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UpdateReactorFormulaRequest {
   public static final String SERIALIZED_NAME_TYPE = "type";

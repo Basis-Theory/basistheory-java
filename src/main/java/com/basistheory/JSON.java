@@ -144,7 +144,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Log.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.LogEntityType.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.LogPaginatedList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.MonthlyActiveTokenHistory.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Pagination.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.PatchProxyRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.PatchReactorRequest.CustomTypeAdapterFactory());

@@ -62,6 +62,10 @@ public class PatchReactorRequest {
   @SerializedName(SERIALIZED_NAME_APPLICATION)
   private Application application;
 
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
   public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
   private Map<String, String> _configuration = null;
@@ -115,6 +119,29 @@ public class PatchReactorRequest {
   }
 
 
+  public PatchReactorRequest code(String code) {
+    
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Get code
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCode() {
+    return code;
+  }
+
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
   public PatchReactorRequest _configuration(Map<String, String> _configuration) {
     
     this._configuration = _configuration;
@@ -158,6 +185,7 @@ public class PatchReactorRequest {
     PatchReactorRequest patchReactorRequest = (PatchReactorRequest) o;
     return Objects.equals(this.name, patchReactorRequest.name) &&
         Objects.equals(this.application, patchReactorRequest.application) &&
+        Objects.equals(this.code, patchReactorRequest.code) &&
         Objects.equals(this._configuration, patchReactorRequest._configuration);
   }
 
@@ -167,7 +195,7 @@ public class PatchReactorRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, application, _configuration);
+    return Objects.hash(name, application, code, _configuration);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -183,6 +211,7 @@ public class PatchReactorRequest {
     sb.append("class PatchReactorRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -208,6 +237,7 @@ public class PatchReactorRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("application");
+    openapiFields.add("code");
     openapiFields.add("configuration");
 
     // a set of required properties/fields (JSON key names)
@@ -232,6 +262,9 @@ public class PatchReactorRequest {
       // validate the optional field `application`
       if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()) {
         Application.validateJsonObject(jsonObj.getAsJsonObject("application"));
+      }
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
   }
 

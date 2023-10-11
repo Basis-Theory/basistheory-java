@@ -35,7 +35,6 @@ docs/Log.md
 docs/LogEntityType.md
 docs/LogPaginatedList.md
 docs/LogsApi.md
-docs/MonthlyActiveTokenHistory.md
 docs/Pagination.md
 docs/PatchProxyRequest.md
 docs/PatchReactorRequest.md
@@ -132,7 +131,6 @@ src/main/java/com/basistheory/Log.java
 src/main/java/com/basistheory/LogEntityType.java
 src/main/java/com/basistheory/LogPaginatedList.java
 src/main/java/com/basistheory/LogsApi.java
-src/main/java/com/basistheory/MonthlyActiveTokenHistory.java
 src/main/java/com/basistheory/Pagination.java
 src/main/java/com/basistheory/Pair.java
 src/main/java/com/basistheory/PatchProxyRequest.java

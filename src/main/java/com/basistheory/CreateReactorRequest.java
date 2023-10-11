@@ -63,6 +63,10 @@ public class CreateReactorRequest {
   @SerializedName(SERIALIZED_NAME_FORMULA)
   private ReactorFormula formula;
 
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
   private Application application;
@@ -106,7 +110,9 @@ public class CreateReactorRequest {
    /**
    * Get formula
    * @return formula
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
@@ -117,6 +123,29 @@ public class CreateReactorRequest {
 
   public void setFormula(ReactorFormula formula) {
     this.formula = formula;
+  }
+
+
+  public CreateReactorRequest code(String code) {
+    
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Get code
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCode() {
+    return code;
+  }
+
+
+  public void setCode(String code) {
+    this.code = code;
   }
 
 
@@ -186,6 +215,7 @@ public class CreateReactorRequest {
     CreateReactorRequest createReactorRequest = (CreateReactorRequest) o;
     return Objects.equals(this.name, createReactorRequest.name) &&
         Objects.equals(this.formula, createReactorRequest.formula) &&
+        Objects.equals(this.code, createReactorRequest.code) &&
         Objects.equals(this.application, createReactorRequest.application) &&
         Objects.equals(this._configuration, createReactorRequest._configuration);
   }
@@ -196,7 +226,7 @@ public class CreateReactorRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, formula, application, _configuration);
+    return Objects.hash(name, formula, code, application, _configuration);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,6 +242,7 @@ public class CreateReactorRequest {
     sb.append("class CreateReactorRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("}");
@@ -238,6 +269,7 @@ public class CreateReactorRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
     openapiFields.add("formula");
+    openapiFields.add("code");
     openapiFields.add("application");
     openapiFields.add("configuration");
 
@@ -271,6 +303,9 @@ public class CreateReactorRequest {
       // validate the optional field `formula`
       if (jsonObj.get("formula") != null && !jsonObj.get("formula").isJsonNull()) {
         ReactorFormula.validateJsonObject(jsonObj.getAsJsonObject("formula"));
+      }
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       // validate the optional field `application`
       if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()) {
