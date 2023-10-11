@@ -1,3 +1,11 @@
+## [1.1.0](https://github.com/Basis-Theory/basistheory-java/compare/1.0.0...1.1.0) (2023-10-11)
+
+
+### Features
+
+* remove MATs, add code to reactors, deprecate formulas ([#34](https://github.com/Basis-Theory/basistheory-java/issues/34)) ([d02bde0](https://github.com/Basis-Theory/basistheory-java/commit/d02bde0ff3627a271db0e53a22ee104920acc11c))
+
+
 ## [1.0.0](https://github.com/Basis-Theory/basistheory-java/compare/0.6.0...1.0.0) (2023-09-08)
 
 
