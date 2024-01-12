@@ -1,3 +1,31 @@
+## [1.1.0](https://github.com/Basis-Theory/basistheory-java/compare/1.0.0...1.1.0) (2023-10-11)
+
+
+### Features
+
+* remove MATs, add code to reactors, deprecate formulas ([#34](https://github.com/Basis-Theory/basistheory-java/issues/34)) ([d02bde0](https://github.com/Basis-Theory/basistheory-java/commit/d02bde0ff3627a271db0e53a22ee104920acc11c))
+
+
+## [1.0.0](https://github.com/Basis-Theory/basistheory-java/compare/0.6.0...1.0.0) (2023-09-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* Integers that were previously returning as Doubles in API responses are now converted to Integers
+
+### Features
+
+* deserialize integer numbers as Integer instead of Double in generic API responses ([#33](https://github.com/Basis-Theory/basistheory-java/issues/33)) ([880e49c](https://github.com/Basis-Theory/basistheory-java/commit/880e49c7a8691e008555633f46784ea91c83b706))
+
+
+## [0.6.0](https://github.com/Basis-Theory/basistheory-java/compare/0.5.0...0.6.0) (2023-08-29)
+
+
+### Features
+
+* adds bin details and removes token associations ([#32](https://github.com/Basis-Theory/basistheory-java/issues/32)) ([1c412b5](https://github.com/Basis-Theory/basistheory-java/commit/1c412b51060855cbbe5af25465b755dc2706e845))
+
+
 ## [0.5.0](https://github.com/Basis-Theory/basistheory-java/compare/0.4.0...0.5.0) (2023-05-31)
 
 
