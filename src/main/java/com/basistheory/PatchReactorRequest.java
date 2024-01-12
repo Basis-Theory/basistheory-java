@@ -15,6 +15,7 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.basistheory.Application;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,9 +24,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,65 +50,30 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * GetProxies
+ * PatchReactorRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class GetProxies {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private List<UUID> id = null;
-
+public class PatchReactorRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private Integer page;
+  public static final String SERIALIZED_NAME_APPLICATION = "application";
+  @SerializedName(SERIALIZED_NAME_APPLICATION)
+  private Application application;
 
-  public static final String SERIALIZED_NAME_START = "start";
-  @SerializedName(SERIALIZED_NAME_START)
-  private String start;
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
 
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  private Integer size;
+  public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
+  @SerializedName(SERIALIZED_NAME_CONFIGURATION)
+  private Map<String, String> _configuration = null;
 
-  public GetProxies() {
+  public PatchReactorRequest() {
   }
 
-  public GetProxies id(List<UUID> id) {
-    
-    this.id = id;
-    return this;
-  }
-
-  public GetProxies addIdItem(UUID idItem) {
-    if (this.id == null) {
-      this.id = new ArrayList<>();
-    }
-    this.id.add(idItem);
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<UUID> getId() {
-    return id;
-  }
-
-
-  public void setId(List<UUID> id) {
-    this.id = id;
-  }
-
-
-  public GetProxies name(String name) {
+  public PatchReactorRequest name(String name) {
     
     this.name = name;
     return this;
@@ -131,76 +96,80 @@ public class GetProxies {
   }
 
 
-  public GetProxies page(Integer page) {
+  public PatchReactorRequest application(Application application) {
     
-    this.page = page;
+    this.application = application;
     return this;
   }
 
    /**
-   * Get page
-   * minimum: 0
-   * maximum: 2147483647
-   * @return page
+   * Get application
+   * @return application
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getPage() {
-    return page;
+  public Application getApplication() {
+    return application;
   }
 
 
-  public void setPage(Integer page) {
-    this.page = page;
+  public void setApplication(Application application) {
+    this.application = application;
   }
 
 
-  public GetProxies start(String start) {
+  public PatchReactorRequest code(String code) {
     
-    this.start = start;
+    this.code = code;
     return this;
   }
 
    /**
-   * Get start
-   * @return start
+   * Get code
+   * @return code
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getStart() {
-    return start;
+  public String getCode() {
+    return code;
   }
 
 
-  public void setStart(String start) {
-    this.start = start;
+  public void setCode(String code) {
+    this.code = code;
   }
 
 
-  public GetProxies size(Integer size) {
+  public PatchReactorRequest _configuration(Map<String, String> _configuration) {
     
-    this.size = size;
+    this._configuration = _configuration;
+    return this;
+  }
+
+  public PatchReactorRequest putConfigurationItem(String key, String _configurationItem) {
+    if (this._configuration == null) {
+      this._configuration = new HashMap<>();
+    }
+    this._configuration.put(key, _configurationItem);
     return this;
   }
 
    /**
-   * Get size
-   * minimum: 0
-   * maximum: 100
-   * @return size
+   * Get _configuration
+   * @return _configuration
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getSize() {
-    return size;
+  public Map<String, String> getConfiguration() {
+    return _configuration;
   }
 
 
-  public void setSize(Integer size) {
-    this.size = size;
+  public void setConfiguration(Map<String, String> _configuration) {
+    this._configuration = _configuration;
   }
 
 
@@ -213,12 +182,11 @@ public class GetProxies {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetProxies getProxies = (GetProxies) o;
-    return Objects.equals(this.id, getProxies.id) &&
-        Objects.equals(this.name, getProxies.name) &&
-        Objects.equals(this.page, getProxies.page) &&
-        Objects.equals(this.start, getProxies.start) &&
-        Objects.equals(this.size, getProxies.size);
+    PatchReactorRequest patchReactorRequest = (PatchReactorRequest) o;
+    return Objects.equals(this.name, patchReactorRequest.name) &&
+        Objects.equals(this.application, patchReactorRequest.application) &&
+        Objects.equals(this.code, patchReactorRequest.code) &&
+        Objects.equals(this._configuration, patchReactorRequest._configuration);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -227,7 +195,7 @@ public class GetProxies {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, page, start, size);
+    return Objects.hash(name, application, code, _configuration);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -240,12 +208,11 @@ public class GetProxies {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetProxies {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class PatchReactorRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    application: ").append(toIndentedString(application)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -268,11 +235,10 @@ public class GetProxies {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
     openapiFields.add("name");
-    openapiFields.add("page");
-    openapiFields.add("start");
-    openapiFields.add("size");
+    openapiFields.add("application");
+    openapiFields.add("code");
+    openapiFields.add("configuration");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -282,23 +248,23 @@ public class GetProxies {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetProxies
+  * @throws IOException if the JSON Object is invalid with respect to PatchReactorRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!GetProxies.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetProxies is not found in the empty JSON string", GetProxies.openapiRequiredFields.toString()));
+        if (!PatchReactorRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PatchReactorRequest is not found in the empty JSON string", PatchReactorRequest.openapiRequiredFields.toString()));
         }
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
+      // validate the optional field `application`
+      if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()) {
+        Application.validateJsonObject(jsonObj.getAsJsonObject("application"));
+      }
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
   }
 
@@ -306,22 +272,22 @@ public class GetProxies {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetProxies.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetProxies' and its subtypes
+       if (!PatchReactorRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PatchReactorRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetProxies> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetProxies.class));
+       final TypeAdapter<PatchReactorRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PatchReactorRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetProxies>() {
+       return (TypeAdapter<T>) new TypeAdapter<PatchReactorRequest>() {
            @Override
-           public void write(JsonWriter out, GetProxies value) throws IOException {
+           public void write(JsonWriter out, PatchReactorRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetProxies read(JsonReader in) throws IOException {
+           public PatchReactorRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -332,18 +298,18 @@ public class GetProxies {
   }
 
  /**
-  * Create an instance of GetProxies given an JSON string
+  * Create an instance of PatchReactorRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GetProxies
-  * @throws IOException if the JSON string is invalid with respect to GetProxies
+  * @return An instance of PatchReactorRequest
+  * @throws IOException if the JSON string is invalid with respect to PatchReactorRequest
   */
-  public static GetProxies fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetProxies.class);
+  public static PatchReactorRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PatchReactorRequest.class);
   }
 
  /**
-  * Convert an instance of GetProxies to an JSON string
+  * Convert an instance of PatchReactorRequest to an JSON string
   *
   * @return JSON string
   */

@@ -56,6 +56,14 @@
             }
           },
           {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
             "name": "size",
             "in": "query",
             "schema": {
@@ -617,11 +625,18 @@
             "name": "page",
             "in": "query",
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "exclusiveMinimum": true,
               "type": "integer",
               "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "maxLength": 500,
+              "pattern": "^.+$",
+              "type": "string",
               "nullable": true
             }
           },
@@ -629,7 +644,7 @@
             "name": "size",
             "in": "query",
             "schema": {
-              "maximum": 10000,
+              "maximum": 5000,
               "minimum": 0,
               "type": "integer",
               "format": "int32",
@@ -829,6 +844,14 @@
               "exclusiveMinimum": true,
               "type": "integer",
               "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "nullable": true
             }
           },
@@ -1089,6 +1112,80 @@
           }
         }
       },
+      "patch": {
+        "tags": [
+          "Proxies"
+        ],
+        "operationId": "Proxies_Patch",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "maxLength": 36,
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/merge-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchProxyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
       "delete": {
         "tags": [
           "Proxies"
@@ -1170,6 +1267,14 @@
               "exclusiveMinimum": true,
               "type": "integer",
               "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "nullable": true
             }
           },
@@ -1529,6 +1634,14 @@
             }
           },
           {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
             "name": "size",
             "in": "query",
             "schema": {
@@ -1742,6 +1855,80 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Reactors"
+        ],
+        "operationId": "Reactors_Patch",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "maxLength": 36,
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/merge-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchReactorRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request",
@@ -2151,6 +2338,14 @@
             }
           },
           {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
             "name": "size",
             "in": "query",
             "schema": {
@@ -2345,6 +2540,14 @@
               "exclusiveMinimum": true,
               "type": "integer",
               "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
               "nullable": true
             }
           },
@@ -2709,373 +2912,6 @@
         }
       }
     },
-    "/tokens/{parentId}/children": {
-      "get": {
-        "tags": [
-          "Tokens"
-        ],
-        "operationId": "Tokens_GetChildren",
-        "parameters": [
-          {
-            "name": "parentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "maxLength": 200,
-              "pattern": "^.+$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "nullable": true
-            }
-          },
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "nullable": true
-            }
-          },
-          {
-            "name": "metadata",
-            "in": "query",
-            "style": "deepObject",
-            "schema": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "nullable": true
-            }
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
-              "exclusiveMinimum": true,
-              "type": "integer",
-              "format": "int32",
-              "nullable": true
-            }
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "schema": {
-              "maximum": 100,
-              "minimum": 0,
-              "type": "integer",
-              "format": "int32",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TokenPaginatedList"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Tokens"
-        ],
-        "operationId": "Tokens_CreateChild",
-        "parameters": [
-          {
-            "name": "parentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "maxLength": 200,
-              "pattern": "^.+$",
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateTokenRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreateTokenResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/tokens/{parentId}/children/{childId}": {
-      "post": {
-        "tags": [
-          "Tokens"
-        ],
-        "operationId": "Tokens_CreateAssociation",
-        "parameters": [
-          {
-            "name": "parentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "maxLength": 200,
-              "pattern": "^.+$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "childId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "maxLength": 200,
-              "pattern": "^.+$",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Tokens"
-        ],
-        "operationId": "Tokens_DeleteAssociation",
-        "parameters": [
-          {
-            "name": "parentId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "maxLength": 200,
-              "pattern": "^.+$",
-              "type": "string"
-            }
-          },
-          {
-            "name": "childId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "maxLength": 200,
-              "pattern": "^.+$",
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/tokenize": {
       "post": {
         "tags": [
@@ -3085,7 +2921,7 @@
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": { }
+              "schema": {}
             }
           }
         },
@@ -3094,7 +2930,7 @@
             "description": "Success",
             "content": {
               "application/json": {
-                "schema": { }
+                "schema": {}
               }
             }
           },
@@ -3195,6 +3031,14 @@
             }
           },
           {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
             "name": "size",
             "in": "query",
             "schema": {
@@ -3260,7 +3104,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateTokenResponse"
+                  "$ref": "#/components/schemas/Token"
                 }
               }
             }
@@ -3902,6 +3746,142 @@
         },
         "additionalProperties": false
       },
+      "BinDetails": {
+        "type": "object",
+        "properties": {
+          "card_brand": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "prepaid": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "card_segment_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "bank": {
+            "$ref": "#/components/schemas/BinDetailsBank"
+          },
+          "product": {
+            "$ref": "#/components/schemas/BinDetailsProduct"
+          },
+          "country": {
+            "$ref": "#/components/schemas/BinDetailsCountry"
+          },
+          "reloadable": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "pan_or_token": {
+            "type": "string",
+            "nullable": true
+          },
+          "account_updater": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "alm": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "domestic_only": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "gambling_blocked": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "level2": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "level3": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "issuer_currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "combo_card": {
+            "type": "string",
+            "nullable": true
+          },
+          "bin_length": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "authentication": {
+            "nullable": true
+          },
+          "cost": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BinDetailsBank": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "clean_name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BinDetailsCountry": {
+        "type": "object",
+        "properties": {
+          "alpha2": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeric": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BinDetailsProduct": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Condition": {
         "type": "object",
         "properties": {
@@ -4056,7 +4036,7 @@
             "nullable": true
           },
           "code": {
-            "maxLength": 12000,
+            "maxLength": 50000,
             "type": "string",
             "nullable": true
           },
@@ -4077,7 +4057,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "deprecated": true
       },
       "CreateReactorRequest": {
         "required": [
@@ -4094,10 +4075,17 @@
           "formula": {
             "$ref": "#/components/schemas/ReactorFormula"
           },
+          "code": {
+            "maxLength": 50000,
+            "pattern": "^[\\S\\s]*$",
+            "type": "string",
+            "nullable": true
+          },
           "application": {
             "$ref": "#/components/schemas/Application"
           },
           "configuration": {
+            "maxLength": 25,
             "type": "object",
             "additionalProperties": {
               "type": "string",
@@ -4157,7 +4145,7 @@
             "type": "string",
             "nullable": true
           },
-          "data": { },
+          "data": {},
           "encryption": {
             "$ref": "#/components/schemas/EncryptionMetadata"
           },
@@ -4180,8 +4168,6 @@
             "nullable": true
           },
           "fingerprint_expression": {
-            "maxLength": 400,
-            "pattern": "^.*$",
             "type": "string",
             "nullable": true
           },
@@ -4197,116 +4183,6 @@
             "nullable": true
           },
           "containers": {
-            "maxItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateTokenResponse": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "maxLength": 400,
-            "pattern": "^.+$",
-            "type": "string",
-            "nullable": true
-          },
-          "tenant_id": {
-            "maxLength": 36,
-            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-            "type": "string",
-            "format": "uuid"
-          },
-          "type": {
-            "maxLength": 50,
-            "pattern": "^[A-z_]*$",
-            "type": "string",
-            "nullable": true
-          },
-          "fingerprint": {
-            "maxLength": 100,
-            "pattern": "^[A-z0-9]*$",
-            "type": "string",
-            "nullable": true
-          },
-          "fingerprint_expression": {
-            "maxLength": 400,
-            "pattern": "^.*$",
-            "type": "string",
-            "nullable": true
-          },
-          "mask": {
-            "nullable": true
-          },
-          "data": {
-            "nullable": true
-          },
-          "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string",
-              "nullable": true
-            },
-            "nullable": true
-          },
-          "privacy": {
-            "$ref": "#/components/schemas/Privacy"
-          },
-          "search_indexes": {
-            "maxItems": 10,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "created_by": {
-            "maxLength": 36,
-            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "created_at": {
-            "maxLength": 40,
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "modified_by": {
-            "maxLength": 36,
-            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "modified_at": {
-            "maxLength": 40,
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "expires_at": {
-            "maxLength": 40,
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "containers": {
-            "pattern": "^(?!.*\\/\\/)(?=.*\\/$)\\/[A-z0-9_\\-\\/]*$",
-            "maxItems": 1,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "aliases": {
             "maxItems": 1,
             "type": "array",
             "items": {
@@ -4407,6 +4283,10 @@
             "format": "int32",
             "nullable": true
           },
+          "start": {
+            "type": "string",
+            "nullable": true
+          },
           "size": {
             "maximum": 100,
             "minimum": 0,
@@ -4445,15 +4325,18 @@
             "nullable": true
           },
           "page": {
-            "maximum": 2147483647,
-            "minimum": 0,
-            "exclusiveMinimum": true,
             "type": "integer",
             "format": "int32",
             "nullable": true
           },
+          "start": {
+            "maxLength": 500,
+            "pattern": "^.+$",
+            "type": "string",
+            "nullable": true
+          },
           "size": {
-            "maximum": 10000,
+            "maximum": 5000,
             "minimum": 0,
             "type": "integer",
             "format": "int32",
@@ -4501,6 +4384,10 @@
             "format": "int32",
             "nullable": true
           },
+          "start": {
+            "type": "string",
+            "nullable": true
+          },
           "size": {
             "maximum": 100,
             "minimum": 0,
@@ -4526,6 +4413,10 @@
             "exclusiveMinimum": true,
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "start": {
+            "type": "string",
             "nullable": true
           },
           "size": {
@@ -4565,6 +4456,10 @@
             "format": "int32",
             "nullable": true
           },
+          "start": {
+            "type": "string",
+            "nullable": true
+          },
           "size": {
             "maximum": 100,
             "minimum": 0,
@@ -4587,6 +4482,10 @@
             "exclusiveMinimum": true,
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "start": {
+            "type": "string",
             "nullable": true
           },
           "size": {
@@ -4618,6 +4517,10 @@
             "exclusiveMinimum": true,
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "start": {
+            "type": "string",
             "nullable": true
           },
           "size": {
@@ -4663,6 +4566,10 @@
             "format": "int32",
             "nullable": true
           },
+          "start": {
+            "type": "string",
+            "nullable": true
+          },
           "size": {
             "maximum": 100,
             "minimum": 0,
@@ -4676,6 +4583,10 @@
       "Log": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
           "tenant_id": {
             "maxLength": 36,
             "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
@@ -4753,7 +4664,7 @@
             "$ref": "#/components/schemas/Pagination"
           },
           "data": {
-            "maxItems": 10000,
+            "maxItems": 5000,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Log"
@@ -4763,47 +4674,100 @@
         },
         "additionalProperties": false
       },
-      "MonthlyActiveTokenHistory": {
-        "type": "object",
-        "properties": {
-          "year": {
-            "maximum": 9999,
-            "minimum": 1000,
-            "type": "integer",
-            "format": "int32"
-          },
-          "month": {
-            "maximum": 12,
-            "minimum": 1,
-            "type": "integer",
-            "format": "int32"
-          },
-          "count": {
-            "minimum": 0,
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "additionalProperties": false
-      },
       "Pagination": {
         "type": "object",
         "properties": {
           "total_items": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "page_number": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "page_size": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "total_pages": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
+          },
+          "after": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatchProxyRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 200,
+            "pattern": "^.+$",
+            "type": "string",
+            "nullable": true
+          },
+          "destination_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "request_transform": {
+            "$ref": "#/components/schemas/ProxyTransform"
+          },
+          "response_transform": {
+            "$ref": "#/components/schemas/ProxyTransform"
+          },
+          "application": {
+            "$ref": "#/components/schemas/Application"
+          },
+          "configuration": {
+            "maxLength": 25,
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "require_auth": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PatchReactorRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 200,
+            "pattern": "^.+$",
+            "type": "string",
+            "nullable": true
+          },
+          "application": {
+            "$ref": "#/components/schemas/Application"
+          },
+          "code": {
+            "maxLength": 50000,
+            "pattern": "^[\\S\\s]*$",
+            "type": "string",
+            "nullable": true
+          },
+          "configuration": {
+            "maxLength": 25,
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -4883,7 +4847,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": {}
       },
       "Proxy": {
         "type": "object",
@@ -4898,8 +4862,7 @@
             "maxLength": 100,
             "pattern": "^[A-z0-9]+$",
             "type": "string",
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           },
           "tenant_id": {
             "maxLength": 36,
@@ -5011,7 +4974,7 @@
         "type": "object",
         "properties": {
           "code": {
-            "maxLength": 12000,
+            "maxLength": 50000,
             "type": "string",
             "nullable": true
           }
@@ -5079,6 +5042,10 @@
           },
           "formula": {
             "$ref": "#/components/schemas/ReactorFormula"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
           },
           "application": {
             "$ref": "#/components/schemas/Application"
@@ -5155,7 +5122,7 @@
           },
           "icon": {
             "maxLength": 50000,
-            "pattern": "(^data:(image\\/png|image\\/jpg|image\\/jpeg|image\\/svg\\+xml);\\s*base64,\\s*(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=|[A-Za-z0-9+\\/]{4})$)|(^data:(image\\/png|image\\/jpg|image\\/jpeg);\\s*base64,\\s*(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\/]{3}=|[A-Za-z0-9+\\/]{4})$)",
+            "pattern": "(^data:(image\/png|image\/jpg|image\/jpeg|image\/svg\\+xml);\\s*base64,\\s*(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})$)|(^data:(image\/png|image\/jpg|image\/jpeg);\\s*base64,\\s*(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})$)",
             "type": "string",
             "nullable": true
           },
@@ -5208,7 +5175,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "deprecated": true
       },
       "ReactorFormulaConfiguration": {
         "required": [
@@ -5320,6 +5288,10 @@
             "format": "int32",
             "nullable": true
           },
+          "start": {
+            "type": "string",
+            "nullable": true
+          },
           "size": {
             "maximum": 100,
             "minimum": 0,
@@ -5340,11 +5312,11 @@
           "key": {
             "maxLength": 200,
             "minLength": 1,
-            "pattern": "^[A-z0-9][A-z0-9.\\-_]*[A-z0-9]$",
+            "pattern": "^[\\w-]+$",
             "type": "string"
           },
           "value": {
-            "maxLength": 500,
+            "maxLength": 50000,
             "minLength": 1,
             "type": "string"
           }
@@ -5600,6 +5572,9 @@
             },
             "nullable": true
           },
+          "enrichments": {
+            "$ref": "#/components/schemas/TokenEnrichments"
+          },
           "encryption": {
             "$ref": "#/components/schemas/EncryptionMetadata"
           },
@@ -5662,7 +5637,7 @@
             "nullable": true
           },
           "containers": {
-            "pattern": "^(?!.*\\/\\/)(?=.*\\/$)\\/[A-z0-9_\\-\\/]*$",
+            "pattern": "^(?!.*\/\/)(?=.*\/$)\/[A-z0-9_\\-\/]*$",
             "maxItems": 1,
             "type": "array",
             "items": {
@@ -5677,6 +5652,15 @@
               "type": "string"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TokenEnrichments": {
+        "type": "object",
+        "properties": {
+          "bin_details": {
+            "$ref": "#/components/schemas/BinDetails"
           }
         },
         "additionalProperties": false
@@ -5734,13 +5718,6 @@
             "type": "object",
             "additionalProperties": {
               "$ref": "#/components/schemas/TokenMetrics"
-            },
-            "nullable": true
-          },
-          "monthly_active_token_history": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MonthlyActiveTokenHistory"
             },
             "nullable": true
           }
@@ -5879,7 +5856,7 @@
             "nullable": true
           },
           "code": {
-            "maxLength": 4000,
+            "maxLength": 50000,
             "pattern": "^[\\S\\s]*$",
             "type": "string",
             "nullable": true
@@ -5901,7 +5878,8 @@
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "deprecated": true
       },
       "UpdateReactorRequest": {
         "required": [
@@ -5918,7 +5896,14 @@
           "application": {
             "$ref": "#/components/schemas/Application"
           },
+          "code": {
+            "maxLength": 50000,
+            "pattern": "^[\\S\\s]*$",
+            "type": "string",
+            "nullable": true
+          },
           "configuration": {
+            "maxLength": 25,
             "type": "object",
             "additionalProperties": {
               "type": "string",
@@ -6078,7 +6063,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": {}
       }
     },
     "securitySchemes": {
@@ -6092,7 +6077,7 @@
   },
   "security": [
     {
-      "ApiKey": [ ]
+      "ApiKey": []
     }
   ]
 }

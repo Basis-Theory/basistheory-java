@@ -1,16 +1,15 @@
 
 
-# GetReactorFormulas
+# BinDetailsCountry
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**alpha2** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
-|**page** | **Integer** |  |  [optional] |
-|**start** | **String** |  |  [optional] |
-|**size** | **Integer** |  |  [optional] |
+|**numeric** | **String** |  |  [optional] |
 
 
 

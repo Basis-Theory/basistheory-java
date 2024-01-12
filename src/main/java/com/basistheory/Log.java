@@ -53,6 +53,10 @@ import com.basistheory.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Log {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
+
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
   private UUID tenantId;
@@ -87,6 +91,29 @@ public class Log {
 
   public Log() {
   }
+
+  public Log id(String id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getId() {
+    return id;
+  }
+
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
 
   public Log tenantId(UUID tenantId) {
     
@@ -282,7 +309,8 @@ public class Log {
       return false;
     }
     Log log = (Log) o;
-    return Objects.equals(this.tenantId, log.tenantId) &&
+    return Objects.equals(this.id, log.id) &&
+        Objects.equals(this.tenantId, log.tenantId) &&
         Objects.equals(this.actorId, log.actorId) &&
         Objects.equals(this.actorType, log.actorType) &&
         Objects.equals(this.entityType, log.entityType) &&
@@ -298,7 +326,7 @@ public class Log {
 
   @Override
   public int hashCode() {
-    return Objects.hash(tenantId, actorId, actorType, entityType, entityId, operation, message, createdAt);
+    return Objects.hash(id, tenantId, actorId, actorType, entityType, entityId, operation, message, createdAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -312,6 +340,7 @@ public class Log {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Log {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    actorId: ").append(toIndentedString(actorId)).append("\n");
     sb.append("    actorType: ").append(toIndentedString(actorType)).append("\n");
@@ -342,6 +371,7 @@ public class Log {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("id");
     openapiFields.add("tenant_id");
     openapiFields.add("actor_id");
     openapiFields.add("actor_type");
@@ -366,6 +396,9 @@ public class Log {
         if (!Log.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Log is not found in the empty JSON string", Log.openapiRequiredFields.toString()));
         }
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("tenant_id") != null && !jsonObj.get("tenant_id").isJsonNull()) && !jsonObj.get("tenant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_id").toString()));

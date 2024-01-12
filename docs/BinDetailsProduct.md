@@ -1,16 +1,14 @@
 
 
-# GetReactorFormulas
+# BinDetailsProduct
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**code** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
-|**page** | **Integer** |  |  [optional] |
-|**start** | **String** |  |  [optional] |
-|**size** | **Integer** |  |  [optional] |
 
 
 

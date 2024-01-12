@@ -23,9 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,65 +47,45 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * GetProxies
+ * BinDetailsProduct
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class GetProxies {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private List<UUID> id = null;
+public class BinDetailsProduct {
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private Integer page;
-
-  public static final String SERIALIZED_NAME_START = "start";
-  @SerializedName(SERIALIZED_NAME_START)
-  private String start;
-
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  private Integer size;
-
-  public GetProxies() {
+  public BinDetailsProduct() {
   }
 
-  public GetProxies id(List<UUID> id) {
+  public BinDetailsProduct code(String code) {
     
-    this.id = id;
-    return this;
-  }
-
-  public GetProxies addIdItem(UUID idItem) {
-    if (this.id == null) {
-      this.id = new ArrayList<>();
-    }
-    this.id.add(idItem);
+    this.code = code;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get code
+   * @return code
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<UUID> getId() {
-    return id;
+  public String getCode() {
+    return code;
   }
 
 
-  public void setId(List<UUID> id) {
-    this.id = id;
+  public void setCode(String code) {
+    this.code = code;
   }
 
 
-  public GetProxies name(String name) {
+  public BinDetailsProduct name(String name) {
     
     this.name = name;
     return this;
@@ -131,79 +108,6 @@ public class GetProxies {
   }
 
 
-  public GetProxies page(Integer page) {
-    
-    this.page = page;
-    return this;
-  }
-
-   /**
-   * Get page
-   * minimum: 0
-   * maximum: 2147483647
-   * @return page
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getPage() {
-    return page;
-  }
-
-
-  public void setPage(Integer page) {
-    this.page = page;
-  }
-
-
-  public GetProxies start(String start) {
-    
-    this.start = start;
-    return this;
-  }
-
-   /**
-   * Get start
-   * @return start
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getStart() {
-    return start;
-  }
-
-
-  public void setStart(String start) {
-    this.start = start;
-  }
-
-
-  public GetProxies size(Integer size) {
-    
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * Get size
-   * minimum: 0
-   * maximum: 100
-   * @return size
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getSize() {
-    return size;
-  }
-
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -213,12 +117,9 @@ public class GetProxies {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetProxies getProxies = (GetProxies) o;
-    return Objects.equals(this.id, getProxies.id) &&
-        Objects.equals(this.name, getProxies.name) &&
-        Objects.equals(this.page, getProxies.page) &&
-        Objects.equals(this.start, getProxies.start) &&
-        Objects.equals(this.size, getProxies.size);
+    BinDetailsProduct binDetailsProduct = (BinDetailsProduct) o;
+    return Objects.equals(this.code, binDetailsProduct.code) &&
+        Objects.equals(this.name, binDetailsProduct.name);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -227,7 +128,7 @@ public class GetProxies {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, page, start, size);
+    return Objects.hash(code, name);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -240,12 +141,9 @@ public class GetProxies {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetProxies {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class BinDetailsProduct {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -268,11 +166,8 @@ public class GetProxies {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
+    openapiFields.add("code");
     openapiFields.add("name");
-    openapiFields.add("page");
-    openapiFields.add("start");
-    openapiFields.add("size");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -282,23 +177,19 @@ public class GetProxies {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetProxies
+  * @throws IOException if the JSON Object is invalid with respect to BinDetailsProduct
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!GetProxies.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetProxies is not found in the empty JSON string", GetProxies.openapiRequiredFields.toString()));
+        if (!BinDetailsProduct.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BinDetailsProduct is not found in the empty JSON string", BinDetailsProduct.openapiRequiredFields.toString()));
         }
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
-      }
-      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
   }
 
@@ -306,22 +197,22 @@ public class GetProxies {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetProxies.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetProxies' and its subtypes
+       if (!BinDetailsProduct.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BinDetailsProduct' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetProxies> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetProxies.class));
+       final TypeAdapter<BinDetailsProduct> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BinDetailsProduct.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetProxies>() {
+       return (TypeAdapter<T>) new TypeAdapter<BinDetailsProduct>() {
            @Override
-           public void write(JsonWriter out, GetProxies value) throws IOException {
+           public void write(JsonWriter out, BinDetailsProduct value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetProxies read(JsonReader in) throws IOException {
+           public BinDetailsProduct read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -332,18 +223,18 @@ public class GetProxies {
   }
 
  /**
-  * Create an instance of GetProxies given an JSON string
+  * Create an instance of BinDetailsProduct given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GetProxies
-  * @throws IOException if the JSON string is invalid with respect to GetProxies
+  * @return An instance of BinDetailsProduct
+  * @throws IOException if the JSON string is invalid with respect to BinDetailsProduct
   */
-  public static GetProxies fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetProxies.class);
+  public static BinDetailsProduct fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BinDetailsProduct.class);
   }
 
  /**
-  * Convert an instance of GetProxies to an JSON string
+  * Convert an instance of BinDetailsProduct to an JSON string
   *
   * @return JSON string
   */

@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.basistheory.EncryptionMetadata;
 import com.basistheory.Privacy;
+import com.basistheory.TokenEnrichments;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -78,6 +79,10 @@ public class Token {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Map<String, String> metadata = null;
+
+  public static final String SERIALIZED_NAME_ENRICHMENTS = "enrichments";
+  @SerializedName(SERIALIZED_NAME_ENRICHMENTS)
+  private TokenEnrichments enrichments;
 
   public static final String SERIALIZED_NAME_ENCRYPTION = "encryption";
   @SerializedName(SERIALIZED_NAME_ENCRYPTION)
@@ -254,6 +259,29 @@ public class Token {
 
   public void setMetadata(Map<String, String> metadata) {
     this.metadata = metadata;
+  }
+
+
+  public Token enrichments(TokenEnrichments enrichments) {
+    
+    this.enrichments = enrichments;
+    return this;
+  }
+
+   /**
+   * Get enrichments
+   * @return enrichments
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TokenEnrichments getEnrichments() {
+    return enrichments;
+  }
+
+
+  public void setEnrichments(TokenEnrichments enrichments) {
+    this.enrichments = enrichments;
   }
 
 
@@ -595,6 +623,7 @@ public class Token {
         Objects.equals(this.tenantId, token.tenantId) &&
         Objects.equals(this.data, token.data) &&
         Objects.equals(this.metadata, token.metadata) &&
+        Objects.equals(this.enrichments, token.enrichments) &&
         Objects.equals(this.encryption, token.encryption) &&
         Objects.equals(this.createdBy, token.createdBy) &&
         Objects.equals(this.createdAt, token.createdAt) &&
@@ -616,7 +645,7 @@ public class Token {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tenantId, data, metadata, encryption, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, containers, aliases);
+    return Objects.hash(id, type, tenantId, data, metadata, enrichments, encryption, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, containers, aliases);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -635,6 +664,7 @@ public class Token {
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    enrichments: ").append(toIndentedString(enrichments)).append("\n");
     sb.append("    encryption: ").append(toIndentedString(encryption)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -675,6 +705,7 @@ public class Token {
     openapiFields.add("tenant_id");
     openapiFields.add("data");
     openapiFields.add("metadata");
+    openapiFields.add("enrichments");
     openapiFields.add("encryption");
     openapiFields.add("created_by");
     openapiFields.add("created_at");
@@ -713,6 +744,10 @@ public class Token {
       }
       if ((jsonObj.get("tenant_id") != null && !jsonObj.get("tenant_id").isJsonNull()) && !jsonObj.get("tenant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_id").toString()));
+      }
+      // validate the optional field `enrichments`
+      if (jsonObj.get("enrichments") != null && !jsonObj.get("enrichments").isJsonNull()) {
+        TokenEnrichments.validateJsonObject(jsonObj.getAsJsonObject("enrichments"));
       }
       // validate the optional field `encryption`
       if (jsonObj.get("encryption") != null && !jsonObj.get("encryption").isJsonNull()) {

@@ -84,6 +84,7 @@ public class LogsApi {
      * @param startDate  (optional)
      * @param endDate  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -97,7 +98,7 @@ public class LogsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -142,6 +143,10 @@ public class LogsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
         if (size != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
         }
@@ -166,8 +171,8 @@ public class LogsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getCall(entityType, entityId, startDate, endDate, page, size, _callback);
+    private okhttp3.Call getValidateBeforeCall(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getCall(entityType, entityId, startDate, endDate, page, start, size, _callback);
 
     }
 
@@ -179,6 +184,7 @@ public class LogsApi {
      * @param startDate  (optional)
      * @param endDate  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return LogPaginatedList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -191,8 +197,8 @@ public class LogsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public LogPaginatedList get(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, Integer size) throws ApiException {
-        ApiResponse<LogPaginatedList> localVarResp = getWithHttpInfo(entityType, entityId, startDate, endDate, page, size);
+    public LogPaginatedList get(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, String start, Integer size) throws ApiException {
+        ApiResponse<LogPaginatedList> localVarResp = getWithHttpInfo(entityType, entityId, startDate, endDate, page, start, size);
         return localVarResp.getData();
     }
 
@@ -204,6 +210,7 @@ public class LogsApi {
      * @param startDate  (optional)
      * @param endDate  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ApiResponse&lt;LogPaginatedList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -216,8 +223,8 @@ public class LogsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LogPaginatedList> getWithHttpInfo(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getValidateBeforeCall(entityType, entityId, startDate, endDate, page, size, null);
+    public ApiResponse<LogPaginatedList> getWithHttpInfo(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(entityType, entityId, startDate, endDate, page, start, size, null);
         Type localVarReturnType = new TypeToken<LogPaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -230,6 +237,7 @@ public class LogsApi {
      * @param startDate  (optional)
      * @param endDate  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -243,9 +251,9 @@ public class LogsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, Integer size, final ApiCallback<LogPaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getAsync(String entityType, String entityId, OffsetDateTime startDate, OffsetDateTime endDate, Integer page, String start, Integer size, final ApiCallback<LogPaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getValidateBeforeCall(entityType, entityId, startDate, endDate, page, size, _callback);
+        okhttp3.Call localVarCall = getValidateBeforeCall(entityType, entityId, startDate, endDate, page, start, size, _callback);
         Type localVarReturnType = new TypeToken<LogPaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

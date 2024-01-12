@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -65,6 +66,10 @@ public class Pagination {
   public static final String SERIALIZED_NAME_TOTAL_PAGES = "total_pages";
   @SerializedName(SERIALIZED_NAME_TOTAL_PAGES)
   private Integer totalPages;
+
+  public static final String SERIALIZED_NAME_AFTER = "after";
+  @SerializedName(SERIALIZED_NAME_AFTER)
+  private String after;
 
   public Pagination() {
   }
@@ -161,6 +166,29 @@ public class Pagination {
   }
 
 
+  public Pagination after(String after) {
+    
+    this.after = after;
+    return this;
+  }
+
+   /**
+   * Get after
+   * @return after
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAfter() {
+    return after;
+  }
+
+
+  public void setAfter(String after) {
+    this.after = after;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -174,12 +202,24 @@ public class Pagination {
     return Objects.equals(this.totalItems, pagination.totalItems) &&
         Objects.equals(this.pageNumber, pagination.pageNumber) &&
         Objects.equals(this.pageSize, pagination.pageSize) &&
-        Objects.equals(this.totalPages, pagination.totalPages);
+        Objects.equals(this.totalPages, pagination.totalPages) &&
+        Objects.equals(this.after, pagination.after);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalItems, pageNumber, pageSize, totalPages);
+    return Objects.hash(totalItems, pageNumber, pageSize, totalPages, after);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -190,6 +230,7 @@ public class Pagination {
     sb.append("    pageNumber: ").append(toIndentedString(pageNumber)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
+    sb.append("    after: ").append(toIndentedString(after)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -216,6 +257,7 @@ public class Pagination {
     openapiFields.add("page_number");
     openapiFields.add("page_size");
     openapiFields.add("total_pages");
+    openapiFields.add("after");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -232,6 +274,9 @@ public class Pagination {
         if (!Pagination.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Pagination is not found in the empty JSON string", Pagination.openapiRequiredFields.toString()));
         }
+      }
+      if ((jsonObj.get("after") != null && !jsonObj.get("after").isJsonNull()) && !jsonObj.get("after").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `after` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after").toString()));
       }
   }
 

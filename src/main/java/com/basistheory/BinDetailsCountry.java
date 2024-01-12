@@ -15,7 +15,6 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.basistheory.TenantInvitationStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,122 +47,91 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * GetTenantInvitations
+ * BinDetailsCountry
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class GetTenantInvitations {
-  public static final String SERIALIZED_NAME_STATUS = "status";
-  @SerializedName(SERIALIZED_NAME_STATUS)
-  private TenantInvitationStatus status;
+public class BinDetailsCountry {
+  public static final String SERIALIZED_NAME_ALPHA2 = "alpha2";
+  @SerializedName(SERIALIZED_NAME_ALPHA2)
+  private String alpha2;
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private Integer page;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public static final String SERIALIZED_NAME_START = "start";
-  @SerializedName(SERIALIZED_NAME_START)
-  private String start;
+  public static final String SERIALIZED_NAME_NUMERIC = "numeric";
+  @SerializedName(SERIALIZED_NAME_NUMERIC)
+  private String numeric;
 
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  private Integer size;
-
-  public GetTenantInvitations() {
+  public BinDetailsCountry() {
   }
 
-  public GetTenantInvitations status(TenantInvitationStatus status) {
+  public BinDetailsCountry alpha2(String alpha2) {
     
-    this.status = status;
+    this.alpha2 = alpha2;
     return this;
   }
 
    /**
-   * Get status
-   * @return status
+   * Get alpha2
+   * @return alpha2
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public TenantInvitationStatus getStatus() {
-    return status;
+  public String getAlpha2() {
+    return alpha2;
   }
 
 
-  public void setStatus(TenantInvitationStatus status) {
-    this.status = status;
+  public void setAlpha2(String alpha2) {
+    this.alpha2 = alpha2;
   }
 
 
-  public GetTenantInvitations page(Integer page) {
+  public BinDetailsCountry name(String name) {
     
-    this.page = page;
+    this.name = name;
     return this;
   }
 
    /**
-   * Get page
-   * minimum: 0
-   * maximum: 2147483647
-   * @return page
+   * Get name
+   * @return name
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getPage() {
-    return page;
+  public String getName() {
+    return name;
   }
 
 
-  public void setPage(Integer page) {
-    this.page = page;
+  public void setName(String name) {
+    this.name = name;
   }
 
 
-  public GetTenantInvitations start(String start) {
+  public BinDetailsCountry numeric(String numeric) {
     
-    this.start = start;
+    this.numeric = numeric;
     return this;
   }
 
    /**
-   * Get start
-   * @return start
+   * Get numeric
+   * @return numeric
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getStart() {
-    return start;
+  public String getNumeric() {
+    return numeric;
   }
 
 
-  public void setStart(String start) {
-    this.start = start;
-  }
-
-
-  public GetTenantInvitations size(Integer size) {
-    
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * Get size
-   * minimum: 0
-   * maximum: 100
-   * @return size
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public Integer getSize() {
-    return size;
-  }
-
-
-  public void setSize(Integer size) {
-    this.size = size;
+  public void setNumeric(String numeric) {
+    this.numeric = numeric;
   }
 
 
@@ -176,11 +144,10 @@ public class GetTenantInvitations {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetTenantInvitations getTenantInvitations = (GetTenantInvitations) o;
-    return Objects.equals(this.status, getTenantInvitations.status) &&
-        Objects.equals(this.page, getTenantInvitations.page) &&
-        Objects.equals(this.start, getTenantInvitations.start) &&
-        Objects.equals(this.size, getTenantInvitations.size);
+    BinDetailsCountry binDetailsCountry = (BinDetailsCountry) o;
+    return Objects.equals(this.alpha2, binDetailsCountry.alpha2) &&
+        Objects.equals(this.name, binDetailsCountry.name) &&
+        Objects.equals(this.numeric, binDetailsCountry.numeric);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -189,7 +156,7 @@ public class GetTenantInvitations {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, page, start, size);
+    return Objects.hash(alpha2, name, numeric);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -202,11 +169,10 @@ public class GetTenantInvitations {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetTenantInvitations {\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("class BinDetailsCountry {\n");
+    sb.append("    alpha2: ").append(toIndentedString(alpha2)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    numeric: ").append(toIndentedString(numeric)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -229,10 +195,9 @@ public class GetTenantInvitations {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("status");
-    openapiFields.add("page");
-    openapiFields.add("start");
-    openapiFields.add("size");
+    openapiFields.add("alpha2");
+    openapiFields.add("name");
+    openapiFields.add("numeric");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -242,16 +207,22 @@ public class GetTenantInvitations {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetTenantInvitations
+  * @throws IOException if the JSON Object is invalid with respect to BinDetailsCountry
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!GetTenantInvitations.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetTenantInvitations is not found in the empty JSON string", GetTenantInvitations.openapiRequiredFields.toString()));
+        if (!BinDetailsCountry.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BinDetailsCountry is not found in the empty JSON string", BinDetailsCountry.openapiRequiredFields.toString()));
         }
       }
-      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
+      if ((jsonObj.get("alpha2") != null && !jsonObj.get("alpha2").isJsonNull()) && !jsonObj.get("alpha2").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `alpha2` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alpha2").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("numeric") != null && !jsonObj.get("numeric").isJsonNull()) && !jsonObj.get("numeric").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `numeric` to be a primitive type in the JSON string but got `%s`", jsonObj.get("numeric").toString()));
       }
   }
 
@@ -259,22 +230,22 @@ public class GetTenantInvitations {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetTenantInvitations.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetTenantInvitations' and its subtypes
+       if (!BinDetailsCountry.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BinDetailsCountry' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetTenantInvitations> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetTenantInvitations.class));
+       final TypeAdapter<BinDetailsCountry> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BinDetailsCountry.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetTenantInvitations>() {
+       return (TypeAdapter<T>) new TypeAdapter<BinDetailsCountry>() {
            @Override
-           public void write(JsonWriter out, GetTenantInvitations value) throws IOException {
+           public void write(JsonWriter out, BinDetailsCountry value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetTenantInvitations read(JsonReader in) throws IOException {
+           public BinDetailsCountry read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -285,18 +256,18 @@ public class GetTenantInvitations {
   }
 
  /**
-  * Create an instance of GetTenantInvitations given an JSON string
+  * Create an instance of BinDetailsCountry given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GetTenantInvitations
-  * @throws IOException if the JSON string is invalid with respect to GetTenantInvitations
+  * @return An instance of BinDetailsCountry
+  * @throws IOException if the JSON string is invalid with respect to BinDetailsCountry
   */
-  public static GetTenantInvitations fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetTenantInvitations.class);
+  public static BinDetailsCountry fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BinDetailsCountry.class);
   }
 
  /**
-  * Convert an instance of GetTenantInvitations to an JSON string
+  * Convert an instance of BinDetailsCountry to an JSON string
   *
   * @return JSON string
   */

@@ -16,7 +16,7 @@ package com.basistheory;
 import java.util.Objects;
 import java.util.Arrays;
 import com.basistheory.Application;
-import com.basistheory.ReactorFormula;
+import com.basistheory.ProxyTransform;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -51,21 +51,25 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * CreateReactorRequest
+ * PatchProxyRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class CreateReactorRequest {
+public class PatchProxyRequest {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_FORMULA = "formula";
-  @SerializedName(SERIALIZED_NAME_FORMULA)
-  private ReactorFormula formula;
+  public static final String SERIALIZED_NAME_DESTINATION_URL = "destination_url";
+  @SerializedName(SERIALIZED_NAME_DESTINATION_URL)
+  private String destinationUrl;
 
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
+  public static final String SERIALIZED_NAME_REQUEST_TRANSFORM = "request_transform";
+  @SerializedName(SERIALIZED_NAME_REQUEST_TRANSFORM)
+  private ProxyTransform requestTransform;
+
+  public static final String SERIALIZED_NAME_RESPONSE_TRANSFORM = "response_transform";
+  @SerializedName(SERIALIZED_NAME_RESPONSE_TRANSFORM)
+  private ProxyTransform responseTransform;
 
   public static final String SERIALIZED_NAME_APPLICATION = "application";
   @SerializedName(SERIALIZED_NAME_APPLICATION)
@@ -75,10 +79,14 @@ public class CreateReactorRequest {
   @SerializedName(SERIALIZED_NAME_CONFIGURATION)
   private Map<String, String> _configuration = null;
 
-  public CreateReactorRequest() {
+  public static final String SERIALIZED_NAME_REQUIRE_AUTH = "require_auth";
+  @SerializedName(SERIALIZED_NAME_REQUIRE_AUTH)
+  private Boolean requireAuth;
+
+  public PatchProxyRequest() {
   }
 
-  public CreateReactorRequest name(String name) {
+  public PatchProxyRequest name(String name) {
     
     this.name = name;
     return this;
@@ -88,8 +96,8 @@ public class CreateReactorRequest {
    * Get name
    * @return name
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -101,55 +109,76 @@ public class CreateReactorRequest {
   }
 
 
-  public CreateReactorRequest formula(ReactorFormula formula) {
+  public PatchProxyRequest destinationUrl(String destinationUrl) {
     
-    this.formula = formula;
+    this.destinationUrl = destinationUrl;
     return this;
   }
 
    /**
-   * Get formula
-   * @return formula
-   * @deprecated
+   * Get destinationUrl
+   * @return destinationUrl
   **/
-  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public ReactorFormula getFormula() {
-    return formula;
+  public String getDestinationUrl() {
+    return destinationUrl;
   }
 
 
-  public void setFormula(ReactorFormula formula) {
-    this.formula = formula;
+  public void setDestinationUrl(String destinationUrl) {
+    this.destinationUrl = destinationUrl;
   }
 
 
-  public CreateReactorRequest code(String code) {
+  public PatchProxyRequest requestTransform(ProxyTransform requestTransform) {
     
-    this.code = code;
+    this.requestTransform = requestTransform;
     return this;
   }
 
    /**
-   * Get code
-   * @return code
+   * Get requestTransform
+   * @return requestTransform
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getCode() {
-    return code;
+  public ProxyTransform getRequestTransform() {
+    return requestTransform;
   }
 
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setRequestTransform(ProxyTransform requestTransform) {
+    this.requestTransform = requestTransform;
   }
 
 
-  public CreateReactorRequest application(Application application) {
+  public PatchProxyRequest responseTransform(ProxyTransform responseTransform) {
+    
+    this.responseTransform = responseTransform;
+    return this;
+  }
+
+   /**
+   * Get responseTransform
+   * @return responseTransform
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public ProxyTransform getResponseTransform() {
+    return responseTransform;
+  }
+
+
+  public void setResponseTransform(ProxyTransform responseTransform) {
+    this.responseTransform = responseTransform;
+  }
+
+
+  public PatchProxyRequest application(Application application) {
     
     this.application = application;
     return this;
@@ -172,13 +201,13 @@ public class CreateReactorRequest {
   }
 
 
-  public CreateReactorRequest _configuration(Map<String, String> _configuration) {
+  public PatchProxyRequest _configuration(Map<String, String> _configuration) {
     
     this._configuration = _configuration;
     return this;
   }
 
-  public CreateReactorRequest putConfigurationItem(String key, String _configurationItem) {
+  public PatchProxyRequest putConfigurationItem(String key, String _configurationItem) {
     if (this._configuration == null) {
       this._configuration = new HashMap<>();
     }
@@ -203,6 +232,29 @@ public class CreateReactorRequest {
   }
 
 
+  public PatchProxyRequest requireAuth(Boolean requireAuth) {
+    
+    this.requireAuth = requireAuth;
+    return this;
+  }
+
+   /**
+   * Get requireAuth
+   * @return requireAuth
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getRequireAuth() {
+    return requireAuth;
+  }
+
+
+  public void setRequireAuth(Boolean requireAuth) {
+    this.requireAuth = requireAuth;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -212,12 +264,14 @@ public class CreateReactorRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateReactorRequest createReactorRequest = (CreateReactorRequest) o;
-    return Objects.equals(this.name, createReactorRequest.name) &&
-        Objects.equals(this.formula, createReactorRequest.formula) &&
-        Objects.equals(this.code, createReactorRequest.code) &&
-        Objects.equals(this.application, createReactorRequest.application) &&
-        Objects.equals(this._configuration, createReactorRequest._configuration);
+    PatchProxyRequest patchProxyRequest = (PatchProxyRequest) o;
+    return Objects.equals(this.name, patchProxyRequest.name) &&
+        Objects.equals(this.destinationUrl, patchProxyRequest.destinationUrl) &&
+        Objects.equals(this.requestTransform, patchProxyRequest.requestTransform) &&
+        Objects.equals(this.responseTransform, patchProxyRequest.responseTransform) &&
+        Objects.equals(this.application, patchProxyRequest.application) &&
+        Objects.equals(this._configuration, patchProxyRequest._configuration) &&
+        Objects.equals(this.requireAuth, patchProxyRequest.requireAuth);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -226,7 +280,7 @@ public class CreateReactorRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, formula, code, application, _configuration);
+    return Objects.hash(name, destinationUrl, requestTransform, responseTransform, application, _configuration, requireAuth);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -239,12 +293,14 @@ public class CreateReactorRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateReactorRequest {\n");
+    sb.append("class PatchProxyRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    destinationUrl: ").append(toIndentedString(destinationUrl)).append("\n");
+    sb.append("    requestTransform: ").append(toIndentedString(requestTransform)).append("\n");
+    sb.append("    responseTransform: ").append(toIndentedString(responseTransform)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
+    sb.append("    requireAuth: ").append(toIndentedString(requireAuth)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -268,44 +324,42 @@ public class CreateReactorRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
-    openapiFields.add("formula");
-    openapiFields.add("code");
+    openapiFields.add("destination_url");
+    openapiFields.add("request_transform");
+    openapiFields.add("response_transform");
     openapiFields.add("application");
     openapiFields.add("configuration");
+    openapiFields.add("require_auth");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateReactorRequest
+  * @throws IOException if the JSON Object is invalid with respect to PatchProxyRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!CreateReactorRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateReactorRequest is not found in the empty JSON string", CreateReactorRequest.openapiRequiredFields.toString()));
+        if (!PatchProxyRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in PatchProxyRequest is not found in the empty JSON string", PatchProxyRequest.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateReactorRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("name").isJsonPrimitive()) {
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // validate the optional field `formula`
-      if (jsonObj.get("formula") != null && !jsonObj.get("formula").isJsonNull()) {
-        ReactorFormula.validateJsonObject(jsonObj.getAsJsonObject("formula"));
+      if ((jsonObj.get("destination_url") != null && !jsonObj.get("destination_url").isJsonNull()) && !jsonObj.get("destination_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `destination_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("destination_url").toString()));
       }
-      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
+      // validate the optional field `request_transform`
+      if (jsonObj.get("request_transform") != null && !jsonObj.get("request_transform").isJsonNull()) {
+        ProxyTransform.validateJsonObject(jsonObj.getAsJsonObject("request_transform"));
+      }
+      // validate the optional field `response_transform`
+      if (jsonObj.get("response_transform") != null && !jsonObj.get("response_transform").isJsonNull()) {
+        ProxyTransform.validateJsonObject(jsonObj.getAsJsonObject("response_transform"));
       }
       // validate the optional field `application`
       if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()) {
@@ -317,22 +371,22 @@ public class CreateReactorRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateReactorRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateReactorRequest' and its subtypes
+       if (!PatchProxyRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'PatchProxyRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateReactorRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateReactorRequest.class));
+       final TypeAdapter<PatchProxyRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(PatchProxyRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateReactorRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<PatchProxyRequest>() {
            @Override
-           public void write(JsonWriter out, CreateReactorRequest value) throws IOException {
+           public void write(JsonWriter out, PatchProxyRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateReactorRequest read(JsonReader in) throws IOException {
+           public PatchProxyRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -343,18 +397,18 @@ public class CreateReactorRequest {
   }
 
  /**
-  * Create an instance of CreateReactorRequest given an JSON string
+  * Create an instance of PatchProxyRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreateReactorRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateReactorRequest
+  * @return An instance of PatchProxyRequest
+  * @throws IOException if the JSON string is invalid with respect to PatchProxyRequest
   */
-  public static CreateReactorRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateReactorRequest.class);
+  public static PatchProxyRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, PatchProxyRequest.class);
   }
 
  /**
-  * Convert an instance of CreateReactorRequest to an JSON string
+  * Convert an instance of PatchProxyRequest to an JSON string
   *
   * @return JSON string
   */

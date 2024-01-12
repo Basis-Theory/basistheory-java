@@ -349,6 +349,7 @@ public class ReactorFormulasApi {
      * Build call for get
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -362,7 +363,7 @@ public class ReactorFormulasApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(String name, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(String name, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -395,6 +396,10 @@ public class ReactorFormulasApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
         if (size != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
         }
@@ -419,8 +424,8 @@ public class ReactorFormulasApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(String name, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getCall(name, page, size, _callback);
+    private okhttp3.Call getValidateBeforeCall(String name, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getCall(name, page, start, size, _callback);
 
     }
 
@@ -429,6 +434,7 @@ public class ReactorFormulasApi {
      * 
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ReactorFormulaPaginatedList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -441,8 +447,8 @@ public class ReactorFormulasApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ReactorFormulaPaginatedList get(String name, Integer page, Integer size) throws ApiException {
-        ApiResponse<ReactorFormulaPaginatedList> localVarResp = getWithHttpInfo(name, page, size);
+    public ReactorFormulaPaginatedList get(String name, Integer page, String start, Integer size) throws ApiException {
+        ApiResponse<ReactorFormulaPaginatedList> localVarResp = getWithHttpInfo(name, page, start, size);
         return localVarResp.getData();
     }
 
@@ -451,6 +457,7 @@ public class ReactorFormulasApi {
      * 
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ApiResponse&lt;ReactorFormulaPaginatedList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -463,8 +470,8 @@ public class ReactorFormulasApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ReactorFormulaPaginatedList> getWithHttpInfo(String name, Integer page, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getValidateBeforeCall(name, page, size, null);
+    public ApiResponse<ReactorFormulaPaginatedList> getWithHttpInfo(String name, Integer page, String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(name, page, start, size, null);
         Type localVarReturnType = new TypeToken<ReactorFormulaPaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -474,6 +481,7 @@ public class ReactorFormulasApi {
      * 
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -487,9 +495,9 @@ public class ReactorFormulasApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(String name, Integer page, Integer size, final ApiCallback<ReactorFormulaPaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getAsync(String name, Integer page, String start, Integer size, final ApiCallback<ReactorFormulaPaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getValidateBeforeCall(name, page, size, _callback);
+        okhttp3.Call localVarCall = getValidateBeforeCall(name, page, start, size, _callback);
         Type localVarReturnType = new TypeToken<ReactorFormulaPaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

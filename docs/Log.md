@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**id** | **String** |  |  [optional] |
 |**tenantId** | **UUID** |  |  [optional] |
 |**actorId** | **UUID** |  |  [optional] |
 |**actorType** | **String** |  |  [optional] |

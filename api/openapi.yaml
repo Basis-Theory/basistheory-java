@@ -54,6 +54,14 @@ paths:
         style: form
       - explode: true
         in: query
+        name: start
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: size
         required: false
         schema:
@@ -440,12 +448,19 @@ paths:
         name: page
         required: false
         schema:
-          exclusiveMinimum: true
           format: int32
-          maximum: 2147483647
-          minimum: 0
           nullable: true
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: start
+        required: false
+        schema:
+          maxLength: 500
+          nullable: true
+          pattern: ^.+$
+          type: string
         style: form
       - explode: true
         in: query
@@ -453,7 +468,7 @@ paths:
         required: false
         schema:
           format: int32
-          maximum: 10000
+          maximum: 5000
           minimum: 0
           nullable: true
           type: integer
@@ -595,6 +610,14 @@ paths:
           minimum: 0
           nullable: true
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: start
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       - explode: true
         in: query
@@ -751,6 +774,56 @@ paths:
       tags:
       - Proxies
       x-accepts: application/json
+    patch:
+      operationId: Proxies_Patch
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          maxLength: 36
+          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/PatchProxyRequest'
+        required: true
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      tags:
+      - Proxies
+      x-content-type: application/merge-patch+json
+      x-accepts: application/json
     put:
       operationId: Proxies_Update
       parameters:
@@ -830,6 +903,14 @@ paths:
           minimum: 0
           nullable: true
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: start
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       - explode: true
         in: query
@@ -1081,6 +1162,14 @@ paths:
         style: form
       - explode: true
         in: query
+        name: start
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: size
         required: false
         schema:
@@ -1233,6 +1322,56 @@ paths:
           description: Forbidden
       tags:
       - Reactors
+      x-accepts: application/json
+    patch:
+      operationId: Reactors_Patch
+      parameters:
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          format: uuid
+          maxLength: 36
+          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/PatchReactorRequest'
+        required: true
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationProblemDetails'
+          description: Bad Request
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Not Found
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: Forbidden
+      tags:
+      - Reactors
+      x-content-type: application/merge-patch+json
       x-accepts: application/json
     put:
       operationId: Reactors_Update
@@ -1457,6 +1596,14 @@ paths:
         style: form
       - explode: true
         in: query
+        name: start
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: size
         required: false
         schema:
@@ -1633,6 +1780,14 @@ paths:
           minimum: 0
           nullable: true
           type: integer
+        style: form
+      - explode: true
+        in: query
+        name: start
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       - explode: true
         in: query
@@ -1867,268 +2022,6 @@ paths:
       - Tenants
       x-content-type: application/json
       x-accepts: application/json
-  /tokens/{parentId}/children:
-    get:
-      operationId: Tokens_GetChildren
-      parameters:
-      - explode: false
-        in: path
-        name: parentId
-        required: true
-        schema:
-          maxLength: 200
-          pattern: ^.+$
-          type: string
-        style: simple
-      - explode: true
-        in: query
-        name: type
-        required: false
-        schema:
-          items:
-            type: string
-          nullable: true
-          type: array
-        style: form
-      - explode: true
-        in: query
-        name: id
-        required: false
-        schema:
-          items:
-            type: string
-          nullable: true
-          type: array
-        style: form
-      - explode: false
-        in: query
-        name: metadata
-        required: false
-        schema:
-          additionalProperties:
-            type: string
-          nullable: true
-          type: object
-        style: deepObject
-      - explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          exclusiveMinimum: true
-          format: int32
-          maximum: 2147483647
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: size
-        required: false
-        schema:
-          format: int32
-          maximum: 100
-          minimum: 0
-          nullable: true
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TokenPaginatedList'
-          description: Success
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-      tags:
-      - Tokens
-      x-accepts: application/json
-    post:
-      operationId: Tokens_CreateChild
-      parameters:
-      - explode: false
-        in: path
-        name: parentId
-        required: true
-        schema:
-          maxLength: 200
-          pattern: ^.+$
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateTokenRequest'
-        required: true
-      responses:
-        "201":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CreateTokenResponse'
-          description: Created
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-      tags:
-      - Tokens
-      x-content-type: application/json
-      x-accepts: application/json
-  /tokens/{parentId}/children/{childId}:
-    delete:
-      operationId: Tokens_DeleteAssociation
-      parameters:
-      - explode: false
-        in: path
-        name: parentId
-        required: true
-        schema:
-          maxLength: 200
-          pattern: ^.+$
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: childId
-        required: true
-        schema:
-          maxLength: 200
-          pattern: ^.+$
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: No Content
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-      tags:
-      - Tokens
-      x-accepts: application/json
-    post:
-      operationId: Tokens_CreateAssociation
-      parameters:
-      - explode: false
-        in: path
-        name: parentId
-        required: true
-        schema:
-          maxLength: 200
-          pattern: ^.+$
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: childId
-        required: true
-        schema:
-          maxLength: 200
-          pattern: ^.+$
-          type: string
-        style: simple
-      responses:
-        "204":
-          description: No Content
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationProblemDetails'
-          description: Bad Request
-        "401":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Unauthorized
-        "403":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Forbidden
-        "404":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Not Found
-        "409":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ProblemDetails'
-          description: Conflict
-      tags:
-      - Tokens
-      x-accepts: application/json
   /tokenize:
     post:
       operationId: Tokenize_Tokenize
@@ -2218,6 +2111,14 @@ paths:
         style: form
       - explode: true
         in: query
+        name: start
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
         name: size
         required: false
         schema:
@@ -2262,7 +2163,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateTokenResponse'
+                $ref: '#/components/schemas/Token'
           description: Created
         "400":
           content:
@@ -2706,6 +2607,7 @@ components:
         pagination:
           page_number: 6
           total_pages: 5
+          after: after
           total_items: 0
           page_size: 1
         data:
@@ -3077,6 +2979,147 @@ components:
       required:
       - nonce
       type: object
+    BinDetails:
+      additionalProperties: false
+      example:
+        country:
+          alpha2: alpha2
+          name: name
+          numeric: numeric
+        product:
+          code: code
+          name: name
+        alm: true
+        cost: ""
+        reloadable: true
+        prepaid: true
+        combo_card: combo_card
+        type: type
+        domestic_only: true
+        pan_or_token: pan_or_token
+        account_updater: true
+        bin_length: 0
+        bank:
+          phone: phone
+          name: name
+          clean_name: clean_name
+          url: url
+        card_brand: card_brand
+        card_segment_type: card_segment_type
+        gambling_blocked: true
+        issuer_currency: issuer_currency
+        level3: true
+        level2: true
+        authentication: ""
+      properties:
+        card_brand:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        prepaid:
+          nullable: true
+          type: boolean
+        card_segment_type:
+          nullable: true
+          type: string
+        bank:
+          $ref: '#/components/schemas/BinDetailsBank'
+        product:
+          $ref: '#/components/schemas/BinDetailsProduct'
+        country:
+          $ref: '#/components/schemas/BinDetailsCountry'
+        reloadable:
+          nullable: true
+          type: boolean
+        pan_or_token:
+          nullable: true
+          type: string
+        account_updater:
+          nullable: true
+          type: boolean
+        alm:
+          nullable: true
+          type: boolean
+        domestic_only:
+          nullable: true
+          type: boolean
+        gambling_blocked:
+          nullable: true
+          type: boolean
+        level2:
+          nullable: true
+          type: boolean
+        level3:
+          nullable: true
+          type: boolean
+        issuer_currency:
+          nullable: true
+          type: string
+        combo_card:
+          nullable: true
+          type: string
+        bin_length:
+          format: int32
+          nullable: true
+          type: integer
+        authentication:
+          nullable: true
+        cost:
+          nullable: true
+      type: object
+    BinDetailsBank:
+      additionalProperties: false
+      example:
+        phone: phone
+        name: name
+        clean_name: clean_name
+        url: url
+      properties:
+        name:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        url:
+          nullable: true
+          type: string
+        clean_name:
+          nullable: true
+          type: string
+      type: object
+    BinDetailsCountry:
+      additionalProperties: false
+      example:
+        alpha2: alpha2
+        name: name
+        numeric: numeric
+      properties:
+        alpha2:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        numeric:
+          nullable: true
+          type: string
+      type: object
+    BinDetailsProduct:
+      additionalProperties: false
+      example:
+        code: code
+        name: name
+      properties:
+        code:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+      type: object
     Condition:
       additionalProperties: false
       example:
@@ -3269,6 +3312,7 @@ components:
       type: object
     CreateReactorFormulaRequest:
       additionalProperties: false
+      deprecated: true
       example:
         code: code
         configuration:
@@ -3339,7 +3383,7 @@ components:
           nullable: true
           type: string
         code:
-          maxLength: 12000
+          maxLength: 50000
           nullable: true
           type: string
         configuration:
@@ -3361,6 +3405,7 @@ components:
     CreateReactorRequest:
       additionalProperties: false
       example:
+        code: code
         application:
           tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           expires_at: 2000-01-23T04:56:07.000+00:00
@@ -3467,12 +3512,18 @@ components:
           type: string
         formula:
           $ref: '#/components/schemas/ReactorFormula'
+        code:
+          maxLength: 50000
+          nullable: true
+          pattern: "^[\\S\\s]*$"
+          type: string
         application:
           $ref: '#/components/schemas/Application'
         configuration:
           additionalProperties:
             nullable: true
             type: string
+          maxLength: 25
           nullable: true
           type: object
       required:
@@ -3564,9 +3615,7 @@ components:
           nullable: true
           type: array
         fingerprint_expression:
-          maxLength: 400
           nullable: true
-          pattern: ^.*$
           type: string
         mask:
           nullable: true
@@ -3584,122 +3633,6 @@ components:
           type: array
       required:
       - data
-      type: object
-    CreateTokenResponse:
-      additionalProperties: false
-      example:
-        tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        fingerprint_expression: fingerprint_expression
-        metadata:
-          key: metadata
-        aliases:
-        - aliases
-        data: ""
-        privacy:
-          restriction_policy: restriction_policy
-          impact_level: impact_level
-          classification: classification
-        created_at: 2000-01-23T04:56:07.000+00:00
-        type: type
-        created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        expires_at: 2000-01-23T04:56:07.000+00:00
-        fingerprint: fingerprint
-        modified_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        containers:
-        - containers
-        id: id
-        search_indexes:
-        - search_indexes
-        - search_indexes
-        - search_indexes
-        - search_indexes
-        - search_indexes
-        modified_at: 2000-01-23T04:56:07.000+00:00
-        mask: ""
-      properties:
-        id:
-          maxLength: 400
-          nullable: true
-          pattern: ^.+$
-          type: string
-        tenant_id:
-          format: uuid
-          maxLength: 36
-          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
-          type: string
-        type:
-          maxLength: 50
-          nullable: true
-          pattern: "^[A-z_]*$"
-          type: string
-        fingerprint:
-          maxLength: 100
-          nullable: true
-          pattern: "^[A-z0-9]*$"
-          type: string
-        fingerprint_expression:
-          maxLength: 400
-          nullable: true
-          pattern: ^.*$
-          type: string
-        mask:
-          nullable: true
-        data:
-          nullable: true
-        metadata:
-          additionalProperties:
-            nullable: true
-            type: string
-          nullable: true
-          type: object
-        privacy:
-          $ref: '#/components/schemas/Privacy'
-        search_indexes:
-          items:
-            type: string
-          maxItems: 10
-          nullable: true
-          type: array
-        created_by:
-          format: uuid
-          maxLength: 36
-          nullable: true
-          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
-          type: string
-        created_at:
-          format: date-time
-          maxLength: 40
-          nullable: true
-          type: string
-        modified_by:
-          format: uuid
-          maxLength: 36
-          nullable: true
-          pattern: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
-          type: string
-        modified_at:
-          format: date-time
-          maxLength: 40
-          nullable: true
-          type: string
-        expires_at:
-          format: date-time
-          maxLength: 40
-          nullable: true
-          type: string
-        containers:
-          items:
-            type: string
-          maxItems: 1
-          nullable: true
-          pattern: "^(?!.*\\/\\/)(?=.*\\/$)\\/[A-z0-9_\\-\\/]*$"
-          type: array
-        aliases:
-          items:
-            type: string
-          maxItems: 1
-          nullable: true
-          type: array
       type: object
     CreateTransactionResponse:
       additionalProperties: false
@@ -3788,6 +3721,9 @@ components:
           minimum: 0
           nullable: true
           type: integer
+        start:
+          nullable: true
+          type: string
         size:
           format: int32
           maximum: 100
@@ -3819,15 +3755,17 @@ components:
           nullable: true
           type: string
         page:
-          exclusiveMinimum: true
           format: int32
-          maximum: 2147483647
-          minimum: 0
           nullable: true
           type: integer
+        start:
+          maxLength: 500
+          nullable: true
+          pattern: ^.+$
+          type: string
         size:
           format: int32
-          maximum: 10000
+          maximum: 5000
           minimum: 0
           nullable: true
           type: integer
@@ -3864,6 +3802,9 @@ components:
           minimum: 0
           nullable: true
           type: integer
+        start:
+          nullable: true
+          type: string
         size:
           format: int32
           maximum: 100
@@ -3886,6 +3827,9 @@ components:
           minimum: 0
           nullable: true
           type: integer
+        start:
+          nullable: true
+          type: string
         size:
           format: int32
           maximum: 100
@@ -3916,6 +3860,9 @@ components:
           minimum: 0
           nullable: true
           type: integer
+        start:
+          nullable: true
+          type: string
         size:
           format: int32
           maximum: 100
@@ -3935,6 +3882,9 @@ components:
           minimum: 0
           nullable: true
           type: integer
+        start:
+          nullable: true
+          type: string
         size:
           format: int32
           maximum: 100
@@ -3960,6 +3910,9 @@ components:
           minimum: 0
           nullable: true
           type: integer
+        start:
+          nullable: true
+          type: string
         size:
           format: int32
           maximum: 50
@@ -3993,6 +3946,9 @@ components:
           minimum: 0
           nullable: true
           type: integer
+        start:
+          nullable: true
+          type: string
         size:
           format: int32
           maximum: 100
@@ -4007,11 +3963,15 @@ components:
         entity_type: entity_type
         actor_type: actor_type
         created_at: 2000-01-23T04:56:07.000+00:00
+        id: id
         actor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         entity_id: entity_id
         message: message
         operation: operation
       properties:
+        id:
+          nullable: true
+          type: string
         tenant_id:
           format: uuid
           maxLength: 36
@@ -4077,6 +4037,7 @@ components:
         pagination:
           page_number: 6
           total_pages: 5
+          after: after
           total_items: 0
           page_size: 1
         data:
@@ -4084,6 +4045,7 @@ components:
           entity_type: entity_type
           actor_type: actor_type
           created_at: 2000-01-23T04:56:07.000+00:00
+          id: id
           actor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           entity_id: entity_id
           message: message
@@ -4092,6 +4054,7 @@ components:
           entity_type: entity_type
           actor_type: actor_type
           created_at: 2000-01-23T04:56:07.000+00:00
+          id: id
           actor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           entity_id: entity_id
           message: message
@@ -4100,6 +4063,7 @@ components:
           entity_type: entity_type
           actor_type: actor_type
           created_at: 2000-01-23T04:56:07.000+00:00
+          id: id
           actor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           entity_id: entity_id
           message: message
@@ -4108,6 +4072,7 @@ components:
           entity_type: entity_type
           actor_type: actor_type
           created_at: 2000-01-23T04:56:07.000+00:00
+          id: id
           actor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           entity_id: entity_id
           message: message
@@ -4116,6 +4081,7 @@ components:
           entity_type: entity_type
           actor_type: actor_type
           created_at: 2000-01-23T04:56:07.000+00:00
+          id: id
           actor_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           entity_id: entity_id
           message: message
@@ -4126,52 +4092,89 @@ components:
         data:
           items:
             $ref: '#/components/schemas/Log'
-          maxItems: 10000
+          maxItems: 5000
           nullable: true
           type: array
-      type: object
-    MonthlyActiveTokenHistory:
-      additionalProperties: false
-      example:
-        month: 7
-        year: 6365
-        count: 0
-      properties:
-        year:
-          format: int32
-          maximum: 9999
-          minimum: 1000
-          type: integer
-        month:
-          format: int32
-          maximum: 12
-          minimum: 1
-          type: integer
-        count:
-          format: int64
-          minimum: 0
-          type: integer
       type: object
     Pagination:
       additionalProperties: false
       example:
         page_number: 6
         total_pages: 5
+        after: after
         total_items: 0
         page_size: 1
       properties:
         total_items:
           format: int32
+          nullable: true
           type: integer
         page_number:
           format: int32
+          nullable: true
           type: integer
         page_size:
           format: int32
+          nullable: true
           type: integer
         total_pages:
           format: int32
+          nullable: true
           type: integer
+        after:
+          nullable: true
+          type: string
+      type: object
+    PatchProxyRequest:
+      additionalProperties: false
+      properties:
+        name:
+          maxLength: 200
+          nullable: true
+          pattern: ^.+$
+          type: string
+        destination_url:
+          nullable: true
+          type: string
+        request_transform:
+          $ref: '#/components/schemas/ProxyTransform'
+        response_transform:
+          $ref: '#/components/schemas/ProxyTransform'
+        application:
+          $ref: '#/components/schemas/Application'
+        configuration:
+          additionalProperties:
+            nullable: true
+            type: string
+          maxLength: 25
+          nullable: true
+          type: object
+        require_auth:
+          nullable: true
+          type: boolean
+      type: object
+    PatchReactorRequest:
+      additionalProperties: false
+      properties:
+        name:
+          maxLength: 200
+          nullable: true
+          pattern: ^.+$
+          type: string
+        application:
+          $ref: '#/components/schemas/Application'
+        code:
+          maxLength: 50000
+          nullable: true
+          pattern: "^[\\S\\s]*$"
+          type: string
+        configuration:
+          additionalProperties:
+            nullable: true
+            type: string
+          maxLength: 25
+          nullable: true
+          type: object
       type: object
     Permission:
       additionalProperties: false
@@ -4278,7 +4281,6 @@ components:
           maxLength: 100
           nullable: true
           pattern: "^[A-z0-9]+$"
-          readOnly: true
           type: string
         tenant_id:
           format: uuid
@@ -4357,6 +4359,7 @@ components:
         pagination:
           page_number: 6
           total_pages: 5
+          after: after
           total_items: 0
           page_size: 1
         data:
@@ -4476,7 +4479,7 @@ components:
         code: code
       properties:
         code:
-          maxLength: 12000
+          maxLength: 50000
           nullable: true
           type: string
       type: object
@@ -4520,6 +4523,7 @@ components:
       additionalProperties: false
       example:
         tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        code: code
         application:
           tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           expires_at: 2000-01-23T04:56:07.000+00:00
@@ -4641,6 +4645,9 @@ components:
           type: string
         formula:
           $ref: '#/components/schemas/ReactorFormula'
+        code:
+          nullable: true
+          type: string
         application:
           $ref: '#/components/schemas/Application'
         created_by:
@@ -4674,6 +4681,7 @@ components:
       type: object
     ReactorFormula:
       additionalProperties: false
+      deprecated: true
       example:
         code: code
         configuration:
@@ -4752,11 +4760,9 @@ components:
         icon:
           maxLength: 50000
           nullable: true
-          pattern: "(^data:(image\\/png|image\\/jpg|image\\/jpeg|image\\/svg\\+xml);\\\
-            s*base64,\\s*(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\\
-            /]{3}=|[A-Za-z0-9+\\/]{4})$)|(^data:(image\\/png|image\\/jpg|image\\/jpeg);\\\
-            s*base64,\\s*(?:[A-Za-z0-9+\\/]{4})*(?:[A-Za-z0-9+\\/]{2}==|[A-Za-z0-9+\\\
-            /]{3}=|[A-Za-z0-9+\\/]{4})$)"
+          pattern: "(^data:(image/png|image/jpg|image/jpeg|image/svg\\+xml);\\s*base64,\\\
+            s*(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$)|(^data:(image/png|image/jpg|image/jpeg);\\\
+            s*base64,\\s*(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$)"
           type: string
         code:
           maxLength: 4000
@@ -4830,6 +4836,7 @@ components:
         pagination:
           page_number: 6
           total_pages: 5
+          after: after
           total_items: 0
           page_size: 1
         data:
@@ -5118,10 +5125,12 @@ components:
         pagination:
           page_number: 6
           total_pages: 5
+          after: after
           total_items: 0
           page_size: 1
         data:
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          code: code
           application:
             tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             expires_at: 2000-01-23T04:56:07.000+00:00
@@ -5226,6 +5235,7 @@ components:
           modified_at: 2000-01-23T04:56:07.000+00:00
           created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          code: code
           application:
             tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             expires_at: 2000-01-23T04:56:07.000+00:00
@@ -5330,6 +5340,7 @@ components:
           modified_at: 2000-01-23T04:56:07.000+00:00
           created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          code: code
           application:
             tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             expires_at: 2000-01-23T04:56:07.000+00:00
@@ -5434,6 +5445,7 @@ components:
           modified_at: 2000-01-23T04:56:07.000+00:00
           created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          code: code
           application:
             tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             expires_at: 2000-01-23T04:56:07.000+00:00
@@ -5538,6 +5550,7 @@ components:
           modified_at: 2000-01-23T04:56:07.000+00:00
           created_by: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+          code: code
           application:
             tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
             expires_at: 2000-01-23T04:56:07.000+00:00
@@ -5656,6 +5669,7 @@ components:
       example:
         size: 60
         query: query
+        start: start
         page: 171976544
       properties:
         query:
@@ -5670,6 +5684,9 @@ components:
           minimum: 0
           nullable: true
           type: integer
+        start:
+          nullable: true
+          type: string
         size:
           format: int32
           maximum: 100
@@ -5683,10 +5700,10 @@ components:
         key:
           maxLength: 200
           minLength: 1
-          pattern: "^[A-z0-9][A-z0-9.\\-_]*[A-z0-9]$"
+          pattern: "^[\\w-]+$"
           type: string
         value:
-          maxLength: 500
+          maxLength: 50000
           minLength: 1
           type: string
       required:
@@ -5813,6 +5830,7 @@ components:
         pagination:
           page_number: 6
           total_pages: 5
+          after: after
           total_items: 0
           page_size: 1
         data:
@@ -5939,6 +5957,7 @@ components:
         pagination:
           page_number: 6
           total_pages: 5
+          after: after
           total_items: 0
           page_size: 1
         data:
@@ -6025,13 +6044,6 @@ components:
             key:
               last_created_at: 2000-01-23T04:56:07.000+00:00
               count: 314780940
-          monthly_active_token_history:
-          - month: 7
-            year: 6365
-            count: 0
-          - month: 7
-            year: 6365
-            count: 0
           monthly_active_tokens: 0
           included_monthly_active_tokens: 171976544
       properties:
@@ -6077,6 +6089,37 @@ components:
         - search_indexes
         - search_indexes
         modified_at: 2000-01-23T04:56:07.000+00:00
+        enrichments:
+          bin_details:
+            country:
+              alpha2: alpha2
+              name: name
+              numeric: numeric
+            product:
+              code: code
+              name: name
+            alm: true
+            cost: ""
+            reloadable: true
+            prepaid: true
+            combo_card: combo_card
+            type: type
+            domestic_only: true
+            pan_or_token: pan_or_token
+            account_updater: true
+            bin_length: 0
+            bank:
+              phone: phone
+              name: name
+              clean_name: clean_name
+              url: url
+            card_brand: card_brand
+            card_segment_type: card_segment_type
+            gambling_blocked: true
+            issuer_currency: issuer_currency
+            level3: true
+            level2: true
+            authentication: ""
         mask: ""
       properties:
         id:
@@ -6100,6 +6143,8 @@ components:
             type: string
           nullable: true
           type: object
+        enrichments:
+          $ref: '#/components/schemas/TokenEnrichments'
         encryption:
           $ref: '#/components/schemas/EncryptionMetadata'
         created_by:
@@ -6154,7 +6199,7 @@ components:
             type: string
           maxItems: 1
           nullable: true
-          pattern: "^(?!.*\\/\\/)(?=.*\\/$)\\/[A-z0-9_\\-\\/]*$"
+          pattern: "^(?!.*//)(?=.*/$)/[A-z0-9_\\-/]*$"
           type: array
         aliases:
           items:
@@ -6162,6 +6207,43 @@ components:
           maxItems: 1
           nullable: true
           type: array
+      type: object
+    TokenEnrichments:
+      additionalProperties: false
+      example:
+        bin_details:
+          country:
+            alpha2: alpha2
+            name: name
+            numeric: numeric
+          product:
+            code: code
+            name: name
+          alm: true
+          cost: ""
+          reloadable: true
+          prepaid: true
+          combo_card: combo_card
+          type: type
+          domestic_only: true
+          pan_or_token: pan_or_token
+          account_updater: true
+          bin_length: 0
+          bank:
+            phone: phone
+            name: name
+            clean_name: clean_name
+            url: url
+          card_brand: card_brand
+          card_segment_type: card_segment_type
+          gambling_blocked: true
+          issuer_currency: issuer_currency
+          level3: true
+          level2: true
+          authentication: ""
+      properties:
+        bin_details:
+          $ref: '#/components/schemas/BinDetails'
       type: object
     TokenMetrics:
       additionalProperties: false
@@ -6186,6 +6268,7 @@ components:
         pagination:
           page_number: 6
           total_pages: 5
+          after: after
           total_items: 0
           page_size: 1
         data:
@@ -6225,6 +6308,37 @@ components:
           - search_indexes
           - search_indexes
           modified_at: 2000-01-23T04:56:07.000+00:00
+          enrichments:
+            bin_details:
+              country:
+                alpha2: alpha2
+                name: name
+                numeric: numeric
+              product:
+                code: code
+                name: name
+              alm: true
+              cost: ""
+              reloadable: true
+              prepaid: true
+              combo_card: combo_card
+              type: type
+              domestic_only: true
+              pan_or_token: pan_or_token
+              account_updater: true
+              bin_length: 0
+              bank:
+                phone: phone
+                name: name
+                clean_name: clean_name
+                url: url
+              card_brand: card_brand
+              card_segment_type: card_segment_type
+              gambling_blocked: true
+              issuer_currency: issuer_currency
+              level3: true
+              level2: true
+              authentication: ""
           mask: ""
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fingerprint_expression: fingerprint_expression
@@ -6262,6 +6376,37 @@ components:
           - search_indexes
           - search_indexes
           modified_at: 2000-01-23T04:56:07.000+00:00
+          enrichments:
+            bin_details:
+              country:
+                alpha2: alpha2
+                name: name
+                numeric: numeric
+              product:
+                code: code
+                name: name
+              alm: true
+              cost: ""
+              reloadable: true
+              prepaid: true
+              combo_card: combo_card
+              type: type
+              domestic_only: true
+              pan_or_token: pan_or_token
+              account_updater: true
+              bin_length: 0
+              bank:
+                phone: phone
+                name: name
+                clean_name: clean_name
+                url: url
+              card_brand: card_brand
+              card_segment_type: card_segment_type
+              gambling_blocked: true
+              issuer_currency: issuer_currency
+              level3: true
+              level2: true
+              authentication: ""
           mask: ""
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fingerprint_expression: fingerprint_expression
@@ -6299,6 +6444,37 @@ components:
           - search_indexes
           - search_indexes
           modified_at: 2000-01-23T04:56:07.000+00:00
+          enrichments:
+            bin_details:
+              country:
+                alpha2: alpha2
+                name: name
+                numeric: numeric
+              product:
+                code: code
+                name: name
+              alm: true
+              cost: ""
+              reloadable: true
+              prepaid: true
+              combo_card: combo_card
+              type: type
+              domestic_only: true
+              pan_or_token: pan_or_token
+              account_updater: true
+              bin_length: 0
+              bank:
+                phone: phone
+                name: name
+                clean_name: clean_name
+                url: url
+              card_brand: card_brand
+              card_segment_type: card_segment_type
+              gambling_blocked: true
+              issuer_currency: issuer_currency
+              level3: true
+              level2: true
+              authentication: ""
           mask: ""
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fingerprint_expression: fingerprint_expression
@@ -6336,6 +6512,37 @@ components:
           - search_indexes
           - search_indexes
           modified_at: 2000-01-23T04:56:07.000+00:00
+          enrichments:
+            bin_details:
+              country:
+                alpha2: alpha2
+                name: name
+                numeric: numeric
+              product:
+                code: code
+                name: name
+              alm: true
+              cost: ""
+              reloadable: true
+              prepaid: true
+              combo_card: combo_card
+              type: type
+              domestic_only: true
+              pan_or_token: pan_or_token
+              account_updater: true
+              bin_length: 0
+              bank:
+                phone: phone
+                name: name
+                clean_name: clean_name
+                url: url
+              card_brand: card_brand
+              card_segment_type: card_segment_type
+              gambling_blocked: true
+              issuer_currency: issuer_currency
+              level3: true
+              level2: true
+              authentication: ""
           mask: ""
         - tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           fingerprint_expression: fingerprint_expression
@@ -6373,6 +6580,37 @@ components:
           - search_indexes
           - search_indexes
           modified_at: 2000-01-23T04:56:07.000+00:00
+          enrichments:
+            bin_details:
+              country:
+                alpha2: alpha2
+                name: name
+                numeric: numeric
+              product:
+                code: code
+                name: name
+              alm: true
+              cost: ""
+              reloadable: true
+              prepaid: true
+              combo_card: combo_card
+              type: type
+              domestic_only: true
+              pan_or_token: pan_or_token
+              account_updater: true
+              bin_length: 0
+              bank:
+                phone: phone
+                name: name
+                clean_name: clean_name
+                url: url
+              card_brand: card_brand
+              card_segment_type: card_segment_type
+              gambling_blocked: true
+              issuer_currency: issuer_currency
+              level3: true
+              level2: true
+              authentication: ""
           mask: ""
       properties:
         pagination:
@@ -6391,13 +6629,6 @@ components:
           key:
             last_created_at: 2000-01-23T04:56:07.000+00:00
             count: 314780940
-        monthly_active_token_history:
-        - month: 7
-          year: 6365
-          count: 0
-        - month: 7
-          year: 6365
-          count: 0
         monthly_active_tokens: 0
         included_monthly_active_tokens: 171976544
       properties:
@@ -6415,11 +6646,6 @@ components:
             $ref: '#/components/schemas/TokenMetrics'
           nullable: true
           type: object
-        monthly_active_token_history:
-          items:
-            $ref: '#/components/schemas/MonthlyActiveTokenHistory'
-          nullable: true
-          type: array
       type: object
     UpdateApplicationRequest:
       additionalProperties: false
@@ -6595,6 +6821,7 @@ components:
       type: object
     UpdateReactorFormulaRequest:
       additionalProperties: false
+      deprecated: true
       example:
         code: code
         configuration:
@@ -6658,7 +6885,7 @@ components:
           nullable: true
           type: string
         code:
-          maxLength: 4000
+          maxLength: 50000
           nullable: true
           pattern: "^[\\S\\s]*$"
           type: string
@@ -6681,6 +6908,7 @@ components:
     UpdateReactorRequest:
       additionalProperties: false
       example:
+        code: code
         application:
           tenant_id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
           expires_at: 2000-01-23T04:56:07.000+00:00
@@ -6738,10 +6966,16 @@ components:
           type: string
         application:
           $ref: '#/components/schemas/Application'
+        code:
+          maxLength: 50000
+          nullable: true
+          pattern: "^[\\S\\s]*$"
+          type: string
         configuration:
           additionalProperties:
             nullable: true
             type: string
+          maxLength: 25
           nullable: true
           type: object
       required:

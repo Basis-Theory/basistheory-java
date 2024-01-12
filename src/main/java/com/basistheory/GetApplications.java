@@ -66,6 +66,10 @@ public class GetApplications {
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
 
+  public static final String SERIALIZED_NAME_START = "start";
+  @SerializedName(SERIALIZED_NAME_START)
+  private String start;
+
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   private Integer size;
@@ -160,6 +164,29 @@ public class GetApplications {
   }
 
 
+  public GetApplications start(String start) {
+    
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * Get start
+   * @return start
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStart() {
+    return start;
+  }
+
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+
   public GetApplications size(Integer size) {
     
     this.size = size;
@@ -198,6 +225,7 @@ public class GetApplications {
     return Objects.equals(this.id, getApplications.id) &&
         Objects.equals(this.type, getApplications.type) &&
         Objects.equals(this.page, getApplications.page) &&
+        Objects.equals(this.start, getApplications.start) &&
         Objects.equals(this.size, getApplications.size);
   }
 
@@ -207,7 +235,7 @@ public class GetApplications {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, page, size);
+    return Objects.hash(id, type, page, start, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -224,6 +252,7 @@ public class GetApplications {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -250,6 +279,7 @@ public class GetApplications {
     openapiFields.add("id");
     openapiFields.add("type");
     openapiFields.add("page");
+    openapiFields.add("start");
     openapiFields.add("size");
 
     // a set of required properties/fields (JSON key names)
@@ -275,6 +305,9 @@ public class GetApplications {
       // ensure the optional json data is an array if present
       if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be an array in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
   }
 

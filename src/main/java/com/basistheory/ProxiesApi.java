@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.basistheory.CreateProxyRequest;
+import com.basistheory.PatchProxyRequest;
 import com.basistheory.ProblemDetails;
 import com.basistheory.Proxy;
 import com.basistheory.ProxyPaginatedList;
@@ -350,6 +351,7 @@ public class ProxiesApi {
      * @param id  (optional)
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -363,7 +365,7 @@ public class ProxiesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(List<UUID> id, String name, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(List<UUID> id, String name, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -400,6 +402,10 @@ public class ProxiesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
         if (size != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
         }
@@ -424,8 +430,8 @@ public class ProxiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(List<UUID> id, String name, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getCall(id, name, page, size, _callback);
+    private okhttp3.Call getValidateBeforeCall(List<UUID> id, String name, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getCall(id, name, page, start, size, _callback);
 
     }
 
@@ -435,6 +441,7 @@ public class ProxiesApi {
      * @param id  (optional)
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ProxyPaginatedList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -447,8 +454,8 @@ public class ProxiesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ProxyPaginatedList get(List<UUID> id, String name, Integer page, Integer size) throws ApiException {
-        ApiResponse<ProxyPaginatedList> localVarResp = getWithHttpInfo(id, name, page, size);
+    public ProxyPaginatedList get(List<UUID> id, String name, Integer page, String start, Integer size) throws ApiException {
+        ApiResponse<ProxyPaginatedList> localVarResp = getWithHttpInfo(id, name, page, start, size);
         return localVarResp.getData();
     }
 
@@ -458,6 +465,7 @@ public class ProxiesApi {
      * @param id  (optional)
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ApiResponse&lt;ProxyPaginatedList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -470,8 +478,8 @@ public class ProxiesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ProxyPaginatedList> getWithHttpInfo(List<UUID> id, String name, Integer page, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getValidateBeforeCall(id, name, page, size, null);
+    public ApiResponse<ProxyPaginatedList> getWithHttpInfo(List<UUID> id, String name, Integer page, String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, name, page, start, size, null);
         Type localVarReturnType = new TypeToken<ProxyPaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -482,6 +490,7 @@ public class ProxiesApi {
      * @param id  (optional)
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -495,9 +504,9 @@ public class ProxiesApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(List<UUID> id, String name, Integer page, Integer size, final ApiCallback<ProxyPaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getAsync(List<UUID> id, String name, Integer page, String start, Integer size, final ApiCallback<ProxyPaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getValidateBeforeCall(id, name, page, size, _callback);
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, name, page, start, size, _callback);
         Type localVarReturnType = new TypeToken<ProxyPaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -635,6 +644,151 @@ public class ProxiesApi {
         okhttp3.Call localVarCall = getByIdValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<Proxy>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for patch
+     * @param id  (required)
+     * @param patchProxyRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchCall(UUID id, PatchProxyRequest patchProxyRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = patchProxyRequest;
+
+        // create path and map variables
+        String localVarPath = "/proxies/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/merge-patch+json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchValidateBeforeCall(UUID id, PatchProxyRequest patchProxyRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling patch(Async)");
+        }
+
+        // verify the required parameter 'patchProxyRequest' is set
+        if (patchProxyRequest == null) {
+            throw new ApiException("Missing the required parameter 'patchProxyRequest' when calling patch(Async)");
+        }
+
+        return patchCall(id, patchProxyRequest, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (required)
+     * @param patchProxyRequest  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public void patch(UUID id, PatchProxyRequest patchProxyRequest) throws ApiException {
+        patchWithHttpInfo(id, patchProxyRequest);
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (required)
+     * @param patchProxyRequest  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> patchWithHttpInfo(UUID id, PatchProxyRequest patchProxyRequest) throws ApiException {
+        okhttp3.Call localVarCall = patchValidateBeforeCall(id, patchProxyRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param id  (required)
+     * @param patchProxyRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchAsync(UUID id, PatchProxyRequest patchProxyRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchValidateBeforeCall(id, patchProxyRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

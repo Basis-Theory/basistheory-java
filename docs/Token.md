@@ -12,6 +12,7 @@
 |**tenantId** | **UUID** |  |  [optional] |
 |**data** | **Object** |  |  [optional] |
 |**metadata** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**enrichments** | [**TokenEnrichments**](TokenEnrichments.md) |  |  [optional] |
 |**encryption** | [**EncryptionMetadata**](EncryptionMetadata.md) |  |  [optional] |
 |**createdBy** | **UUID** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |

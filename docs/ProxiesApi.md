@@ -8,6 +8,7 @@ All URIs are relative to *https://api.basistheory.com*
 | [**delete**](ProxiesApi.md#delete) | **DELETE** /proxies/{id} |  |
 | [**get**](ProxiesApi.md#get) | **GET** /proxies |  |
 | [**getById**](ProxiesApi.md#getById) | **GET** /proxies/{id} |  |
+| [**patch**](ProxiesApi.md#patch) | **PATCH** /proxies/{id} |  |
 | [**update**](ProxiesApi.md#update) | **PUT** /proxies/{id} |  |
 
 
@@ -152,7 +153,7 @@ null (empty response body)
 
 <a name="get"></a>
 # **get**
-> ProxyPaginatedList get(id, name, page, size)
+> ProxyPaginatedList get(id, name, page, start, size)
 
 
 
@@ -181,9 +182,10 @@ public class Example {
     List<UUID> id = Arrays.asList(); // List<UUID> | 
     String name = "name_example"; // String | 
     Integer page = 56; // Integer | 
+    String start = "start_example"; // String | 
     Integer size = 56; // Integer | 
     try {
-      ProxyPaginatedList result = apiInstance.get(id, name, page, size);
+      ProxyPaginatedList result = apiInstance.get(id, name, page, start, size);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProxiesApi#get");
@@ -203,6 +205,7 @@ public class Example {
 | **id** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional] |
 | **name** | **String**|  | [optional] |
 | **page** | **Integer**|  | [optional] |
+| **start** | **String**|  | [optional] |
 | **size** | **Integer**|  | [optional] |
 
 ### Return type
@@ -292,6 +295,78 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **404** | Not Found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+<a name="patch"></a>
+# **patch**
+> patch(id, patchProxyRequest)
+
+
+
+### Example
+```java
+// Import classes:
+import com.basistheory.ApiClient;
+import com.basistheory.ApiException;
+import com.basistheory.Configuration;
+import com.basistheory.auth.*;
+import com.basistheory.models.*;
+import com.basistheory.ProxiesApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.basistheory.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    ProxiesApi apiInstance = new ProxiesApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | 
+    PatchProxyRequest patchProxyRequest = new PatchProxyRequest(); // PatchProxyRequest | 
+    try {
+      apiInstance.patch(id, patchProxyRequest);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ProxiesApi#patch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **patchProxyRequest** | [**PatchProxyRequest**](PatchProxyRequest.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/merge-patch+json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
 | **404** | Not Found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |

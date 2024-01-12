@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import com.basistheory.CreateReactorRequest;
+import com.basistheory.PatchReactorRequest;
 import com.basistheory.ProblemDetails;
 import com.basistheory.ReactRequest;
 import com.basistheory.ReactResponse;
@@ -352,6 +353,7 @@ public class ReactorsApi {
      * @param id  (optional)
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -365,7 +367,7 @@ public class ReactorsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(List<UUID> id, String name, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(List<UUID> id, String name, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -402,6 +404,10 @@ public class ReactorsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
         if (size != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
         }
@@ -426,8 +432,8 @@ public class ReactorsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(List<UUID> id, String name, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getCall(id, name, page, size, _callback);
+    private okhttp3.Call getValidateBeforeCall(List<UUID> id, String name, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getCall(id, name, page, start, size, _callback);
 
     }
 
@@ -437,6 +443,7 @@ public class ReactorsApi {
      * @param id  (optional)
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ReactorPaginatedList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -449,8 +456,8 @@ public class ReactorsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ReactorPaginatedList get(List<UUID> id, String name, Integer page, Integer size) throws ApiException {
-        ApiResponse<ReactorPaginatedList> localVarResp = getWithHttpInfo(id, name, page, size);
+    public ReactorPaginatedList get(List<UUID> id, String name, Integer page, String start, Integer size) throws ApiException {
+        ApiResponse<ReactorPaginatedList> localVarResp = getWithHttpInfo(id, name, page, start, size);
         return localVarResp.getData();
     }
 
@@ -460,6 +467,7 @@ public class ReactorsApi {
      * @param id  (optional)
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ApiResponse&lt;ReactorPaginatedList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -472,8 +480,8 @@ public class ReactorsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ReactorPaginatedList> getWithHttpInfo(List<UUID> id, String name, Integer page, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getValidateBeforeCall(id, name, page, size, null);
+    public ApiResponse<ReactorPaginatedList> getWithHttpInfo(List<UUID> id, String name, Integer page, String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, name, page, start, size, null);
         Type localVarReturnType = new TypeToken<ReactorPaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -484,6 +492,7 @@ public class ReactorsApi {
      * @param id  (optional)
      * @param name  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -497,9 +506,9 @@ public class ReactorsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(List<UUID> id, String name, Integer page, Integer size, final ApiCallback<ReactorPaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getAsync(List<UUID> id, String name, Integer page, String start, Integer size, final ApiCallback<ReactorPaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getValidateBeforeCall(id, name, page, size, _callback);
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, name, page, start, size, _callback);
         Type localVarReturnType = new TypeToken<ReactorPaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -637,6 +646,151 @@ public class ReactorsApi {
         okhttp3.Call localVarCall = getByIdValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<Reactor>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for patch
+     * @param id  (required)
+     * @param patchReactorRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchCall(UUID id, PatchReactorRequest patchReactorRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = patchReactorRequest;
+
+        // create path and map variables
+        String localVarPath = "/reactors/{id}"
+            .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/merge-patch+json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call patchValidateBeforeCall(UUID id, PatchReactorRequest patchReactorRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling patch(Async)");
+        }
+
+        // verify the required parameter 'patchReactorRequest' is set
+        if (patchReactorRequest == null) {
+            throw new ApiException("Missing the required parameter 'patchReactorRequest' when calling patch(Async)");
+        }
+
+        return patchCall(id, patchReactorRequest, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (required)
+     * @param patchReactorRequest  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public void patch(UUID id, PatchReactorRequest patchReactorRequest) throws ApiException {
+        patchWithHttpInfo(id, patchReactorRequest);
+    }
+
+    /**
+     * 
+     * 
+     * @param id  (required)
+     * @param patchReactorRequest  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> patchWithHttpInfo(UUID id, PatchReactorRequest patchReactorRequest) throws ApiException {
+        okhttp3.Call localVarCall = patchValidateBeforeCall(id, patchReactorRequest, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param id  (required)
+     * @param patchReactorRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call patchAsync(UUID id, PatchReactorRequest patchReactorRequest, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = patchValidateBeforeCall(id, patchReactorRequest, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

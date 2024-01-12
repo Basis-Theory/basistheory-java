@@ -23,9 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -50,65 +47,30 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * GetProxies
+ * BinDetailsBank
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class GetProxies {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private List<UUID> id = null;
-
+public class BinDetailsBank {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_PAGE = "page";
-  @SerializedName(SERIALIZED_NAME_PAGE)
-  private Integer page;
+  public static final String SERIALIZED_NAME_PHONE = "phone";
+  @SerializedName(SERIALIZED_NAME_PHONE)
+  private String phone;
 
-  public static final String SERIALIZED_NAME_START = "start";
-  @SerializedName(SERIALIZED_NAME_START)
-  private String start;
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
 
-  public static final String SERIALIZED_NAME_SIZE = "size";
-  @SerializedName(SERIALIZED_NAME_SIZE)
-  private Integer size;
+  public static final String SERIALIZED_NAME_CLEAN_NAME = "clean_name";
+  @SerializedName(SERIALIZED_NAME_CLEAN_NAME)
+  private String cleanName;
 
-  public GetProxies() {
+  public BinDetailsBank() {
   }
 
-  public GetProxies id(List<UUID> id) {
-    
-    this.id = id;
-    return this;
-  }
-
-  public GetProxies addIdItem(UUID idItem) {
-    if (this.id == null) {
-      this.id = new ArrayList<>();
-    }
-    this.id.add(idItem);
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<UUID> getId() {
-    return id;
-  }
-
-
-  public void setId(List<UUID> id) {
-    this.id = id;
-  }
-
-
-  public GetProxies name(String name) {
+  public BinDetailsBank name(String name) {
     
     this.name = name;
     return this;
@@ -131,76 +93,72 @@ public class GetProxies {
   }
 
 
-  public GetProxies page(Integer page) {
+  public BinDetailsBank phone(String phone) {
     
-    this.page = page;
+    this.phone = phone;
     return this;
   }
 
    /**
-   * Get page
-   * minimum: 0
-   * maximum: 2147483647
-   * @return page
+   * Get phone
+   * @return phone
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getPage() {
-    return page;
+  public String getPhone() {
+    return phone;
   }
 
 
-  public void setPage(Integer page) {
-    this.page = page;
+  public void setPhone(String phone) {
+    this.phone = phone;
   }
 
 
-  public GetProxies start(String start) {
+  public BinDetailsBank url(String url) {
     
-    this.start = start;
+    this.url = url;
     return this;
   }
 
    /**
-   * Get start
-   * @return start
+   * Get url
+   * @return url
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getStart() {
-    return start;
+  public String getUrl() {
+    return url;
   }
 
 
-  public void setStart(String start) {
-    this.start = start;
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
-  public GetProxies size(Integer size) {
+  public BinDetailsBank cleanName(String cleanName) {
     
-    this.size = size;
+    this.cleanName = cleanName;
     return this;
   }
 
    /**
-   * Get size
-   * minimum: 0
-   * maximum: 100
-   * @return size
+   * Get cleanName
+   * @return cleanName
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Integer getSize() {
-    return size;
+  public String getCleanName() {
+    return cleanName;
   }
 
 
-  public void setSize(Integer size) {
-    this.size = size;
+  public void setCleanName(String cleanName) {
+    this.cleanName = cleanName;
   }
 
 
@@ -213,12 +171,11 @@ public class GetProxies {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetProxies getProxies = (GetProxies) o;
-    return Objects.equals(this.id, getProxies.id) &&
-        Objects.equals(this.name, getProxies.name) &&
-        Objects.equals(this.page, getProxies.page) &&
-        Objects.equals(this.start, getProxies.start) &&
-        Objects.equals(this.size, getProxies.size);
+    BinDetailsBank binDetailsBank = (BinDetailsBank) o;
+    return Objects.equals(this.name, binDetailsBank.name) &&
+        Objects.equals(this.phone, binDetailsBank.phone) &&
+        Objects.equals(this.url, binDetailsBank.url) &&
+        Objects.equals(this.cleanName, binDetailsBank.cleanName);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -227,7 +184,7 @@ public class GetProxies {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, page, start, size);
+    return Objects.hash(name, phone, url, cleanName);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -240,12 +197,11 @@ public class GetProxies {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetProxies {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("class BinDetailsBank {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    start: ").append(toIndentedString(start)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    cleanName: ").append(toIndentedString(cleanName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -268,11 +224,10 @@ public class GetProxies {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("id");
     openapiFields.add("name");
-    openapiFields.add("page");
-    openapiFields.add("start");
-    openapiFields.add("size");
+    openapiFields.add("phone");
+    openapiFields.add("url");
+    openapiFields.add("clean_name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -282,23 +237,25 @@ public class GetProxies {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GetProxies
+  * @throws IOException if the JSON Object is invalid with respect to BinDetailsBank
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!GetProxies.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetProxies is not found in the empty JSON string", GetProxies.openapiRequiredFields.toString()));
+        if (!BinDetailsBank.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in BinDetailsBank is not found in the empty JSON string", BinDetailsBank.openapiRequiredFields.toString()));
         }
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
+      if ((jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull()) && !jsonObj.get("phone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
+      }
+      if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      }
+      if ((jsonObj.get("clean_name") != null && !jsonObj.get("clean_name").isJsonNull()) && !jsonObj.get("clean_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `clean_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("clean_name").toString()));
       }
   }
 
@@ -306,22 +263,22 @@ public class GetProxies {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetProxies.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetProxies' and its subtypes
+       if (!BinDetailsBank.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'BinDetailsBank' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetProxies> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetProxies.class));
+       final TypeAdapter<BinDetailsBank> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(BinDetailsBank.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetProxies>() {
+       return (TypeAdapter<T>) new TypeAdapter<BinDetailsBank>() {
            @Override
-           public void write(JsonWriter out, GetProxies value) throws IOException {
+           public void write(JsonWriter out, BinDetailsBank value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GetProxies read(JsonReader in) throws IOException {
+           public BinDetailsBank read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -332,18 +289,18 @@ public class GetProxies {
   }
 
  /**
-  * Create an instance of GetProxies given an JSON string
+  * Create an instance of BinDetailsBank given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GetProxies
-  * @throws IOException if the JSON string is invalid with respect to GetProxies
+  * @return An instance of BinDetailsBank
+  * @throws IOException if the JSON string is invalid with respect to BinDetailsBank
   */
-  public static GetProxies fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetProxies.class);
+  public static BinDetailsBank fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, BinDetailsBank.class);
   }
 
  /**
-  * Convert an instance of GetProxies to an JSON string
+  * Convert an instance of BinDetailsBank to an JSON string
   *
   * @return JSON string
   */
