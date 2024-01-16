@@ -1,3 +1,15 @@
+## [2.0.0](https://github.com/Basis-Theory/basistheory-java/compare/1.1.0...2.0.0) (2024-01-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* logs api changed from using offset pagination to cursor pagination
+
+### Features
+
+* support logs cursor pagination, support token enrichments ([#35](https://github.com/Basis-Theory/basistheory-java/issues/35)) ([bf4607f](https://github.com/Basis-Theory/basistheory-java/commit/bf4607fc297fecd49aece322b1544448c299f2b7))
+
+
 ## [1.1.0](https://github.com/Basis-Theory/basistheory-java/compare/1.0.0...1.1.0) (2023-10-11)
 
 
