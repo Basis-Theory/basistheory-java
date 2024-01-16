@@ -153,7 +153,7 @@ null (empty response body)
 
 <a name="get"></a>
 # **get**
-> ProxyPaginatedList get(id, name, page, size)
+> ProxyPaginatedList get(id, name, page, start, size)
 
 
 
@@ -182,9 +182,10 @@ public class Example {
     List<UUID> id = Arrays.asList(); // List<UUID> | 
     String name = "name_example"; // String | 
     Integer page = 56; // Integer | 
+    String start = "start_example"; // String | 
     Integer size = 56; // Integer | 
     try {
-      ProxyPaginatedList result = apiInstance.get(id, name, page, size);
+      ProxyPaginatedList result = apiInstance.get(id, name, page, start, size);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProxiesApi#get");
@@ -204,6 +205,7 @@ public class Example {
 | **id** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional] |
 | **name** | **String**|  | [optional] |
 | **page** | **Integer**|  | [optional] |
+| **start** | **String**|  | [optional] |
 | **size** | **Integer**|  | [optional] |
 
 ### Return type

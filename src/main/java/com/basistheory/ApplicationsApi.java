@@ -350,6 +350,7 @@ public class ApplicationsApi {
      * @param id  (optional)
      * @param type  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -363,7 +364,7 @@ public class ApplicationsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(List<UUID> id, List<String> type, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(List<UUID> id, List<String> type, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -400,6 +401,10 @@ public class ApplicationsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
         if (size != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
         }
@@ -424,8 +429,8 @@ public class ApplicationsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(List<UUID> id, List<String> type, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getCall(id, type, page, size, _callback);
+    private okhttp3.Call getValidateBeforeCall(List<UUID> id, List<String> type, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getCall(id, type, page, start, size, _callback);
 
     }
 
@@ -435,6 +440,7 @@ public class ApplicationsApi {
      * @param id  (optional)
      * @param type  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ApplicationPaginatedList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -447,8 +453,8 @@ public class ApplicationsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApplicationPaginatedList get(List<UUID> id, List<String> type, Integer page, Integer size) throws ApiException {
-        ApiResponse<ApplicationPaginatedList> localVarResp = getWithHttpInfo(id, type, page, size);
+    public ApplicationPaginatedList get(List<UUID> id, List<String> type, Integer page, String start, Integer size) throws ApiException {
+        ApiResponse<ApplicationPaginatedList> localVarResp = getWithHttpInfo(id, type, page, start, size);
         return localVarResp.getData();
     }
 
@@ -458,6 +464,7 @@ public class ApplicationsApi {
      * @param id  (optional)
      * @param type  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ApiResponse&lt;ApplicationPaginatedList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -470,8 +477,8 @@ public class ApplicationsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApplicationPaginatedList> getWithHttpInfo(List<UUID> id, List<String> type, Integer page, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getValidateBeforeCall(id, type, page, size, null);
+    public ApiResponse<ApplicationPaginatedList> getWithHttpInfo(List<UUID> id, List<String> type, Integer page, String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, type, page, start, size, null);
         Type localVarReturnType = new TypeToken<ApplicationPaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -482,6 +489,7 @@ public class ApplicationsApi {
      * @param id  (optional)
      * @param type  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -495,9 +503,9 @@ public class ApplicationsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(List<UUID> id, List<String> type, Integer page, Integer size, final ApiCallback<ApplicationPaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getAsync(List<UUID> id, List<String> type, Integer page, String start, Integer size, final ApiCallback<ApplicationPaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getValidateBeforeCall(id, type, page, size, _callback);
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, type, page, start, size, _callback);
         Type localVarReturnType = new TypeToken<ApplicationPaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -14,7 +14,7 @@ All URIs are relative to *https://api.basistheory.com*
 
 <a name="create"></a>
 # **create**
-> CreateTokenResponse create(createTokenRequest)
+> Token create(createTokenRequest)
 
 
 
@@ -42,7 +42,7 @@ public class Example {
     TokensApi apiInstance = new TokensApi(defaultClient);
     CreateTokenRequest createTokenRequest = new CreateTokenRequest(); // CreateTokenRequest | 
     try {
-      CreateTokenResponse result = apiInstance.create(createTokenRequest);
+      Token result = apiInstance.create(createTokenRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TokensApi#create");
@@ -63,7 +63,7 @@ public class Example {
 
 ### Return type
 
-[**CreateTokenResponse**](CreateTokenResponse.md)
+[**Token**](Token.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ null (empty response body)
 
 <a name="get"></a>
 # **get**
-> TokenPaginatedList get(type, id, metadata, page, size)
+> TokenPaginatedList get(type, id, metadata, page, start, size)
 
 
 
@@ -185,9 +185,10 @@ public class Example {
     List<String> id = Arrays.asList(); // List<String> | 
     Map<String, String> metadata = new HashMap(); // Map<String, String> | 
     Integer page = 56; // Integer | 
+    String start = "start_example"; // String | 
     Integer size = 56; // Integer | 
     try {
-      TokenPaginatedList result = apiInstance.get(type, id, metadata, page, size);
+      TokenPaginatedList result = apiInstance.get(type, id, metadata, page, start, size);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TokensApi#get");
@@ -208,6 +209,7 @@ public class Example {
 | **id** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **metadata** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] |
 | **page** | **Integer**|  | [optional] |
+| **start** | **String**|  | [optional] |
 | **size** | **Integer**|  | [optional] |
 
 ### Return type

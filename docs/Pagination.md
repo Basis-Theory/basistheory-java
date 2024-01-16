@@ -11,6 +11,7 @@
 |**pageNumber** | **Integer** |  |  [optional] |
 |**pageSize** | **Integer** |  |  [optional] |
 |**totalPages** | **Integer** |  |  [optional] |
+|**after** | **String** |  |  [optional] |
 
 
 

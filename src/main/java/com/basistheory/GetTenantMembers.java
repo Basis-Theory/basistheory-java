@@ -62,6 +62,10 @@ public class GetTenantMembers {
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
 
+  public static final String SERIALIZED_NAME_START = "start";
+  @SerializedName(SERIALIZED_NAME_START)
+  private String start;
+
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   private Integer size;
@@ -125,6 +129,29 @@ public class GetTenantMembers {
   }
 
 
+  public GetTenantMembers start(String start) {
+    
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * Get start
+   * @return start
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStart() {
+    return start;
+  }
+
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+
   public GetTenantMembers size(Integer size) {
     
     this.size = size;
@@ -162,6 +189,7 @@ public class GetTenantMembers {
     GetTenantMembers getTenantMembers = (GetTenantMembers) o;
     return Objects.equals(this.userId, getTenantMembers.userId) &&
         Objects.equals(this.page, getTenantMembers.page) &&
+        Objects.equals(this.start, getTenantMembers.start) &&
         Objects.equals(this.size, getTenantMembers.size);
   }
 
@@ -171,7 +199,7 @@ public class GetTenantMembers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, page, size);
+    return Objects.hash(userId, page, start, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -187,6 +215,7 @@ public class GetTenantMembers {
     sb.append("class GetTenantMembers {\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -212,6 +241,7 @@ public class GetTenantMembers {
     openapiFields = new HashSet<String>();
     openapiFields.add("user_id");
     openapiFields.add("page");
+    openapiFields.add("start");
     openapiFields.add("size");
 
     // a set of required properties/fields (JSON key names)
@@ -233,6 +263,9 @@ public class GetTenantMembers {
       // ensure the optional json data is an array if present
       if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_id` to be an array in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
+      }
+      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
   }
 

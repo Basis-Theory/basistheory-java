@@ -59,6 +59,10 @@ public class SearchTokensRequest {
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
 
+  public static final String SERIALIZED_NAME_START = "start";
+  @SerializedName(SERIALIZED_NAME_START)
+  private String start;
+
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   private Integer size;
@@ -114,6 +118,29 @@ public class SearchTokensRequest {
   }
 
 
+  public SearchTokensRequest start(String start) {
+    
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * Get start
+   * @return start
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStart() {
+    return start;
+  }
+
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+
   public SearchTokensRequest size(Integer size) {
     
     this.size = size;
@@ -151,6 +178,7 @@ public class SearchTokensRequest {
     SearchTokensRequest searchTokensRequest = (SearchTokensRequest) o;
     return Objects.equals(this.query, searchTokensRequest.query) &&
         Objects.equals(this.page, searchTokensRequest.page) &&
+        Objects.equals(this.start, searchTokensRequest.start) &&
         Objects.equals(this.size, searchTokensRequest.size);
   }
 
@@ -160,7 +188,7 @@ public class SearchTokensRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(query, page, size);
+    return Objects.hash(query, page, start, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -176,6 +204,7 @@ public class SearchTokensRequest {
     sb.append("class SearchTokensRequest {\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -201,6 +230,7 @@ public class SearchTokensRequest {
     openapiFields = new HashSet<String>();
     openapiFields.add("query");
     openapiFields.add("page");
+    openapiFields.add("start");
     openapiFields.add("size");
 
     // a set of required properties/fields (JSON key names)
@@ -221,6 +251,9 @@ public class SearchTokensRequest {
       }
       if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull()) && !jsonObj.get("query").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `query` to be a primitive type in the JSON string but got `%s`", jsonObj.get("query").toString()));
+      }
+      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
   }
 

@@ -154,7 +154,7 @@ null (empty response body)
 
 <a name="get"></a>
 # **get**
-> ApplicationPaginatedList get(id, type, page, size)
+> ApplicationPaginatedList get(id, type, page, start, size)
 
 
 
@@ -183,9 +183,10 @@ public class Example {
     List<UUID> id = Arrays.asList(); // List<UUID> | 
     List<String> type = Arrays.asList(); // List<String> | 
     Integer page = 56; // Integer | 
+    String start = "start_example"; // String | 
     Integer size = 56; // Integer | 
     try {
-      ApplicationPaginatedList result = apiInstance.get(id, type, page, size);
+      ApplicationPaginatedList result = apiInstance.get(id, type, page, start, size);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApplicationsApi#get");
@@ -205,6 +206,7 @@ public class Example {
 | **id** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional] |
 | **type** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **page** | **Integer**|  | [optional] |
+| **start** | **String**|  | [optional] |
 | **size** | **Integer**|  | [optional] |
 
 ### Return type

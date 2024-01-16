@@ -72,6 +72,10 @@ public class GetLogs {
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
 
+  public static final String SERIALIZED_NAME_START = "start";
+  @SerializedName(SERIALIZED_NAME_START)
+  private String start;
+
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   private Integer size;
@@ -179,8 +183,6 @@ public class GetLogs {
 
    /**
    * Get page
-   * minimum: 0
-   * maximum: 2147483647
    * @return page
   **/
   @javax.annotation.Nullable
@@ -196,6 +198,29 @@ public class GetLogs {
   }
 
 
+  public GetLogs start(String start) {
+    
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * Get start
+   * @return start
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStart() {
+    return start;
+  }
+
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+
   public GetLogs size(Integer size) {
     
     this.size = size;
@@ -205,7 +230,7 @@ public class GetLogs {
    /**
    * Get size
    * minimum: 0
-   * maximum: 10000
+   * maximum: 5000
    * @return size
   **/
   @javax.annotation.Nullable
@@ -236,6 +261,7 @@ public class GetLogs {
         Objects.equals(this.startDate, getLogs.startDate) &&
         Objects.equals(this.endDate, getLogs.endDate) &&
         Objects.equals(this.page, getLogs.page) &&
+        Objects.equals(this.start, getLogs.start) &&
         Objects.equals(this.size, getLogs.size);
   }
 
@@ -245,7 +271,7 @@ public class GetLogs {
 
   @Override
   public int hashCode() {
-    return Objects.hash(entityType, entityId, startDate, endDate, page, size);
+    return Objects.hash(entityType, entityId, startDate, endDate, page, start, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -264,6 +290,7 @@ public class GetLogs {
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -292,6 +319,7 @@ public class GetLogs {
     openapiFields.add("start_date");
     openapiFields.add("end_date");
     openapiFields.add("page");
+    openapiFields.add("start");
     openapiFields.add("size");
 
     // a set of required properties/fields (JSON key names)
@@ -315,6 +343,9 @@ public class GetLogs {
       }
       if ((jsonObj.get("entity_id") != null && !jsonObj.get("entity_id").isJsonNull()) && !jsonObj.get("entity_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `entity_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entity_id").toString()));
+      }
+      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
   }
 

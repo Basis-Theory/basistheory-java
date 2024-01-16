@@ -66,6 +66,10 @@ public class GetProxies {
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
 
+  public static final String SERIALIZED_NAME_START = "start";
+  @SerializedName(SERIALIZED_NAME_START)
+  private String start;
+
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   private Integer size;
@@ -152,6 +156,29 @@ public class GetProxies {
   }
 
 
+  public GetProxies start(String start) {
+    
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * Get start
+   * @return start
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStart() {
+    return start;
+  }
+
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+
   public GetProxies size(Integer size) {
     
     this.size = size;
@@ -190,6 +217,7 @@ public class GetProxies {
     return Objects.equals(this.id, getProxies.id) &&
         Objects.equals(this.name, getProxies.name) &&
         Objects.equals(this.page, getProxies.page) &&
+        Objects.equals(this.start, getProxies.start) &&
         Objects.equals(this.size, getProxies.size);
   }
 
@@ -199,7 +227,7 @@ public class GetProxies {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, page, size);
+    return Objects.hash(id, name, page, start, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -216,6 +244,7 @@ public class GetProxies {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -242,6 +271,7 @@ public class GetProxies {
     openapiFields.add("id");
     openapiFields.add("name");
     openapiFields.add("page");
+    openapiFields.add("start");
     openapiFields.add("size");
 
     // a set of required properties/fields (JSON key names)
@@ -266,6 +296,9 @@ public class GetProxies {
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
   }
 

@@ -60,6 +60,10 @@ public class GetTenantInvitations {
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
 
+  public static final String SERIALIZED_NAME_START = "start";
+  @SerializedName(SERIALIZED_NAME_START)
+  private String start;
+
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   private Integer size;
@@ -115,6 +119,29 @@ public class GetTenantInvitations {
   }
 
 
+  public GetTenantInvitations start(String start) {
+    
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * Get start
+   * @return start
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStart() {
+    return start;
+  }
+
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+
   public GetTenantInvitations size(Integer size) {
     
     this.size = size;
@@ -152,6 +179,7 @@ public class GetTenantInvitations {
     GetTenantInvitations getTenantInvitations = (GetTenantInvitations) o;
     return Objects.equals(this.status, getTenantInvitations.status) &&
         Objects.equals(this.page, getTenantInvitations.page) &&
+        Objects.equals(this.start, getTenantInvitations.start) &&
         Objects.equals(this.size, getTenantInvitations.size);
   }
 
@@ -161,7 +189,7 @@ public class GetTenantInvitations {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, page, size);
+    return Objects.hash(status, page, start, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -177,6 +205,7 @@ public class GetTenantInvitations {
     sb.append("class GetTenantInvitations {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -202,6 +231,7 @@ public class GetTenantInvitations {
     openapiFields = new HashSet<String>();
     openapiFields.add("status");
     openapiFields.add("page");
+    openapiFields.add("start");
     openapiFields.add("size");
 
     // a set of required properties/fields (JSON key names)
@@ -219,6 +249,9 @@ public class GetTenantInvitations {
         if (!GetTenantInvitations.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetTenantInvitations is not found in the empty JSON string", GetTenantInvitations.openapiRequiredFields.toString()));
         }
+      }
+      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
   }
 

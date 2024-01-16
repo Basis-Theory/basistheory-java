@@ -152,7 +152,7 @@ null (empty response body)
 
 <a name="get"></a>
 # **get**
-> ReactorFormulaPaginatedList get(name, page, size)
+> ReactorFormulaPaginatedList get(name, page, start, size)
 
 
 
@@ -180,9 +180,10 @@ public class Example {
     ReactorFormulasApi apiInstance = new ReactorFormulasApi(defaultClient);
     String name = "name_example"; // String | 
     Integer page = 56; // Integer | 
+    String start = "start_example"; // String | 
     Integer size = 56; // Integer | 
     try {
-      ReactorFormulaPaginatedList result = apiInstance.get(name, page, size);
+      ReactorFormulaPaginatedList result = apiInstance.get(name, page, start, size);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ReactorFormulasApi#get");
@@ -201,6 +202,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **name** | **String**|  | [optional] |
 | **page** | **Integer**|  | [optional] |
+| **start** | **String**|  | [optional] |
 | **size** | **Integer**|  | [optional] |
 
 ### Return type

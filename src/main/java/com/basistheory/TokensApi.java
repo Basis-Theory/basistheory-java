@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import com.basistheory.CreateTokenRequest;
-import com.basistheory.CreateTokenResponse;
 import com.basistheory.ProblemDetails;
 import com.basistheory.SearchTokensRequest;
 import com.basistheory.Token;
@@ -156,7 +155,7 @@ public class TokensApi {
      * 
      * 
      * @param createTokenRequest  (required)
-     * @return CreateTokenResponse
+     * @return Token
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -168,8 +167,8 @@ public class TokensApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public CreateTokenResponse create(CreateTokenRequest createTokenRequest) throws ApiException {
-        ApiResponse<CreateTokenResponse> localVarResp = createWithHttpInfo(createTokenRequest);
+    public Token create(CreateTokenRequest createTokenRequest) throws ApiException {
+        ApiResponse<Token> localVarResp = createWithHttpInfo(createTokenRequest);
         return localVarResp.getData();
     }
 
@@ -177,7 +176,7 @@ public class TokensApi {
      * 
      * 
      * @param createTokenRequest  (required)
-     * @return ApiResponse&lt;CreateTokenResponse&gt;
+     * @return ApiResponse&lt;Token&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -189,9 +188,9 @@ public class TokensApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateTokenResponse> createWithHttpInfo(CreateTokenRequest createTokenRequest) throws ApiException {
+    public ApiResponse<Token> createWithHttpInfo(CreateTokenRequest createTokenRequest) throws ApiException {
         okhttp3.Call localVarCall = createValidateBeforeCall(createTokenRequest, null);
-        Type localVarReturnType = new TypeToken<CreateTokenResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Token>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -212,10 +211,10 @@ public class TokensApi {
         <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAsync(CreateTokenRequest createTokenRequest, final ApiCallback<CreateTokenResponse> _callback) throws ApiException {
+    public okhttp3.Call createAsync(CreateTokenRequest createTokenRequest, final ApiCallback<Token> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createValidateBeforeCall(createTokenRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateTokenResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<Token>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -360,6 +359,7 @@ public class TokensApi {
      * @param id  (optional)
      * @param metadata  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -372,7 +372,7 @@ public class TokensApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(List<String> type, List<String> id, Map<String, String> metadata, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -413,6 +413,10 @@ public class TokensApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
         if (size != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
         }
@@ -437,8 +441,8 @@ public class TokensApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(List<String> type, List<String> id, Map<String, String> metadata, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getCall(type, id, metadata, page, size, _callback);
+    private okhttp3.Call getValidateBeforeCall(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getCall(type, id, metadata, page, start, size, _callback);
 
     }
 
@@ -449,6 +453,7 @@ public class TokensApi {
      * @param id  (optional)
      * @param metadata  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return TokenPaginatedList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -460,8 +465,8 @@ public class TokensApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public TokenPaginatedList get(List<String> type, List<String> id, Map<String, String> metadata, Integer page, Integer size) throws ApiException {
-        ApiResponse<TokenPaginatedList> localVarResp = getWithHttpInfo(type, id, metadata, page, size);
+    public TokenPaginatedList get(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size) throws ApiException {
+        ApiResponse<TokenPaginatedList> localVarResp = getWithHttpInfo(type, id, metadata, page, start, size);
         return localVarResp.getData();
     }
 
@@ -472,6 +477,7 @@ public class TokensApi {
      * @param id  (optional)
      * @param metadata  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ApiResponse&lt;TokenPaginatedList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -483,8 +489,8 @@ public class TokensApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TokenPaginatedList> getWithHttpInfo(List<String> type, List<String> id, Map<String, String> metadata, Integer page, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getValidateBeforeCall(type, id, metadata, page, size, null);
+    public ApiResponse<TokenPaginatedList> getWithHttpInfo(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(type, id, metadata, page, start, size, null);
         Type localVarReturnType = new TypeToken<TokenPaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -496,6 +502,7 @@ public class TokensApi {
      * @param id  (optional)
      * @param metadata  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -508,9 +515,9 @@ public class TokensApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(List<String> type, List<String> id, Map<String, String> metadata, Integer page, Integer size, final ApiCallback<TokenPaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getAsync(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size, final ApiCallback<TokenPaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getValidateBeforeCall(type, id, metadata, page, size, _callback);
+        okhttp3.Call localVarCall = getValidateBeforeCall(type, id, metadata, page, start, size, _callback);
         Type localVarReturnType = new TypeToken<TokenPaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

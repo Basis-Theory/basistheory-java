@@ -18,7 +18,6 @@ docs/CreateReactorRequest.md
 docs/CreateSessionResponse.md
 docs/CreateTenantInvitationRequest.md
 docs/CreateTokenRequest.md
-docs/CreateTokenResponse.md
 docs/CreateTransactionResponse.md
 docs/EncryptionKey.md
 docs/EncryptionMetadata.md
@@ -112,7 +111,6 @@ src/main/java/com/basistheory/CreateReactorRequest.java
 src/main/java/com/basistheory/CreateSessionResponse.java
 src/main/java/com/basistheory/CreateTenantInvitationRequest.java
 src/main/java/com/basistheory/CreateTokenRequest.java
-src/main/java/com/basistheory/CreateTokenResponse.java
 src/main/java/com/basistheory/CreateTransactionResponse.java
 src/main/java/com/basistheory/EncryptionKey.java
 src/main/java/com/basistheory/EncryptionMetadata.java

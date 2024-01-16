@@ -359,7 +359,7 @@ This endpoint does not need any parameter.
 
 <a name="getInvitations"></a>
 # **getInvitations**
-> TenantInvitationResponsePaginatedList getInvitations(status, page, size)
+> TenantInvitationResponsePaginatedList getInvitations(status, page, start, size)
 
 
 
@@ -387,9 +387,10 @@ public class Example {
     TenantsApi apiInstance = new TenantsApi(defaultClient);
     TenantInvitationStatus status = TenantInvitationStatus.fromValue("PENDING"); // TenantInvitationStatus | 
     Integer page = 56; // Integer | 
+    String start = "start_example"; // String | 
     Integer size = 56; // Integer | 
     try {
-      TenantInvitationResponsePaginatedList result = apiInstance.getInvitations(status, page, size);
+      TenantInvitationResponsePaginatedList result = apiInstance.getInvitations(status, page, start, size);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#getInvitations");
@@ -408,6 +409,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **status** | [**TenantInvitationStatus**](.md)|  | [optional] [enum: PENDING, EXPIRED] |
 | **page** | **Integer**|  | [optional] |
+| **start** | **String**|  | [optional] |
 | **size** | **Integer**|  | [optional] |
 
 ### Return type
@@ -432,7 +434,7 @@ public class Example {
 
 <a name="getMembers"></a>
 # **getMembers**
-> TenantMemberResponsePaginatedList getMembers(userId, page, size)
+> TenantMemberResponsePaginatedList getMembers(userId, page, start, size)
 
 
 
@@ -460,9 +462,10 @@ public class Example {
     TenantsApi apiInstance = new TenantsApi(defaultClient);
     List<UUID> userId = Arrays.asList(); // List<UUID> | 
     Integer page = 56; // Integer | 
+    String start = "start_example"; // String | 
     Integer size = 56; // Integer | 
     try {
-      TenantMemberResponsePaginatedList result = apiInstance.getMembers(userId, page, size);
+      TenantMemberResponsePaginatedList result = apiInstance.getMembers(userId, page, start, size);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TenantsApi#getMembers");
@@ -481,6 +484,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **userId** | [**List&lt;UUID&gt;**](UUID.md)|  | [optional] |
 | **page** | **Integer**|  | [optional] |
+| **start** | **String**|  | [optional] |
 | **size** | **Integer**|  | [optional] |
 
 ### Return type

@@ -10,7 +10,7 @@ All URIs are relative to *https://api.basistheory.com*
 
 <a name="get"></a>
 # **get**
-> LogPaginatedList get(entityType, entityId, startDate, endDate, page, size)
+> LogPaginatedList get(entityType, entityId, startDate, endDate, page, start, size)
 
 
 
@@ -41,9 +41,10 @@ public class Example {
     OffsetDateTime startDate = OffsetDateTime.now(); // OffsetDateTime | 
     OffsetDateTime endDate = OffsetDateTime.now(); // OffsetDateTime | 
     Integer page = 56; // Integer | 
+    String start = "start_example"; // String | 
     Integer size = 56; // Integer | 
     try {
-      LogPaginatedList result = apiInstance.get(entityType, entityId, startDate, endDate, page, size);
+      LogPaginatedList result = apiInstance.get(entityType, entityId, startDate, endDate, page, start, size);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LogsApi#get");
@@ -65,6 +66,7 @@ public class Example {
 | **startDate** | **OffsetDateTime**|  | [optional] |
 | **endDate** | **OffsetDateTime**|  | [optional] |
 | **page** | **Integer**|  | [optional] |
+| **start** | **String**|  | [optional] |
 | **size** | **Integer**|  | [optional] |
 
 ### Return type

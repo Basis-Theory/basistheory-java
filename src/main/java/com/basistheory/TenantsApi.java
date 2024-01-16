@@ -734,6 +734,7 @@ public class TenantsApi {
      * Build call for getInvitations
      * @param status  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -746,7 +747,7 @@ public class TenantsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvitationsCall(TenantInvitationStatus status, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInvitationsCall(TenantInvitationStatus status, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -779,6 +780,10 @@ public class TenantsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
         if (size != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
         }
@@ -803,8 +808,8 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInvitationsValidateBeforeCall(TenantInvitationStatus status, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getInvitationsCall(status, page, size, _callback);
+    private okhttp3.Call getInvitationsValidateBeforeCall(TenantInvitationStatus status, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getInvitationsCall(status, page, start, size, _callback);
 
     }
 
@@ -813,6 +818,7 @@ public class TenantsApi {
      * 
      * @param status  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return TenantInvitationResponsePaginatedList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -824,8 +830,8 @@ public class TenantsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public TenantInvitationResponsePaginatedList getInvitations(TenantInvitationStatus status, Integer page, Integer size) throws ApiException {
-        ApiResponse<TenantInvitationResponsePaginatedList> localVarResp = getInvitationsWithHttpInfo(status, page, size);
+    public TenantInvitationResponsePaginatedList getInvitations(TenantInvitationStatus status, Integer page, String start, Integer size) throws ApiException {
+        ApiResponse<TenantInvitationResponsePaginatedList> localVarResp = getInvitationsWithHttpInfo(status, page, start, size);
         return localVarResp.getData();
     }
 
@@ -834,6 +840,7 @@ public class TenantsApi {
      * 
      * @param status  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ApiResponse&lt;TenantInvitationResponsePaginatedList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -845,8 +852,8 @@ public class TenantsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TenantInvitationResponsePaginatedList> getInvitationsWithHttpInfo(TenantInvitationStatus status, Integer page, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getInvitationsValidateBeforeCall(status, page, size, null);
+    public ApiResponse<TenantInvitationResponsePaginatedList> getInvitationsWithHttpInfo(TenantInvitationStatus status, Integer page, String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getInvitationsValidateBeforeCall(status, page, start, size, null);
         Type localVarReturnType = new TypeToken<TenantInvitationResponsePaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -856,6 +863,7 @@ public class TenantsApi {
      * 
      * @param status  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -868,9 +876,9 @@ public class TenantsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInvitationsAsync(TenantInvitationStatus status, Integer page, Integer size, final ApiCallback<TenantInvitationResponsePaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getInvitationsAsync(TenantInvitationStatus status, Integer page, String start, Integer size, final ApiCallback<TenantInvitationResponsePaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInvitationsValidateBeforeCall(status, page, size, _callback);
+        okhttp3.Call localVarCall = getInvitationsValidateBeforeCall(status, page, start, size, _callback);
         Type localVarReturnType = new TypeToken<TenantInvitationResponsePaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -879,6 +887,7 @@ public class TenantsApi {
      * Build call for getMembers
      * @param userId  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -891,7 +900,7 @@ public class TenantsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMembersCall(List<UUID> userId, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMembersCall(List<UUID> userId, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -924,6 +933,10 @@ public class TenantsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
         if (size != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
         }
@@ -948,8 +961,8 @@ public class TenantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMembersValidateBeforeCall(List<UUID> userId, Integer page, Integer size, final ApiCallback _callback) throws ApiException {
-        return getMembersCall(userId, page, size, _callback);
+    private okhttp3.Call getMembersValidateBeforeCall(List<UUID> userId, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getMembersCall(userId, page, start, size, _callback);
 
     }
 
@@ -958,6 +971,7 @@ public class TenantsApi {
      * 
      * @param userId  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return TenantMemberResponsePaginatedList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -969,8 +983,8 @@ public class TenantsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public TenantMemberResponsePaginatedList getMembers(List<UUID> userId, Integer page, Integer size) throws ApiException {
-        ApiResponse<TenantMemberResponsePaginatedList> localVarResp = getMembersWithHttpInfo(userId, page, size);
+    public TenantMemberResponsePaginatedList getMembers(List<UUID> userId, Integer page, String start, Integer size) throws ApiException {
+        ApiResponse<TenantMemberResponsePaginatedList> localVarResp = getMembersWithHttpInfo(userId, page, start, size);
         return localVarResp.getData();
     }
 
@@ -979,6 +993,7 @@ public class TenantsApi {
      * 
      * @param userId  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @return ApiResponse&lt;TenantMemberResponsePaginatedList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -990,8 +1005,8 @@ public class TenantsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TenantMemberResponsePaginatedList> getMembersWithHttpInfo(List<UUID> userId, Integer page, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getMembersValidateBeforeCall(userId, page, size, null);
+    public ApiResponse<TenantMemberResponsePaginatedList> getMembersWithHttpInfo(List<UUID> userId, Integer page, String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getMembersValidateBeforeCall(userId, page, start, size, null);
         Type localVarReturnType = new TypeToken<TenantMemberResponsePaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1001,6 +1016,7 @@ public class TenantsApi {
      * 
      * @param userId  (optional)
      * @param page  (optional)
+     * @param start  (optional)
      * @param size  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1013,9 +1029,9 @@ public class TenantsApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMembersAsync(List<UUID> userId, Integer page, Integer size, final ApiCallback<TenantMemberResponsePaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getMembersAsync(List<UUID> userId, Integer page, String start, Integer size, final ApiCallback<TenantMemberResponsePaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMembersValidateBeforeCall(userId, page, size, _callback);
+        okhttp3.Call localVarCall = getMembersValidateBeforeCall(userId, page, start, size, _callback);
         Type localVarReturnType = new TypeToken<TenantMemberResponsePaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

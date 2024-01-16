@@ -71,6 +71,10 @@ public class GetTokens {
   @SerializedName(SERIALIZED_NAME_PAGE)
   private Integer page;
 
+  public static final String SERIALIZED_NAME_START = "start";
+  @SerializedName(SERIALIZED_NAME_START)
+  private String start;
+
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
   private Integer size;
@@ -196,6 +200,29 @@ public class GetTokens {
   }
 
 
+  public GetTokens start(String start) {
+    
+    this.start = start;
+    return this;
+  }
+
+   /**
+   * Get start
+   * @return start
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getStart() {
+    return start;
+  }
+
+
+  public void setStart(String start) {
+    this.start = start;
+  }
+
+
   public GetTokens size(Integer size) {
     
     this.size = size;
@@ -235,6 +262,7 @@ public class GetTokens {
         Objects.equals(this.id, getTokens.id) &&
         Objects.equals(this.metadata, getTokens.metadata) &&
         Objects.equals(this.page, getTokens.page) &&
+        Objects.equals(this.start, getTokens.start) &&
         Objects.equals(this.size, getTokens.size);
   }
 
@@ -244,7 +272,7 @@ public class GetTokens {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, id, metadata, page, size);
+    return Objects.hash(type, id, metadata, page, start, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -262,6 +290,7 @@ public class GetTokens {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -289,6 +318,7 @@ public class GetTokens {
     openapiFields.add("id");
     openapiFields.add("metadata");
     openapiFields.add("page");
+    openapiFields.add("start");
     openapiFields.add("size");
 
     // a set of required properties/fields (JSON key names)
@@ -314,6 +344,9 @@ public class GetTokens {
       // ensure the optional json data is an array if present
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be an array in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("start") != null && !jsonObj.get("start").isJsonNull()) && !jsonObj.get("start").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `start` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start").toString()));
       }
   }
 
