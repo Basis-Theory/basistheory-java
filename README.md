@@ -25,7 +25,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation 'com.basistheory:basistheory-java:2.0.0'
+     implementation 'com.basistheory:basistheory-java:3.0.0'
   }
 ```
 
@@ -48,7 +48,7 @@ Then add the following dependency to your project's POM:
 <dependency>
     <groupId>com.github.Basis-Theory</groupId>
     <artifactId>basistheory-java</artifactId>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
 </dependency>
 ```
 

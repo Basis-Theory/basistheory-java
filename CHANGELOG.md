@@ -1,3 +1,15 @@
+## [3.0.0](https://github.com/Basis-Theory/basistheory-java/compare/2.0.0...3.0.0) (2024-02-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* removing transactions
+
+### Features
+
+* removing transactions ([#36](https://github.com/Basis-Theory/basistheory-java/issues/36)) ([f68025f](https://github.com/Basis-Theory/basistheory-java/commit/f68025f66de178c83e7060f6027b5d060453123b))
+
+
 ## [2.0.0](https://github.com/Basis-Theory/basistheory-java/compare/1.1.0...2.0.0) (2024-01-16)
 
 
