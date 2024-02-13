@@ -155,7 +155,7 @@ null (empty response body)
 
 <a name="get"></a>
 # **get**
-> TokenPaginatedList get(type, id, metadata, page, start, size)
+> TokenPaginatedList get(id, metadata, page, start, size)
 
 
 
@@ -181,14 +181,13 @@ public class Example {
     //ApiKey.setApiKeyPrefix("Token");
 
     TokensApi apiInstance = new TokensApi(defaultClient);
-    List<String> type = Arrays.asList(); // List<String> | 
     List<String> id = Arrays.asList(); // List<String> | 
     Map<String, String> metadata = new HashMap(); // Map<String, String> | 
     Integer page = 56; // Integer | 
     String start = "start_example"; // String | 
     Integer size = 56; // Integer | 
     try {
-      TokenPaginatedList result = apiInstance.get(type, id, metadata, page, start, size);
+      TokenPaginatedList result = apiInstance.get(id, metadata, page, start, size);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling TokensApi#get");
@@ -205,7 +204,6 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **type** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **id** | [**List&lt;String&gt;**](String.md)|  | [optional] |
 | **metadata** | [**Map&lt;String, String&gt;**](String.md)|  | [optional] |
 | **page** | **Integer**|  | [optional] |
