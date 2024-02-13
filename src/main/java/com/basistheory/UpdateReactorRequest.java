@@ -129,8 +129,8 @@ public class UpdateReactorRequest {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public String getCode() {
     return code;
@@ -243,6 +243,7 @@ public class UpdateReactorRequest {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
+    openapiRequiredFields.add("code");
   }
 
  /**
@@ -271,7 +272,7 @@ public class UpdateReactorRequest {
       if (jsonObj.get("application") != null && !jsonObj.get("application").isJsonNull()) {
         Application.validateJsonObject(jsonObj.getAsJsonObject("application"));
       }
-      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+      if (!jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
   }

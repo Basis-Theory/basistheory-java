@@ -355,7 +355,6 @@ public class TokensApi {
     }
     /**
      * Build call for get
-     * @param type  (optional)
      * @param id  (optional)
      * @param metadata  (optional)
      * @param page  (optional)
@@ -372,7 +371,7 @@ public class TokensApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCall(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getCall(List<String> id, Map<String, String> metadata, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -396,10 +395,6 @@ public class TokensApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (type != null) {
-            localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "type", type));
-        }
 
         if (id != null) {
             localVarCollectionQueryParams.addAll(localVarApiClient.parameterToPairs("multi", "id", id));
@@ -441,15 +436,14 @@ public class TokensApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getValidateBeforeCall(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
-        return getCall(type, id, metadata, page, start, size, _callback);
+    private okhttp3.Call getValidateBeforeCall(List<String> id, Map<String, String> metadata, Integer page, String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getCall(id, metadata, page, start, size, _callback);
 
     }
 
     /**
      * 
      * 
-     * @param type  (optional)
      * @param id  (optional)
      * @param metadata  (optional)
      * @param page  (optional)
@@ -465,15 +459,14 @@ public class TokensApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public TokenPaginatedList get(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size) throws ApiException {
-        ApiResponse<TokenPaginatedList> localVarResp = getWithHttpInfo(type, id, metadata, page, start, size);
+    public TokenPaginatedList get(List<String> id, Map<String, String> metadata, Integer page, String start, Integer size) throws ApiException {
+        ApiResponse<TokenPaginatedList> localVarResp = getWithHttpInfo(id, metadata, page, start, size);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param type  (optional)
      * @param id  (optional)
      * @param metadata  (optional)
      * @param page  (optional)
@@ -489,8 +482,8 @@ public class TokensApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TokenPaginatedList> getWithHttpInfo(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size) throws ApiException {
-        okhttp3.Call localVarCall = getValidateBeforeCall(type, id, metadata, page, start, size, null);
+    public ApiResponse<TokenPaginatedList> getWithHttpInfo(List<String> id, Map<String, String> metadata, Integer page, String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, metadata, page, start, size, null);
         Type localVarReturnType = new TypeToken<TokenPaginatedList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -498,7 +491,6 @@ public class TokensApi {
     /**
      *  (asynchronously)
      * 
-     * @param type  (optional)
      * @param id  (optional)
      * @param metadata  (optional)
      * @param page  (optional)
@@ -515,9 +507,9 @@ public class TokensApi {
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAsync(List<String> type, List<String> id, Map<String, String> metadata, Integer page, String start, Integer size, final ApiCallback<TokenPaginatedList> _callback) throws ApiException {
+    public okhttp3.Call getAsync(List<String> id, Map<String, String> metadata, Integer page, String start, Integer size, final ApiCallback<TokenPaginatedList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getValidateBeforeCall(type, id, metadata, page, start, size, _callback);
+        okhttp3.Call localVarCall = getValidateBeforeCall(id, metadata, page, start, size, _callback);
         Type localVarReturnType = new TypeToken<TokenPaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

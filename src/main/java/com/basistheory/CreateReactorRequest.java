@@ -16,7 +16,6 @@ package com.basistheory;
 import java.util.Objects;
 import java.util.Arrays;
 import com.basistheory.Application;
-import com.basistheory.ReactorFormula;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,10 +58,6 @@ public class CreateReactorRequest {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_FORMULA = "formula";
-  @SerializedName(SERIALIZED_NAME_FORMULA)
-  private ReactorFormula formula;
-
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
@@ -101,31 +96,6 @@ public class CreateReactorRequest {
   }
 
 
-  public CreateReactorRequest formula(ReactorFormula formula) {
-    
-    this.formula = formula;
-    return this;
-  }
-
-   /**
-   * Get formula
-   * @return formula
-   * @deprecated
-  **/
-  @Deprecated
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public ReactorFormula getFormula() {
-    return formula;
-  }
-
-
-  public void setFormula(ReactorFormula formula) {
-    this.formula = formula;
-  }
-
-
   public CreateReactorRequest code(String code) {
     
     this.code = code;
@@ -136,8 +106,8 @@ public class CreateReactorRequest {
    * Get code
    * @return code
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
   public String getCode() {
     return code;
@@ -214,7 +184,6 @@ public class CreateReactorRequest {
     }
     CreateReactorRequest createReactorRequest = (CreateReactorRequest) o;
     return Objects.equals(this.name, createReactorRequest.name) &&
-        Objects.equals(this.formula, createReactorRequest.formula) &&
         Objects.equals(this.code, createReactorRequest.code) &&
         Objects.equals(this.application, createReactorRequest.application) &&
         Objects.equals(this._configuration, createReactorRequest._configuration);
@@ -226,7 +195,7 @@ public class CreateReactorRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, formula, code, application, _configuration);
+    return Objects.hash(name, code, application, _configuration);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -241,7 +210,6 @@ public class CreateReactorRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateReactorRequest {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    application: ").append(toIndentedString(application)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
@@ -268,7 +236,6 @@ public class CreateReactorRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("name");
-    openapiFields.add("formula");
     openapiFields.add("code");
     openapiFields.add("application");
     openapiFields.add("configuration");
@@ -276,6 +243,7 @@ public class CreateReactorRequest {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
+    openapiRequiredFields.add("code");
   }
 
  /**
@@ -300,11 +268,7 @@ public class CreateReactorRequest {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      // validate the optional field `formula`
-      if (jsonObj.get("formula") != null && !jsonObj.get("formula").isJsonNull()) {
-        ReactorFormula.validateJsonObject(jsonObj.getAsJsonObject("formula"));
-      }
-      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+      if (!jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       // validate the optional field `application`

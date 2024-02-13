@@ -55,10 +55,6 @@ import com.basistheory.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GetTokens {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private List<String> type = null;
-
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private List<String> id = null;
@@ -81,37 +77,6 @@ public class GetTokens {
 
   public GetTokens() {
   }
-
-  public GetTokens type(List<String> type) {
-    
-    this.type = type;
-    return this;
-  }
-
-  public GetTokens addTypeItem(String typeItem) {
-    if (this.type == null) {
-      this.type = new ArrayList<>();
-    }
-    this.type.add(typeItem);
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public List<String> getType() {
-    return type;
-  }
-
-
-  public void setType(List<String> type) {
-    this.type = type;
-  }
-
 
   public GetTokens id(List<String> id) {
     
@@ -258,8 +223,7 @@ public class GetTokens {
       return false;
     }
     GetTokens getTokens = (GetTokens) o;
-    return Objects.equals(this.type, getTokens.type) &&
-        Objects.equals(this.id, getTokens.id) &&
+    return Objects.equals(this.id, getTokens.id) &&
         Objects.equals(this.metadata, getTokens.metadata) &&
         Objects.equals(this.page, getTokens.page) &&
         Objects.equals(this.start, getTokens.start) &&
@@ -272,7 +236,7 @@ public class GetTokens {
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, id, metadata, page, start, size);
+    return Objects.hash(id, metadata, page, start, size);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -286,7 +250,6 @@ public class GetTokens {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetTokens {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    page: ").append(toIndentedString(page)).append("\n");
@@ -314,7 +277,6 @@ public class GetTokens {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("type");
     openapiFields.add("id");
     openapiFields.add("metadata");
     openapiFields.add("page");
@@ -336,10 +298,6 @@ public class GetTokens {
         if (!GetTokens.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in GetTokens is not found in the empty JSON string", GetTokens.openapiRequiredFields.toString()));
         }
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be an array in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("id") != null && !jsonObj.get("id").isJsonArray()) {

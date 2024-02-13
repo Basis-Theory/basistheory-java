@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**name** | **String** |  |  |
 |**application** | [**Application**](Application.md) |  |  [optional] |
-|**code** | **String** |  |  [optional] |
+|**code** | **String** |  |  |
 |**_configuration** | **Map&lt;String, String&gt;** |  |  [optional] |
 
 
