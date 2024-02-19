@@ -1,3 +1,11 @@
+### [3.0.1](https://github.com/Basis-Theory/basistheory-java/compare/3.0.0...3.0.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* updating dependencies to fix jackson-databind vulnerability ([#37](https://github.com/Basis-Theory/basistheory-java/issues/37)) ([6760854](https://github.com/Basis-Theory/basistheory-java/commit/6760854bbd3562373ff86c4262fd1dc282211992))
+
+
 ## [3.0.0](https://github.com/Basis-Theory/basistheory-java/compare/2.0.0...3.0.0) (2024-02-13)
 
 
