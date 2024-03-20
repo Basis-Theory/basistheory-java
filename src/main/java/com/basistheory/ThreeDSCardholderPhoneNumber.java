@@ -47,64 +47,64 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * ReactRequest
+ * ThreeDSCardholderPhoneNumber
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ReactRequest {
-  public static final String SERIALIZED_NAME_ARGS = "args";
-  @SerializedName(SERIALIZED_NAME_ARGS)
-  private Object args = null;
+public class ThreeDSCardholderPhoneNumber {
+  public static final String SERIALIZED_NAME_COUNTRY_CODE = "country_code";
+  @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
+  private String countryCode;
 
-  public static final String SERIALIZED_NAME_CALLBACK_URL = "callback_url";
-  @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
-  private String callbackUrl;
+  public static final String SERIALIZED_NAME_NUMBER = "number";
+  @SerializedName(SERIALIZED_NAME_NUMBER)
+  private String number;
 
-  public ReactRequest() {
+  public ThreeDSCardholderPhoneNumber() {
   }
 
-  public ReactRequest args(Object args) {
+  public ThreeDSCardholderPhoneNumber countryCode(String countryCode) {
     
-    this.args = args;
+    this.countryCode = countryCode;
     return this;
   }
 
    /**
-   * Get args
-   * @return args
+   * Get countryCode
+   * @return countryCode
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getArgs() {
-    return args;
+  public String getCountryCode() {
+    return countryCode;
   }
 
 
-  public void setArgs(Object args) {
-    this.args = args;
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
   }
 
 
-  public ReactRequest callbackUrl(String callbackUrl) {
+  public ThreeDSCardholderPhoneNumber number(String number) {
     
-    this.callbackUrl = callbackUrl;
+    this.number = number;
     return this;
   }
 
    /**
-   * Get callbackUrl
-   * @return callbackUrl
+   * Get number
+   * @return number
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getCallbackUrl() {
-    return callbackUrl;
+  public String getNumber() {
+    return number;
   }
 
 
-  public void setCallbackUrl(String callbackUrl) {
-    this.callbackUrl = callbackUrl;
+  public void setNumber(String number) {
+    this.number = number;
   }
 
 
@@ -117,9 +117,9 @@ public class ReactRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReactRequest reactRequest = (ReactRequest) o;
-    return Objects.equals(this.args, reactRequest.args) &&
-        Objects.equals(this.callbackUrl, reactRequest.callbackUrl);
+    ThreeDSCardholderPhoneNumber threeDSCardholderPhoneNumber = (ThreeDSCardholderPhoneNumber) o;
+    return Objects.equals(this.countryCode, threeDSCardholderPhoneNumber.countryCode) &&
+        Objects.equals(this.number, threeDSCardholderPhoneNumber.number);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +128,7 @@ public class ReactRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, callbackUrl);
+    return Objects.hash(countryCode, number);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -141,9 +141,9 @@ public class ReactRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReactRequest {\n");
-    sb.append("    args: ").append(toIndentedString(args)).append("\n");
-    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("class ThreeDSCardholderPhoneNumber {\n");
+    sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,8 +166,8 @@ public class ReactRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("args");
-    openapiFields.add("callback_url");
+    openapiFields.add("country_code");
+    openapiFields.add("number");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -177,16 +177,19 @@ public class ReactRequest {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReactRequest
+  * @throws IOException if the JSON Object is invalid with respect to ThreeDSCardholderPhoneNumber
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!ReactRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReactRequest is not found in the empty JSON string", ReactRequest.openapiRequiredFields.toString()));
+        if (!ThreeDSCardholderPhoneNumber.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSCardholderPhoneNumber is not found in the empty JSON string", ThreeDSCardholderPhoneNumber.openapiRequiredFields.toString()));
         }
       }
-      if ((jsonObj.get("callback_url") != null && !jsonObj.get("callback_url").isJsonNull()) && !jsonObj.get("callback_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `callback_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_url").toString()));
+      if ((jsonObj.get("country_code") != null && !jsonObj.get("country_code").isJsonNull()) && !jsonObj.get("country_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `country_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country_code").toString()));
+      }
+      if ((jsonObj.get("number") != null && !jsonObj.get("number").isJsonNull()) && !jsonObj.get("number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("number").toString()));
       }
   }
 
@@ -194,22 +197,22 @@ public class ReactRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReactRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReactRequest' and its subtypes
+       if (!ThreeDSCardholderPhoneNumber.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ThreeDSCardholderPhoneNumber' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReactRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReactRequest.class));
+       final TypeAdapter<ThreeDSCardholderPhoneNumber> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDSCardholderPhoneNumber.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ReactRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<ThreeDSCardholderPhoneNumber>() {
            @Override
-           public void write(JsonWriter out, ReactRequest value) throws IOException {
+           public void write(JsonWriter out, ThreeDSCardholderPhoneNumber value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ReactRequest read(JsonReader in) throws IOException {
+           public ThreeDSCardholderPhoneNumber read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -220,18 +223,18 @@ public class ReactRequest {
   }
 
  /**
-  * Create an instance of ReactRequest given an JSON string
+  * Create an instance of ThreeDSCardholderPhoneNumber given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ReactRequest
-  * @throws IOException if the JSON string is invalid with respect to ReactRequest
+  * @return An instance of ThreeDSCardholderPhoneNumber
+  * @throws IOException if the JSON string is invalid with respect to ThreeDSCardholderPhoneNumber
   */
-  public static ReactRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReactRequest.class);
+  public static ThreeDSCardholderPhoneNumber fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDSCardholderPhoneNumber.class);
   }
 
  /**
-  * Convert an instance of ReactRequest to an JSON string
+  * Convert an instance of ThreeDSCardholderPhoneNumber to an JSON string
   *
   * @return JSON string
   */

@@ -47,64 +47,91 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * ReactRequest
+ * ThreeDSRequestorInfo
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ReactRequest {
-  public static final String SERIALIZED_NAME_ARGS = "args";
-  @SerializedName(SERIALIZED_NAME_ARGS)
-  private Object args = null;
+public class ThreeDSRequestorInfo {
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private String id;
 
-  public static final String SERIALIZED_NAME_CALLBACK_URL = "callback_url";
-  @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
-  private String callbackUrl;
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
 
-  public ReactRequest() {
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
+
+  public ThreeDSRequestorInfo() {
   }
 
-  public ReactRequest args(Object args) {
+  public ThreeDSRequestorInfo id(String id) {
     
-    this.args = args;
+    this.id = id;
     return this;
   }
 
    /**
-   * Get args
-   * @return args
+   * Get id
+   * @return id
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getArgs() {
-    return args;
+  public String getId() {
+    return id;
   }
 
 
-  public void setArgs(Object args) {
-    this.args = args;
+  public void setId(String id) {
+    this.id = id;
   }
 
 
-  public ReactRequest callbackUrl(String callbackUrl) {
+  public ThreeDSRequestorInfo name(String name) {
     
-    this.callbackUrl = callbackUrl;
+    this.name = name;
     return this;
   }
 
    /**
-   * Get callbackUrl
-   * @return callbackUrl
+   * Get name
+   * @return name
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getCallbackUrl() {
-    return callbackUrl;
+  public String getName() {
+    return name;
   }
 
 
-  public void setCallbackUrl(String callbackUrl) {
-    this.callbackUrl = callbackUrl;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public ThreeDSRequestorInfo url(String url) {
+    
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * Get url
+   * @return url
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUrl() {
+    return url;
+  }
+
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -117,9 +144,10 @@ public class ReactRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReactRequest reactRequest = (ReactRequest) o;
-    return Objects.equals(this.args, reactRequest.args) &&
-        Objects.equals(this.callbackUrl, reactRequest.callbackUrl);
+    ThreeDSRequestorInfo threeDSRequestorInfo = (ThreeDSRequestorInfo) o;
+    return Objects.equals(this.id, threeDSRequestorInfo.id) &&
+        Objects.equals(this.name, threeDSRequestorInfo.name) &&
+        Objects.equals(this.url, threeDSRequestorInfo.url);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +156,7 @@ public class ReactRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, callbackUrl);
+    return Objects.hash(id, name, url);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -141,9 +169,10 @@ public class ReactRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReactRequest {\n");
-    sb.append("    args: ").append(toIndentedString(args)).append("\n");
-    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("class ThreeDSRequestorInfo {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,8 +195,9 @@ public class ReactRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("args");
-    openapiFields.add("callback_url");
+    openapiFields.add("id");
+    openapiFields.add("name");
+    openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -177,16 +207,22 @@ public class ReactRequest {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReactRequest
+  * @throws IOException if the JSON Object is invalid with respect to ThreeDSRequestorInfo
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!ReactRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReactRequest is not found in the empty JSON string", ReactRequest.openapiRequiredFields.toString()));
+        if (!ThreeDSRequestorInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSRequestorInfo is not found in the empty JSON string", ThreeDSRequestorInfo.openapiRequiredFields.toString()));
         }
       }
-      if ((jsonObj.get("callback_url") != null && !jsonObj.get("callback_url").isJsonNull()) && !jsonObj.get("callback_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `callback_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_url").toString()));
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
   }
 
@@ -194,22 +230,22 @@ public class ReactRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReactRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReactRequest' and its subtypes
+       if (!ThreeDSRequestorInfo.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ThreeDSRequestorInfo' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReactRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReactRequest.class));
+       final TypeAdapter<ThreeDSRequestorInfo> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDSRequestorInfo.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ReactRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<ThreeDSRequestorInfo>() {
            @Override
-           public void write(JsonWriter out, ReactRequest value) throws IOException {
+           public void write(JsonWriter out, ThreeDSRequestorInfo value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ReactRequest read(JsonReader in) throws IOException {
+           public ThreeDSRequestorInfo read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -220,18 +256,18 @@ public class ReactRequest {
   }
 
  /**
-  * Create an instance of ReactRequest given an JSON string
+  * Create an instance of ThreeDSRequestorInfo given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ReactRequest
-  * @throws IOException if the JSON string is invalid with respect to ReactRequest
+  * @return An instance of ThreeDSRequestorInfo
+  * @throws IOException if the JSON string is invalid with respect to ThreeDSRequestorInfo
   */
-  public static ReactRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReactRequest.class);
+  public static ThreeDSRequestorInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDSRequestorInfo.class);
   }
 
  /**
-  * Convert an instance of ReactRequest to an JSON string
+  * Convert an instance of ThreeDSRequestorInfo to an JSON string
   *
   * @return JSON string
   */
