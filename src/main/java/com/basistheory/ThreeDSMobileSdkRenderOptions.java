@@ -23,6 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -47,64 +49,72 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * ReactRequest
+ * ThreeDSMobileSdkRenderOptions
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ReactRequest {
-  public static final String SERIALIZED_NAME_ARGS = "args";
-  @SerializedName(SERIALIZED_NAME_ARGS)
-  private Object args = null;
+public class ThreeDSMobileSdkRenderOptions {
+  public static final String SERIALIZED_NAME_SDK_INTERFACE = "sdk_interface";
+  @SerializedName(SERIALIZED_NAME_SDK_INTERFACE)
+  private String sdkInterface;
 
-  public static final String SERIALIZED_NAME_CALLBACK_URL = "callback_url";
-  @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
-  private String callbackUrl;
+  public static final String SERIALIZED_NAME_SDK_UI_TYPE = "sdk_ui_type";
+  @SerializedName(SERIALIZED_NAME_SDK_UI_TYPE)
+  private List<String> sdkUiType = null;
 
-  public ReactRequest() {
+  public ThreeDSMobileSdkRenderOptions() {
   }
 
-  public ReactRequest args(Object args) {
+  public ThreeDSMobileSdkRenderOptions sdkInterface(String sdkInterface) {
     
-    this.args = args;
+    this.sdkInterface = sdkInterface;
     return this;
   }
 
    /**
-   * Get args
-   * @return args
+   * Get sdkInterface
+   * @return sdkInterface
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getArgs() {
-    return args;
+  public String getSdkInterface() {
+    return sdkInterface;
   }
 
 
-  public void setArgs(Object args) {
-    this.args = args;
+  public void setSdkInterface(String sdkInterface) {
+    this.sdkInterface = sdkInterface;
   }
 
 
-  public ReactRequest callbackUrl(String callbackUrl) {
+  public ThreeDSMobileSdkRenderOptions sdkUiType(List<String> sdkUiType) {
     
-    this.callbackUrl = callbackUrl;
+    this.sdkUiType = sdkUiType;
+    return this;
+  }
+
+  public ThreeDSMobileSdkRenderOptions addSdkUiTypeItem(String sdkUiTypeItem) {
+    if (this.sdkUiType == null) {
+      this.sdkUiType = new ArrayList<>();
+    }
+    this.sdkUiType.add(sdkUiTypeItem);
     return this;
   }
 
    /**
-   * Get callbackUrl
-   * @return callbackUrl
+   * Get sdkUiType
+   * @return sdkUiType
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getCallbackUrl() {
-    return callbackUrl;
+  public List<String> getSdkUiType() {
+    return sdkUiType;
   }
 
 
-  public void setCallbackUrl(String callbackUrl) {
-    this.callbackUrl = callbackUrl;
+  public void setSdkUiType(List<String> sdkUiType) {
+    this.sdkUiType = sdkUiType;
   }
 
 
@@ -117,9 +127,9 @@ public class ReactRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReactRequest reactRequest = (ReactRequest) o;
-    return Objects.equals(this.args, reactRequest.args) &&
-        Objects.equals(this.callbackUrl, reactRequest.callbackUrl);
+    ThreeDSMobileSdkRenderOptions threeDSMobileSdkRenderOptions = (ThreeDSMobileSdkRenderOptions) o;
+    return Objects.equals(this.sdkInterface, threeDSMobileSdkRenderOptions.sdkInterface) &&
+        Objects.equals(this.sdkUiType, threeDSMobileSdkRenderOptions.sdkUiType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +138,7 @@ public class ReactRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, callbackUrl);
+    return Objects.hash(sdkInterface, sdkUiType);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -141,9 +151,9 @@ public class ReactRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReactRequest {\n");
-    sb.append("    args: ").append(toIndentedString(args)).append("\n");
-    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("class ThreeDSMobileSdkRenderOptions {\n");
+    sb.append("    sdkInterface: ").append(toIndentedString(sdkInterface)).append("\n");
+    sb.append("    sdkUiType: ").append(toIndentedString(sdkUiType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,8 +176,8 @@ public class ReactRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("args");
-    openapiFields.add("callback_url");
+    openapiFields.add("sdk_interface");
+    openapiFields.add("sdk_ui_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -177,16 +187,20 @@ public class ReactRequest {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReactRequest
+  * @throws IOException if the JSON Object is invalid with respect to ThreeDSMobileSdkRenderOptions
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!ReactRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReactRequest is not found in the empty JSON string", ReactRequest.openapiRequiredFields.toString()));
+        if (!ThreeDSMobileSdkRenderOptions.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSMobileSdkRenderOptions is not found in the empty JSON string", ThreeDSMobileSdkRenderOptions.openapiRequiredFields.toString()));
         }
       }
-      if ((jsonObj.get("callback_url") != null && !jsonObj.get("callback_url").isJsonNull()) && !jsonObj.get("callback_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `callback_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_url").toString()));
+      if ((jsonObj.get("sdk_interface") != null && !jsonObj.get("sdk_interface").isJsonNull()) && !jsonObj.get("sdk_interface").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sdk_interface` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sdk_interface").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("sdk_ui_type") != null && !jsonObj.get("sdk_ui_type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sdk_ui_type` to be an array in the JSON string but got `%s`", jsonObj.get("sdk_ui_type").toString()));
       }
   }
 
@@ -194,22 +208,22 @@ public class ReactRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReactRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReactRequest' and its subtypes
+       if (!ThreeDSMobileSdkRenderOptions.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ThreeDSMobileSdkRenderOptions' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReactRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReactRequest.class));
+       final TypeAdapter<ThreeDSMobileSdkRenderOptions> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDSMobileSdkRenderOptions.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ReactRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<ThreeDSMobileSdkRenderOptions>() {
            @Override
-           public void write(JsonWriter out, ReactRequest value) throws IOException {
+           public void write(JsonWriter out, ThreeDSMobileSdkRenderOptions value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ReactRequest read(JsonReader in) throws IOException {
+           public ThreeDSMobileSdkRenderOptions read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -220,18 +234,18 @@ public class ReactRequest {
   }
 
  /**
-  * Create an instance of ReactRequest given an JSON string
+  * Create an instance of ThreeDSMobileSdkRenderOptions given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ReactRequest
-  * @throws IOException if the JSON string is invalid with respect to ReactRequest
+  * @return An instance of ThreeDSMobileSdkRenderOptions
+  * @throws IOException if the JSON string is invalid with respect to ThreeDSMobileSdkRenderOptions
   */
-  public static ReactRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReactRequest.class);
+  public static ThreeDSMobileSdkRenderOptions fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDSMobileSdkRenderOptions.class);
   }
 
  /**
-  * Convert an instance of ReactRequest to an JSON string
+  * Convert an instance of ThreeDSMobileSdkRenderOptions to an JSON string
   *
   * @return JSON string
   */

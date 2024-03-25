@@ -779,8 +779,11 @@ public class ApplicationsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call regenerateKeyCall(UUID id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -826,6 +829,7 @@ public class ApplicationsApi {
         return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call regenerateKeyValidateBeforeCall(UUID id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
@@ -850,8 +854,11 @@ public class ApplicationsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public Application regenerateKey(UUID id) throws ApiException {
         ApiResponse<Application> localVarResp = regenerateKeyWithHttpInfo(id);
         return localVarResp.getData();
@@ -870,8 +877,11 @@ public class ApplicationsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<Application> regenerateKeyWithHttpInfo(UUID id) throws ApiException {
         okhttp3.Call localVarCall = regenerateKeyValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<Application>(){}.getType();
@@ -892,8 +902,11 @@ public class ApplicationsApi {
         <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Client Error </td><td>  -  </td></tr>
      </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call regenerateKeyAsync(UUID id, final ApiCallback<Application> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = regenerateKeyValidateBeforeCall(id, _callback);

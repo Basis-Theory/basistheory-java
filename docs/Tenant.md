@@ -10,6 +10,7 @@
 |**id** | **UUID** |  |  [optional] |
 |**ownerId** | **UUID** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
 |**createdBy** | **UUID** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**modifiedBy** | **UUID** |  |  [optional] |

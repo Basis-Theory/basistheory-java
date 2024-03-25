@@ -15,7 +15,6 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.basistheory.EncryptionMetadata;
 import com.basistheory.Privacy;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -68,10 +67,6 @@ public class CreateTokenRequest {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private Object data = null;
-
-  public static final String SERIALIZED_NAME_ENCRYPTION = "encryption";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTION)
-  private EncryptionMetadata encryption;
 
   public static final String SERIALIZED_NAME_PRIVACY = "privacy";
   @SerializedName(SERIALIZED_NAME_PRIVACY)
@@ -174,29 +169,6 @@ public class CreateTokenRequest {
 
   public void setData(Object data) {
     this.data = data;
-  }
-
-
-  public CreateTokenRequest encryption(EncryptionMetadata encryption) {
-    
-    this.encryption = encryption;
-    return this;
-  }
-
-   /**
-   * Get encryption
-   * @return encryption
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public EncryptionMetadata getEncryption() {
-    return encryption;
-  }
-
-
-  public void setEncryption(EncryptionMetadata encryption) {
-    this.encryption = encryption;
   }
 
 
@@ -421,7 +393,6 @@ public class CreateTokenRequest {
     return Objects.equals(this.id, createTokenRequest.id) &&
         Objects.equals(this.type, createTokenRequest.type) &&
         Objects.equals(this.data, createTokenRequest.data) &&
-        Objects.equals(this.encryption, createTokenRequest.encryption) &&
         Objects.equals(this.privacy, createTokenRequest.privacy) &&
         Objects.equals(this.metadata, createTokenRequest.metadata) &&
         Objects.equals(this.searchIndexes, createTokenRequest.searchIndexes) &&
@@ -438,7 +409,7 @@ public class CreateTokenRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, data, encryption, privacy, metadata, searchIndexes, fingerprintExpression, mask, deduplicateToken, expiresAt, containers);
+    return Objects.hash(id, type, data, privacy, metadata, searchIndexes, fingerprintExpression, mask, deduplicateToken, expiresAt, containers);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -455,7 +426,6 @@ public class CreateTokenRequest {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    encryption: ").append(toIndentedString(encryption)).append("\n");
     sb.append("    privacy: ").append(toIndentedString(privacy)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    searchIndexes: ").append(toIndentedString(searchIndexes)).append("\n");
@@ -489,7 +459,6 @@ public class CreateTokenRequest {
     openapiFields.add("id");
     openapiFields.add("type");
     openapiFields.add("data");
-    openapiFields.add("encryption");
     openapiFields.add("privacy");
     openapiFields.add("metadata");
     openapiFields.add("search_indexes");
@@ -528,10 +497,6 @@ public class CreateTokenRequest {
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      // validate the optional field `encryption`
-      if (jsonObj.get("encryption") != null && !jsonObj.get("encryption").isJsonNull()) {
-        EncryptionMetadata.validateJsonObject(jsonObj.getAsJsonObject("encryption"));
       }
       // validate the optional field `privacy`
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {

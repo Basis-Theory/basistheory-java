@@ -16,6 +16,7 @@ package com.basistheory;
 import java.util.Objects;
 import java.util.Arrays;
 import com.basistheory.AccessRule;
+import com.basistheory.ApplicationKey;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -71,6 +72,10 @@ public class Application {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
+
+  public static final String SERIALIZED_NAME_KEYS = "keys";
+  @SerializedName(SERIALIZED_NAME_KEYS)
+  private List<ApplicationKey> keys = null;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -185,7 +190,9 @@ public class Application {
    /**
    * Get key
    * @return key
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
@@ -196,6 +203,37 @@ public class Application {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public Application keys(List<ApplicationKey> keys) {
+    
+    this.keys = keys;
+    return this;
+  }
+
+  public Application addKeysItem(ApplicationKey keysItem) {
+    if (this.keys == null) {
+      this.keys = new ArrayList<>();
+    }
+    this.keys.add(keysItem);
+    return this;
+  }
+
+   /**
+   * Get keys
+   * @return keys
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<ApplicationKey> getKeys() {
+    return keys;
+  }
+
+
+  public void setKeys(List<ApplicationKey> keys) {
+    this.keys = keys;
   }
 
 
@@ -413,6 +451,7 @@ public class Application {
         Objects.equals(this.tenantId, application.tenantId) &&
         Objects.equals(this.name, application.name) &&
         Objects.equals(this.key, application.key) &&
+        Objects.equals(this.keys, application.keys) &&
         Objects.equals(this.type, application.type) &&
         Objects.equals(this.createdBy, application.createdBy) &&
         Objects.equals(this.createdAt, application.createdAt) &&
@@ -429,7 +468,7 @@ public class Application {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, name, key, type, createdBy, createdAt, modifiedBy, modifiedAt, expiresAt, permissions, rules);
+    return Objects.hash(id, tenantId, name, key, keys, type, createdBy, createdAt, modifiedBy, modifiedAt, expiresAt, permissions, rules);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -447,6 +486,7 @@ public class Application {
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    keys: ").append(toIndentedString(keys)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -481,6 +521,7 @@ public class Application {
     openapiFields.add("tenant_id");
     openapiFields.add("name");
     openapiFields.add("key");
+    openapiFields.add("keys");
     openapiFields.add("type");
     openapiFields.add("created_by");
     openapiFields.add("created_at");
@@ -517,6 +558,20 @@ public class Application {
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+      }
+      if (jsonObj.get("keys") != null && !jsonObj.get("keys").isJsonNull()) {
+        JsonArray jsonArraykeys = jsonObj.getAsJsonArray("keys");
+        if (jsonArraykeys != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("keys").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `keys` to be an array in the JSON string but got `%s`", jsonObj.get("keys").toString()));
+          }
+
+          // validate the optional field `keys` (array)
+          for (int i = 0; i < jsonArraykeys.size(); i++) {
+            ApplicationKey.validateJsonObject(jsonArraykeys.get(i).getAsJsonObject());
+          };
+        }
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
