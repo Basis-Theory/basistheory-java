@@ -434,6 +434,7 @@ public class Example {
 | **404** | Not Found |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+| **422** | Client Error |  -  |
 
 <a name="update"></a>
 # **update**

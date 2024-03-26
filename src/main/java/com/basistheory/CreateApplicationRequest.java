@@ -74,6 +74,10 @@ public class CreateApplicationRequest {
   @SerializedName(SERIALIZED_NAME_RULES)
   private List<AccessRule> rules = null;
 
+  public static final String SERIALIZED_NAME_CREATE_KEY = "create_key";
+  @SerializedName(SERIALIZED_NAME_CREATE_KEY)
+  private Boolean createKey;
+
   public CreateApplicationRequest() {
   }
 
@@ -208,6 +212,29 @@ public class CreateApplicationRequest {
   }
 
 
+  public CreateApplicationRequest createKey(Boolean createKey) {
+    
+    this.createKey = createKey;
+    return this;
+  }
+
+   /**
+   * Get createKey
+   * @return createKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getCreateKey() {
+    return createKey;
+  }
+
+
+  public void setCreateKey(Boolean createKey) {
+    this.createKey = createKey;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -222,7 +249,8 @@ public class CreateApplicationRequest {
         Objects.equals(this.type, createApplicationRequest.type) &&
         Objects.equals(this.expiresAt, createApplicationRequest.expiresAt) &&
         Objects.equals(this.permissions, createApplicationRequest.permissions) &&
-        Objects.equals(this.rules, createApplicationRequest.rules);
+        Objects.equals(this.rules, createApplicationRequest.rules) &&
+        Objects.equals(this.createKey, createApplicationRequest.createKey);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -231,7 +259,7 @@ public class CreateApplicationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, expiresAt, permissions, rules);
+    return Objects.hash(name, type, expiresAt, permissions, rules, createKey);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -250,6 +278,7 @@ public class CreateApplicationRequest {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
+    sb.append("    createKey: ").append(toIndentedString(createKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -277,6 +306,7 @@ public class CreateApplicationRequest {
     openapiFields.add("expires_at");
     openapiFields.add("permissions");
     openapiFields.add("rules");
+    openapiFields.add("create_key");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

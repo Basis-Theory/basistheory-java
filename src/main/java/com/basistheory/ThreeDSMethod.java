@@ -47,64 +47,64 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * ReactRequest
+ * ThreeDSMethod
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ReactRequest {
-  public static final String SERIALIZED_NAME_ARGS = "args";
-  @SerializedName(SERIALIZED_NAME_ARGS)
-  private Object args = null;
+public class ThreeDSMethod {
+  public static final String SERIALIZED_NAME_METHOD_URL = "method_url";
+  @SerializedName(SERIALIZED_NAME_METHOD_URL)
+  private String methodUrl;
 
-  public static final String SERIALIZED_NAME_CALLBACK_URL = "callback_url";
-  @SerializedName(SERIALIZED_NAME_CALLBACK_URL)
-  private String callbackUrl;
+  public static final String SERIALIZED_NAME_METHOD_COMPLETION_INDICATOR = "method_completion_indicator";
+  @SerializedName(SERIALIZED_NAME_METHOD_COMPLETION_INDICATOR)
+  private String methodCompletionIndicator;
 
-  public ReactRequest() {
+  public ThreeDSMethod() {
   }
 
-  public ReactRequest args(Object args) {
+  public ThreeDSMethod methodUrl(String methodUrl) {
     
-    this.args = args;
+    this.methodUrl = methodUrl;
     return this;
   }
 
    /**
-   * Get args
-   * @return args
+   * Get methodUrl
+   * @return methodUrl
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public Object getArgs() {
-    return args;
+  public String getMethodUrl() {
+    return methodUrl;
   }
 
 
-  public void setArgs(Object args) {
-    this.args = args;
+  public void setMethodUrl(String methodUrl) {
+    this.methodUrl = methodUrl;
   }
 
 
-  public ReactRequest callbackUrl(String callbackUrl) {
+  public ThreeDSMethod methodCompletionIndicator(String methodCompletionIndicator) {
     
-    this.callbackUrl = callbackUrl;
+    this.methodCompletionIndicator = methodCompletionIndicator;
     return this;
   }
 
    /**
-   * Get callbackUrl
-   * @return callbackUrl
+   * Get methodCompletionIndicator
+   * @return methodCompletionIndicator
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getCallbackUrl() {
-    return callbackUrl;
+  public String getMethodCompletionIndicator() {
+    return methodCompletionIndicator;
   }
 
 
-  public void setCallbackUrl(String callbackUrl) {
-    this.callbackUrl = callbackUrl;
+  public void setMethodCompletionIndicator(String methodCompletionIndicator) {
+    this.methodCompletionIndicator = methodCompletionIndicator;
   }
 
 
@@ -117,9 +117,9 @@ public class ReactRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ReactRequest reactRequest = (ReactRequest) o;
-    return Objects.equals(this.args, reactRequest.args) &&
-        Objects.equals(this.callbackUrl, reactRequest.callbackUrl);
+    ThreeDSMethod threeDSMethod = (ThreeDSMethod) o;
+    return Objects.equals(this.methodUrl, threeDSMethod.methodUrl) &&
+        Objects.equals(this.methodCompletionIndicator, threeDSMethod.methodCompletionIndicator);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +128,7 @@ public class ReactRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, callbackUrl);
+    return Objects.hash(methodUrl, methodCompletionIndicator);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -141,9 +141,9 @@ public class ReactRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ReactRequest {\n");
-    sb.append("    args: ").append(toIndentedString(args)).append("\n");
-    sb.append("    callbackUrl: ").append(toIndentedString(callbackUrl)).append("\n");
+    sb.append("class ThreeDSMethod {\n");
+    sb.append("    methodUrl: ").append(toIndentedString(methodUrl)).append("\n");
+    sb.append("    methodCompletionIndicator: ").append(toIndentedString(methodCompletionIndicator)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,8 +166,8 @@ public class ReactRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("args");
-    openapiFields.add("callback_url");
+    openapiFields.add("method_url");
+    openapiFields.add("method_completion_indicator");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -177,16 +177,19 @@ public class ReactRequest {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to ReactRequest
+  * @throws IOException if the JSON Object is invalid with respect to ThreeDSMethod
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!ReactRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReactRequest is not found in the empty JSON string", ReactRequest.openapiRequiredFields.toString()));
+        if (!ThreeDSMethod.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSMethod is not found in the empty JSON string", ThreeDSMethod.openapiRequiredFields.toString()));
         }
       }
-      if ((jsonObj.get("callback_url") != null && !jsonObj.get("callback_url").isJsonNull()) && !jsonObj.get("callback_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `callback_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("callback_url").toString()));
+      if ((jsonObj.get("method_url") != null && !jsonObj.get("method_url").isJsonNull()) && !jsonObj.get("method_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `method_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method_url").toString()));
+      }
+      if ((jsonObj.get("method_completion_indicator") != null && !jsonObj.get("method_completion_indicator").isJsonNull()) && !jsonObj.get("method_completion_indicator").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `method_completion_indicator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method_completion_indicator").toString()));
       }
   }
 
@@ -194,22 +197,22 @@ public class ReactRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ReactRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ReactRequest' and its subtypes
+       if (!ThreeDSMethod.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ThreeDSMethod' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ReactRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ReactRequest.class));
+       final TypeAdapter<ThreeDSMethod> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ThreeDSMethod.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ReactRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<ThreeDSMethod>() {
            @Override
-           public void write(JsonWriter out, ReactRequest value) throws IOException {
+           public void write(JsonWriter out, ThreeDSMethod value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public ReactRequest read(JsonReader in) throws IOException {
+           public ThreeDSMethod read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -220,18 +223,18 @@ public class ReactRequest {
   }
 
  /**
-  * Create an instance of ReactRequest given an JSON string
+  * Create an instance of ThreeDSMethod given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ReactRequest
-  * @throws IOException if the JSON string is invalid with respect to ReactRequest
+  * @return An instance of ThreeDSMethod
+  * @throws IOException if the JSON string is invalid with respect to ThreeDSMethod
   */
-  public static ReactRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ReactRequest.class);
+  public static ThreeDSMethod fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ThreeDSMethod.class);
   }
 
  /**
-  * Convert an instance of ReactRequest to an JSON string
+  * Convert an instance of ThreeDSMethod to an JSON string
   *
   * @return JSON string
   */

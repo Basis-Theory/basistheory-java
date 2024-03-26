@@ -15,7 +15,6 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.basistheory.EncryptionMetadata;
 import com.basistheory.Privacy;
 import com.basistheory.TokenEnrichments;
 import com.google.gson.TypeAdapter;
@@ -83,10 +82,6 @@ public class Token {
   public static final String SERIALIZED_NAME_ENRICHMENTS = "enrichments";
   @SerializedName(SERIALIZED_NAME_ENRICHMENTS)
   private TokenEnrichments enrichments;
-
-  public static final String SERIALIZED_NAME_ENCRYPTION = "encryption";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTION)
-  private EncryptionMetadata encryption;
 
   public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -282,29 +277,6 @@ public class Token {
 
   public void setEnrichments(TokenEnrichments enrichments) {
     this.enrichments = enrichments;
-  }
-
-
-  public Token encryption(EncryptionMetadata encryption) {
-    
-    this.encryption = encryption;
-    return this;
-  }
-
-   /**
-   * Get encryption
-   * @return encryption
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public EncryptionMetadata getEncryption() {
-    return encryption;
-  }
-
-
-  public void setEncryption(EncryptionMetadata encryption) {
-    this.encryption = encryption;
   }
 
 
@@ -624,7 +596,6 @@ public class Token {
         Objects.equals(this.data, token.data) &&
         Objects.equals(this.metadata, token.metadata) &&
         Objects.equals(this.enrichments, token.enrichments) &&
-        Objects.equals(this.encryption, token.encryption) &&
         Objects.equals(this.createdBy, token.createdBy) &&
         Objects.equals(this.createdAt, token.createdAt) &&
         Objects.equals(this.modifiedBy, token.modifiedBy) &&
@@ -645,7 +616,7 @@ public class Token {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tenantId, data, metadata, enrichments, encryption, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, containers, aliases);
+    return Objects.hash(id, type, tenantId, data, metadata, enrichments, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, containers, aliases);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -665,7 +636,6 @@ public class Token {
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    enrichments: ").append(toIndentedString(enrichments)).append("\n");
-    sb.append("    encryption: ").append(toIndentedString(encryption)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
@@ -706,7 +676,6 @@ public class Token {
     openapiFields.add("data");
     openapiFields.add("metadata");
     openapiFields.add("enrichments");
-    openapiFields.add("encryption");
     openapiFields.add("created_by");
     openapiFields.add("created_at");
     openapiFields.add("modified_by");
@@ -748,10 +717,6 @@ public class Token {
       // validate the optional field `enrichments`
       if (jsonObj.get("enrichments") != null && !jsonObj.get("enrichments").isJsonNull()) {
         TokenEnrichments.validateJsonObject(jsonObj.getAsJsonObject("enrichments"));
-      }
-      // validate the optional field `encryption`
-      if (jsonObj.get("encryption") != null && !jsonObj.get("encryption").isJsonNull()) {
-        EncryptionMetadata.validateJsonObject(jsonObj.getAsJsonObject("encryption"));
       }
       if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull()) && !jsonObj.get("created_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));

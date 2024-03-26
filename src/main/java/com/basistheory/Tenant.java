@@ -67,6 +67,10 @@ public class Tenant {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
   public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
   private UUID createdBy;
@@ -156,6 +160,29 @@ public class Tenant {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public Tenant type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -295,6 +322,7 @@ public class Tenant {
     return Objects.equals(this.id, tenant.id) &&
         Objects.equals(this.ownerId, tenant.ownerId) &&
         Objects.equals(this.name, tenant.name) &&
+        Objects.equals(this.type, tenant.type) &&
         Objects.equals(this.createdBy, tenant.createdBy) &&
         Objects.equals(this.createdAt, tenant.createdAt) &&
         Objects.equals(this.modifiedBy, tenant.modifiedBy) &&
@@ -308,7 +336,7 @@ public class Tenant {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, ownerId, name, createdBy, createdAt, modifiedBy, modifiedAt, settings);
+    return Objects.hash(id, ownerId, name, type, createdBy, createdAt, modifiedBy, modifiedAt, settings);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -325,6 +353,7 @@ public class Tenant {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    ownerId: ").append(toIndentedString(ownerId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedBy: ").append(toIndentedString(modifiedBy)).append("\n");
@@ -355,6 +384,7 @@ public class Tenant {
     openapiFields.add("id");
     openapiFields.add("owner_id");
     openapiFields.add("name");
+    openapiFields.add("type");
     openapiFields.add("created_by");
     openapiFields.add("created_at");
     openapiFields.add("modified_by");
@@ -385,6 +415,9 @@ public class Tenant {
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull()) && !jsonObj.get("created_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));
