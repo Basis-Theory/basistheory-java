@@ -1,3 +1,11 @@
+## [3.1.0](https://github.com/Basis-Theory/basistheory-java/compare/3.0.1...3.1.0) (2024-03-26)
+
+
+### Features
+
+* adds 3DS and application keys endpoints ([#39](https://github.com/Basis-Theory/basistheory-java/issues/39)) ([7babcf7](https://github.com/Basis-Theory/basistheory-java/commit/7babcf7181b58e696d3005c9d726093e9e76e5b3))
+
+
 ### [3.0.1](https://github.com/Basis-Theory/basistheory-java/compare/3.0.0...3.0.1) (2024-02-19)
 
 
