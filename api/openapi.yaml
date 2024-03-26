@@ -2301,6 +2301,7 @@ paths:
       x-accepts: application/json
   /3ds/sessions/{id}:
     get:
+      operationId: ThreeDS.GetSessionById
       parameters:
       - explode: false
         in: path
