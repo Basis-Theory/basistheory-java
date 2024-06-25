@@ -10,6 +10,7 @@
 |**includedMonthlyActiveTokens** | **Long** |  |  [optional] |
 |**monthlyActiveTokens** | **Long** |  |  [optional] |
 |**metricsByType** | [**Map&lt;String, TokenMetrics&gt;**](TokenMetrics.md) |  |  [optional] |
+|**totalTokens** | **Long** |  |  [optional] |
 
 
 

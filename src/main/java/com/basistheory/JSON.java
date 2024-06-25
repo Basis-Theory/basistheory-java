@@ -122,16 +122,18 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.BinDetailsBank.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.BinDetailsCountry.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.BinDetailsProduct.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CardDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Condition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateApplicationRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateProxyRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateReactorFormulaRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateReactorRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateSessionResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateTenantConnectionRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateTenantConnectionResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateTenantInvitationRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CreateTokenRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.EncryptionKey.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.EncryptionMetadata.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.CursorPagination.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.GetApplications.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.GetLogs.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.GetPermissions.CustomTypeAdapterFactory());
@@ -141,6 +143,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.GetTenantInvitations.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.GetTenantMembers.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.GetTokens.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.GetTokensV2.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Log.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.LogEntityType.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.LogPaginatedList.CustomTypeAdapterFactory());
@@ -161,9 +164,11 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ReactorFormulaPaginatedList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ReactorFormulaRequestParameter.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ReactorPaginatedList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Role.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.SearchTokensRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.StringStringKeyValuePair.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Tenant.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TenantConnectionOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TenantInvitationResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TenantInvitationResponsePaginatedList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TenantMemberResponse.CustomTypeAdapterFactory());
@@ -188,6 +193,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ThreeDSSession.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.ThreeDSVersion.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.Token.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TokenCursorPaginatedList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TokenEnrichments.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TokenMetrics.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.TokenPaginatedList.CustomTypeAdapterFactory());
@@ -197,6 +203,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.UpdateProxyRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.UpdateReactorFormulaRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.UpdateReactorRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.basistheory.UpdateTenantMemberRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.UpdateTenantRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.UpdateTokenRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.basistheory.User.CustomTypeAdapterFactory());

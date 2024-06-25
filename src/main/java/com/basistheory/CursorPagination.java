@@ -47,64 +47,64 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * CreateTenantInvitationRequest
+ * CursorPagination
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class CreateTenantInvitationRequest {
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
+public class CursorPagination {
+  public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
+  @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
+  private Integer pageSize;
 
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
-  private String role;
+  public static final String SERIALIZED_NAME_AFTER = "after";
+  @SerializedName(SERIALIZED_NAME_AFTER)
+  private String after;
 
-  public CreateTenantInvitationRequest() {
+  public CursorPagination() {
   }
 
-  public CreateTenantInvitationRequest email(String email) {
+  public CursorPagination pageSize(Integer pageSize) {
     
-    this.email = email;
+    this.pageSize = pageSize;
     return this;
   }
 
    /**
-   * Get email
-   * @return email
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public CreateTenantInvitationRequest role(String role) {
-    
-    this.role = role;
-    return this;
-  }
-
-   /**
-   * Get role
-   * @return role
+   * Get pageSize
+   * @return pageSize
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getRole() {
-    return role;
+  public Integer getPageSize() {
+    return pageSize;
   }
 
 
-  public void setRole(String role) {
-    this.role = role;
+  public void setPageSize(Integer pageSize) {
+    this.pageSize = pageSize;
+  }
+
+
+  public CursorPagination after(String after) {
+    
+    this.after = after;
+    return this;
+  }
+
+   /**
+   * Get after
+   * @return after
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAfter() {
+    return after;
+  }
+
+
+  public void setAfter(String after) {
+    this.after = after;
   }
 
 
@@ -117,9 +117,9 @@ public class CreateTenantInvitationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTenantInvitationRequest createTenantInvitationRequest = (CreateTenantInvitationRequest) o;
-    return Objects.equals(this.email, createTenantInvitationRequest.email) &&
-        Objects.equals(this.role, createTenantInvitationRequest.role);
+    CursorPagination cursorPagination = (CursorPagination) o;
+    return Objects.equals(this.pageSize, cursorPagination.pageSize) &&
+        Objects.equals(this.after, cursorPagination.after);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +128,7 @@ public class CreateTenantInvitationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, role);
+    return Objects.hash(pageSize, after);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -141,9 +141,9 @@ public class CreateTenantInvitationRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateTenantInvitationRequest {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("class CursorPagination {\n");
+    sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
+    sb.append("    after: ").append(toIndentedString(after)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,38 +166,27 @@ public class CreateTenantInvitationRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("email");
-    openapiFields.add("role");
+    openapiFields.add("page_size");
+    openapiFields.add("after");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("email");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateTenantInvitationRequest
+  * @throws IOException if the JSON Object is invalid with respect to CursorPagination
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!CreateTenantInvitationRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTenantInvitationRequest is not found in the empty JSON string", CreateTenantInvitationRequest.openapiRequiredFields.toString()));
+        if (!CursorPagination.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CursorPagination is not found in the empty JSON string", CursorPagination.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateTenantInvitationRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      if ((jsonObj.get("after") != null && !jsonObj.get("after").isJsonNull()) && !jsonObj.get("after").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `after` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after").toString()));
       }
   }
 
@@ -205,22 +194,22 @@ public class CreateTenantInvitationRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateTenantInvitationRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateTenantInvitationRequest' and its subtypes
+       if (!CursorPagination.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CursorPagination' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateTenantInvitationRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateTenantInvitationRequest.class));
+       final TypeAdapter<CursorPagination> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CursorPagination.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateTenantInvitationRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<CursorPagination>() {
            @Override
-           public void write(JsonWriter out, CreateTenantInvitationRequest value) throws IOException {
+           public void write(JsonWriter out, CursorPagination value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateTenantInvitationRequest read(JsonReader in) throws IOException {
+           public CursorPagination read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -231,18 +220,18 @@ public class CreateTenantInvitationRequest {
   }
 
  /**
-  * Create an instance of CreateTenantInvitationRequest given an JSON string
+  * Create an instance of CursorPagination given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreateTenantInvitationRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateTenantInvitationRequest
+  * @return An instance of CursorPagination
+  * @throws IOException if the JSON string is invalid with respect to CursorPagination
   */
-  public static CreateTenantInvitationRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateTenantInvitationRequest.class);
+  public static CursorPagination fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CursorPagination.class);
   }
 
  /**
-  * Convert an instance of CreateTenantInvitationRequest to an JSON string
+  * Convert an instance of CursorPagination to an JSON string
   *
   * @return JSON string
   */

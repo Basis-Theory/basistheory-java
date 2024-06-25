@@ -47,64 +47,64 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * CreateTenantInvitationRequest
+ * CardDetails
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class CreateTenantInvitationRequest {
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
+public class CardDetails {
+  public static final String SERIALIZED_NAME_BIN = "bin";
+  @SerializedName(SERIALIZED_NAME_BIN)
+  private String bin;
 
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
-  private String role;
+  public static final String SERIALIZED_NAME_LAST4 = "last4";
+  @SerializedName(SERIALIZED_NAME_LAST4)
+  private String last4;
 
-  public CreateTenantInvitationRequest() {
+  public CardDetails() {
   }
 
-  public CreateTenantInvitationRequest email(String email) {
+  public CardDetails bin(String bin) {
     
-    this.email = email;
+    this.bin = bin;
     return this;
   }
 
    /**
-   * Get email
-   * @return email
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public CreateTenantInvitationRequest role(String role) {
-    
-    this.role = role;
-    return this;
-  }
-
-   /**
-   * Get role
-   * @return role
+   * Get bin
+   * @return bin
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getRole() {
-    return role;
+  public String getBin() {
+    return bin;
   }
 
 
-  public void setRole(String role) {
-    this.role = role;
+  public void setBin(String bin) {
+    this.bin = bin;
+  }
+
+
+  public CardDetails last4(String last4) {
+    
+    this.last4 = last4;
+    return this;
+  }
+
+   /**
+   * Get last4
+   * @return last4
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getLast4() {
+    return last4;
+  }
+
+
+  public void setLast4(String last4) {
+    this.last4 = last4;
   }
 
 
@@ -117,9 +117,9 @@ public class CreateTenantInvitationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTenantInvitationRequest createTenantInvitationRequest = (CreateTenantInvitationRequest) o;
-    return Objects.equals(this.email, createTenantInvitationRequest.email) &&
-        Objects.equals(this.role, createTenantInvitationRequest.role);
+    CardDetails cardDetails = (CardDetails) o;
+    return Objects.equals(this.bin, cardDetails.bin) &&
+        Objects.equals(this.last4, cardDetails.last4);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +128,7 @@ public class CreateTenantInvitationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, role);
+    return Objects.hash(bin, last4);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -141,9 +141,9 @@ public class CreateTenantInvitationRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateTenantInvitationRequest {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("class CardDetails {\n");
+    sb.append("    bin: ").append(toIndentedString(bin)).append("\n");
+    sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,38 +166,30 @@ public class CreateTenantInvitationRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("email");
-    openapiFields.add("role");
+    openapiFields.add("bin");
+    openapiFields.add("last4");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("email");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateTenantInvitationRequest
+  * @throws IOException if the JSON Object is invalid with respect to CardDetails
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!CreateTenantInvitationRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTenantInvitationRequest is not found in the empty JSON string", CreateTenantInvitationRequest.openapiRequiredFields.toString()));
+        if (!CardDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CardDetails is not found in the empty JSON string", CardDetails.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateTenantInvitationRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
+      if ((jsonObj.get("bin") != null && !jsonObj.get("bin").isJsonNull()) && !jsonObj.get("bin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bin").toString()));
       }
-      if (!jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      if ((jsonObj.get("last4") != null && !jsonObj.get("last4").isJsonNull()) && !jsonObj.get("last4").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last4` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last4").toString()));
       }
   }
 
@@ -205,22 +197,22 @@ public class CreateTenantInvitationRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateTenantInvitationRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateTenantInvitationRequest' and its subtypes
+       if (!CardDetails.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CardDetails' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateTenantInvitationRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateTenantInvitationRequest.class));
+       final TypeAdapter<CardDetails> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CardDetails.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateTenantInvitationRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<CardDetails>() {
            @Override
-           public void write(JsonWriter out, CreateTenantInvitationRequest value) throws IOException {
+           public void write(JsonWriter out, CardDetails value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateTenantInvitationRequest read(JsonReader in) throws IOException {
+           public CardDetails read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -231,18 +223,18 @@ public class CreateTenantInvitationRequest {
   }
 
  /**
-  * Create an instance of CreateTenantInvitationRequest given an JSON string
+  * Create an instance of CardDetails given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreateTenantInvitationRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateTenantInvitationRequest
+  * @return An instance of CardDetails
+  * @throws IOException if the JSON string is invalid with respect to CardDetails
   */
-  public static CreateTenantInvitationRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateTenantInvitationRequest.class);
+  public static CardDetails fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CardDetails.class);
   }
 
  /**
-  * Convert an instance of CreateTenantInvitationRequest to an JSON string
+  * Convert an instance of CardDetails to an JSON string
   *
   * @return JSON string
   */

@@ -1,14 +1,14 @@
 
 
-# CreateTenantInvitationRequest
+# CardDetails
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**email** | **String** |  |  |
-|**role** | **String** |  |  [optional] |
+|**bin** | **String** |  |  [optional] |
+|**last4** | **String** |  |  [optional] |
 
 
 

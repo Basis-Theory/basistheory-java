@@ -15,7 +15,6 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.basistheory.EncryptionMetadata;
 import com.basistheory.UpdatePrivacy;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -60,10 +59,6 @@ public class UpdateTokenRequest {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private Object data = null;
-
-  public static final String SERIALIZED_NAME_ENCRYPTION = "encryption";
-  @SerializedName(SERIALIZED_NAME_ENCRYPTION)
-  private EncryptionMetadata encryption;
 
   public static final String SERIALIZED_NAME_PRIVACY = "privacy";
   @SerializedName(SERIALIZED_NAME_PRIVACY)
@@ -120,29 +115,6 @@ public class UpdateTokenRequest {
 
   public void setData(Object data) {
     this.data = data;
-  }
-
-
-  public UpdateTokenRequest encryption(EncryptionMetadata encryption) {
-    
-    this.encryption = encryption;
-    return this;
-  }
-
-   /**
-   * Get encryption
-   * @return encryption
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public EncryptionMetadata getEncryption() {
-    return encryption;
-  }
-
-
-  public void setEncryption(EncryptionMetadata encryption) {
-    this.encryption = encryption;
   }
 
 
@@ -365,7 +337,6 @@ public class UpdateTokenRequest {
     }
     UpdateTokenRequest updateTokenRequest = (UpdateTokenRequest) o;
     return Objects.equals(this.data, updateTokenRequest.data) &&
-        Objects.equals(this.encryption, updateTokenRequest.encryption) &&
         Objects.equals(this.privacy, updateTokenRequest.privacy) &&
         Objects.equals(this.metadata, updateTokenRequest.metadata) &&
         Objects.equals(this.searchIndexes, updateTokenRequest.searchIndexes) &&
@@ -382,7 +353,7 @@ public class UpdateTokenRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, encryption, privacy, metadata, searchIndexes, fingerprintExpression, mask, expiresAt, deduplicateToken, containers);
+    return Objects.hash(data, privacy, metadata, searchIndexes, fingerprintExpression, mask, expiresAt, deduplicateToken, containers);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -397,7 +368,6 @@ public class UpdateTokenRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateTokenRequest {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    encryption: ").append(toIndentedString(encryption)).append("\n");
     sb.append("    privacy: ").append(toIndentedString(privacy)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    searchIndexes: ").append(toIndentedString(searchIndexes)).append("\n");
@@ -429,7 +399,6 @@ public class UpdateTokenRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("data");
-    openapiFields.add("encryption");
     openapiFields.add("privacy");
     openapiFields.add("metadata");
     openapiFields.add("search_indexes");
@@ -454,10 +423,6 @@ public class UpdateTokenRequest {
         if (!UpdateTokenRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateTokenRequest is not found in the empty JSON string", UpdateTokenRequest.openapiRequiredFields.toString()));
         }
-      }
-      // validate the optional field `encryption`
-      if (jsonObj.get("encryption") != null && !jsonObj.get("encryption").isJsonNull()) {
-        EncryptionMetadata.validateJsonObject(jsonObj.getAsJsonObject("encryption"));
       }
       // validate the optional field `privacy`
       if (jsonObj.get("privacy") != null && !jsonObj.get("privacy").isJsonNull()) {

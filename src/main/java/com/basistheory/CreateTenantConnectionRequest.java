@@ -15,6 +15,7 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.basistheory.TenantConnectionOptions;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,7 +24,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,64 +47,64 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * CreateTenantInvitationRequest
+ * CreateTenantConnectionRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class CreateTenantInvitationRequest {
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
+public class CreateTenantConnectionRequest {
+  public static final String SERIALIZED_NAME_STRATEGY = "strategy";
+  @SerializedName(SERIALIZED_NAME_STRATEGY)
+  private String strategy;
 
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
-  private String role;
+  public static final String SERIALIZED_NAME_OPTIONS = "options";
+  @SerializedName(SERIALIZED_NAME_OPTIONS)
+  private TenantConnectionOptions options;
 
-  public CreateTenantInvitationRequest() {
+  public CreateTenantConnectionRequest() {
   }
 
-  public CreateTenantInvitationRequest email(String email) {
+  public CreateTenantConnectionRequest strategy(String strategy) {
     
-    this.email = email;
+    this.strategy = strategy;
     return this;
   }
 
    /**
-   * Get email
-   * @return email
+   * Get strategy
+   * @return strategy
   **/
   @javax.annotation.Nonnull
   @ApiModelProperty(required = true, value = "")
 
-  public String getEmail() {
-    return email;
+  public String getStrategy() {
+    return strategy;
   }
 
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setStrategy(String strategy) {
+    this.strategy = strategy;
   }
 
 
-  public CreateTenantInvitationRequest role(String role) {
+  public CreateTenantConnectionRequest options(TenantConnectionOptions options) {
     
-    this.role = role;
+    this.options = options;
     return this;
   }
 
    /**
-   * Get role
-   * @return role
+   * Get options
+   * @return options
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
 
-  public String getRole() {
-    return role;
+  public TenantConnectionOptions getOptions() {
+    return options;
   }
 
 
-  public void setRole(String role) {
-    this.role = role;
+  public void setOptions(TenantConnectionOptions options) {
+    this.options = options;
   }
 
 
@@ -117,33 +117,22 @@ public class CreateTenantInvitationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTenantInvitationRequest createTenantInvitationRequest = (CreateTenantInvitationRequest) o;
-    return Objects.equals(this.email, createTenantInvitationRequest.email) &&
-        Objects.equals(this.role, createTenantInvitationRequest.role);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    CreateTenantConnectionRequest createTenantConnectionRequest = (CreateTenantConnectionRequest) o;
+    return Objects.equals(this.strategy, createTenantConnectionRequest.strategy) &&
+        Objects.equals(this.options, createTenantConnectionRequest.options);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, role);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(strategy, options);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateTenantInvitationRequest {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("class CreateTenantConnectionRequest {\n");
+    sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,61 +155,61 @@ public class CreateTenantInvitationRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("email");
-    openapiFields.add("role");
+    openapiFields.add("strategy");
+    openapiFields.add("options");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("email");
+    openapiRequiredFields.add("strategy");
+    openapiRequiredFields.add("options");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateTenantInvitationRequest
+  * @throws IOException if the JSON Object is invalid with respect to CreateTenantConnectionRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!CreateTenantInvitationRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTenantInvitationRequest is not found in the empty JSON string", CreateTenantInvitationRequest.openapiRequiredFields.toString()));
+        if (!CreateTenantConnectionRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTenantConnectionRequest is not found in the empty JSON string", CreateTenantConnectionRequest.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateTenantInvitationRequest.openapiRequiredFields) {
+      for (String requiredField : CreateTenantConnectionRequest.openapiRequiredFields) {
         if (jsonObj.get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-      if (!jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      if (!jsonObj.get("strategy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `strategy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("strategy").toString()));
       }
-      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
-      }
+      // validate the required field `options`
+      TenantConnectionOptions.validateJsonObject(jsonObj.getAsJsonObject("options"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateTenantInvitationRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateTenantInvitationRequest' and its subtypes
+       if (!CreateTenantConnectionRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateTenantConnectionRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateTenantInvitationRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateTenantInvitationRequest.class));
+       final TypeAdapter<CreateTenantConnectionRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateTenantConnectionRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateTenantInvitationRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateTenantConnectionRequest>() {
            @Override
-           public void write(JsonWriter out, CreateTenantInvitationRequest value) throws IOException {
+           public void write(JsonWriter out, CreateTenantConnectionRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateTenantInvitationRequest read(JsonReader in) throws IOException {
+           public CreateTenantConnectionRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -231,18 +220,18 @@ public class CreateTenantInvitationRequest {
   }
 
  /**
-  * Create an instance of CreateTenantInvitationRequest given an JSON string
+  * Create an instance of CreateTenantConnectionRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreateTenantInvitationRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateTenantInvitationRequest
+  * @return An instance of CreateTenantConnectionRequest
+  * @throws IOException if the JSON string is invalid with respect to CreateTenantConnectionRequest
   */
-  public static CreateTenantInvitationRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateTenantInvitationRequest.class);
+  public static CreateTenantConnectionRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateTenantConnectionRequest.class);
   }
 
  /**
-  * Convert an instance of CreateTenantInvitationRequest to an JSON string
+  * Convert an instance of CreateTenantConnectionRequest to an JSON string
   *
   * @return JSON string
   */

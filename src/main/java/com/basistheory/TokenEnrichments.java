@@ -16,6 +16,7 @@ package com.basistheory;
 import java.util.Objects;
 import java.util.Arrays;
 import com.basistheory.BinDetails;
+import com.basistheory.CardDetails;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -55,6 +56,10 @@ public class TokenEnrichments {
   @SerializedName(SERIALIZED_NAME_BIN_DETAILS)
   private BinDetails binDetails;
 
+  public static final String SERIALIZED_NAME_CARD_DETAILS = "card_details";
+  @SerializedName(SERIALIZED_NAME_CARD_DETAILS)
+  private CardDetails cardDetails;
+
   public TokenEnrichments() {
   }
 
@@ -81,6 +86,29 @@ public class TokenEnrichments {
   }
 
 
+  public TokenEnrichments cardDetails(CardDetails cardDetails) {
+    
+    this.cardDetails = cardDetails;
+    return this;
+  }
+
+   /**
+   * Get cardDetails
+   * @return cardDetails
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public CardDetails getCardDetails() {
+    return cardDetails;
+  }
+
+
+  public void setCardDetails(CardDetails cardDetails) {
+    this.cardDetails = cardDetails;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -91,12 +119,13 @@ public class TokenEnrichments {
       return false;
     }
     TokenEnrichments tokenEnrichments = (TokenEnrichments) o;
-    return Objects.equals(this.binDetails, tokenEnrichments.binDetails);
+    return Objects.equals(this.binDetails, tokenEnrichments.binDetails) &&
+        Objects.equals(this.cardDetails, tokenEnrichments.cardDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binDetails);
+    return Objects.hash(binDetails, cardDetails);
   }
 
   @Override
@@ -104,6 +133,7 @@ public class TokenEnrichments {
     StringBuilder sb = new StringBuilder();
     sb.append("class TokenEnrichments {\n");
     sb.append("    binDetails: ").append(toIndentedString(binDetails)).append("\n");
+    sb.append("    cardDetails: ").append(toIndentedString(cardDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -127,6 +157,7 @@ public class TokenEnrichments {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("bin_details");
+    openapiFields.add("card_details");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -147,6 +178,10 @@ public class TokenEnrichments {
       // validate the optional field `bin_details`
       if (jsonObj.get("bin_details") != null && !jsonObj.get("bin_details").isJsonNull()) {
         BinDetails.validateJsonObject(jsonObj.getAsJsonObject("bin_details"));
+      }
+      // validate the optional field `card_details`
+      if (jsonObj.get("card_details") != null && !jsonObj.get("card_details").isJsonNull()) {
+        CardDetails.validateJsonObject(jsonObj.getAsJsonObject("card_details"));
       }
   }
 

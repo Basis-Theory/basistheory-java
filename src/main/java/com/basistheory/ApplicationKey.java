@@ -61,6 +61,10 @@ public class ApplicationKey {
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  private String version;
+
   public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
   @SerializedName(SERIALIZED_NAME_CREATED_BY)
   private UUID createdBy;
@@ -115,6 +119,29 @@ public class ApplicationKey {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+
+  public ApplicationKey version(String version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * Get version
+   * @return version
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getVersion() {
+    return version;
+  }
+
+
+  public void setVersion(String version) {
+    this.version = version;
   }
 
 
@@ -176,6 +203,7 @@ public class ApplicationKey {
     ApplicationKey applicationKey = (ApplicationKey) o;
     return Objects.equals(this.id, applicationKey.id) &&
         Objects.equals(this.key, applicationKey.key) &&
+        Objects.equals(this.version, applicationKey.version) &&
         Objects.equals(this.createdBy, applicationKey.createdBy) &&
         Objects.equals(this.createdAt, applicationKey.createdAt);
   }
@@ -186,7 +214,7 @@ public class ApplicationKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, key, createdBy, createdAt);
+    return Objects.hash(id, key, version, createdBy, createdAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -202,6 +230,7 @@ public class ApplicationKey {
     sb.append("class ApplicationKey {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("}");
@@ -228,6 +257,7 @@ public class ApplicationKey {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("key");
+    openapiFields.add("version");
     openapiFields.add("created_by");
     openapiFields.add("created_at");
 
@@ -252,6 +282,9 @@ public class ApplicationKey {
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+      }
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
       if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull()) && !jsonObj.get("created_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));

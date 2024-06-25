@@ -1,14 +1,14 @@
 
 
-# CreateTenantInvitationRequest
+# GetTokensV2
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**email** | **String** |  |  |
-|**role** | **String** |  |  [optional] |
+|**start** | **String** |  |  [optional] |
+|**size** | **Integer** |  |  [optional] |
 
 
 

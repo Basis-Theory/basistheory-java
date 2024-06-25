@@ -1,14 +1,13 @@
 
 
-# CreateTenantInvitationRequest
+# TenantConnectionOptions
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**email** | **String** |  |  |
-|**role** | **String** |  |  [optional] |
+|**scopes** | **List&lt;String&gt;** |  |  [optional] [readonly] |
 
 
 

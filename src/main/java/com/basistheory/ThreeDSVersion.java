@@ -57,9 +57,9 @@ public class ThreeDSVersion {
   @SerializedName(SERIALIZED_NAME_RECOMMENDED_VERSION)
   private String recommendedVersion;
 
-  public static final String SERIALIZED_NAME_AVAILABLE_VERSION = "available_version";
-  @SerializedName(SERIALIZED_NAME_AVAILABLE_VERSION)
-  private List<String> availableVersion = null;
+  public static final String SERIALIZED_NAME_AVAILABLE_VERSIONS = "available_versions";
+  @SerializedName(SERIALIZED_NAME_AVAILABLE_VERSIONS)
+  private List<String> availableVersions = null;
 
   public static final String SERIALIZED_NAME_EARLIEST_ACS_SUPPORTED_VERSION = "earliest_acs_supported_version";
   @SerializedName(SERIALIZED_NAME_EARLIEST_ACS_SUPPORTED_VERSION)
@@ -107,34 +107,34 @@ public class ThreeDSVersion {
   }
 
 
-  public ThreeDSVersion availableVersion(List<String> availableVersion) {
+  public ThreeDSVersion availableVersions(List<String> availableVersions) {
     
-    this.availableVersion = availableVersion;
+    this.availableVersions = availableVersions;
     return this;
   }
 
-  public ThreeDSVersion addAvailableVersionItem(String availableVersionItem) {
-    if (this.availableVersion == null) {
-      this.availableVersion = new ArrayList<>();
+  public ThreeDSVersion addAvailableVersionsItem(String availableVersionsItem) {
+    if (this.availableVersions == null) {
+      this.availableVersions = new ArrayList<>();
     }
-    this.availableVersion.add(availableVersionItem);
+    this.availableVersions.add(availableVersionsItem);
     return this;
   }
 
    /**
-   * Get availableVersion
-   * @return availableVersion
+   * Get availableVersions
+   * @return availableVersions
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public List<String> getAvailableVersion() {
-    return availableVersion;
+  public List<String> getAvailableVersions() {
+    return availableVersions;
   }
 
 
-  public void setAvailableVersion(List<String> availableVersion) {
-    this.availableVersion = availableVersion;
+  public void setAvailableVersions(List<String> availableVersions) {
+    this.availableVersions = availableVersions;
   }
 
 
@@ -272,7 +272,7 @@ public class ThreeDSVersion {
     }
     ThreeDSVersion threeDSVersion = (ThreeDSVersion) o;
     return Objects.equals(this.recommendedVersion, threeDSVersion.recommendedVersion) &&
-        Objects.equals(this.availableVersion, threeDSVersion.availableVersion) &&
+        Objects.equals(this.availableVersions, threeDSVersion.availableVersions) &&
         Objects.equals(this.earliestAcsSupportedVersion, threeDSVersion.earliestAcsSupportedVersion) &&
         Objects.equals(this.earliestDsSupportedVersion, threeDSVersion.earliestDsSupportedVersion) &&
         Objects.equals(this.latestAcsSupportedVersion, threeDSVersion.latestAcsSupportedVersion) &&
@@ -286,7 +286,7 @@ public class ThreeDSVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(recommendedVersion, availableVersion, earliestAcsSupportedVersion, earliestDsSupportedVersion, latestAcsSupportedVersion, latestDsSupportedVersion, acsInformation);
+    return Objects.hash(recommendedVersion, availableVersions, earliestAcsSupportedVersion, earliestDsSupportedVersion, latestAcsSupportedVersion, latestDsSupportedVersion, acsInformation);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -301,7 +301,7 @@ public class ThreeDSVersion {
     StringBuilder sb = new StringBuilder();
     sb.append("class ThreeDSVersion {\n");
     sb.append("    recommendedVersion: ").append(toIndentedString(recommendedVersion)).append("\n");
-    sb.append("    availableVersion: ").append(toIndentedString(availableVersion)).append("\n");
+    sb.append("    availableVersions: ").append(toIndentedString(availableVersions)).append("\n");
     sb.append("    earliestAcsSupportedVersion: ").append(toIndentedString(earliestAcsSupportedVersion)).append("\n");
     sb.append("    earliestDsSupportedVersion: ").append(toIndentedString(earliestDsSupportedVersion)).append("\n");
     sb.append("    latestAcsSupportedVersion: ").append(toIndentedString(latestAcsSupportedVersion)).append("\n");
@@ -330,7 +330,7 @@ public class ThreeDSVersion {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("recommended_version");
-    openapiFields.add("available_version");
+    openapiFields.add("available_versions");
     openapiFields.add("earliest_acs_supported_version");
     openapiFields.add("earliest_ds_supported_version");
     openapiFields.add("latest_acs_supported_version");
@@ -357,8 +357,8 @@ public class ThreeDSVersion {
         throw new IllegalArgumentException(String.format("Expected the field `recommended_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recommended_version").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("available_version") != null && !jsonObj.get("available_version").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `available_version` to be an array in the JSON string but got `%s`", jsonObj.get("available_version").toString()));
+      if (jsonObj.get("available_versions") != null && !jsonObj.get("available_versions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `available_versions` to be an array in the JSON string but got `%s`", jsonObj.get("available_versions").toString()));
       }
       if ((jsonObj.get("earliest_acs_supported_version") != null && !jsonObj.get("earliest_acs_supported_version").isJsonNull()) && !jsonObj.get("earliest_acs_supported_version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `earliest_acs_supported_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("earliest_acs_supported_version").toString()));

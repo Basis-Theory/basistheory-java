@@ -15,6 +15,8 @@ package com.basistheory;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.basistheory.CursorPagination;
+import com.basistheory.Token;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +25,8 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -47,64 +51,72 @@ import java.util.Set;
 import com.basistheory.JSON;
 
 /**
- * CreateTenantInvitationRequest
+ * TokenCursorPaginatedList
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class CreateTenantInvitationRequest {
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
+public class TokenCursorPaginatedList {
+  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
+  @SerializedName(SERIALIZED_NAME_PAGINATION)
+  private CursorPagination pagination;
 
-  public static final String SERIALIZED_NAME_ROLE = "role";
-  @SerializedName(SERIALIZED_NAME_ROLE)
-  private String role;
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<Token> data = null;
 
-  public CreateTenantInvitationRequest() {
+  public TokenCursorPaginatedList() {
   }
 
-  public CreateTenantInvitationRequest email(String email) {
+  public TokenCursorPaginatedList pagination(CursorPagination pagination) {
     
-    this.email = email;
+    this.pagination = pagination;
     return this;
   }
 
    /**
-   * Get email
-   * @return email
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getEmail() {
-    return email;
-  }
-
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-
-  public CreateTenantInvitationRequest role(String role) {
-    
-    this.role = role;
-    return this;
-  }
-
-   /**
-   * Get role
-   * @return role
+   * Get pagination
+   * @return pagination
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public String getRole() {
-    return role;
+  public CursorPagination getPagination() {
+    return pagination;
   }
 
 
-  public void setRole(String role) {
-    this.role = role;
+  public void setPagination(CursorPagination pagination) {
+    this.pagination = pagination;
+  }
+
+
+  public TokenCursorPaginatedList data(List<Token> data) {
+    
+    this.data = data;
+    return this;
+  }
+
+  public TokenCursorPaginatedList addDataItem(Token dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<Token> getData() {
+    return data;
+  }
+
+
+  public void setData(List<Token> data) {
+    this.data = data;
   }
 
 
@@ -117,9 +129,9 @@ public class CreateTenantInvitationRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTenantInvitationRequest createTenantInvitationRequest = (CreateTenantInvitationRequest) o;
-    return Objects.equals(this.email, createTenantInvitationRequest.email) &&
-        Objects.equals(this.role, createTenantInvitationRequest.role);
+    TokenCursorPaginatedList tokenCursorPaginatedList = (TokenCursorPaginatedList) o;
+    return Objects.equals(this.pagination, tokenCursorPaginatedList.pagination) &&
+        Objects.equals(this.data, tokenCursorPaginatedList.data);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -128,7 +140,7 @@ public class CreateTenantInvitationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, role);
+    return Objects.hash(pagination, data);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -141,9 +153,9 @@ public class CreateTenantInvitationRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateTenantInvitationRequest {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("class TokenCursorPaginatedList {\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,38 +178,42 @@ public class CreateTenantInvitationRequest {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("email");
-    openapiFields.add("role");
+    openapiFields.add("pagination");
+    openapiFields.add("data");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("email");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to CreateTenantInvitationRequest
+  * @throws IOException if the JSON Object is invalid with respect to TokenCursorPaginatedList
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!CreateTenantInvitationRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTenantInvitationRequest is not found in the empty JSON string", CreateTenantInvitationRequest.openapiRequiredFields.toString()));
+        if (!TokenCursorPaginatedList.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenCursorPaginatedList is not found in the empty JSON string", TokenCursorPaginatedList.openapiRequiredFields.toString()));
         }
       }
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        CursorPagination.validateJsonObject(jsonObj.getAsJsonObject("pagination"));
+      }
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        if (jsonArraydata != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("data").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+          }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateTenantInvitationRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+          // validate the optional field `data` (array)
+          for (int i = 0; i < jsonArraydata.size(); i++) {
+            Token.validateJsonObject(jsonArraydata.get(i).getAsJsonObject());
+          };
         }
-      }
-      if (!jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
-      }
-      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
       }
   }
 
@@ -205,22 +221,22 @@ public class CreateTenantInvitationRequest {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateTenantInvitationRequest.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateTenantInvitationRequest' and its subtypes
+       if (!TokenCursorPaginatedList.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TokenCursorPaginatedList' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateTenantInvitationRequest> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateTenantInvitationRequest.class));
+       final TypeAdapter<TokenCursorPaginatedList> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TokenCursorPaginatedList.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateTenantInvitationRequest>() {
+       return (TypeAdapter<T>) new TypeAdapter<TokenCursorPaginatedList>() {
            @Override
-           public void write(JsonWriter out, CreateTenantInvitationRequest value) throws IOException {
+           public void write(JsonWriter out, TokenCursorPaginatedList value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateTenantInvitationRequest read(JsonReader in) throws IOException {
+           public TokenCursorPaginatedList read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -231,18 +247,18 @@ public class CreateTenantInvitationRequest {
   }
 
  /**
-  * Create an instance of CreateTenantInvitationRequest given an JSON string
+  * Create an instance of TokenCursorPaginatedList given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreateTenantInvitationRequest
-  * @throws IOException if the JSON string is invalid with respect to CreateTenantInvitationRequest
+  * @return An instance of TokenCursorPaginatedList
+  * @throws IOException if the JSON string is invalid with respect to TokenCursorPaginatedList
   */
-  public static CreateTenantInvitationRequest fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateTenantInvitationRequest.class);
+  public static TokenCursorPaginatedList fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TokenCursorPaginatedList.class);
   }
 
  /**
-  * Convert an instance of CreateTenantInvitationRequest to an JSON string
+  * Convert an instance of TokenCursorPaginatedList to an JSON string
   *
   * @return JSON string
   */

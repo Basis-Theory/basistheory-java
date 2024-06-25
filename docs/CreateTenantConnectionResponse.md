@@ -1,14 +1,13 @@
 
 
-# CreateTenantInvitationRequest
+# CreateTenantConnectionResponse
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**email** | **String** |  |  |
-|**role** | **String** |  |  [optional] |
+|**connectionId** | **String** |  |  [optional] |
 
 
 

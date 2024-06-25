@@ -1,14 +1,13 @@
 
 
-# CreateTenantInvitationRequest
+# Role
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**email** | **String** |  |  |
-|**role** | **String** |  |  [optional] |
+|**name** | **String** |  |  [optional] |
 
 
 

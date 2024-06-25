@@ -13,16 +13,18 @@ docs/BinDetails.md
 docs/BinDetailsBank.md
 docs/BinDetailsCountry.md
 docs/BinDetailsProduct.md
+docs/CardDetails.md
 docs/Condition.md
 docs/CreateApplicationRequest.md
 docs/CreateProxyRequest.md
 docs/CreateReactorFormulaRequest.md
 docs/CreateReactorRequest.md
 docs/CreateSessionResponse.md
+docs/CreateTenantConnectionRequest.md
+docs/CreateTenantConnectionResponse.md
 docs/CreateTenantInvitationRequest.md
 docs/CreateTokenRequest.md
-docs/EncryptionKey.md
-docs/EncryptionMetadata.md
+docs/CursorPagination.md
 docs/GetApplications.md
 docs/GetLogs.md
 docs/GetPermissions.md
@@ -32,6 +34,7 @@ docs/GetReactors.md
 docs/GetTenantInvitations.md
 docs/GetTenantMembers.md
 docs/GetTokens.md
+docs/GetTokensV2.md
 docs/Log.md
 docs/LogEntityType.md
 docs/LogPaginatedList.md
@@ -57,10 +60,13 @@ docs/ReactorFormulaRequestParameter.md
 docs/ReactorFormulasApi.md
 docs/ReactorPaginatedList.md
 docs/ReactorsApi.md
+docs/Role.md
+docs/RolesApi.md
 docs/SearchTokensRequest.md
 docs/SessionsApi.md
 docs/StringStringKeyValuePair.md
 docs/Tenant.md
+docs/TenantConnectionOptions.md
 docs/TenantInvitationResponse.md
 docs/TenantInvitationResponsePaginatedList.md
 docs/TenantInvitationStatus.md
@@ -88,6 +94,7 @@ docs/ThreeDSSession.md
 docs/ThreeDSVersion.md
 docs/ThreeDsApi.md
 docs/Token.md
+docs/TokenCursorPaginatedList.md
 docs/TokenEnrichments.md
 docs/TokenMetrics.md
 docs/TokenPaginatedList.md
@@ -99,6 +106,7 @@ docs/UpdatePrivacy.md
 docs/UpdateProxyRequest.md
 docs/UpdateReactorFormulaRequest.md
 docs/UpdateReactorRequest.md
+docs/UpdateTenantMemberRequest.md
 docs/UpdateTenantRequest.md
 docs/UpdateTokenRequest.md
 docs/User.md
@@ -125,6 +133,7 @@ src/main/java/com/basistheory/BinDetails.java
 src/main/java/com/basistheory/BinDetailsBank.java
 src/main/java/com/basistheory/BinDetailsCountry.java
 src/main/java/com/basistheory/BinDetailsProduct.java
+src/main/java/com/basistheory/CardDetails.java
 src/main/java/com/basistheory/Condition.java
 src/main/java/com/basistheory/Configuration.java
 src/main/java/com/basistheory/CreateApplicationRequest.java
@@ -132,10 +141,11 @@ src/main/java/com/basistheory/CreateProxyRequest.java
 src/main/java/com/basistheory/CreateReactorFormulaRequest.java
 src/main/java/com/basistheory/CreateReactorRequest.java
 src/main/java/com/basistheory/CreateSessionResponse.java
+src/main/java/com/basistheory/CreateTenantConnectionRequest.java
+src/main/java/com/basistheory/CreateTenantConnectionResponse.java
 src/main/java/com/basistheory/CreateTenantInvitationRequest.java
 src/main/java/com/basistheory/CreateTokenRequest.java
-src/main/java/com/basistheory/EncryptionKey.java
-src/main/java/com/basistheory/EncryptionMetadata.java
+src/main/java/com/basistheory/CursorPagination.java
 src/main/java/com/basistheory/GetApplications.java
 src/main/java/com/basistheory/GetLogs.java
 src/main/java/com/basistheory/GetPermissions.java
@@ -145,6 +155,7 @@ src/main/java/com/basistheory/GetReactors.java
 src/main/java/com/basistheory/GetTenantInvitations.java
 src/main/java/com/basistheory/GetTenantMembers.java
 src/main/java/com/basistheory/GetTokens.java
+src/main/java/com/basistheory/GetTokensV2.java
 src/main/java/com/basistheory/GzipRequestInterceptor.java
 src/main/java/com/basistheory/JSON.java
 src/main/java/com/basistheory/Log.java
@@ -175,6 +186,8 @@ src/main/java/com/basistheory/ReactorFormulaRequestParameter.java
 src/main/java/com/basistheory/ReactorFormulasApi.java
 src/main/java/com/basistheory/ReactorPaginatedList.java
 src/main/java/com/basistheory/ReactorsApi.java
+src/main/java/com/basistheory/Role.java
+src/main/java/com/basistheory/RolesApi.java
 src/main/java/com/basistheory/SearchTokensRequest.java
 src/main/java/com/basistheory/ServerConfiguration.java
 src/main/java/com/basistheory/ServerVariable.java
@@ -182,6 +195,7 @@ src/main/java/com/basistheory/SessionsApi.java
 src/main/java/com/basistheory/StringStringKeyValuePair.java
 src/main/java/com/basistheory/StringUtil.java
 src/main/java/com/basistheory/Tenant.java
+src/main/java/com/basistheory/TenantConnectionOptions.java
 src/main/java/com/basistheory/TenantInvitationResponse.java
 src/main/java/com/basistheory/TenantInvitationResponsePaginatedList.java
 src/main/java/com/basistheory/TenantInvitationStatus.java
@@ -209,6 +223,7 @@ src/main/java/com/basistheory/ThreeDSSession.java
 src/main/java/com/basistheory/ThreeDSVersion.java
 src/main/java/com/basistheory/ThreeDsApi.java
 src/main/java/com/basistheory/Token.java
+src/main/java/com/basistheory/TokenCursorPaginatedList.java
 src/main/java/com/basistheory/TokenEnrichments.java
 src/main/java/com/basistheory/TokenMetrics.java
 src/main/java/com/basistheory/TokenPaginatedList.java
@@ -220,6 +235,7 @@ src/main/java/com/basistheory/UpdatePrivacy.java
 src/main/java/com/basistheory/UpdateProxyRequest.java
 src/main/java/com/basistheory/UpdateReactorFormulaRequest.java
 src/main/java/com/basistheory/UpdateReactorRequest.java
+src/main/java/com/basistheory/UpdateTenantMemberRequest.java
 src/main/java/com/basistheory/UpdateTenantRequest.java
 src/main/java/com/basistheory/UpdateTokenRequest.java
 src/main/java/com/basistheory/User.java

@@ -1,14 +1,14 @@
 
 
-# CreateTenantInvitationRequest
+# CursorPagination
 
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**email** | **String** |  |  |
-|**role** | **String** |  |  [optional] |
+|**pageSize** | **Integer** |  |  [optional] |
+|**after** | **String** |  |  [optional] |
 
 
 
