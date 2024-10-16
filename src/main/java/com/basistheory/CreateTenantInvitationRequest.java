@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,6 +55,10 @@ public class CreateTenantInvitationRequest {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+  public static final String SERIALIZED_NAME_ROLE = "role";
+  @SerializedName(SERIALIZED_NAME_ROLE)
+  private String role;
+
   public CreateTenantInvitationRequest() {
   }
 
@@ -80,6 +85,29 @@ public class CreateTenantInvitationRequest {
   }
 
 
+  public CreateTenantInvitationRequest role(String role) {
+    
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRole() {
+    return role;
+  }
+
+
+  public void setRole(String role) {
+    this.role = role;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -90,12 +118,24 @@ public class CreateTenantInvitationRequest {
       return false;
     }
     CreateTenantInvitationRequest createTenantInvitationRequest = (CreateTenantInvitationRequest) o;
-    return Objects.equals(this.email, createTenantInvitationRequest.email);
+    return Objects.equals(this.email, createTenantInvitationRequest.email) &&
+        Objects.equals(this.role, createTenantInvitationRequest.role);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email);
+    return Objects.hash(email, role);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -103,6 +143,7 @@ public class CreateTenantInvitationRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateTenantInvitationRequest {\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -126,6 +167,7 @@ public class CreateTenantInvitationRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("email");
+    openapiFields.add("role");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -153,6 +195,9 @@ public class CreateTenantInvitationRequest {
       }
       if (!jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
       }
   }
 

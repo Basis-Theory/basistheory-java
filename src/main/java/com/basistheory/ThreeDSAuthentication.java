@@ -56,6 +56,10 @@ import com.basistheory.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ThreeDSAuthentication {
+  public static final String SERIALIZED_NAME_PAN_TOKEN_ID = "pan_token_id";
+  @SerializedName(SERIALIZED_NAME_PAN_TOKEN_ID)
+  private String panTokenId;
+
   public static final String SERIALIZED_NAME_THREEDS_VERSION = "threeds_version";
   @SerializedName(SERIALIZED_NAME_THREEDS_VERSION)
   private String threedsVersion;
@@ -87,6 +91,10 @@ public class ThreeDSAuthentication {
   public static final String SERIALIZED_NAME_AUTHENTICATION_STATUS = "authentication_status";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_STATUS)
   private String authenticationStatus;
+
+  public static final String SERIALIZED_NAME_AUTHENTICATION_STATUS_CODE = "authentication_status_code";
+  @SerializedName(SERIALIZED_NAME_AUTHENTICATION_STATUS_CODE)
+  private String authenticationStatusCode;
 
   public static final String SERIALIZED_NAME_AUTHENTICATION_STATUS_REASON = "authentication_status_reason";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_STATUS_REASON)
@@ -146,6 +154,29 @@ public class ThreeDSAuthentication {
 
   public ThreeDSAuthentication() {
   }
+
+  public ThreeDSAuthentication panTokenId(String panTokenId) {
+    
+    this.panTokenId = panTokenId;
+    return this;
+  }
+
+   /**
+   * Get panTokenId
+   * @return panTokenId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getPanTokenId() {
+    return panTokenId;
+  }
+
+
+  public void setPanTokenId(String panTokenId) {
+    this.panTokenId = panTokenId;
+  }
+
 
   public ThreeDSAuthentication threedsVersion(String threedsVersion) {
     
@@ -328,6 +359,29 @@ public class ThreeDSAuthentication {
 
   public void setAuthenticationStatus(String authenticationStatus) {
     this.authenticationStatus = authenticationStatus;
+  }
+
+
+  public ThreeDSAuthentication authenticationStatusCode(String authenticationStatusCode) {
+    
+    this.authenticationStatusCode = authenticationStatusCode;
+    return this;
+  }
+
+   /**
+   * Get authenticationStatusCode
+   * @return authenticationStatusCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getAuthenticationStatusCode() {
+    return authenticationStatusCode;
+  }
+
+
+  public void setAuthenticationStatusCode(String authenticationStatusCode) {
+    this.authenticationStatusCode = authenticationStatusCode;
   }
 
 
@@ -671,7 +725,8 @@ public class ThreeDSAuthentication {
       return false;
     }
     ThreeDSAuthentication threeDSAuthentication = (ThreeDSAuthentication) o;
-    return Objects.equals(this.threedsVersion, threeDSAuthentication.threedsVersion) &&
+    return Objects.equals(this.panTokenId, threeDSAuthentication.panTokenId) &&
+        Objects.equals(this.threedsVersion, threeDSAuthentication.threedsVersion) &&
         Objects.equals(this.acsTransactionId, threeDSAuthentication.acsTransactionId) &&
         Objects.equals(this.dsTransactionId, threeDSAuthentication.dsTransactionId) &&
         Objects.equals(this.sdkTransactionId, threeDSAuthentication.sdkTransactionId) &&
@@ -679,6 +734,7 @@ public class ThreeDSAuthentication {
         Objects.equals(this.dsReferenceNumber, threeDSAuthentication.dsReferenceNumber) &&
         Objects.equals(this.authenticationValue, threeDSAuthentication.authenticationValue) &&
         Objects.equals(this.authenticationStatus, threeDSAuthentication.authenticationStatus) &&
+        Objects.equals(this.authenticationStatusCode, threeDSAuthentication.authenticationStatusCode) &&
         Objects.equals(this.authenticationStatusReason, threeDSAuthentication.authenticationStatusReason) &&
         Objects.equals(this.eci, threeDSAuthentication.eci) &&
         Objects.equals(this.acsChallengeMandated, threeDSAuthentication.acsChallengeMandated) &&
@@ -701,7 +757,7 @@ public class ThreeDSAuthentication {
 
   @Override
   public int hashCode() {
-    return Objects.hash(threedsVersion, acsTransactionId, dsTransactionId, sdkTransactionId, acsReferenceNumber, dsReferenceNumber, authenticationValue, authenticationStatus, authenticationStatusReason, eci, acsChallengeMandated, acsDecoupledAuthentication, authenticationChallengeType, acsRenderingType, acsSignedContent, acsChallengeUrl, challengeAttempts, challengeCancelReason, cardholderInfo, whitelistStatus, whitelistStatusSource, messageExtensions);
+    return Objects.hash(panTokenId, threedsVersion, acsTransactionId, dsTransactionId, sdkTransactionId, acsReferenceNumber, dsReferenceNumber, authenticationValue, authenticationStatus, authenticationStatusCode, authenticationStatusReason, eci, acsChallengeMandated, acsDecoupledAuthentication, authenticationChallengeType, acsRenderingType, acsSignedContent, acsChallengeUrl, challengeAttempts, challengeCancelReason, cardholderInfo, whitelistStatus, whitelistStatusSource, messageExtensions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -715,6 +771,7 @@ public class ThreeDSAuthentication {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ThreeDSAuthentication {\n");
+    sb.append("    panTokenId: ").append(toIndentedString(panTokenId)).append("\n");
     sb.append("    threedsVersion: ").append(toIndentedString(threedsVersion)).append("\n");
     sb.append("    acsTransactionId: ").append(toIndentedString(acsTransactionId)).append("\n");
     sb.append("    dsTransactionId: ").append(toIndentedString(dsTransactionId)).append("\n");
@@ -723,6 +780,7 @@ public class ThreeDSAuthentication {
     sb.append("    dsReferenceNumber: ").append(toIndentedString(dsReferenceNumber)).append("\n");
     sb.append("    authenticationValue: ").append(toIndentedString(authenticationValue)).append("\n");
     sb.append("    authenticationStatus: ").append(toIndentedString(authenticationStatus)).append("\n");
+    sb.append("    authenticationStatusCode: ").append(toIndentedString(authenticationStatusCode)).append("\n");
     sb.append("    authenticationStatusReason: ").append(toIndentedString(authenticationStatusReason)).append("\n");
     sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
     sb.append("    acsChallengeMandated: ").append(toIndentedString(acsChallengeMandated)).append("\n");
@@ -759,6 +817,7 @@ public class ThreeDSAuthentication {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("pan_token_id");
     openapiFields.add("threeds_version");
     openapiFields.add("acs_transaction_id");
     openapiFields.add("ds_transaction_id");
@@ -767,6 +826,7 @@ public class ThreeDSAuthentication {
     openapiFields.add("ds_reference_number");
     openapiFields.add("authentication_value");
     openapiFields.add("authentication_status");
+    openapiFields.add("authentication_status_code");
     openapiFields.add("authentication_status_reason");
     openapiFields.add("eci");
     openapiFields.add("acs_challenge_mandated");
@@ -798,6 +858,9 @@ public class ThreeDSAuthentication {
           throw new IllegalArgumentException(String.format("The required field(s) %s in ThreeDSAuthentication is not found in the empty JSON string", ThreeDSAuthentication.openapiRequiredFields.toString()));
         }
       }
+      if ((jsonObj.get("pan_token_id") != null && !jsonObj.get("pan_token_id").isJsonNull()) && !jsonObj.get("pan_token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pan_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pan_token_id").toString()));
+      }
       if ((jsonObj.get("threeds_version") != null && !jsonObj.get("threeds_version").isJsonNull()) && !jsonObj.get("threeds_version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeds_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeds_version").toString()));
       }
@@ -821,6 +884,9 @@ public class ThreeDSAuthentication {
       }
       if ((jsonObj.get("authentication_status") != null && !jsonObj.get("authentication_status").isJsonNull()) && !jsonObj.get("authentication_status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `authentication_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authentication_status").toString()));
+      }
+      if ((jsonObj.get("authentication_status_code") != null && !jsonObj.get("authentication_status_code").isJsonNull()) && !jsonObj.get("authentication_status_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `authentication_status_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authentication_status_code").toString()));
       }
       if ((jsonObj.get("authentication_status_reason") != null && !jsonObj.get("authentication_status_reason").isJsonNull()) && !jsonObj.get("authentication_status_reason").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `authentication_status_reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authentication_status_reason").toString()));

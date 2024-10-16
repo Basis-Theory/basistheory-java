@@ -25,6 +25,7 @@
 |**expiresAt** | **OffsetDateTime** |  |  [optional] |
 |**containers** | **List&lt;String&gt;** |  |  [optional] |
 |**aliases** | **List&lt;String&gt;** |  |  [optional] |
+|**extras** | [**TokenExtras**](TokenExtras.md) |  |  [optional] |
 
 
 

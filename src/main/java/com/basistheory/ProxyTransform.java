@@ -51,12 +51,51 @@ import com.basistheory.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProxyTransform {
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
+  public static final String SERIALIZED_NAME_MATCHER = "matcher";
+  @SerializedName(SERIALIZED_NAME_MATCHER)
+  private String matcher;
+
+  public static final String SERIALIZED_NAME_EXPRESSION = "expression";
+  @SerializedName(SERIALIZED_NAME_EXPRESSION)
+  private String expression;
+
+  public static final String SERIALIZED_NAME_REPLACEMENT = "replacement";
+  @SerializedName(SERIALIZED_NAME_REPLACEMENT)
+  private String replacement;
+
   public ProxyTransform() {
   }
+
+  public ProxyTransform type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
 
   public ProxyTransform code(String code) {
     
@@ -81,6 +120,75 @@ public class ProxyTransform {
   }
 
 
+  public ProxyTransform matcher(String matcher) {
+    
+    this.matcher = matcher;
+    return this;
+  }
+
+   /**
+   * Get matcher
+   * @return matcher
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getMatcher() {
+    return matcher;
+  }
+
+
+  public void setMatcher(String matcher) {
+    this.matcher = matcher;
+  }
+
+
+  public ProxyTransform expression(String expression) {
+    
+    this.expression = expression;
+    return this;
+  }
+
+   /**
+   * Get expression
+   * @return expression
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getExpression() {
+    return expression;
+  }
+
+
+  public void setExpression(String expression) {
+    this.expression = expression;
+  }
+
+
+  public ProxyTransform replacement(String replacement) {
+    
+    this.replacement = replacement;
+    return this;
+  }
+
+   /**
+   * Get replacement
+   * @return replacement
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getReplacement() {
+    return replacement;
+  }
+
+
+  public void setReplacement(String replacement) {
+    this.replacement = replacement;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -91,7 +199,11 @@ public class ProxyTransform {
       return false;
     }
     ProxyTransform proxyTransform = (ProxyTransform) o;
-    return Objects.equals(this.code, proxyTransform.code);
+    return Objects.equals(this.type, proxyTransform.type) &&
+        Objects.equals(this.code, proxyTransform.code) &&
+        Objects.equals(this.matcher, proxyTransform.matcher) &&
+        Objects.equals(this.expression, proxyTransform.expression) &&
+        Objects.equals(this.replacement, proxyTransform.replacement);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -100,7 +212,7 @@ public class ProxyTransform {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code);
+    return Objects.hash(type, code, matcher, expression, replacement);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -114,7 +226,11 @@ public class ProxyTransform {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProxyTransform {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    matcher: ").append(toIndentedString(matcher)).append("\n");
+    sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
+    sb.append("    replacement: ").append(toIndentedString(replacement)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -137,7 +253,11 @@ public class ProxyTransform {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("type");
     openapiFields.add("code");
+    openapiFields.add("matcher");
+    openapiFields.add("expression");
+    openapiFields.add("replacement");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -155,8 +275,20 @@ public class ProxyTransform {
           throw new IllegalArgumentException(String.format("The required field(s) %s in ProxyTransform is not found in the empty JSON string", ProxyTransform.openapiRequiredFields.toString()));
         }
       }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
       if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
+      }
+      if ((jsonObj.get("matcher") != null && !jsonObj.get("matcher").isJsonNull()) && !jsonObj.get("matcher").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `matcher` to be a primitive type in the JSON string but got `%s`", jsonObj.get("matcher").toString()));
+      }
+      if ((jsonObj.get("expression") != null && !jsonObj.get("expression").isJsonNull()) && !jsonObj.get("expression").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expression").toString()));
+      }
+      if ((jsonObj.get("replacement") != null && !jsonObj.get("replacement").isJsonNull()) && !jsonObj.get("replacement").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `replacement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("replacement").toString()));
       }
   }
 

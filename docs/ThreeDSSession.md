@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**id** | **UUID** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
 |**tenantId** | **UUID** |  |  [optional] |
 |**panTokenId** | **String** |  |  [optional] |
 |**cardBrand** | **String** |  |  [optional] |

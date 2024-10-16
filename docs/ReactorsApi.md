@@ -10,6 +10,8 @@ All URIs are relative to *https://api.basistheory.com*
 | [**getById**](ReactorsApi.md#getById) | **GET** /reactors/{id} |  |
 | [**patch**](ReactorsApi.md#patch) | **PATCH** /reactors/{id} |  |
 | [**react**](ReactorsApi.md#react) | **POST** /reactors/{id}/react |  |
+| [**reactAsync**](ReactorsApi.md#reactAsync) | **POST** /reactors/{id}/react-async |  |
+| [**resultGetById**](ReactorsApi.md#resultGetById) | **GET** /reactors/{id}/results/{requestId} |  |
 | [**update**](ReactorsApi.md#update) | **PUT** /reactors/{id} |  |
 
 
@@ -446,6 +448,153 @@ public class Example {
 | **422** | Client Error |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Forbidden |  -  |
+
+<a name="reactAsync"></a>
+# **reactAsync**
+> ReactResponse reactAsync(id, reactRequestAsync)
+
+
+
+### Example
+```java
+// Import classes:
+import com.basistheory.ApiClient;
+import com.basistheory.ApiException;
+import com.basistheory.Configuration;
+import com.basistheory.auth.*;
+import com.basistheory.models.*;
+import com.basistheory.ReactorsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.basistheory.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    ReactorsApi apiInstance = new ReactorsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | 
+    ReactRequestAsync reactRequestAsync = new ReactRequestAsync(); // ReactRequestAsync | 
+    try {
+      ReactResponse result = apiInstance.reactAsync(id, reactRequestAsync);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ReactorsApi#reactAsync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **reactRequestAsync** | [**ReactRequestAsync**](ReactRequestAsync.md)|  | |
+
+### Return type
+
+[**ReactResponse**](ReactResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Accepted |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
+| **422** | Client Error |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+
+<a name="resultGetById"></a>
+# **resultGetById**
+> Object resultGetById(id, requestId)
+
+
+
+### Example
+```java
+// Import classes:
+import com.basistheory.ApiClient;
+import com.basistheory.ApiException;
+import com.basistheory.Configuration;
+import com.basistheory.auth.*;
+import com.basistheory.models.*;
+import com.basistheory.ReactorsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.basistheory.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    ReactorsApi apiInstance = new ReactorsApi(defaultClient);
+    UUID id = UUID.randomUUID(); // UUID | 
+    UUID requestId = UUID.randomUUID(); // UUID | 
+    try {
+      Object result = apiInstance.resultGetById(id, requestId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling ReactorsApi#resultGetById");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **id** | **UUID**|  | |
+| **requestId** | **UUID**|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **404** | Not Found |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Client Error |  -  |
 
 <a name="update"></a>
 # **update**

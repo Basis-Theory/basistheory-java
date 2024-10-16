@@ -17,6 +17,7 @@ import java.util.Objects;
 import java.util.Arrays;
 import com.basistheory.Privacy;
 import com.basistheory.TokenEnrichments;
+import com.basistheory.TokenExtras;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -130,6 +131,10 @@ public class Token {
   public static final String SERIALIZED_NAME_ALIASES = "aliases";
   @SerializedName(SERIALIZED_NAME_ALIASES)
   private List<String> aliases = null;
+
+  public static final String SERIALIZED_NAME_EXTRAS = "_extras";
+  @SerializedName(SERIALIZED_NAME_EXTRAS)
+  private TokenExtras extras;
 
   public Token() {
   }
@@ -580,6 +585,29 @@ public class Token {
   }
 
 
+  public Token extras(TokenExtras extras) {
+    
+    this.extras = extras;
+    return this;
+  }
+
+   /**
+   * Get extras
+   * @return extras
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public TokenExtras getExtras() {
+    return extras;
+  }
+
+
+  public void setExtras(TokenExtras extras) {
+    this.extras = extras;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -607,7 +635,8 @@ public class Token {
         Objects.equals(this.searchIndexes, token.searchIndexes) &&
         Objects.equals(this.expiresAt, token.expiresAt) &&
         Objects.equals(this.containers, token.containers) &&
-        Objects.equals(this.aliases, token.aliases);
+        Objects.equals(this.aliases, token.aliases) &&
+        Objects.equals(this.extras, token.extras);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -616,7 +645,7 @@ public class Token {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tenantId, data, metadata, enrichments, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, containers, aliases);
+    return Objects.hash(id, type, tenantId, data, metadata, enrichments, createdBy, createdAt, modifiedBy, modifiedAt, fingerprint, fingerprintExpression, mask, privacy, searchIndexes, expiresAt, containers, aliases, extras);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -648,6 +677,7 @@ public class Token {
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
     sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
+    sb.append("    extras: ").append(toIndentedString(extras)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -688,6 +718,7 @@ public class Token {
     openapiFields.add("expires_at");
     openapiFields.add("containers");
     openapiFields.add("aliases");
+    openapiFields.add("_extras");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -745,6 +776,10 @@ public class Token {
       // ensure the optional json data is an array if present
       if (jsonObj.get("aliases") != null && !jsonObj.get("aliases").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `aliases` to be an array in the JSON string but got `%s`", jsonObj.get("aliases").toString()));
+      }
+      // validate the optional field `_extras`
+      if (jsonObj.get("_extras") != null && !jsonObj.get("_extras").isJsonNull()) {
+        TokenExtras.validateJsonObject(jsonObj.getAsJsonObject("_extras"));
       }
   }
 
