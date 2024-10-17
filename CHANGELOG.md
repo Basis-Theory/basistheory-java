@@ -1,3 +1,11 @@
+## [3.2.0](https://github.com/Basis-Theory/basistheory-java/compare/3.1.0...3.2.0) (2024-10-17)
+
+
+### Features
+
+* add tenant connections, detokenize api, 3ds updates and more ([#40](https://github.com/Basis-Theory/basistheory-java/issues/40)) ([81a0be2](https://github.com/Basis-Theory/basistheory-java/commit/81a0be21db7df02a61efabe221e51e3de129f1c0))
+
+
 ## [3.1.0](https://github.com/Basis-Theory/basistheory-java/compare/3.0.1...3.1.0) (2024-03-26)
 
 
