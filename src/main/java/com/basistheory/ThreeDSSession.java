@@ -61,6 +61,10 @@ public class ThreeDSSession {
   @SerializedName(SERIALIZED_NAME_ID)
   private UUID id;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
   private UUID tenantId;
@@ -136,6 +140,29 @@ public class ThreeDSSession {
 
   public void setId(UUID id) {
     this.id = id;
+  }
+
+
+  public ThreeDSSession type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
   }
 
 
@@ -449,6 +476,7 @@ public class ThreeDSSession {
     }
     ThreeDSSession threeDSSession = (ThreeDSSession) o;
     return Objects.equals(this.id, threeDSSession.id) &&
+        Objects.equals(this.type, threeDSSession.type) &&
         Objects.equals(this.tenantId, threeDSSession.tenantId) &&
         Objects.equals(this.panTokenId, threeDSSession.panTokenId) &&
         Objects.equals(this.cardBrand, threeDSSession.cardBrand) &&
@@ -470,7 +498,7 @@ public class ThreeDSSession {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, panTokenId, cardBrand, expirationDate, createdDate, createdBy, modifiedDate, modifiedBy, device, deviceInfo, version, method, authentication);
+    return Objects.hash(id, type, tenantId, panTokenId, cardBrand, expirationDate, createdDate, createdBy, modifiedDate, modifiedBy, device, deviceInfo, version, method, authentication);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -485,6 +513,7 @@ public class ThreeDSSession {
     StringBuilder sb = new StringBuilder();
     sb.append("class ThreeDSSession {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    panTokenId: ").append(toIndentedString(panTokenId)).append("\n");
     sb.append("    cardBrand: ").append(toIndentedString(cardBrand)).append("\n");
@@ -521,6 +550,7 @@ public class ThreeDSSession {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
+    openapiFields.add("type");
     openapiFields.add("tenant_id");
     openapiFields.add("pan_token_id");
     openapiFields.add("card_brand");
@@ -553,6 +583,9 @@ public class ThreeDSSession {
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       if ((jsonObj.get("tenant_id") != null && !jsonObj.get("tenant_id").isJsonNull()) && !jsonObj.get("tenant_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_id").toString()));

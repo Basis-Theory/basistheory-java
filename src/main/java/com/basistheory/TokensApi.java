@@ -30,7 +30,9 @@ import java.io.IOException;
 import com.basistheory.CreateTokenRequest;
 import com.basistheory.ProblemDetails;
 import com.basistheory.SearchTokensRequest;
+import com.basistheory.SearchTokensRequestV2;
 import com.basistheory.Token;
+import com.basistheory.TokenCursorPaginatedList;
 import com.basistheory.TokenPaginatedList;
 import com.basistheory.UpdateTokenRequest;
 import com.basistheory.ValidationProblemDetails;
@@ -650,6 +652,143 @@ public class TokensApi {
         return localVarCall;
     }
     /**
+     * Build call for getV2
+     * @param start  (optional)
+     * @param size  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getV2Call(String start, Integer size, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v2/tokens";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (start != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
+        }
+
+        if (size != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("size", size));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getV2ValidateBeforeCall(String start, Integer size, final ApiCallback _callback) throws ApiException {
+        return getV2Call(start, size, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param start  (optional)
+     * @param size  (optional)
+     * @return TokenCursorPaginatedList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public TokenCursorPaginatedList getV2(String start, Integer size) throws ApiException {
+        ApiResponse<TokenCursorPaginatedList> localVarResp = getV2WithHttpInfo(start, size);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param start  (optional)
+     * @param size  (optional)
+     * @return ApiResponse&lt;TokenCursorPaginatedList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TokenCursorPaginatedList> getV2WithHttpInfo(String start, Integer size) throws ApiException {
+        okhttp3.Call localVarCall = getV2ValidateBeforeCall(start, size, null);
+        Type localVarReturnType = new TypeToken<TokenCursorPaginatedList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param start  (optional)
+     * @param size  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getV2Async(String start, Integer size, final ApiCallback<TokenCursorPaginatedList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getV2ValidateBeforeCall(start, size, _callback);
+        Type localVarReturnType = new TypeToken<TokenCursorPaginatedList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for search
      * @param searchTokensRequest  (required)
      * @param _callback Callback for upload/download progress
@@ -781,6 +920,141 @@ public class TokensApi {
 
         okhttp3.Call localVarCall = searchValidateBeforeCall(searchTokensRequest, _callback);
         Type localVarReturnType = new TypeToken<TokenPaginatedList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for searchV2
+     * @param searchTokensRequestV2  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchV2Call(SearchTokensRequestV2 searchTokensRequestV2, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = searchTokensRequestV2;
+
+        // create path and map variables
+        String localVarPath = "/v2/tokens/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchV2ValidateBeforeCall(SearchTokensRequestV2 searchTokensRequestV2, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'searchTokensRequestV2' is set
+        if (searchTokensRequestV2 == null) {
+            throw new ApiException("Missing the required parameter 'searchTokensRequestV2' when calling searchV2(Async)");
+        }
+
+        return searchV2Call(searchTokensRequestV2, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param searchTokensRequestV2  (required)
+     * @return TokenCursorPaginatedList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public TokenCursorPaginatedList searchV2(SearchTokensRequestV2 searchTokensRequestV2) throws ApiException {
+        ApiResponse<TokenCursorPaginatedList> localVarResp = searchV2WithHttpInfo(searchTokensRequestV2);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param searchTokensRequestV2  (required)
+     * @return ApiResponse&lt;TokenCursorPaginatedList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TokenCursorPaginatedList> searchV2WithHttpInfo(SearchTokensRequestV2 searchTokensRequestV2) throws ApiException {
+        okhttp3.Call localVarCall = searchV2ValidateBeforeCall(searchTokensRequestV2, null);
+        Type localVarReturnType = new TypeToken<TokenCursorPaginatedList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param searchTokensRequestV2  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchV2Async(SearchTokensRequestV2 searchTokensRequestV2, final ApiCallback<TokenCursorPaginatedList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchV2ValidateBeforeCall(searchTokensRequestV2, _callback);
+        Type localVarReturnType = new TypeToken<TokenCursorPaginatedList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

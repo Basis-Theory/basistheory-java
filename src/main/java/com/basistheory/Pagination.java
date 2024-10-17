@@ -71,6 +71,10 @@ public class Pagination {
   @SerializedName(SERIALIZED_NAME_AFTER)
   private String after;
 
+  public static final String SERIALIZED_NAME_NEXT = "next";
+  @SerializedName(SERIALIZED_NAME_NEXT)
+  private String next;
+
   public Pagination() {
   }
 
@@ -175,7 +179,9 @@ public class Pagination {
    /**
    * Get after
    * @return after
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
@@ -186,6 +192,29 @@ public class Pagination {
 
   public void setAfter(String after) {
     this.after = after;
+  }
+
+
+  public Pagination next(String next) {
+    
+    this.next = next;
+    return this;
+  }
+
+   /**
+   * Get next
+   * @return next
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getNext() {
+    return next;
+  }
+
+
+  public void setNext(String next) {
+    this.next = next;
   }
 
 
@@ -203,7 +232,8 @@ public class Pagination {
         Objects.equals(this.pageNumber, pagination.pageNumber) &&
         Objects.equals(this.pageSize, pagination.pageSize) &&
         Objects.equals(this.totalPages, pagination.totalPages) &&
-        Objects.equals(this.after, pagination.after);
+        Objects.equals(this.after, pagination.after) &&
+        Objects.equals(this.next, pagination.next);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -212,7 +242,7 @@ public class Pagination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalItems, pageNumber, pageSize, totalPages, after);
+    return Objects.hash(totalItems, pageNumber, pageSize, totalPages, after, next);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -231,6 +261,7 @@ public class Pagination {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
     sb.append("    after: ").append(toIndentedString(after)).append("\n");
+    sb.append("    next: ").append(toIndentedString(next)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -258,6 +289,7 @@ public class Pagination {
     openapiFields.add("page_size");
     openapiFields.add("total_pages");
     openapiFields.add("after");
+    openapiFields.add("next");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -277,6 +309,9 @@ public class Pagination {
       }
       if ((jsonObj.get("after") != null && !jsonObj.get("after").isJsonNull()) && !jsonObj.get("after").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `after` to be a primitive type in the JSON string but got `%s`", jsonObj.get("after").toString()));
+      }
+      if ((jsonObj.get("next") != null && !jsonObj.get("next").isJsonNull()) && !jsonObj.get("next").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `next` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next").toString()));
       }
   }
 

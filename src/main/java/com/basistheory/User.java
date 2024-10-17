@@ -60,6 +60,14 @@ public class User {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+  public static final String SERIALIZED_NAME_PROVIDER = "provider";
+  @SerializedName(SERIALIZED_NAME_PROVIDER)
+  private String provider;
+
+  public static final String SERIALIZED_NAME_MFA_ENROLLED = "mfa_enrolled";
+  @SerializedName(SERIALIZED_NAME_MFA_ENROLLED)
+  private Boolean mfaEnrolled;
+
   public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
   private String firstName;
@@ -118,6 +126,52 @@ public class User {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+
+  public User provider(String provider) {
+    
+    this.provider = provider;
+    return this;
+  }
+
+   /**
+   * Get provider
+   * @return provider
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getProvider() {
+    return provider;
+  }
+
+
+  public void setProvider(String provider) {
+    this.provider = provider;
+  }
+
+
+  public User mfaEnrolled(Boolean mfaEnrolled) {
+    
+    this.mfaEnrolled = mfaEnrolled;
+    return this;
+  }
+
+   /**
+   * Get mfaEnrolled
+   * @return mfaEnrolled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getMfaEnrolled() {
+    return mfaEnrolled;
+  }
+
+
+  public void setMfaEnrolled(Boolean mfaEnrolled) {
+    this.mfaEnrolled = mfaEnrolled;
   }
 
 
@@ -202,6 +256,8 @@ public class User {
     User user = (User) o;
     return Objects.equals(this.id, user.id) &&
         Objects.equals(this.email, user.email) &&
+        Objects.equals(this.provider, user.provider) &&
+        Objects.equals(this.mfaEnrolled, user.mfaEnrolled) &&
         Objects.equals(this.firstName, user.firstName) &&
         Objects.equals(this.lastName, user.lastName) &&
         Objects.equals(this.picture, user.picture);
@@ -213,7 +269,7 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, email, firstName, lastName, picture);
+    return Objects.hash(id, email, provider, mfaEnrolled, firstName, lastName, picture);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -229,6 +285,8 @@ public class User {
     sb.append("class User {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    mfaEnrolled: ").append(toIndentedString(mfaEnrolled)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    picture: ").append(toIndentedString(picture)).append("\n");
@@ -256,6 +314,8 @@ public class User {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("email");
+    openapiFields.add("provider");
+    openapiFields.add("mfa_enrolled");
     openapiFields.add("first_name");
     openapiFields.add("last_name");
     openapiFields.add("picture");
@@ -281,6 +341,9 @@ public class User {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("provider") != null && !jsonObj.get("provider").isJsonNull()) && !jsonObj.get("provider").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("provider").toString()));
       }
       if ((jsonObj.get("first_name") != null && !jsonObj.get("first_name").isJsonNull()) && !jsonObj.get("first_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));

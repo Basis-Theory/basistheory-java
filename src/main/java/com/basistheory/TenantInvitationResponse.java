@@ -66,6 +66,10 @@ public class TenantInvitationResponse {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+  public static final String SERIALIZED_NAME_ROLE = "role";
+  @SerializedName(SERIALIZED_NAME_ROLE)
+  private String role;
+
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private TenantInvitationStatus status;
@@ -159,6 +163,29 @@ public class TenantInvitationResponse {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+
+  public TenantInvitationResponse role(String role) {
+    
+    this.role = role;
+    return this;
+  }
+
+   /**
+   * Get role
+   * @return role
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getRole() {
+    return role;
+  }
+
+
+  public void setRole(String role) {
+    this.role = role;
   }
 
 
@@ -313,6 +340,7 @@ public class TenantInvitationResponse {
     return Objects.equals(this.id, tenantInvitationResponse.id) &&
         Objects.equals(this.tenantId, tenantInvitationResponse.tenantId) &&
         Objects.equals(this.email, tenantInvitationResponse.email) &&
+        Objects.equals(this.role, tenantInvitationResponse.role) &&
         Objects.equals(this.status, tenantInvitationResponse.status) &&
         Objects.equals(this.expiresAt, tenantInvitationResponse.expiresAt) &&
         Objects.equals(this.createdBy, tenantInvitationResponse.createdBy) &&
@@ -327,7 +355,7 @@ public class TenantInvitationResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, tenantId, email, status, expiresAt, createdBy, createdAt, modifiedBy, modifiedAt);
+    return Objects.hash(id, tenantId, email, role, status, expiresAt, createdBy, createdAt, modifiedBy, modifiedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -344,6 +372,7 @@ public class TenantInvitationResponse {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
@@ -375,6 +404,7 @@ public class TenantInvitationResponse {
     openapiFields.add("id");
     openapiFields.add("tenant_id");
     openapiFields.add("email");
+    openapiFields.add("role");
     openapiFields.add("status");
     openapiFields.add("expires_at");
     openapiFields.add("created_by");
@@ -406,6 +436,9 @@ public class TenantInvitationResponse {
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
       }
       if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull()) && !jsonObj.get("created_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `created_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_by").toString()));

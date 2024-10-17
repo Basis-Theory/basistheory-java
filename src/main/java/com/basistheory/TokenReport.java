@@ -66,6 +66,10 @@ public class TokenReport {
   @SerializedName(SERIALIZED_NAME_METRICS_BY_TYPE)
   private Map<String, TokenMetrics> metricsByType = null;
 
+  public static final String SERIALIZED_NAME_TOTAL_TOKENS = "total_tokens";
+  @SerializedName(SERIALIZED_NAME_TOTAL_TOKENS)
+  private Long totalTokens;
+
   public TokenReport() {
   }
 
@@ -149,6 +153,30 @@ public class TokenReport {
   }
 
 
+  public TokenReport totalTokens(Long totalTokens) {
+    
+    this.totalTokens = totalTokens;
+    return this;
+  }
+
+   /**
+   * Get totalTokens
+   * minimum: 0
+   * @return totalTokens
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getTotalTokens() {
+    return totalTokens;
+  }
+
+
+  public void setTotalTokens(Long totalTokens) {
+    this.totalTokens = totalTokens;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -161,7 +189,8 @@ public class TokenReport {
     TokenReport tokenReport = (TokenReport) o;
     return Objects.equals(this.includedMonthlyActiveTokens, tokenReport.includedMonthlyActiveTokens) &&
         Objects.equals(this.monthlyActiveTokens, tokenReport.monthlyActiveTokens) &&
-        Objects.equals(this.metricsByType, tokenReport.metricsByType);
+        Objects.equals(this.metricsByType, tokenReport.metricsByType) &&
+        Objects.equals(this.totalTokens, tokenReport.totalTokens);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -170,7 +199,7 @@ public class TokenReport {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includedMonthlyActiveTokens, monthlyActiveTokens, metricsByType);
+    return Objects.hash(includedMonthlyActiveTokens, monthlyActiveTokens, metricsByType, totalTokens);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -187,6 +216,7 @@ public class TokenReport {
     sb.append("    includedMonthlyActiveTokens: ").append(toIndentedString(includedMonthlyActiveTokens)).append("\n");
     sb.append("    monthlyActiveTokens: ").append(toIndentedString(monthlyActiveTokens)).append("\n");
     sb.append("    metricsByType: ").append(toIndentedString(metricsByType)).append("\n");
+    sb.append("    totalTokens: ").append(toIndentedString(totalTokens)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -212,6 +242,7 @@ public class TokenReport {
     openapiFields.add("included_monthly_active_tokens");
     openapiFields.add("monthly_active_tokens");
     openapiFields.add("metrics_by_type");
+    openapiFields.add("total_tokens");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

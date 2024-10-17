@@ -10,6 +10,7 @@
 |**id** | **UUID** |  |  [optional] |
 |**tenantId** | **UUID** |  |  [optional] |
 |**email** | **String** |  |  [optional] |
+|**role** | **String** |  |  [optional] |
 |**status** | **TenantInvitationStatus** |  |  [optional] |
 |**expiresAt** | **OffsetDateTime** |  |  [optional] |
 |**createdBy** | **UUID** |  |  [optional] |

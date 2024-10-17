@@ -8,7 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**recommendedVersion** | **String** |  |  [optional] |
-|**availableVersion** | **List&lt;String&gt;** |  |  [optional] |
+|**availableVersions** | **List&lt;String&gt;** |  |  [optional] |
 |**earliestAcsSupportedVersion** | **String** |  |  [optional] |
 |**earliestDsSupportedVersion** | **String** |  |  [optional] |
 |**latestAcsSupportedVersion** | **String** |  |  [optional] |
