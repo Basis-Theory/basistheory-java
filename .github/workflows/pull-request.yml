@@ -6,6 +6,7 @@ on:
 
 jobs:
   build-app:
+    environment: PR
     runs-on: ubuntu-latest
 
     steps:
@@ -14,9 +15,9 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
-          distribution: 'adopt'
-          cache: 'gradle'
+          java-version: "17"
+          distribution: "adopt"
+          cache: "gradle"
 
       - name: Build App
         run: ./gradlew build
