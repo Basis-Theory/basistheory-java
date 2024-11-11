@@ -60,6 +60,14 @@ public class ThreeDSAuthentication {
   @SerializedName(SERIALIZED_NAME_PAN_TOKEN_ID)
   private String panTokenId;
 
+  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
+  private String tokenId;
+
+  public static final String SERIALIZED_NAME_TOKEN_INTENT_ID = "token_intent_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_INTENT_ID)
+  private String tokenIntentId;
+
   public static final String SERIALIZED_NAME_THREEDS_VERSION = "threeds_version";
   @SerializedName(SERIALIZED_NAME_THREEDS_VERSION)
   private String threedsVersion;
@@ -164,7 +172,9 @@ public class ThreeDSAuthentication {
    /**
    * Get panTokenId
    * @return panTokenId
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
@@ -175,6 +185,52 @@ public class ThreeDSAuthentication {
 
   public void setPanTokenId(String panTokenId) {
     this.panTokenId = panTokenId;
+  }
+
+
+  public ThreeDSAuthentication tokenId(String tokenId) {
+    
+    this.tokenId = tokenId;
+    return this;
+  }
+
+   /**
+   * Get tokenId
+   * @return tokenId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTokenId() {
+    return tokenId;
+  }
+
+
+  public void setTokenId(String tokenId) {
+    this.tokenId = tokenId;
+  }
+
+
+  public ThreeDSAuthentication tokenIntentId(String tokenIntentId) {
+    
+    this.tokenIntentId = tokenIntentId;
+    return this;
+  }
+
+   /**
+   * Get tokenIntentId
+   * @return tokenIntentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTokenIntentId() {
+    return tokenIntentId;
+  }
+
+
+  public void setTokenIntentId(String tokenIntentId) {
+    this.tokenIntentId = tokenIntentId;
   }
 
 
@@ -726,6 +782,8 @@ public class ThreeDSAuthentication {
     }
     ThreeDSAuthentication threeDSAuthentication = (ThreeDSAuthentication) o;
     return Objects.equals(this.panTokenId, threeDSAuthentication.panTokenId) &&
+        Objects.equals(this.tokenId, threeDSAuthentication.tokenId) &&
+        Objects.equals(this.tokenIntentId, threeDSAuthentication.tokenIntentId) &&
         Objects.equals(this.threedsVersion, threeDSAuthentication.threedsVersion) &&
         Objects.equals(this.acsTransactionId, threeDSAuthentication.acsTransactionId) &&
         Objects.equals(this.dsTransactionId, threeDSAuthentication.dsTransactionId) &&
@@ -757,7 +815,7 @@ public class ThreeDSAuthentication {
 
   @Override
   public int hashCode() {
-    return Objects.hash(panTokenId, threedsVersion, acsTransactionId, dsTransactionId, sdkTransactionId, acsReferenceNumber, dsReferenceNumber, authenticationValue, authenticationStatus, authenticationStatusCode, authenticationStatusReason, eci, acsChallengeMandated, acsDecoupledAuthentication, authenticationChallengeType, acsRenderingType, acsSignedContent, acsChallengeUrl, challengeAttempts, challengeCancelReason, cardholderInfo, whitelistStatus, whitelistStatusSource, messageExtensions);
+    return Objects.hash(panTokenId, tokenId, tokenIntentId, threedsVersion, acsTransactionId, dsTransactionId, sdkTransactionId, acsReferenceNumber, dsReferenceNumber, authenticationValue, authenticationStatus, authenticationStatusCode, authenticationStatusReason, eci, acsChallengeMandated, acsDecoupledAuthentication, authenticationChallengeType, acsRenderingType, acsSignedContent, acsChallengeUrl, challengeAttempts, challengeCancelReason, cardholderInfo, whitelistStatus, whitelistStatusSource, messageExtensions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -772,6 +830,8 @@ public class ThreeDSAuthentication {
     StringBuilder sb = new StringBuilder();
     sb.append("class ThreeDSAuthentication {\n");
     sb.append("    panTokenId: ").append(toIndentedString(panTokenId)).append("\n");
+    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("    tokenIntentId: ").append(toIndentedString(tokenIntentId)).append("\n");
     sb.append("    threedsVersion: ").append(toIndentedString(threedsVersion)).append("\n");
     sb.append("    acsTransactionId: ").append(toIndentedString(acsTransactionId)).append("\n");
     sb.append("    dsTransactionId: ").append(toIndentedString(dsTransactionId)).append("\n");
@@ -818,6 +878,8 @@ public class ThreeDSAuthentication {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("pan_token_id");
+    openapiFields.add("token_id");
+    openapiFields.add("token_intent_id");
     openapiFields.add("threeds_version");
     openapiFields.add("acs_transaction_id");
     openapiFields.add("ds_transaction_id");
@@ -860,6 +922,12 @@ public class ThreeDSAuthentication {
       }
       if ((jsonObj.get("pan_token_id") != null && !jsonObj.get("pan_token_id").isJsonNull()) && !jsonObj.get("pan_token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pan_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pan_token_id").toString()));
+      }
+      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
+      if ((jsonObj.get("token_intent_id") != null && !jsonObj.get("token_intent_id").isJsonNull()) && !jsonObj.get("token_intent_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_intent_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_intent_id").toString()));
       }
       if ((jsonObj.get("threeds_version") != null && !jsonObj.get("threeds_version").isJsonNull()) && !jsonObj.get("threeds_version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `threeds_version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("threeds_version").toString()));

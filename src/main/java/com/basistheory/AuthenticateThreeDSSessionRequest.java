@@ -70,6 +70,14 @@ public class AuthenticateThreeDSSessionRequest {
   @SerializedName(SERIALIZED_NAME_CHALLENGE_PREFERENCE)
   private String challengePreference;
 
+  public static final String SERIALIZED_NAME_REQUEST_DECOUPLED_CHALLENGE = "request_decoupled_challenge";
+  @SerializedName(SERIALIZED_NAME_REQUEST_DECOUPLED_CHALLENGE)
+  private Boolean requestDecoupledChallenge;
+
+  public static final String SERIALIZED_NAME_DECOUPLED_CHALLENGE_MAX_TIME = "decoupled_challenge_max_time";
+  @SerializedName(SERIALIZED_NAME_DECOUPLED_CHALLENGE_MAX_TIME)
+  private Integer decoupledChallengeMaxTime;
+
   public static final String SERIALIZED_NAME_PURCHASE_INFO = "purchase_info";
   @SerializedName(SERIALIZED_NAME_PURCHASE_INFO)
   private ThreeDSPurchaseInfo purchaseInfo;
@@ -163,6 +171,52 @@ public class AuthenticateThreeDSSessionRequest {
 
   public void setChallengePreference(String challengePreference) {
     this.challengePreference = challengePreference;
+  }
+
+
+  public AuthenticateThreeDSSessionRequest requestDecoupledChallenge(Boolean requestDecoupledChallenge) {
+    
+    this.requestDecoupledChallenge = requestDecoupledChallenge;
+    return this;
+  }
+
+   /**
+   * Get requestDecoupledChallenge
+   * @return requestDecoupledChallenge
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getRequestDecoupledChallenge() {
+    return requestDecoupledChallenge;
+  }
+
+
+  public void setRequestDecoupledChallenge(Boolean requestDecoupledChallenge) {
+    this.requestDecoupledChallenge = requestDecoupledChallenge;
+  }
+
+
+  public AuthenticateThreeDSSessionRequest decoupledChallengeMaxTime(Integer decoupledChallengeMaxTime) {
+    
+    this.decoupledChallengeMaxTime = decoupledChallengeMaxTime;
+    return this;
+  }
+
+   /**
+   * Get decoupledChallengeMaxTime
+   * @return decoupledChallengeMaxTime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Integer getDecoupledChallengeMaxTime() {
+    return decoupledChallengeMaxTime;
+  }
+
+
+  public void setDecoupledChallengeMaxTime(Integer decoupledChallengeMaxTime) {
+    this.decoupledChallengeMaxTime = decoupledChallengeMaxTime;
   }
 
 
@@ -325,6 +379,8 @@ public class AuthenticateThreeDSSessionRequest {
     return Objects.equals(this.authenticationCategory, authenticateThreeDSSessionRequest.authenticationCategory) &&
         Objects.equals(this.authenticationType, authenticateThreeDSSessionRequest.authenticationType) &&
         Objects.equals(this.challengePreference, authenticateThreeDSSessionRequest.challengePreference) &&
+        Objects.equals(this.requestDecoupledChallenge, authenticateThreeDSSessionRequest.requestDecoupledChallenge) &&
+        Objects.equals(this.decoupledChallengeMaxTime, authenticateThreeDSSessionRequest.decoupledChallengeMaxTime) &&
         Objects.equals(this.purchaseInfo, authenticateThreeDSSessionRequest.purchaseInfo) &&
         Objects.equals(this.merchantInfo, authenticateThreeDSSessionRequest.merchantInfo) &&
         Objects.equals(this.requestorInfo, authenticateThreeDSSessionRequest.requestorInfo) &&
@@ -339,7 +395,7 @@ public class AuthenticateThreeDSSessionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCategory, authenticationType, challengePreference, purchaseInfo, merchantInfo, requestorInfo, cardholderInfo, broadcastInfo, messageExtensions);
+    return Objects.hash(authenticationCategory, authenticationType, challengePreference, requestDecoupledChallenge, decoupledChallengeMaxTime, purchaseInfo, merchantInfo, requestorInfo, cardholderInfo, broadcastInfo, messageExtensions);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -356,6 +412,8 @@ public class AuthenticateThreeDSSessionRequest {
     sb.append("    authenticationCategory: ").append(toIndentedString(authenticationCategory)).append("\n");
     sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
     sb.append("    challengePreference: ").append(toIndentedString(challengePreference)).append("\n");
+    sb.append("    requestDecoupledChallenge: ").append(toIndentedString(requestDecoupledChallenge)).append("\n");
+    sb.append("    decoupledChallengeMaxTime: ").append(toIndentedString(decoupledChallengeMaxTime)).append("\n");
     sb.append("    purchaseInfo: ").append(toIndentedString(purchaseInfo)).append("\n");
     sb.append("    merchantInfo: ").append(toIndentedString(merchantInfo)).append("\n");
     sb.append("    requestorInfo: ").append(toIndentedString(requestorInfo)).append("\n");
@@ -387,6 +445,8 @@ public class AuthenticateThreeDSSessionRequest {
     openapiFields.add("authentication_category");
     openapiFields.add("authentication_type");
     openapiFields.add("challenge_preference");
+    openapiFields.add("request_decoupled_challenge");
+    openapiFields.add("decoupled_challenge_max_time");
     openapiFields.add("purchase_info");
     openapiFields.add("merchant_info");
     openapiFields.add("requestor_info");

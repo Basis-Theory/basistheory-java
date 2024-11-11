@@ -11,6 +11,8 @@
 |**type** | **String** |  |  [optional] |
 |**tenantId** | **UUID** |  |  [optional] |
 |**panTokenId** | **String** |  |  [optional] |
+|**tokenId** | **String** |  |  [optional] |
+|**tokenIntentId** | **String** |  |  [optional] |
 |**cardBrand** | **String** |  |  [optional] |
 |**expirationDate** | **OffsetDateTime** |  |  [optional] |
 |**createdDate** | **OffsetDateTime** |  |  [optional] |

@@ -100,6 +100,10 @@ public class CreateTokenRequest {
   @SerializedName(SERIALIZED_NAME_CONTAINERS)
   private List<String> containers = null;
 
+  public static final String SERIALIZED_NAME_TOKEN_INTENT_ID = "token_intent_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_INTENT_ID)
+  private String tokenIntentId;
+
   public CreateTokenRequest() {
   }
 
@@ -160,7 +164,7 @@ public class CreateTokenRequest {
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
 
   public Object getData() {
     return data;
@@ -380,6 +384,29 @@ public class CreateTokenRequest {
   }
 
 
+  public CreateTokenRequest tokenIntentId(String tokenIntentId) {
+    
+    this.tokenIntentId = tokenIntentId;
+    return this;
+  }
+
+   /**
+   * Get tokenIntentId
+   * @return tokenIntentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTokenIntentId() {
+    return tokenIntentId;
+  }
+
+
+  public void setTokenIntentId(String tokenIntentId) {
+    this.tokenIntentId = tokenIntentId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -400,7 +427,8 @@ public class CreateTokenRequest {
         Objects.equals(this.mask, createTokenRequest.mask) &&
         Objects.equals(this.deduplicateToken, createTokenRequest.deduplicateToken) &&
         Objects.equals(this.expiresAt, createTokenRequest.expiresAt) &&
-        Objects.equals(this.containers, createTokenRequest.containers);
+        Objects.equals(this.containers, createTokenRequest.containers) &&
+        Objects.equals(this.tokenIntentId, createTokenRequest.tokenIntentId);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -409,7 +437,7 @@ public class CreateTokenRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, data, privacy, metadata, searchIndexes, fingerprintExpression, mask, deduplicateToken, expiresAt, containers);
+    return Objects.hash(id, type, data, privacy, metadata, searchIndexes, fingerprintExpression, mask, deduplicateToken, expiresAt, containers, tokenIntentId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -434,6 +462,7 @@ public class CreateTokenRequest {
     sb.append("    deduplicateToken: ").append(toIndentedString(deduplicateToken)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    containers: ").append(toIndentedString(containers)).append("\n");
+    sb.append("    tokenIntentId: ").append(toIndentedString(tokenIntentId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -467,10 +496,10 @@ public class CreateTokenRequest {
     openapiFields.add("deduplicate_token");
     openapiFields.add("expires_at");
     openapiFields.add("containers");
+    openapiFields.add("token_intent_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("data");
   }
 
  /**
@@ -483,13 +512,6 @@ public class CreateTokenRequest {
       if (jsonObj == null) {
         if (!CreateTokenRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTokenRequest is not found in the empty JSON string", CreateTokenRequest.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateTokenRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
@@ -515,6 +537,9 @@ public class CreateTokenRequest {
       // ensure the optional json data is an array if present
       if (jsonObj.get("containers") != null && !jsonObj.get("containers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `containers` to be an array in the JSON string but got `%s`", jsonObj.get("containers").toString()));
+      }
+      if ((jsonObj.get("token_intent_id") != null && !jsonObj.get("token_intent_id").isJsonNull()) && !jsonObj.get("token_intent_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_intent_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_intent_id").toString()));
       }
   }
 

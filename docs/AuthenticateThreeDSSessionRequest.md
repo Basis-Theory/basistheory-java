@@ -10,6 +10,8 @@
 |**authenticationCategory** | **String** |  |  |
 |**authenticationType** | **String** |  |  |
 |**challengePreference** | **String** |  |  [optional] |
+|**requestDecoupledChallenge** | **Boolean** |  |  [optional] |
+|**decoupledChallengeMaxTime** | **Integer** |  |  [optional] |
 |**purchaseInfo** | [**ThreeDSPurchaseInfo**](ThreeDSPurchaseInfo.md) |  |  [optional] |
 |**merchantInfo** | [**ThreeDSMerchantInfo**](ThreeDSMerchantInfo.md) |  |  [optional] |
 |**requestorInfo** | [**ThreeDSRequestorInfo**](ThreeDSRequestorInfo.md) |  |  |
