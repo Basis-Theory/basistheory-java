@@ -56,6 +56,14 @@ public class CreateThreeDSSessionRequest {
   @SerializedName(SERIALIZED_NAME_PAN)
   private String pan;
 
+  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
+  private String tokenId;
+
+  public static final String SERIALIZED_NAME_TOKEN_INTENT_ID = "token_intent_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_INTENT_ID)
+  private String tokenIntentId;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
@@ -80,9 +88,11 @@ public class CreateThreeDSSessionRequest {
    /**
    * Get pan
    * @return pan
+   * @deprecated
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
+  @Deprecated
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getPan() {
     return pan;
@@ -91,6 +101,52 @@ public class CreateThreeDSSessionRequest {
 
   public void setPan(String pan) {
     this.pan = pan;
+  }
+
+
+  public CreateThreeDSSessionRequest tokenId(String tokenId) {
+    
+    this.tokenId = tokenId;
+    return this;
+  }
+
+   /**
+   * Get tokenId
+   * @return tokenId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTokenId() {
+    return tokenId;
+  }
+
+
+  public void setTokenId(String tokenId) {
+    this.tokenId = tokenId;
+  }
+
+
+  public CreateThreeDSSessionRequest tokenIntentId(String tokenIntentId) {
+    
+    this.tokenIntentId = tokenIntentId;
+    return this;
+  }
+
+   /**
+   * Get tokenIntentId
+   * @return tokenIntentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTokenIntentId() {
+    return tokenIntentId;
+  }
+
+
+  public void setTokenIntentId(String tokenIntentId) {
+    this.tokenIntentId = tokenIntentId;
   }
 
 
@@ -174,6 +230,8 @@ public class CreateThreeDSSessionRequest {
     }
     CreateThreeDSSessionRequest createThreeDSSessionRequest = (CreateThreeDSSessionRequest) o;
     return Objects.equals(this.pan, createThreeDSSessionRequest.pan) &&
+        Objects.equals(this.tokenId, createThreeDSSessionRequest.tokenId) &&
+        Objects.equals(this.tokenIntentId, createThreeDSSessionRequest.tokenIntentId) &&
         Objects.equals(this.type, createThreeDSSessionRequest.type) &&
         Objects.equals(this.device, createThreeDSSessionRequest.device) &&
         Objects.equals(this.deviceInfo, createThreeDSSessionRequest.deviceInfo);
@@ -185,7 +243,7 @@ public class CreateThreeDSSessionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pan, type, device, deviceInfo);
+    return Objects.hash(pan, tokenId, tokenIntentId, type, device, deviceInfo);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -200,6 +258,8 @@ public class CreateThreeDSSessionRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateThreeDSSessionRequest {\n");
     sb.append("    pan: ").append(toIndentedString(pan)).append("\n");
+    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("    tokenIntentId: ").append(toIndentedString(tokenIntentId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    device: ").append(toIndentedString(device)).append("\n");
     sb.append("    deviceInfo: ").append(toIndentedString(deviceInfo)).append("\n");
@@ -226,13 +286,14 @@ public class CreateThreeDSSessionRequest {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("pan");
+    openapiFields.add("token_id");
+    openapiFields.add("token_intent_id");
     openapiFields.add("type");
     openapiFields.add("device");
     openapiFields.add("device_info");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("pan");
   }
 
  /**
@@ -247,15 +308,14 @@ public class CreateThreeDSSessionRequest {
           throw new IllegalArgumentException(String.format("The required field(s) %s in CreateThreeDSSessionRequest is not found in the empty JSON string", CreateThreeDSSessionRequest.openapiRequiredFields.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateThreeDSSessionRequest.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      if (!jsonObj.get("pan").isJsonPrimitive()) {
+      if ((jsonObj.get("pan") != null && !jsonObj.get("pan").isJsonNull()) && !jsonObj.get("pan").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pan` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pan").toString()));
+      }
+      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
+      if ((jsonObj.get("token_intent_id") != null && !jsonObj.get("token_intent_id").isJsonNull()) && !jsonObj.get("token_intent_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_intent_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_intent_id").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

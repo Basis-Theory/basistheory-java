@@ -73,6 +73,14 @@ public class ThreeDSSession {
   @SerializedName(SERIALIZED_NAME_PAN_TOKEN_ID)
   private String panTokenId;
 
+  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
+  private String tokenId;
+
+  public static final String SERIALIZED_NAME_TOKEN_INTENT_ID = "token_intent_id";
+  @SerializedName(SERIALIZED_NAME_TOKEN_INTENT_ID)
+  private String tokenIntentId;
+
   public static final String SERIALIZED_NAME_CARD_BRAND = "card_brand";
   @SerializedName(SERIALIZED_NAME_CARD_BRAND)
   private String cardBrand;
@@ -198,7 +206,9 @@ public class ThreeDSSession {
    /**
    * Get panTokenId
    * @return panTokenId
+   * @deprecated
   **/
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
@@ -209,6 +219,52 @@ public class ThreeDSSession {
 
   public void setPanTokenId(String panTokenId) {
     this.panTokenId = panTokenId;
+  }
+
+
+  public ThreeDSSession tokenId(String tokenId) {
+    
+    this.tokenId = tokenId;
+    return this;
+  }
+
+   /**
+   * Get tokenId
+   * @return tokenId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTokenId() {
+    return tokenId;
+  }
+
+
+  public void setTokenId(String tokenId) {
+    this.tokenId = tokenId;
+  }
+
+
+  public ThreeDSSession tokenIntentId(String tokenIntentId) {
+    
+    this.tokenIntentId = tokenIntentId;
+    return this;
+  }
+
+   /**
+   * Get tokenIntentId
+   * @return tokenIntentId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getTokenIntentId() {
+    return tokenIntentId;
+  }
+
+
+  public void setTokenIntentId(String tokenIntentId) {
+    this.tokenIntentId = tokenIntentId;
   }
 
 
@@ -479,6 +535,8 @@ public class ThreeDSSession {
         Objects.equals(this.type, threeDSSession.type) &&
         Objects.equals(this.tenantId, threeDSSession.tenantId) &&
         Objects.equals(this.panTokenId, threeDSSession.panTokenId) &&
+        Objects.equals(this.tokenId, threeDSSession.tokenId) &&
+        Objects.equals(this.tokenIntentId, threeDSSession.tokenIntentId) &&
         Objects.equals(this.cardBrand, threeDSSession.cardBrand) &&
         Objects.equals(this.expirationDate, threeDSSession.expirationDate) &&
         Objects.equals(this.createdDate, threeDSSession.createdDate) &&
@@ -498,7 +556,7 @@ public class ThreeDSSession {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, type, tenantId, panTokenId, cardBrand, expirationDate, createdDate, createdBy, modifiedDate, modifiedBy, device, deviceInfo, version, method, authentication);
+    return Objects.hash(id, type, tenantId, panTokenId, tokenId, tokenIntentId, cardBrand, expirationDate, createdDate, createdBy, modifiedDate, modifiedBy, device, deviceInfo, version, method, authentication);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -516,6 +574,8 @@ public class ThreeDSSession {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    panTokenId: ").append(toIndentedString(panTokenId)).append("\n");
+    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
+    sb.append("    tokenIntentId: ").append(toIndentedString(tokenIntentId)).append("\n");
     sb.append("    cardBrand: ").append(toIndentedString(cardBrand)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    createdDate: ").append(toIndentedString(createdDate)).append("\n");
@@ -553,6 +613,8 @@ public class ThreeDSSession {
     openapiFields.add("type");
     openapiFields.add("tenant_id");
     openapiFields.add("pan_token_id");
+    openapiFields.add("token_id");
+    openapiFields.add("token_intent_id");
     openapiFields.add("card_brand");
     openapiFields.add("expiration_date");
     openapiFields.add("created_date");
@@ -592,6 +654,12 @@ public class ThreeDSSession {
       }
       if ((jsonObj.get("pan_token_id") != null && !jsonObj.get("pan_token_id").isJsonNull()) && !jsonObj.get("pan_token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pan_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pan_token_id").toString()));
+      }
+      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
+      }
+      if ((jsonObj.get("token_intent_id") != null && !jsonObj.get("token_intent_id").isJsonNull()) && !jsonObj.get("token_intent_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_intent_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_intent_id").toString()));
       }
       if ((jsonObj.get("card_brand") != null && !jsonObj.get("card_brand").isJsonNull()) && !jsonObj.get("card_brand").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `card_brand` to be a primitive type in the JSON string but got `%s`", jsonObj.get("card_brand").toString()));

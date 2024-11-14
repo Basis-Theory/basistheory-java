@@ -8,6 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**panTokenId** | **String** |  |  [optional] |
+|**tokenId** | **String** |  |  [optional] |
+|**tokenIntentId** | **String** |  |  [optional] |
 |**threedsVersion** | **String** |  |  [optional] |
 |**acsTransactionId** | **UUID** |  |  [optional] |
 |**dsTransactionId** | **UUID** |  |  [optional] |

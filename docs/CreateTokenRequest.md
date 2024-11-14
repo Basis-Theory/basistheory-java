@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**id** | **String** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
-|**data** | **Object** |  |  |
+|**data** | **Object** |  |  [optional] |
 |**privacy** | [**Privacy**](Privacy.md) |  |  [optional] |
 |**metadata** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**searchIndexes** | **List&lt;String&gt;** |  |  [optional] |
@@ -18,6 +18,7 @@
 |**deduplicateToken** | **Boolean** |  |  [optional] |
 |**expiresAt** | **String** |  |  [optional] |
 |**containers** | **List&lt;String&gt;** |  |  [optional] |
+|**tokenIntentId** | **String** |  |  [optional] |
 
 
 

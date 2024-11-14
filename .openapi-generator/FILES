@@ -9,6 +9,7 @@ docs/ApplicationTemplatesApi.md
 docs/ApplicationsApi.md
 docs/AuthenticateThreeDSSessionRequest.md
 docs/AuthorizeSessionRequest.md
+docs/BankVerificationRequest.md
 docs/BinDetails.md
 docs/BinDetailsBank.md
 docs/BinDetailsCountry.md
@@ -28,6 +29,7 @@ docs/CreateThreeDSSessionResponse.md
 docs/CreateTokenRequest.md
 docs/CursorPagination.md
 docs/DetokenizeApi.md
+docs/EnrichmentsApi.md
 docs/GetApplications.md
 docs/GetLogs.md
 docs/GetPermissions.md
@@ -135,6 +137,7 @@ src/main/java/com/basistheory/ApplicationTemplatesApi.java
 src/main/java/com/basistheory/ApplicationsApi.java
 src/main/java/com/basistheory/AuthenticateThreeDSSessionRequest.java
 src/main/java/com/basistheory/AuthorizeSessionRequest.java
+src/main/java/com/basistheory/BankVerificationRequest.java
 src/main/java/com/basistheory/BinDetails.java
 src/main/java/com/basistheory/BinDetailsBank.java
 src/main/java/com/basistheory/BinDetailsCountry.java
@@ -155,6 +158,7 @@ src/main/java/com/basistheory/CreateThreeDSSessionResponse.java
 src/main/java/com/basistheory/CreateTokenRequest.java
 src/main/java/com/basistheory/CursorPagination.java
 src/main/java/com/basistheory/DetokenizeApi.java
+src/main/java/com/basistheory/EnrichmentsApi.java
 src/main/java/com/basistheory/GetApplications.java
 src/main/java/com/basistheory/GetLogs.java
 src/main/java/com/basistheory/GetPermissions.java
