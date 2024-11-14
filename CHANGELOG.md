@@ -1,3 +1,15 @@
+## [4.0.0](https://github.com/Basis-Theory/basistheory-java/compare/3.2.0...4.0.0) (2024-11-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* data is now nullable on CreateTokenRequest
+
+### Features
+
+* add token intents, enrichments api, 3ds changes and more ([#42](https://github.com/Basis-Theory/basistheory-java/issues/42)) ([7be802d](https://github.com/Basis-Theory/basistheory-java/commit/7be802d05122294fccec8292de890117b77985fa))
+
+
 ## [3.2.0](https://github.com/Basis-Theory/basistheory-java/compare/3.1.0...3.2.0) (2024-10-17)
 
 
