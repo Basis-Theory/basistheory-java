@@ -1,5 +1,12 @@
 # Basis Theory Java client library
 
+> [!CAUTION]
+> This SDK has been deprecated.
+> 
+> Our new SDK can be found at https://github.com/Basis-Theory/java-sdk
+> 
+> See our documentation site for more information. https://developers.basistheory.com/docs/sdks/server-side/java
+
 The official [Basis Theory](https://basistheory.com) Java client library.
 
 ## Getting Started
